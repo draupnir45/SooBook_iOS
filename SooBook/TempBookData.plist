@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>primary_key</key>
+		<string>123846198237</string>
+		<key>title</key>
+		<string>나미야 잡화점의 기적</string>
+		<key>imageURL</key>
+		<string>https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/mlX/image/uj_gIWveH1N_j3ok9BP5t_0ds9M.jpg</string>
+		<key>author</key>
+		<string>히가시노 게이고</string>
+		<key>publisher</key>
+		<string>펭귄북스</string>
+		<key>shortDescription</key>
+		<string>다작을 하면서 매너리즘에 빠져 있었던 게이고의 작품에서 간만에 나온 수작이다. 여러모로 읽을만한 작품. 한국에서도 수년동안 베스트셀러를 차지하며 수십만부 팔려나갈 정도로 인기있는 작품이다.</string>
+		<key>rating</key>
+		<string>3.5</string>
+		<key>comment</key>
+		<string>져아여ㅎㅎ</string>
+		<key>quotations</key>
+		<array>
+			<string>좋다하하하</string>
+			<string>그렇다하하하하하</string>
+			<string>임나ㅓㅇㄹ;미ㅏㅓㅇㄹ;ㅣㅏㅁㄴㅇ림나ㅜ</string>
+			<string>님ㅇ뤼ㅏ어리나얼</string>
+		</array>
+	</dict>
+</array>
+</plist>

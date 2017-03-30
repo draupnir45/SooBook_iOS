@@ -1,0 +1,74 @@
+//
+//  PrefixHeader.pch
+//  SooBook
+//
+//  Created by 박종찬 on 2017. 3. 29..
+//  Copyright © 2017년 Jongchan Park. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+
+//기본 프레임워크
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+//데이터 요청용 블록
+typedef void (^SBDataCompletion)(BOOL sucess, NSUInteger result, id data);
+
+//유저 토큰 키
+static NSString * const USERTOKEN_KEY = @"sbUserToken";
+
+//데이터 모델 용 상수 키값
+static NSString * const BOOK_PRIMARY_KEY = @"primary_key";
+static NSString * const TITLE_KEY = @"title";
+static NSString * const IMAGE_URL_KEY = @"imageURL";
+static NSString * const AUTHOR_KEY = @"author";
+static NSString * const PUBLISHER_KEY = @"publisher";
+static NSString * const SHORT_DESCRIPTION_KEY = @"shortDescription";
+static NSString * const RATING_KEY = @"rating";
+static NSString * const COMMENT_KEY = @"comment";
+static NSString * const QUOTATIONS_KEY = @"quotations";
+
+
+
+//AuthCenter용 ENUM
+typedef NS_ENUM(NSUInteger, SBNetworkSignUpResponse)
+{
+    SBNetworkSignUpResponseOK = 0, //회원가입 성공
+    SBNetworkSignUpResponseUserIDAlreadyTaken, //실패: 등록된 메일
+    SBNetworkSignUpResponsePasswordNotStaisfying, //실패: 패스워드 기준 미달
+    SBNetworkSignUpResponseUnknownError //알 수 없는 에러
+};
+
+typedef NS_ENUM(NSUInteger, SBNetworkLogInResponse)
+{
+    SBNetworkLogInResponseOK = 0, //로그인 성공
+    SBNetworkLogInResponseFailWrongPassword, //비밀번호 틀림
+    SBNetworkLogInResponseFailNoSuchUserID, //없는 이메일
+    SBNetworkLogInResponseUnknownError
+};
+
+typedef NS_ENUM(NSUInteger, SBNetworkBookRegisterResponse)
+{
+    SBNetworkBookRegisterResponseOK,
+    SBNetworkBookRegisterResponseUnknownError
+};
+
+typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
+{
+    SBNetworkBookRemoveResponseOK,
+    SBNetworkBookRemoveResponseUnknownError
+};
+
+//모델
+#import "SBBookData.h"
+#import "SBAuthCenter.h"
+#import "SBDataCenter.h"
+
+//유틸리티
+#import "UIColor+SBAdditions.h"
+
+#endif /* PrefixHeader_pch */
