@@ -8,6 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+//유저 토큰 키
+static NSString * const USERTOKEN_KEY = @"sbUserToken";
+
+//책 등록 및 삭제를 위한 ENUM
+typedef NS_ENUM(NSUInteger, SBNetworkBookRegisterResponse)
+{
+    SBNetworkBookRegisterResponseOK,
+    SBNetworkBookRegisterResponseUnknownError
+};
+
+typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
+{
+    SBNetworkBookRemoveResponseOK,
+    SBNetworkBookRemoveResponseUnknownError
+};
+
 @interface SBDataCenter : NSObject
 
 @property (readonly) NSArray *myBookDatas;
