@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hn0-0a-ho1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up View Controller-->
+        <scene sceneID="RU6-7D-YQE">
+            <objects>
+                <viewController storyboardIdentifier="SBSignUpViewController" id="hn0-0a-ho1" customClass="SBSignUpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="27w-Oq-pkf"/>
+                        <viewControllerLayoutGuide type="bottom" id="3P1-to-6ia"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Us7-lr-CfX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-EN-RBD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEU-4H-p3y" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="727"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypb-3F-8Fb">
+                                                <rect key="frame" x="8" y="33" width="66" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="22" id="CsW-s3-hfr"/>
+                                                    <constraint firstAttribute="width" constant="66" id="oXx-IN-h3u"/>
+                                                </constraints>
+                                                <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="로그인" image="backChevron">
+                                                    <color key="titleColor" red="0.098039215686274508" green="0.55686274509803924" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="backToLoginPage:" destination="hn0-0a-ho1" eventType="touchUpInside" id="fsu-Lp-zsQ"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sBLogoHorizontal" translatesAutoresizingMaskIntoConstraints="NO" id="sgB-0H-Ek6">
+                                                <rect key="frame" x="199" y="32" width="160" height="24"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAf-gE-X82">
+                                                <rect key="frame" x="16" y="96" width="144" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Ubm-5d-WLO"/>
+                                                    <constraint firstAttribute="width" constant="144" id="iex-jO-dZ2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수북은 여러분의 독서 생활과 함께합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9T-vO-dcU">
+                                                <rect key="frame" x="16" y="144" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WH5-vG-MzM">
+                                                <rect key="frame" x="0.0" y="192" width="375" height="177"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="177" id="JLD-8u-0jz"/>
+                                                </constraints>
+                                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="hn0-0a-ho1" id="KQN-69-Eyn"/>
+                                                    <outlet property="delegate" destination="hn0-0a-ho1" id="e8G-jC-OOP"/>
+                                                </connections>
+                                            </tableView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddg-xY-q7O">
+                                                <rect key="frame" x="0.0" y="371" width="375" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="0qe-j6-fbU"/>
+                                                </constraints>
+                                                <state key="normal" title="회원 가입">
+                                                    <color key="titleColor" red="0.098039215686274508" green="0.55686274509803924" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickToSignUpButton:" destination="hn0-0a-ho1" eventType="touchUpInside" id="XUA-MY-zAV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydf-U9-nA3">
+                                                <rect key="frame" x="199" y="29" width="160" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="trapButton:" destination="hn0-0a-ho1" eventType="touchUpInside" id="jwD-eB-gKV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="P9T-vO-dcU" firstAttribute="trailing" secondItem="sgB-0H-Ek6" secondAttribute="trailing" id="3KN-sF-d2F"/>
+                                            <constraint firstAttribute="trailing" secondItem="ddg-xY-q7O" secondAttribute="trailing" id="4ha-wO-bv9"/>
+                                            <constraint firstItem="ddg-xY-q7O" firstAttribute="top" secondItem="WH5-vG-MzM" secondAttribute="bottom" constant="2" id="5b8-35-aKM"/>
+                                            <constraint firstAttribute="trailing" secondItem="WH5-vG-MzM" secondAttribute="trailing" id="9o4-MP-5XJ"/>
+                                            <constraint firstItem="WH5-vG-MzM" firstAttribute="top" secondItem="P9T-vO-dcU" secondAttribute="bottom" constant="28" id="FIP-Hi-zKs"/>
+                                            <constraint firstItem="P9T-vO-dcU" firstAttribute="leading" secondItem="NAf-gE-X82" secondAttribute="leading" id="IZe-VZ-nVQ"/>
+                                            <constraint firstItem="P9T-vO-dcU" firstAttribute="top" secondItem="NAf-gE-X82" secondAttribute="bottom" constant="8" id="K50-kB-37Y"/>
+                                            <constraint firstItem="ypb-3F-8Fb" firstAttribute="centerY" secondItem="sgB-0H-Ek6" secondAttribute="centerY" id="Lqv-um-8Wc"/>
+                                            <constraint firstItem="ddg-xY-q7O" firstAttribute="leading" secondItem="vEU-4H-p3y" secondAttribute="leading" id="Pof-Kh-xTZ"/>
+                                            <constraint firstItem="NAf-gE-X82" firstAttribute="leading" secondItem="vEU-4H-p3y" secondAttribute="leading" constant="16" id="Rb9-Vw-Qky"/>
+                                            <constraint firstItem="NAf-gE-X82" firstAttribute="top" secondItem="ypb-3F-8Fb" secondAttribute="bottom" constant="41" id="TNu-5l-H9J"/>
+                                            <constraint firstItem="WH5-vG-MzM" firstAttribute="leading" secondItem="vEU-4H-p3y" secondAttribute="leading" id="a6R-f4-5c1"/>
+                                            <constraint firstItem="ypb-3F-8Fb" firstAttribute="leading" secondItem="vEU-4H-p3y" secondAttribute="leading" constant="8" id="d39-7Q-MNZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="sgB-0H-Ek6" secondAttribute="trailing" constant="16" id="j4a-Nz-3sa"/>
+                                            <constraint firstItem="ypb-3F-8Fb" firstAttribute="top" secondItem="vEU-4H-p3y" secondAttribute="top" constant="33" id="rLG-g8-iwE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vEU-4H-p3y" firstAttribute="top" secondItem="Dho-EN-RBD" secondAttribute="top" id="2A2-oq-INK"/>
+                                    <constraint firstItem="vEU-4H-p3y" firstAttribute="height" secondItem="Dho-EN-RBD" secondAttribute="height" constant="60" id="2gQ-Ml-0My"/>
+                                    <constraint firstItem="vEU-4H-p3y" firstAttribute="leading" secondItem="Dho-EN-RBD" secondAttribute="leading" id="ZXe-P3-iTo"/>
+                                    <constraint firstItem="vEU-4H-p3y" firstAttribute="width" secondItem="Dho-EN-RBD" secondAttribute="width" id="evh-hl-VeM"/>
+                                    <constraint firstAttribute="bottom" secondItem="vEU-4H-p3y" secondAttribute="bottom" id="iFb-LD-uYh"/>
+                                    <constraint firstAttribute="trailing" secondItem="vEU-4H-p3y" secondAttribute="trailing" id="xkf-K2-SOX"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dho-EN-RBD" firstAttribute="height" secondItem="Us7-lr-CfX" secondAttribute="height" id="H2R-LG-IGg"/>
+                            <constraint firstItem="Dho-EN-RBD" firstAttribute="centerX" secondItem="Us7-lr-CfX" secondAttribute="centerX" id="San-Wq-ECf"/>
+                            <constraint firstItem="Dho-EN-RBD" firstAttribute="centerY" secondItem="Us7-lr-CfX" secondAttribute="centerY" id="StU-fN-Oyc"/>
+                            <constraint firstItem="Dho-EN-RBD" firstAttribute="width" secondItem="Us7-lr-CfX" secondAttribute="width" id="kbd-6M-Xx2"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="signUpButton" destination="ddg-xY-q7O" id="pqX-Ed-tKR"/>
+                        <outlet property="signupTableView" destination="WH5-vG-MzM" id="ntd-oU-0D7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1LU-5n-fLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.59999999999999" y="-412.44377811094455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backChevron" width="13" height="22"/>
+        <image name="sBLogoHorizontal" width="160" height="24"/>
+    </resources>
+</document>
