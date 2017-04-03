@@ -48,7 +48,7 @@
     [task resume];
 }
 
-+ (void)loginWithUserID:(NSString *)userID
++ (void)logInWithUserID:(NSString *)userID
                password:(NSString *)password
              completion:(SBDataCompletion)completion
 {
@@ -79,6 +79,19 @@
     [task resume];
 }
 
++ (void)logOutWithToken:(NSString *)token
+{
+    //매니저와 리퀘스트 준비
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:USER_LOGOUT]];
+    request.HTTPMethod = @"POST";
+    NSString *headerStr = [NSString stringWithFormat:@"Token %@",token];
+    [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    
+    //Task
+    NSURLSessionUploadTask *task = [manager uploadTaskWithRequest:request fromData:nil progress:nil completionHandler:nil];
+    [task resume];
+}
 
 #pragma mark - Network Utilities
 
