@@ -14,6 +14,7 @@
 		2E1FA2351E8E15900055F3FE /* SBCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA22C1E8E15900055F3FE /* SBCustomTableViewCell.m */; };
 		2E1FA2361E8E15900055F3FE /* SBCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FA22D1E8E15900055F3FE /* SBCustomTableViewCell.xib */; };
 		528658D54DDDA4FD2201F70F /* libPods-SooBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CA9D66326AA7725BB73B8C /* libPods-SooBook.a */; };
+		B903B4271E8FDEBF005817B1 /* SBNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */; };
 		B95F78661E8CDAF1009A9A93 /* SBAuthCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F78651E8CDAF1009A9A93 /* SBAuthCenter.m */; };
 		B95F78691E8CE056009A9A93 /* TestingClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F78681E8CE056009A9A93 /* TestingClass.m */; };
 		B95F786C1E8D0048009A9A93 /* UIColor+SBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F786B1E8D0048009A9A93 /* UIColor+SBAdditions.m */; };
@@ -40,6 +41,8 @@
 		2E1FA22F1E8E15900055F3FE /* SBSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSignUpViewController.h; sourceTree = "<group>"; };
 		2E1FA2301E8E15900055F3FE /* SBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLoginViewController.h; sourceTree = "<group>"; };
 		96872F8504C03B1DFF6B95E8 /* Pods-SooBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SooBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-SooBook/Pods-SooBook.release.xcconfig"; sourceTree = "<group>"; };
+		B903B4251E8FDEBF005817B1 /* SBNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBNetworkManager.h; sourceTree = "<group>"; };
+		B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBNetworkManager.m; sourceTree = "<group>"; };
 		B94FD3A51E8B7DC5006CE322 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B95F78641E8CDAF1009A9A93 /* SBAuthCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAuthCenter.h; sourceTree = "<group>"; };
 		B95F78651E8CDAF1009A9A93 /* SBAuthCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAuthCenter.m; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		B97FE1301E8A45EC00731848 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
 		B97FE1321E8A49BD00731848 /* SBBookData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBookData.h; sourceTree = "<group>"; };
 		B97FE1331E8A49BD00731848 /* SBBookData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBBookData.m; sourceTree = "<group>"; };
+		B9DE3BA21E920BFC001BD4E4 /* SBConstantKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBConstantKeys.h; sourceTree = "<group>"; };
 		D1CA9D66326AA7725BB73B8C /* libPods-SooBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SooBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4290428BFA1A3DA0E9A29C0 /* Pods-SooBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SooBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SooBook/Pods-SooBook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +120,8 @@
 		B94FD3A61E8B8298006CE322 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B903B4251E8FDEBF005817B1 /* SBNetworkManager.h */,
+				B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */,
 				B95F78641E8CDAF1009A9A93 /* SBAuthCenter.h */,
 				B95F78651E8CDAF1009A9A93 /* SBAuthCenter.m */,
 				B95F786D1E8D0AF3009A9A93 /* SBDataCenter.h */,
@@ -181,6 +187,7 @@
 				B95F786B1E8D0048009A9A93 /* UIColor+SBAdditions.m */,
 				B95F78671E8CE056009A9A93 /* TestingClass.h */,
 				B95F78681E8CE056009A9A93 /* TestingClass.m */,
+				B9DE3BA21E920BFC001BD4E4 /* SBConstantKeys.h */,
 				B94FD3A51E8B7DC5006CE322 /* PrefixHeader.pch */,
 			);
 			name = Utilities;
@@ -315,6 +322,7 @@
 			files = (
 				B97FE0F41E8A3C9F00731848 /* ViewController.m in Sources */,
 				2E1FA2311E8E15900055F3FE /* SBSignUpViewController.m in Sources */,
+				B903B4271E8FDEBF005817B1 /* SBNetworkManager.m in Sources */,
 				B97FE1341E8A49BD00731848 /* SBBookData.m in Sources */,
 				B97FE0F11E8A3C9F00731848 /* AppDelegate.m in Sources */,
 				2E1FA2321E8E15900055F3FE /* SBLoginViewController.m in Sources */,

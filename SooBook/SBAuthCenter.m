@@ -62,10 +62,15 @@
                password:(NSString *)password
              completion:(SBDataCompletion)completion
 {
-    NSLog(@"  ID : %@ \n  PW : %@ \n  로그인 요청됨",userID, password);
-    [self saveUserToken:@"adsfhlf3h4lk25ig34j2k5gh4k5jhg34kj52hg3"];
-    completion(YES, SBNetworkLogInResponseOK, userID);
-    
+    [SBNetworkManager loginWithUserID:userID password:password completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            NSDictionary *dataDict = (NSDictionary *)data;
+            [self saveUserToken:[dataDict objectForKey:USERTOKEN_KEY]];
+        }
+        
+        completion(sucess, data);
+        
+    }];
 }
 
 - (void)signUpWithUserID:(NSString *)userID
@@ -73,9 +78,7 @@
                 nickName:(NSString *)nickName
               completion:(SBDataCompletion)completion
 {
-    NSLog(@"  ID : %@ \n  PW : %@ \n  사인업 요청됨", userID, password);
-    [self saveUserToken:@"adsfhlf3h4lk25ig34j2k5gh4k5jhg34kj52hg3"];
-    completion(YES, SBNetworkSignUpResponseOK, userID);
+    [SBNetworkManager signUpWithUserID:userID password:password nickName:password completion:completion];
 }
 
 - (void)logOut

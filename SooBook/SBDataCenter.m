@@ -102,7 +102,7 @@
     
     [self saveData];
     
-    completion(YES, SBNetworkBookRegisterResponseOK, book);
+    completion(YES, book);
     
 }
 
@@ -117,7 +117,7 @@
     
     [self saveData];
     
-    completion(YES, SBNetworkBookRemoveResponseOK, book);
+    completion(YES, book);
 }
 
 @end

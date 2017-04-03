@@ -34,14 +34,28 @@
     NSLog(@"\n%@\n%@\n%@\n%@\n%@\n%f\n%@\n%@",sbBookData.title,sbBookData.imageURL, sbBookData.author, sbBookData.publisher, sbBookData.shortDescription, sbBookData.rating, sbBookData.comment, sbBookData.quotations);
     
     //*********************TestCompletionBlock*********************
-    SBDataCompletion testingBlock = ^(BOOL sucess, NSUInteger result, id data) {
-        NSLog(@"%ld, %lu, %@", (long)sucess, (unsigned long)result, data);
+    SBDataCompletion testingBlock = ^(BOOL sucess, id data) {
+        NSLog(@"%ld, %@", (long)sucess, data);
     };
     
 
     //*********************SBAuthCenter*********************
-    [[SBAuthCenter sharedInstance] loginWithUserID:@"Tester" password:@"TesterPW" completion:testingBlock];
-    [[SBAuthCenter sharedInstance] signUpWithUserID:@"Tester" password:@"TesterPW" nickName:@"챈웅이" completion:testingBlock];
+    NSString *testerID = @"jongchan7@soobook.ing";
+    NSString *testerPW = @"Http4892";
+    NSString *testerNN = @"종찬";
+    
+    [[SBAuthCenter sharedInstance] signUpWithUserID:testerID password:testerPW nickName:testerNN completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            NSLog(@"회원가입 성공");
+            testingBlock(sucess,data);
+            [[SBAuthCenter sharedInstance] loginWithUserID:testerID password:testerPW completion:^(BOOL sucess, id data) {
+                if (sucess) {
+                    NSDictionary *dataDict = (NSDictionary *)data;
+                    NSLog(@"잇달아 로그인 성공, 토큰 : %@", [dataDict objectForKey:USERTOKEN_KEY]);
+                }
+            }];
+        }
+    }];
     
     //*********************SBDataCenter*********************
 

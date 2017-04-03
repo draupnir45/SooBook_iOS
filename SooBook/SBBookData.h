@@ -9,16 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-//데이터 모델 용 상수 키값
-static NSString * const BOOK_PRIMARY_KEY = @"primary_key";
-static NSString * const TITLE_KEY = @"title";
-static NSString * const IMAGE_URL_KEY = @"imageURL";
-static NSString * const AUTHOR_KEY = @"author";
-static NSString * const PUBLISHER_KEY = @"publisher";
-static NSString * const SHORT_DESCRIPTION_KEY = @"shortDescription";
-static NSString * const RATING_KEY = @"rating";
-static NSString * const COMMENT_KEY = @"comment";
-static NSString * const QUOTATIONS_KEY = @"quotations";
+
 
 
 @interface SBBookData : NSObject
