@@ -10,6 +10,7 @@
 #import "SBCustomTableViewCell.h"
 #import "SBSignUpViewController.h"
 #import "UIColor+SBAdditions.h"
+#import "SBIndicatorViewController.h"
 
 @interface SBLoginViewController ()<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 
@@ -60,7 +61,8 @@
     if (textField.tag == 100) {
         [cell.tableViewCellTextField becomeFirstResponder];
     } else {
-        [cell.tableViewCellTextField resignFirstResponder]; //나중에 없애야함
+//        [cell.tableViewCellTextField resignFirstResponder]; //나중에 없애야함
+        [self actionLogin];
         
     }
     return YES;
@@ -144,6 +146,7 @@
 
 //셀의 텍스트들이 채워져 있으면 버튼이 변함
 - (void)editChanged:(UITextField *)sender {
+    
     SBCustomTableViewCell *cell1 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     SBCustomTableViewCell *cell2 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     
@@ -161,7 +164,20 @@
     }
     
 }
-
+//ID와 password를 검사함
+- (BOOL)ID:(NSString *)ID password:(NSString *)password
+{
+    if (ID.length == 0 || password.length == 0)
+    {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"빈칸을 모두 채워주세요" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
+        
+        [alert addAction:noAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+   
+    return YES;
+}
 
 #pragma mark - Button
 //회원가입 페이지로 이동하는 버튼
@@ -172,5 +188,27 @@
     [self.navigationController pushViewController:view animated:YES];
 }
 
+//로그인 클릭 버튼
+- (IBAction)loginButton:(UIButton *)sender
+{
+    [self actionLogin];
+
+}
+
+//로그인 버튼 클릭 또는 Done을 눌렀을때의 반응
+- (void)actionLogin
+{
+    SBCustomTableViewCell *cell1 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    SBCustomTableViewCell *cell2 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    [self ID:cell1.tableViewCellTextField.text password:cell2.tableViewCellTextField.text];
+    NSLog(@"메인페이지로 넘어가기");
+}
+
+- (IBAction)test:(UIButton *)sender
+{
+    SBIndicatorViewController *test = [SBIndicatorViewController new];
+    [test setIndicator];
+    NSLog(@"클릭");
+}
 
 @end

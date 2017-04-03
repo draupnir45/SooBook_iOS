@@ -206,6 +206,8 @@
 }
 
 
+
+#pragma mark - Check E-mail , password1,2
 //이메일 , 패스워드 1, 패스워드 2 , 닉네임 체크 구간
 - (BOOL)checkEmail:(NSString *)email CheckPasswordEqualsPassword1:(NSString *)password
          password2:(NSString *)password2 nickName:(NSString *)nickName
@@ -215,7 +217,7 @@
     const char *tmp = [email cStringUsingEncoding:NSUTF8StringEncoding];
     //하나라도 빈칸이 있으면 발동
     if (email.length == 0 || password.length == 0 || password2.length == 0 || nickName.length == 0) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"빈칸을 모두 채워주세요" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"빈칸을 모두 채워주세요" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
         
         [alert addAction:noAction];
@@ -225,7 +227,7 @@
     {
         
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"한글이 포함되어 있습니다." message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"한글이 포함되어 있습니다." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
         
         [alert addAction:noAction];
@@ -248,7 +250,7 @@
     {
         
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"이메일 형식이 아닙니다" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"이메일 형식이 아닙니다" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
         
         [alert addAction:noAction];
@@ -261,7 +263,7 @@
     } else if (password != password2){ //비번 1 과 2가 다르면
         
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"비밀번호가 일치하지 않습니다." message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"비밀번호가 일치하지 않습니다." preferredStyle:UIAlertControllerStyleAlert];
         
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:nil];
@@ -277,7 +279,7 @@
         
     } else if (nickName.length < 2 ) { //닉네임의 길이가 2자이상이 아니면
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"닉네임의 길이가 짧아" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"닉네임의 길이는 2자 이상입니다." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
         
         [alert addAction:okAction];
@@ -285,7 +287,7 @@
         
         
     } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"회원가입이 완료되었습니다" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"회원가입이 완료되었습니다" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             [self.navigationController popViewControllerAnimated:YES];
@@ -301,17 +303,7 @@
     return YES;
     
 }
-- (IBAction)trapButton:(UIButton *)sender
-{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"함정" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        [self presentViewController:alert animated:YES completion:nil];
-    }];
-    
-    [alert addAction:okAction];
-    [self presentViewController:alert animated:YES completion:nil];
-}
+
 
 
 /*

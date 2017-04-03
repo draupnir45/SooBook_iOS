@@ -21,11 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-EN-RBD">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-EN-RBD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEU-4H-p3y" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="727"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="731"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypb-3F-8Fb">
                                                 <rect key="frame" x="8" y="33" width="66" height="22"/>
@@ -84,13 +84,6 @@
                                                     <action selector="clickToSignUpButton:" destination="hn0-0a-ho1" eventType="touchUpInside" id="XUA-MY-zAV"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydf-U9-nA3">
-                                                <rect key="frame" x="199" y="29" width="160" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="trapButton:" destination="hn0-0a-ho1" eventType="touchUpInside" id="jwD-eB-gKV"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -114,7 +107,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="vEU-4H-p3y" firstAttribute="top" secondItem="Dho-EN-RBD" secondAttribute="top" id="2A2-oq-INK"/>
-                                    <constraint firstItem="vEU-4H-p3y" firstAttribute="height" secondItem="Dho-EN-RBD" secondAttribute="height" constant="60" id="2gQ-Ml-0My"/>
+                                    <constraint firstItem="vEU-4H-p3y" firstAttribute="height" secondItem="Dho-EN-RBD" secondAttribute="height" constant="64" id="2gQ-Ml-0My"/>
                                     <constraint firstItem="vEU-4H-p3y" firstAttribute="leading" secondItem="Dho-EN-RBD" secondAttribute="leading" id="ZXe-P3-iTo"/>
                                     <constraint firstItem="vEU-4H-p3y" firstAttribute="width" secondItem="Dho-EN-RBD" secondAttribute="width" id="evh-hl-VeM"/>
                                     <constraint firstAttribute="bottom" secondItem="vEU-4H-p3y" secondAttribute="bottom" id="iFb-LD-uYh"/>
