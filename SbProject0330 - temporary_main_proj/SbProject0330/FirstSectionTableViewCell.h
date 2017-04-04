@@ -1,5 +1,5 @@
 //
-//  FirstSectionTableViewCell.h
+//  FirstTableViewCell.h
 //  SbProject0330
 //
 //  Created by 홍정기 on 2017. 3. 30..
@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FirstSectionTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

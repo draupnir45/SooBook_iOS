@@ -12,20 +12,20 @@
 		4B3CE6081E933E6B0095B6BF /* square-individual-nine-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B3CE6071E933E6B0095B6BF /* square-individual-nine-7.png */; };
 		4B410FA61E8CC4E3000C61CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FA51E8CC4E3000C61CD /* main.m */; };
 		4B410FA91E8CC4E3000C61CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FA81E8CC4E3000C61CD /* AppDelegate.m */; };
-		4B410FAC1E8CC4E3000C61CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FAB1E8CC4E3000C61CD /* ViewController.m */; };
+		4B410FAC1E8CC4E3000C61CD /* SBMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FAB1E8CC4E3000C61CD /* SBMainTableViewController.m */; };
 		4B410FAF1E8CC4E3000C61CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FAD1E8CC4E3000C61CD /* Main.storyboard */; };
 		4B410FB11E8CC4E3000C61CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FB01E8CC4E3000C61CD /* Assets.xcassets */; };
 		4B410FB41E8CC4E3000C61CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FB21E8CC4E3000C61CD /* LaunchScreen.storyboard */; };
-		4B410FC71E8CD556000C61CD /* FirstSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FC51E8CD556000C61CD /* FirstSectionTableViewCell.m */; };
-		4B410FC81E8CD556000C61CD /* FirstSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FC61E8CD556000C61CD /* FirstSectionTableViewCell.xib */; };
-		4B410FD01E8CD7D7000C61CD /* SceondSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FCE1E8CD7D7000C61CD /* SceondSectionTableViewCell.m */; };
-		4B410FD11E8CD7D7000C61CD /* SceondSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FCF1E8CD7D7000C61CD /* SceondSectionTableViewCell.xib */; };
-		4B410FD91E8CE6BA000C61CD /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FD81E8CE6BA000C61CD /* FirstTableViewCell.m */; };
-		4B410FDE1E8CEFEF000C61CD /* SecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FDC1E8CEFEF000C61CD /* SecondCell.m */; };
-		4B410FDF1E8CEFEF000C61CD /* SecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FDD1E8CEFEF000C61CD /* SecondCell.xib */; };
-		4B410FE81E8CFF2B000C61CD /* CollcetionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FE71E8CFF2B000C61CD /* CollcetionDataSource.m */; };
-		4B410FF71E8D20DB000C61CD /* NibFirstCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FF51E8D20DB000C61CD /* NibFirstCollectionViewCell.m */; };
-		4B410FF81E8D20DB000C61CD /* NibFirstCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FF61E8D20DB000C61CD /* NibFirstCollectionViewCell.xib */; };
+		4B410FC71E8CD556000C61CD /* FirstSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FC51E8CD556000C61CD /* FirstSectionHeaderCell.m */; };
+		4B410FC81E8CD556000C61CD /* FirstSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FC61E8CD556000C61CD /* FirstSectionHeaderCell.xib */; };
+		4B410FD01E8CD7D7000C61CD /* SecondSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FCE1E8CD7D7000C61CD /* SecondSectionHeaderCell.m */; };
+		4B410FD11E8CD7D7000C61CD /* SecondSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FCF1E8CD7D7000C61CD /* SecondSectionHeaderCell.xib */; };
+		4B410FD91E8CE6BA000C61CD /* FirstSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FD81E8CE6BA000C61CD /* FirstSectionTableViewCell.m */; };
+		4B410FDE1E8CEFEF000C61CD /* SecondSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FDC1E8CEFEF000C61CD /* SecondSectionTableViewCell.m */; };
+		4B410FDF1E8CEFEF000C61CD /* SecondSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FDD1E8CEFEF000C61CD /* SecondSectionTableViewCell.xib */; };
+		4B410FE81E8CFF2B000C61CD /* CollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FE71E8CFF2B000C61CD /* CollectionViewDataSource.m */; };
+		4B410FF71E8D20DB000C61CD /* BookCoverCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B410FF51E8D20DB000C61CD /* BookCoverCollectionViewCell.m */; };
+		4B410FF81E8D20DB000C61CD /* BookCoverCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B410FF61E8D20DB000C61CD /* BookCoverCollectionViewCell.xib */; };
 		4BC4CBB51E8E192F00FFB1B2 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4BC4CBB41E8E192F00FFB1B2 /* 1.jpeg */; };
 		4BC4CBB71E8E224A00FFB1B2 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4BC4CBB61E8E224A00FFB1B2 /* 2.jpeg */; };
 		4BC4CBC91E8E412E00FFB1B2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4CBC81E8E412E00FFB1B2 /* DetailViewController.m */; };
@@ -37,6 +37,8 @@
 		4BC4CBDB1E920C2800FFB1B2 /* 8.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4BC4CBDA1E920C2800FFB1B2 /* 8.jpeg */; };
 		4BC4CBDD1E920D7500FFB1B2 /* 9.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4BC4CBDC1E920D7500FFB1B2 /* 9.jpeg */; };
 		4BC4CBDF1E920D7A00FFB1B2 /* 10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4BC4CBDE1E920D7A00FFB1B2 /* 10.jpeg */; };
+		B92079D01E93493A00F72EBE /* UIColor+SBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B92079CF1E93493A00F72EBE /* UIColor+SBAdditions.m */; };
+		B9680AF01E936AA5009A8AF5 /* JCBlurrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B9680AEF1E936AA5009A8AF5 /* JCBlurrManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,28 +51,28 @@
 		4B410FA51E8CC4E3000C61CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4B410FA71E8CC4E3000C61CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4B410FA81E8CC4E3000C61CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4B410FAA1E8CC4E3000C61CD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4B410FAB1E8CC4E3000C61CD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4B410FAA1E8CC4E3000C61CD /* SBMainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBMainTableViewController.h; sourceTree = "<group>"; };
+		4B410FAB1E8CC4E3000C61CD /* SBMainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBMainTableViewController.m; sourceTree = "<group>"; };
 		4B410FAE1E8CC4E3000C61CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B410FB01E8CC4E3000C61CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B410FB31E8CC4E3000C61CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B410FB51E8CC4E3000C61CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B410FC41E8CD556000C61CD /* FirstSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstSectionTableViewCell.h; sourceTree = "<group>"; };
-		4B410FC51E8CD556000C61CD /* FirstSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSectionTableViewCell.m; sourceTree = "<group>"; };
-		4B410FC61E8CD556000C61CD /* FirstSectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstSectionTableViewCell.xib; sourceTree = "<group>"; };
-		4B410FCD1E8CD7D7000C61CD /* SceondSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceondSectionTableViewCell.h; sourceTree = "<group>"; };
-		4B410FCE1E8CD7D7000C61CD /* SceondSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceondSectionTableViewCell.m; sourceTree = "<group>"; };
-		4B410FCF1E8CD7D7000C61CD /* SceondSectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SceondSectionTableViewCell.xib; sourceTree = "<group>"; };
-		4B410FD71E8CE6BA000C61CD /* FirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableViewCell.h; sourceTree = "<group>"; };
-		4B410FD81E8CE6BA000C61CD /* FirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewCell.m; sourceTree = "<group>"; };
-		4B410FDB1E8CEFEF000C61CD /* SecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCell.h; sourceTree = "<group>"; };
-		4B410FDC1E8CEFEF000C61CD /* SecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCell.m; sourceTree = "<group>"; };
-		4B410FDD1E8CEFEF000C61CD /* SecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCell.xib; sourceTree = "<group>"; };
-		4B410FE61E8CFF2B000C61CD /* CollcetionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollcetionDataSource.h; sourceTree = "<group>"; };
-		4B410FE71E8CFF2B000C61CD /* CollcetionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollcetionDataSource.m; sourceTree = "<group>"; };
-		4B410FF41E8D20DB000C61CD /* NibFirstCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NibFirstCollectionViewCell.h; sourceTree = "<group>"; };
-		4B410FF51E8D20DB000C61CD /* NibFirstCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NibFirstCollectionViewCell.m; sourceTree = "<group>"; };
-		4B410FF61E8D20DB000C61CD /* NibFirstCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NibFirstCollectionViewCell.xib; sourceTree = "<group>"; };
+		4B410FC41E8CD556000C61CD /* FirstSectionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstSectionHeaderCell.h; sourceTree = "<group>"; };
+		4B410FC51E8CD556000C61CD /* FirstSectionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSectionHeaderCell.m; sourceTree = "<group>"; };
+		4B410FC61E8CD556000C61CD /* FirstSectionHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstSectionHeaderCell.xib; sourceTree = "<group>"; };
+		4B410FCD1E8CD7D7000C61CD /* SecondSectionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondSectionHeaderCell.h; sourceTree = "<group>"; };
+		4B410FCE1E8CD7D7000C61CD /* SecondSectionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSectionHeaderCell.m; sourceTree = "<group>"; };
+		4B410FCF1E8CD7D7000C61CD /* SecondSectionHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondSectionHeaderCell.xib; sourceTree = "<group>"; };
+		4B410FD71E8CE6BA000C61CD /* FirstSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstSectionTableViewCell.h; sourceTree = "<group>"; };
+		4B410FD81E8CE6BA000C61CD /* FirstSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSectionTableViewCell.m; sourceTree = "<group>"; };
+		4B410FDB1E8CEFEF000C61CD /* SecondSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondSectionTableViewCell.h; sourceTree = "<group>"; };
+		4B410FDC1E8CEFEF000C61CD /* SecondSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSectionTableViewCell.m; sourceTree = "<group>"; };
+		4B410FDD1E8CEFEF000C61CD /* SecondSectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondSectionTableViewCell.xib; sourceTree = "<group>"; };
+		4B410FE61E8CFF2B000C61CD /* CollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewDataSource.h; sourceTree = "<group>"; };
+		4B410FE71E8CFF2B000C61CD /* CollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewDataSource.m; sourceTree = "<group>"; };
+		4B410FF41E8D20DB000C61CD /* BookCoverCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCoverCollectionViewCell.h; sourceTree = "<group>"; };
+		4B410FF51E8D20DB000C61CD /* BookCoverCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCoverCollectionViewCell.m; sourceTree = "<group>"; };
+		4B410FF61E8D20DB000C61CD /* BookCoverCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookCoverCollectionViewCell.xib; sourceTree = "<group>"; };
 		4BC4CBB41E8E192F00FFB1B2 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		4BC4CBB61E8E224A00FFB1B2 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
 		4BC4CBC71E8E412E00FFB1B2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -83,6 +85,10 @@
 		4BC4CBDA1E920C2800FFB1B2 /* 8.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpeg; sourceTree = "<group>"; };
 		4BC4CBDC1E920D7500FFB1B2 /* 9.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpeg; sourceTree = "<group>"; };
 		4BC4CBDE1E920D7A00FFB1B2 /* 10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpeg; sourceTree = "<group>"; };
+		B92079CE1E93493A00F72EBE /* UIColor+SBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SBAdditions.h"; sourceTree = "<group>"; };
+		B92079CF1E93493A00F72EBE /* UIColor+SBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SBAdditions.m"; sourceTree = "<group>"; };
+		B9680AEE1E936AA5009A8AF5 /* JCBlurrManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCBlurrManager.h; sourceTree = "<group>"; };
+		B9680AEF1E936AA5009A8AF5 /* JCBlurrManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCBlurrManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,15 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B3CE5F61E925BE80095B6BF /* StarRate */ = {
-			isa = PBXGroup;
-			children = (
-				4B3CE5F71E925C8F0095B6BF /* RateView.h */,
-				4B3CE5F81E925C8F0095B6BF /* RateView.m */,
-			);
-			name = StarRate;
-			sourceTree = "<group>";
-		};
 		4B3CE6011E927FD50095B6BF /* SubViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +132,8 @@
 			children = (
 				4B410FA71E8CC4E3000C61CD /* AppDelegate.h */,
 				4B410FA81E8CC4E3000C61CD /* AppDelegate.m */,
+				B92079CE1E93493A00F72EBE /* UIColor+SBAdditions.h */,
+				B92079CF1E93493A00F72EBE /* UIColor+SBAdditions.m */,
 				4BC4CC841E92412400FFB1B2 /* SooBookProject */,
 				4B410FB01E8CC4E3000C61CD /* Assets.xcassets */,
 				4B410FB21E8CC4E3000C61CD /* LaunchScreen.storyboard */,
@@ -152,62 +151,62 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4B410FBB1E8CD450000C61CD /* FirstSection */ = {
+		4B410FBB1E8CD450000C61CD /* FirstSectionHeader */ = {
 			isa = PBXGroup;
 			children = (
-				4B410FC41E8CD556000C61CD /* FirstSectionTableViewCell.h */,
-				4B410FC51E8CD556000C61CD /* FirstSectionTableViewCell.m */,
-				4B410FC61E8CD556000C61CD /* FirstSectionTableViewCell.xib */,
+				4B410FC41E8CD556000C61CD /* FirstSectionHeaderCell.h */,
+				4B410FC51E8CD556000C61CD /* FirstSectionHeaderCell.m */,
+				4B410FC61E8CD556000C61CD /* FirstSectionHeaderCell.xib */,
 			);
-			name = FirstSection;
+			name = FirstSectionHeader;
 			sourceTree = "<group>";
 		};
 		4B410FC91E8CD76B000C61CD /* SceondSection */ = {
 			isa = PBXGroup;
 			children = (
-				4B410FCD1E8CD7D7000C61CD /* SceondSectionTableViewCell.h */,
-				4B410FCE1E8CD7D7000C61CD /* SceondSectionTableViewCell.m */,
-				4B410FCF1E8CD7D7000C61CD /* SceondSectionTableViewCell.xib */,
+				4B410FCD1E8CD7D7000C61CD /* SecondSectionHeaderCell.h */,
+				4B410FCE1E8CD7D7000C61CD /* SecondSectionHeaderCell.m */,
+				4B410FCF1E8CD7D7000C61CD /* SecondSectionHeaderCell.xib */,
 			);
 			name = SceondSection;
 			sourceTree = "<group>";
 		};
-		4B410FD21E8CE61E000C61CD /* FirstTableView */ = {
+		4B410FD21E8CE61E000C61CD /* FirstTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				4B410FD71E8CE6BA000C61CD /* FirstTableViewCell.h */,
-				4B410FD81E8CE6BA000C61CD /* FirstTableViewCell.m */,
+				4B410FD71E8CE6BA000C61CD /* FirstSectionTableViewCell.h */,
+				4B410FD81E8CE6BA000C61CD /* FirstSectionTableViewCell.m */,
 			);
-			name = FirstTableView;
+			name = FirstTableViewCell;
 			sourceTree = "<group>";
 		};
-		4B410FDA1E8CEF6B000C61CD /* SecondCell */ = {
+		4B410FDA1E8CEF6B000C61CD /* SecondSectionTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				4B410FDB1E8CEFEF000C61CD /* SecondCell.h */,
-				4B410FDC1E8CEFEF000C61CD /* SecondCell.m */,
-				4B410FDD1E8CEFEF000C61CD /* SecondCell.xib */,
+				4B410FDB1E8CEFEF000C61CD /* SecondSectionTableViewCell.h */,
+				4B410FDC1E8CEFEF000C61CD /* SecondSectionTableViewCell.m */,
+				4B410FDD1E8CEFEF000C61CD /* SecondSectionTableViewCell.xib */,
 			);
-			name = SecondCell;
+			name = SecondSectionTableViewCell;
 			sourceTree = "<group>";
 		};
 		4B410FE51E8CFED6000C61CD /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				4B410FE61E8CFF2B000C61CD /* CollcetionDataSource.h */,
-				4B410FE71E8CFF2B000C61CD /* CollcetionDataSource.m */,
+				4B410FE61E8CFF2B000C61CD /* CollectionViewDataSource.h */,
+				4B410FE71E8CFF2B000C61CD /* CollectionViewDataSource.m */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
 		};
-		4B410FE91E8D1FBD000C61CD /* NibFirstCollection */ = {
+		4B410FE91E8D1FBD000C61CD /* BookCoverCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				4B410FF41E8D20DB000C61CD /* NibFirstCollectionViewCell.h */,
-				4B410FF61E8D20DB000C61CD /* NibFirstCollectionViewCell.xib */,
-				4B410FF51E8D20DB000C61CD /* NibFirstCollectionViewCell.m */,
+				4B410FF41E8D20DB000C61CD /* BookCoverCollectionViewCell.h */,
+				4B410FF51E8D20DB000C61CD /* BookCoverCollectionViewCell.m */,
+				4B410FF61E8D20DB000C61CD /* BookCoverCollectionViewCell.xib */,
 			);
-			name = NibFirstCollection;
+			name = BookCoverCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		4BC4CBA71E8E05B900FFB1B2 /* Image */ = {
@@ -240,21 +239,32 @@
 		4BC4CC841E92412400FFB1B2 /* SooBookProject */ = {
 			isa = PBXGroup;
 			children = (
-				4B410FAA1E8CC4E3000C61CD /* ViewController.h */,
-				4B410FAB1E8CC4E3000C61CD /* ViewController.m */,
+				4B410FAA1E8CC4E3000C61CD /* SBMainTableViewController.h */,
+				4B410FAB1E8CC4E3000C61CD /* SBMainTableViewController.m */,
 				4B410FAD1E8CC4E3000C61CD /* Main.storyboard */,
 				4B410FE51E8CFED6000C61CD /* DataSource */,
-				4B410FBB1E8CD450000C61CD /* FirstSection */,
+				4B410FBB1E8CD450000C61CD /* FirstSectionHeader */,
 				4B410FC91E8CD76B000C61CD /* SceondSection */,
-				4B410FE91E8D1FBD000C61CD /* NibFirstCollection */,
-				4B410FD21E8CE61E000C61CD /* FirstTableView */,
-				4B410FDA1E8CEF6B000C61CD /* SecondCell */,
+				4B410FD21E8CE61E000C61CD /* FirstTableViewCell */,
+				4B410FE91E8D1FBD000C61CD /* BookCoverCollectionViewCell */,
+				4B410FDA1E8CEF6B000C61CD /* SecondSectionTableViewCell */,
 				4B3CE6011E927FD50095B6BF /* SubViewController */,
 				4BC4CBC61E8E40B800FFB1B2 /* DetailViewController */,
-				4B3CE5F61E925BE80095B6BF /* StarRate */,
+				B9680AF11E936AB6009A8AF5 /* Utilities */,
 				4BC4CBA71E8E05B900FFB1B2 /* Image */,
 			);
 			name = SooBookProject;
+			sourceTree = "<group>";
+		};
+		B9680AF11E936AB6009A8AF5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4B3CE5F71E925C8F0095B6BF /* RateView.h */,
+				4B3CE5F81E925C8F0095B6BF /* RateView.m */,
+				B9680AEE1E936AA5009A8AF5 /* JCBlurrManager.h */,
+				B9680AEF1E936AA5009A8AF5 /* JCBlurrManager.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,18 +329,18 @@
 				4BC4CBB51E8E192F00FFB1B2 /* 1.jpeg in Resources */,
 				4BC4CBDF1E920D7A00FFB1B2 /* 10.jpeg in Resources */,
 				4B410FB41E8CC4E3000C61CD /* LaunchScreen.storyboard in Resources */,
-				4B410FDF1E8CEFEF000C61CD /* SecondCell.xib in Resources */,
+				4B410FDF1E8CEFEF000C61CD /* SecondSectionTableViewCell.xib in Resources */,
 				4BC4CBD31E9209E200FFB1B2 /* 4.jpeg in Resources */,
 				4B410FB11E8CC4E3000C61CD /* Assets.xcassets in Resources */,
 				4B3CE6081E933E6B0095B6BF /* square-individual-nine-7.png in Resources */,
 				4BC4CBD71E920AD900FFB1B2 /* 6.jpeg in Resources */,
 				4BC4CBB71E8E224A00FFB1B2 /* 2.jpeg in Resources */,
-				4B410FC81E8CD556000C61CD /* FirstSectionTableViewCell.xib in Resources */,
+				4B410FC81E8CD556000C61CD /* FirstSectionHeaderCell.xib in Resources */,
 				4BC4CBDB1E920C2800FFB1B2 /* 8.jpeg in Resources */,
-				4B410FD11E8CD7D7000C61CD /* SceondSectionTableViewCell.xib in Resources */,
+				4B410FD11E8CD7D7000C61CD /* SecondSectionHeaderCell.xib in Resources */,
 				4BC4CBD91E920BC300FFB1B2 /* 7.jpeg in Resources */,
 				4B410FAF1E8CC4E3000C61CD /* Main.storyboard in Resources */,
-				4B410FF81E8D20DB000C61CD /* NibFirstCollectionViewCell.xib in Resources */,
+				4B410FF81E8D20DB000C61CD /* BookCoverCollectionViewCell.xib in Resources */,
 				4BC4CBD51E920A7B00FFB1B2 /* 5.jpeg in Resources */,
 				4BC4CBDD1E920D7500FFB1B2 /* 9.jpeg in Resources */,
 				4BC4CBD11E92089C00FFB1B2 /* 3.jpeg in Resources */,
@@ -344,16 +354,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B410FAC1E8CC4E3000C61CD /* ViewController.m in Sources */,
+				B92079D01E93493A00F72EBE /* UIColor+SBAdditions.m in Sources */,
+				4B410FAC1E8CC4E3000C61CD /* SBMainTableViewController.m in Sources */,
+				B9680AF01E936AA5009A8AF5 /* JCBlurrManager.m in Sources */,
 				4B410FA91E8CC4E3000C61CD /* AppDelegate.m in Sources */,
-				4B410FC71E8CD556000C61CD /* FirstSectionTableViewCell.m in Sources */,
+				4B410FC71E8CD556000C61CD /* FirstSectionHeaderCell.m in Sources */,
 				4B3CE6041E9280090095B6BF /* SubViewController.m in Sources */,
-				4B410FDE1E8CEFEF000C61CD /* SecondCell.m in Sources */,
-				4B410FD01E8CD7D7000C61CD /* SceondSectionTableViewCell.m in Sources */,
-				4B410FD91E8CE6BA000C61CD /* FirstTableViewCell.m in Sources */,
-				4B410FE81E8CFF2B000C61CD /* CollcetionDataSource.m in Sources */,
+				4B410FDE1E8CEFEF000C61CD /* SecondSectionTableViewCell.m in Sources */,
+				4B410FD01E8CD7D7000C61CD /* SecondSectionHeaderCell.m in Sources */,
+				4B410FD91E8CE6BA000C61CD /* FirstSectionTableViewCell.m in Sources */,
+				4B410FE81E8CFF2B000C61CD /* CollectionViewDataSource.m in Sources */,
 				4B410FA61E8CC4E3000C61CD /* main.m in Sources */,
-				4B410FF71E8D20DB000C61CD /* NibFirstCollectionViewCell.m in Sources */,
+				4B410FF71E8D20DB000C61CD /* BookCoverCollectionViewCell.m in Sources */,
 				4B3CE5F91E925C8F0095B6BF /* RateView.m in Sources */,
 				4BC4CBC91E8E412E00FFB1B2 /* DetailViewController.m in Sources */,
 			);

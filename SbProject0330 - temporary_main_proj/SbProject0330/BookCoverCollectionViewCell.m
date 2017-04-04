@@ -6,9 +6,9 @@
 //  Copyright © 2017년 ios school. All rights reserved.
 //
 
-#import "NibFirstCollectionViewCell.h"
+#import "BookCoverCollectionViewCell.h"
 
-@implementation NibFirstCollectionViewCell
+@implementation BookCoverCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -16,7 +16,7 @@
 }
 - (void)layoutSubviews {
     //get ratio and layout bookcover
-    CGFloat heightByWidthRatio = [NibFirstCollectionViewCell getImageRatioWithImage:self.firstCollectionImage.image];
+    CGFloat heightByWidthRatio = [BookCoverCollectionViewCell getImageRatioWithImage:self.firstCollectionImage.image];
     
     if (heightByWidthRatio <= (172.0f/96.0f)) {
         CGFloat newHeight = heightByWidthRatio * 96.0f;

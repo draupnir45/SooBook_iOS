@@ -6,11 +6,10 @@
 //  Copyright © 2017년 ios school. All rights reserved.
 //
 
-#import "CollcetionDataSource.h"
-//#import "FirstCollectionViewCell.h"
-#import "NibFirstCollectionViewCell.h"
+#import "CollectionViewDataSource.h"
+#import "BookCoverCollectionViewCell.h"
 
-@implementation CollcetionDataSource
+@implementation CollectionViewDataSource
 
 - (instancetype)initWithSbDataArray:(NSArray *)dataArray
 {
@@ -29,7 +28,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    NibFirstCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"nibFirstCollectionViewCell" forIndexPath:indexPath];
+    BookCoverCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BookCoverCollectionViewCell" forIndexPath:indexPath];
     cell.firstCollectionImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.item+1]];
     
     cell.tag = indexPath.row;

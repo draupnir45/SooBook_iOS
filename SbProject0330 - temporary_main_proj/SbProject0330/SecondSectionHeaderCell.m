@@ -1,18 +1,18 @@
 //
-//  FirstTableViewCell.m
+//  SceondSectionTableViewCell.m
 //  SbProject0330
 //
 //  Created by 홍정기 on 2017. 3. 30..
 //  Copyright © 2017년 ios school. All rights reserved.
 //
 
-#import "FirstTableViewCell.h"
+#import "SecondSectionHeaderCell.h"
 
-@implementation FirstTableViewCell
+@implementation SecondSectionHeaderCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    [self.firstCollectionViewCell registerNib:[UINib nibWithNibName:@"NibFirstCollectionViewCell" bundle:[NSBundle mainBundle]]forCellWithReuseIdentifier:@"nibFirstCollectionViewCell"];
+    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

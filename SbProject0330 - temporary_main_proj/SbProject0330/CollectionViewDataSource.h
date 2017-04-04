@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface CollcetionDataSource : NSObject
+@interface CollectionViewDataSource : NSObject
 <UICollectionViewDataSource>
 
 @property NSArray *dataArray;
