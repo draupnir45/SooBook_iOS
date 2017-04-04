@@ -47,7 +47,7 @@
             
             
         } else  {
-            NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"appData" ofType:@"plist"];
+            NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"TempBookData" ofType:@"plist"];
             
             //데이터용 프로퍼티에 번들 내용을 넣음
             dataArray = [NSArray arrayWithContentsOfFile:bundlePath];
