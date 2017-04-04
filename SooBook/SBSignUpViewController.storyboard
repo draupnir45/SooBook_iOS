@@ -35,7 +35,7 @@
                                                 </constraints>
                                                 <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="로그인" image="backChevron">
-                                                    <color key="titleColor" red="0.098039215686274508" green="0.55686274509803924" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.098039215690000001" green="0.5568627451" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="backToLoginPage:" destination="hn0-0a-ho1" eventType="touchUpInside" id="fsu-Lp-zsQ"/>
@@ -73,7 +73,7 @@
                                                 </connections>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddg-xY-q7O">
-                                                <rect key="frame" x="0.0" y="371" width="375" height="44"/>
+                                                <rect key="frame" x="0.0" y="369" width="375" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="0qe-j6-fbU"/>
                                                 </constraints>
@@ -81,7 +81,7 @@
                                                     <color key="titleColor" red="0.098039215686274508" green="0.55686274509803924" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="clickToSignUpButton:" destination="hn0-0a-ho1" eventType="touchUpInside" id="XUA-MY-zAV"/>
+                                                    <action selector="signUpButtonSelected:" destination="hn0-0a-ho1" eventType="touchUpInside" id="CgP-ML-ah9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -89,7 +89,7 @@
                                         <constraints>
                                             <constraint firstItem="P9T-vO-dcU" firstAttribute="trailing" secondItem="sgB-0H-Ek6" secondAttribute="trailing" id="3KN-sF-d2F"/>
                                             <constraint firstAttribute="trailing" secondItem="ddg-xY-q7O" secondAttribute="trailing" id="4ha-wO-bv9"/>
-                                            <constraint firstItem="ddg-xY-q7O" firstAttribute="top" secondItem="WH5-vG-MzM" secondAttribute="bottom" constant="2" id="5b8-35-aKM"/>
+                                            <constraint firstItem="ddg-xY-q7O" firstAttribute="top" secondItem="WH5-vG-MzM" secondAttribute="bottom" id="5b8-35-aKM"/>
                                             <constraint firstAttribute="trailing" secondItem="WH5-vG-MzM" secondAttribute="trailing" id="9o4-MP-5XJ"/>
                                             <constraint firstItem="WH5-vG-MzM" firstAttribute="top" secondItem="P9T-vO-dcU" secondAttribute="bottom" constant="28" id="FIP-Hi-zKs"/>
                                             <constraint firstItem="P9T-vO-dcU" firstAttribute="leading" secondItem="NAf-gE-X82" secondAttribute="leading" id="IZe-VZ-nVQ"/>
@@ -126,7 +126,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="signUpButton" destination="ddg-xY-q7O" id="pqX-Ed-tKR"/>
-                        <outlet property="signupTableView" destination="WH5-vG-MzM" id="ntd-oU-0D7"/>
+                        <outlet property="tableView" destination="WH5-vG-MzM" id="RYi-Sy-TX1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1LU-5n-fLT" userLabel="First Responder" sceneMemberID="firstResponder"/>

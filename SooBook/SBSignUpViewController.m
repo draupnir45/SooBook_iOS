@@ -7,65 +7,69 @@
 //
 
 #import "SBSignUpViewController.h"
-#import "SBCustomTableViewCell.h"
+#import "SBAccountTableViewCell.h"
 #import "SBIndicatorView.h"
 
-@interface SBSignUpViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet UITableView *signupTableView;
+@interface SBSignUpViewController ()
+<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *signUpButton;
-@property SBIndicatorView *indiView;
+@property UITextField *idTextField;
+@property UITextField *password1TextField;
+@property UITextField *password2TextField;
+@property UITextField *nickNameTextField;
+
+@property SBIndicatorView *indicatorView;
+
 @end
 
 @implementation SBSignUpViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"SBAccountTableViewCell" bundle:nil] forCellReuseIdentifier:@"SBAccountTableViewCell"];
     
     //헤더 , 풋터를 없애기 위한 부분
-    self.signupTableView.sectionHeaderHeight = 0;
-    self.signupTableView.sectionFooterHeight = 0;
-    self.signupTableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 0;
+    self.tableView.backgroundColor = [UIColor whiteColor];
     //-----------------------
     
-    self.indiView = [[SBIndicatorView alloc] initWithFrame:self.view.frame];
+    self.indicatorView = [[SBIndicatorView alloc] init];
 }
-
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     [super viewDidAppear:animated];
-    
     //화면이 띄어지고 첫번째 셀 텍스트 필드에 포커싱을 준다
-    SBCustomTableViewCell *cell = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [cell.tableViewCellTextField becomeFirstResponder];
+    [self.idTextField becomeFirstResponder];
     
 }
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - TextField Delegate
+#pragma mark - TextField
 //리턴 버튼을 눌렀을 경우의 반응 첫번째에 리턴을 누르면 두번째로 , 두번째는 세번째로 , 세번째는 done을 누르면 회원가입이 되어야 한다.
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    SBCustomTableViewCell *cell1 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    SBCustomTableViewCell *cell2 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    SBCustomTableViewCell *cell3 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    SBCustomTableViewCell *cell4 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+
     switch (textField.tag) {
         case 100:
-            [cell2.tableViewCellTextField becomeFirstResponder];
+            [self.password1TextField becomeFirstResponder];
             break;
         case 200:
-            [cell3.tableViewCellTextField becomeFirstResponder];
+            [self.password2TextField becomeFirstResponder];
             break;
         case 300:
-            [cell4.tableViewCellTextField becomeFirstResponder];
+            [self.nickNameTextField becomeFirstResponder];
             break;
         default:
-           [self checkEmail:cell1.tableViewCellTextField.text CheckPasswordEqualsPassword1:cell2.tableViewCellTextField.text password2:cell3.tableViewCellTextField.text nickName:cell4.tableViewCellTextField.text];
+           [self doSignUpRequest];
             NSLog(@"Done눌렀다");
             break;
     }
@@ -73,42 +77,37 @@
     return YES;
 }
 
-//셀의 텍스트 필드 4곳 모두 무언가가 채워져 있으면 버튼 이미지 변경?
+//셀의 텍스트 필드 4곳 모두 무언가가 채워져 있으면 버튼 이미지 변경
 - (void)editChanged:(UITextField *)sender {
-    SBCustomTableViewCell *cell1 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    SBCustomTableViewCell *cell2 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    SBCustomTableViewCell *cell3 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    SBCustomTableViewCell *cell4 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    
-    if (cell1.tableViewCellTextField.text.length > 0 && cell2.tableViewCellTextField.text.length > 0 &&cell3.tableViewCellTextField.text.length > 0 && cell4.tableViewCellTextField.text.length > 0)
+
+    if (self.idTextField.text.length > 0 && self.password1TextField.text.length > 0 &&self.password2TextField.text.length > 0 && self.nickNameTextField.text.length > 0)
     {
         [self.signUpButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.signUpButton setBackgroundColor:[UIColor colorWithRed:25/255.0 green:142/255.0 blue:167/255.0 alpha:1]];
-        
+        [self.signUpButton setBackgroundColor:[UIColor sb_soobookBlueColor]];
     } else {
-        
-        [self.signUpButton setTitleColor:[UIColor colorWithRed:25/255.0 green:142/255.0 blue:167/255.0 alpha:1] forState:UIControlStateNormal];
+        [self.signUpButton setTitleColor:[UIColor sb_soobookBlueColor] forState:UIControlStateNormal];
         [self.signUpButton setBackgroundColor:[UIColor whiteColor]];
         
     }
     
 }
 
-
-
-
-
 #pragma mark - TableView
+
 /*----------------------- 테이블뷰의 헤더와 푸터를 줄이기 위한 부분 ----------------------------*/
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 1.0;
 }
 
-
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 {
     return 1.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44.0;
 }
 
 -(UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
@@ -120,34 +119,16 @@
 {
     return [[UIView alloc] initWithFrame:CGRectZero];
 }
-/*------------------------------------------------------------------------------------*/
 
-
-
-
-
-
-
-
-
-#pragma mark - TableView DataSource
 //section 당 row 의 갯수   세션은 1개
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 4;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SBCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBCustomTableViewCell"];
-    
-    if (cell == nil) {
-        [tableView registerNib:[UINib nibWithNibName:@"SBCustomTableViewCell" bundle:nil] forCellReuseIdentifier:@"SBCustomTableViewCell"];
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:@"SBCustomTableViewCell"];
-    }
-    
+    SBAccountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBAccountTableViewCell" forIndexPath:indexPath];
     
     
     [cell.tableViewCellTextField addTarget:self action:@selector(editChanged:) forControlEvents:UIControlEventEditingChanged];
@@ -159,24 +140,27 @@
             cell.tableViewCellLabel.text = @"SooBook ID";
             cell.tableViewCellTextField.placeholder = @"example@soobook.com";
             cell.tableViewCellTextField.tag = 100;
+            self.idTextField = cell.tableViewCellTextField;
             break;
         case 1:
             cell.tableViewCellLabel.text = @"Password";
             cell.tableViewCellTextField.placeholder = @"6자리 이상";
             cell.tableViewCellTextField.tag = 200;
             cell.tableViewCellTextField.secureTextEntry = YES;
+            self.password1TextField = cell.tableViewCellTextField;
             break;
         case 2:
             cell.tableViewCellLabel.text = nil;
             cell.tableViewCellTextField.placeholder = @"비밀번호 확인";
             cell.tableViewCellTextField.tag = 300;
             cell.tableViewCellTextField.secureTextEntry = YES;
+            self.password2TextField = cell.tableViewCellTextField;
             break;
-            
         default:
             cell.tableViewCellLabel.text = @"NickName";
             cell.tableViewCellTextField.placeholder = @"별명을 입력해 주세요.";
             cell.tableViewCellTextField.returnKeyType = UIReturnKeyDone;
+            self.nickNameTextField = cell.tableViewCellTextField;
             break;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -189,48 +173,18 @@
 }
 
 
-#pragma mark - Button
-//회원가입 버튼 클릭
-- (IBAction)clickToSignUpButton:(UIButton *)sender
-{
-    SBCustomTableViewCell *cell1 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    SBCustomTableViewCell *cell2 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    SBCustomTableViewCell *cell3 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    SBCustomTableViewCell *cell4 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    
-    
-    
-    [self checkEmail:cell1.tableViewCellTextField.text CheckPasswordEqualsPassword1:cell2.tableViewCellTextField.text password2:cell3.tableViewCellTextField.text nickName:cell4.tableViewCellTextField.text];
-}
-
-//로그인페이지로 돌아간다~
-- (IBAction)backToLoginPage:(UIButton *)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
-
-#pragma mark - Check E-mail , password1,2
+#pragma mark - SignUp Request Methods
 //이메일 , 패스워드 1, 패스워드 2 , 닉네임 체크 구간
-- (BOOL)checkEmail:(NSString *)email CheckPasswordEqualsPassword1:(NSString *)password
-         password2:(NSString *)password2 nickName:(NSString *)nickName
-
+- (BOOL)checkSignUpDataWithEmail:(NSString *)email
+                       password1:(NSString *)password
+                       password2:(NSString *)password2
+                        nickName:(NSString *)nickName
 {
     
     const char *tmp = [email cStringUsingEncoding:NSUTF8StringEncoding];
     //하나라도 빈칸이 있으면 발동
-    if (email.length == 0 || password.length == 0 || password2.length == 0 || nickName.length == 0) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"빈칸을 모두 채워주세요" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
-        
-        [alert addAction:noAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    } else if (email.length != strlen(tmp))  // 한글이 포함되어있으면 ㄴㄴ
-        
-    {
-        
-        
+    if (email.length != strlen(tmp)) {
+        // 한글이 포함되어있으면 ㄴㄴ
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"한글이 포함되어 있습니다." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
         
@@ -239,131 +193,122 @@
         
         return NO;
         
-    }
-    
-    
-    
-    NSString *check = @"([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\\.[0-9a-zA-Z_-]+){1,2}";
-    
-    NSRange match = [email rangeOfString:check options:NSRegularExpressionSearch];
-    
-    
-    
-    if (NSNotFound == match.location)  //이메일 형식으로 해야함
-        
-    {
-        
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"이메일 형식이 아닙니다" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
-        
-        [alert addAction:noAction];
-        [self presentViewController:alert animated:YES completion:nil];
-        
-        
-        
-        return NO;
-        
-    } else if (password != password2 || password.length <6 ){ //비번 1 과 2가 다르거나 길이가 6자 이하라면
-        
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"패스워드를 확인해주세요" preferredStyle:UIAlertControllerStyleAlert];
-        
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:nil];
-        
-        
-        [alert addAction:okAction];
-        
-        
-        [self presentViewController:alert animated:YES completion:nil];
-        
-        
-        
-        
-    } else if (nickName.length < 2 ) { //닉네임의 길이가 2자이상이 아니면
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"닉네임의 길이는 2자 이상입니다." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
-        
-        [alert addAction:okAction];
-        [self presentViewController:alert animated:YES completion:nil];
-        
-        
     } else {
-    
-        [self goToMainPage];
-    }
-    
-    return YES;
-    
-}
-//버튼을 클릭해도, done를 눌러도 이곳을 타야함
--(void)goToMainPage
-{
-    //모든 포커싱 해제
-    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
-    
-    //인디케이터를 화면에 띄움
-    [self.view addSubview:self.indiView];
-    
-    //아이디
-    SBCustomTableViewCell *cell1 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
-    //비밀번호
-    SBCustomTableViewCell *cell2 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-
-    //닉네임
-    SBCustomTableViewCell *cell4 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    
-    [[SBAuthCenter sharedInstance] signUpWithUserID:cell1.tableViewCellTextField.text password:cell2.tableViewCellTextField.text nickName:cell4.tableViewCellTextField.text completion:^(BOOL sucess, id data) {
-        
-        //인디케이터 해제
-        [self.indiView removeFromSuperview];
-        
-        if (sucess)
+        NSString *check = @"([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\\.[0-9a-zA-Z_-]+){1,2}";
+        NSRange match = [email rangeOfString:check options:NSRegularExpressionSearch];
+        if (NSNotFound == match.location)  //이메일 형식으로 해야함
+            
         {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"이메일 형식이 아닙니다" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
             
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"회원가입이 완료되었습니다" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:noAction];
+            [self presentViewController:alert animated:YES completion:nil];
             
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                    [self.navigationController popViewControllerAnimated:YES];
-                }];
-        
-                [alert addAction:okAction];
-
-                [self presentViewController:alert animated:YES completion:^{
-                    
-                }];
+            return NO;
+            
+        } else if (password != password2 || password.length <6 ){ //비번 1 과 2가 다르거나 길이가 6자 이하라면
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"패스워드를 확인해주세요" preferredStyle:UIAlertControllerStyleAlert];
             
             
-            [[SBAuthCenter sharedInstance] loginWithUserID:cell1.tableViewCellTextField.text password:cell2.tableViewCellTextField.text completion:^(BOOL sucess, id data) {
-                
-                if (sucess) {
-                    NSDictionary *dataDict = (NSDictionary *)data;
-                    NSLog(@"로그인까지 성공 , 토큰값 : %@",[dataDict objectForKey:USERTOKEN_KEY]);
-                    [self.navigationController popViewControllerAnimated:YES];
-                } else {
-                    
-                }
-            }];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:nil];
+            
+            
+            [alert addAction:okAction];
+            
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            return NO;
+            
+            
+        } else if (nickName.length < 2 ) { //닉네임의 길이가 2자이상이 아니면
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"닉네임의 길이는 2자 이상입니다." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
+            
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            return NO;
             
         } else {
-            
+            return YES;
         }
-        
-        
-    }];
+    
+    }
+    
+    
+    
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+//버튼을 클릭해도, done를 눌러도 이곳을 타야함
+-(void)doSignUpRequest
+{
+    NSString *idString = self.idTextField.text;
+    NSString *password1 = self.password1TextField.text;
+    NSString *password2 = self.password2TextField.text;
+    NSString *nickName = self.nickNameTextField.text;
+    
+    //별도의 메서드 checkSignUpDataWithEmail: 로 예외처리 후 사인업 요청
+    if ([self checkSignUpDataWithEmail:idString password1:password1 password2:password2 nickName:nickName]) {
+        
+        //모든 포커싱 해제
+        [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+        
+        //인디케이터를 화면에 띄움
+        [self.indicatorView startIndicatorOnView:self.view];
+        
+        [[SBAuthCenter sharedInstance] signUpWithUserID:self.idTextField.text password:self.password1TextField.text nickName:self.nickNameTextField.text completion:^(BOOL sucess, id data) {
+            
+            if (sucess) {
+                
+                [[SBAuthCenter sharedInstance] logInWithUserID:idString password:password1 completion:^(BOOL sucess, id data) {
+                    
+                    //인디케이터 해제
+                    [self.indicatorView stopIndicator];
+
+                    if (sucess) {
+                        NSDictionary *dataDict = (NSDictionary *)data;
+                        NSLog(@"로그인까지 성공 , 토큰값 : %@",[dataDict objectForKey:USERTOKEN_KEY]);
+                        
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"회원가입이 완료!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                        
+                        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                        }];
+                        
+                        [alert addAction:okAction];
+                        
+                        [self presentViewController:alert animated:YES completion:nil];
+
+                    } else {
+                        //회원가입되고 로그인 안됐을 때 처리
+                    }
+                    
+
+                }];
+            } else {
+                //회원가입 안됐을 때 처리
+            }
+        }];
+    }
+}
+
+
+#pragma mark - Action & Navigation
+//회원가입 버튼 클릭
+- (IBAction)signUpButtonSelected:(UIButton *)sender
+{
+    [self doSignUpRequest];
+}
+
+//로그인페이지로 돌아간다~
+- (IBAction)backToLoginPage:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end

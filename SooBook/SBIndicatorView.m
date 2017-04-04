@@ -10,57 +10,62 @@
 
 @interface SBIndicatorView ()
 
+@property UIView *grayView;
+@property UIView *blackView;
+@property UIActivityIndicatorView *activityIndicator;
+
 @end
 
 @implementation SBIndicatorView
 
-//- (instancetype)init
-//{
-//    self = [super init];
-//    if (self) {
-//        [self setIndicator];
-//    }
-//    return self;
-//}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (instancetype)init {
+    self = [super init];
     if (self) {
-        [self setIndicator];
+        
+        self.grayView = [[UIView alloc]init];
+        [self addSubview:self.grayView];
+        
+        self.blackView = [[UIView alloc]init];
+        [self.grayView addSubview:self.blackView];
+        
+        self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [self.grayView addSubview:self.activityIndicator];
+
     }
     return self;
 }
 
-- (void)setIndicator
+- (void)layoutSubviews
 {
-       
-    UIView *grayView = [[UIView alloc]initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height)];
-    CGFloat centerX = grayView.frame.size.width / 2;
-    CGFloat centerY = grayView.frame.size.height / 2;
-    grayView.backgroundColor = [UIColor colorWithRed:169 / 255.0 green:169 / 255.0 blue:169 / 255.0 alpha:0.7];
-    [self addSubview:grayView];
+    [super layoutSubviews];
+    [self.grayView setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height)];
+    CGFloat centerX = self.grayView.frame.size.width / 2;
+    CGFloat centerY = self.grayView.frame.size.height / 2;
+    self.grayView.backgroundColor = [UIColor colorWithRed:169 / 255.0 green:169 / 255.0 blue:169 / 255.0 alpha:0.7];
     
-    UIView *blackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, 60)];
-    [blackView.layer setCornerRadius:20.0f];
-    blackView.backgroundColor = [UIColor blackColor];
-    [blackView setCenter:CGPointMake(centerX, centerY)];
-    [grayView addSubview:blackView];
+    [self.blackView setFrame:CGRectMake(0, 0, 60, 60)];
+    [self.blackView.layer setCornerRadius:20.0f];
+    self.blackView.backgroundColor = [UIColor blackColor];
+    [self.blackView setCenter:CGPointMake(centerX, centerY)];
     
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [grayView addSubview:activityIndicator];
     //    activityIndicator.center = CGPointMake(centerX, centerY);
-    [activityIndicator setCenter:CGPointMake(centerX, centerY)];
-    
-    [activityIndicator startAnimating];
-}
-/*
-#pragma mark - Navigation
+    [self.activityIndicator setCenter:CGPointMake(centerX, centerY)];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+
+- (void)startIndicatorOnView:(UIView *)targetView
+{
+    [targetView addSubview:self];
+    [self setFrame:targetView.frame];
+    [self layoutSubviews];
+    
+    [self.activityIndicator startAnimating];
+}
+
+- (void)stopIndicator
+{
+    [self removeFromSuperview];
+    [self.activityIndicator stopAnimating];
+}
 
 @end

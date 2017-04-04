@@ -15,12 +15,12 @@
                 <viewControllerPlaceholder storyboardIdentifier="SBSignUpViewController" storyboardName="SBSignUpViewController" id="hjf-Vu-NLU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bns-1m-mid" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242" y="-226"/>
+            <point key="canvasLocation" x="1726" y="139"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SBLoginViewController" id="BYZ-38-t0r" customClass="SBLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SBLoginViewController" id="BYZ-38-t0r" customClass="SBLogInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -53,10 +53,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="42" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="UaN-GT-i2X">
-                                                <rect key="frame" x="0.0" y="240" width="375" height="87"/>
+                                                <rect key="frame" x="0.0" y="240" width="375" height="89"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="87" id="LQ8-uw-Tcg"/>
+                                                    <constraint firstAttribute="height" constant="89" id="LQ8-uw-Tcg"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="PMZ-Tg-O1Y"/>
@@ -64,23 +64,24 @@
                                                 </connections>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0a-F5-G2N">
-                                                <rect key="frame" x="0.0" y="328" width="375" height="33"/>
+                                                <rect key="frame" x="0.0" y="329" width="375" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="LGf-qs-ESt"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="로그인">
                                                     <color key="titleColor" red="0.098039215686274508" green="0.55686274509803924" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x2v-tq-qgp"/>
+                                                    <action selector="loginButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p9x-LR-MG1"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4D-c1-hD0">
                                                 <rect key="frame" x="269" y="25" width="98" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="신규 회원 가입">
-                                                    <color key="titleColor" red="0.098039215686274508" green="0.55686274509803924" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <state key="normal" title="신규 회원 가입"/>
                                                 <connections>
-                                                    <action selector="nextToSignUpPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4im-Eu-N9e"/>
+                                                    <segue destination="hjf-Vu-NLU" kind="show" id="sQU-Bf-Pb0"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수북 웹 서비스에서 가입하셨거나 앱을 새로 설치하셨다면 로그인 해 주세요. 혹시 아직 가입하지 않으셨다면, 상단의 회원 가입 버튼을 눌러 주세요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-Vb-rMK">
@@ -98,7 +99,7 @@
                                             <constraint firstItem="AyT-Bb-0RQ" firstAttribute="top" secondItem="jSD-Dv-WYf" secondAttribute="bottom" constant="42" id="1eb-AA-kG8"/>
                                             <constraint firstAttribute="trailing" secondItem="UaN-GT-i2X" secondAttribute="trailing" id="5yu-vr-hNk"/>
                                             <constraint firstItem="jSD-Dv-WYf" firstAttribute="leading" secondItem="11r-2v-4Sf" secondAttribute="leading" constant="16" id="B0r-qT-c74"/>
-                                            <constraint firstItem="y0a-F5-G2N" firstAttribute="top" secondItem="UaN-GT-i2X" secondAttribute="bottom" constant="1" id="BhE-dp-u5t"/>
+                                            <constraint firstItem="y0a-F5-G2N" firstAttribute="top" secondItem="UaN-GT-i2X" secondAttribute="bottom" id="BhE-dp-u5t"/>
                                             <constraint firstItem="y0a-F5-G2N" firstAttribute="leading" secondItem="11r-2v-4Sf" secondAttribute="leading" id="FD7-KM-kf3"/>
                                             <constraint firstItem="pmT-Vb-rMK" firstAttribute="top" secondItem="11r-2v-4Sf" secondAttribute="top" constant="144" id="P7K-W7-znE"/>
                                             <constraint firstAttribute="trailing" secondItem="y0a-F5-G2N" secondAttribute="trailing" id="Phh-bk-o7L"/>

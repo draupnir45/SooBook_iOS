@@ -64,16 +64,11 @@
     
     //Task
     NSURLSessionUploadTask *task = [manager uploadTaskWithRequest:request fromData:nil progress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        if (error == nil) {
-            NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-            
-            if (statusCode == 200) {
-                completion(YES, responseObject);
-            } else {
-                completion(NO, responseObject);
-            }
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            completion(YES, responseObject);
         } else {
-            NSLog(@"Error : %@",error);
+            completion(NO, responseObject);
         }
     }];
     [task resume];

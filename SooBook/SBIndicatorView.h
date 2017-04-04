@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SBIndicatorView : UIView
-- (void)setIndicator;
+
+- (void)startIndicatorOnView:(UIView *)targetView;
+- (void)stopIndicator;
+
 @end

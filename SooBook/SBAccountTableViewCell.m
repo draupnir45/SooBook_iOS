@@ -6,13 +6,13 @@
 //  Copyright © 2017년 Parkchanwoong. All rights reserved.
 //
 
-#import "SBCustomTableViewCell.h"
+#import "SBAccountTableViewCell.h"
 
-@implementation SBCustomTableViewCell
+@implementation SBAccountTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

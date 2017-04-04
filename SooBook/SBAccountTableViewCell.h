@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBCustomTableViewCell : UITableViewCell
+@interface SBAccountTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *tableViewCellLabel;
 @property (strong, nonatomic) IBOutlet UITextField *tableViewCellTextField;
 
