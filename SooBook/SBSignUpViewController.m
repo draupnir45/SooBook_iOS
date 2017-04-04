@@ -70,7 +70,6 @@
             break;
         default:
            [self doSignUpRequest];
-            NSLog(@"Done눌렀다");
             break;
     }
     
