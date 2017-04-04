@@ -29,11 +29,9 @@
     
     self.datilViewLabel.text    = self.contentsString;
     
-    
-    
     self.backImageView.image = [UIImage imageNamed:self.imageString];
     
-    [JCBlurrManager blurrView:self.backImageView withEffectStyle:UIBlurEffectStyleDark];
+
     
     self.title = self.mainNameString;
  
@@ -46,7 +44,9 @@
     
 }
 
-
+- (void)viewDidLayoutSubviews {
+    [JCBlurrManager blurrView:self.backImageView withEffectStyle:UIBlurEffectStyleDark];
+}
 
 
 - (void)didReceiveMemoryWarning {
