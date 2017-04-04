@@ -28,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXp-uC-y9e">
-                        <rect key="frame" x="122" y="10.5" width="237" height="21"/>
+                        <rect key="frame" x="122" y="-1" width="237" height="44"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -36,6 +36,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="6R4-pL-Unf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="EN3-ol-Gvj"/>
+                    <constraint firstItem="eXp-uC-y9e" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="Hm4-wl-tPk"/>
                     <constraint firstItem="6R4-pL-Unf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MCf-EQ-dea"/>
                     <constraint firstItem="eXp-uC-y9e" firstAttribute="leading" secondItem="6R4-pL-Unf" secondAttribute="trailing" constant="16" id="Vpp-cX-Bwk"/>
                     <constraint firstAttribute="trailing" secondItem="eXp-uC-y9e" secondAttribute="trailing" constant="16" id="X5H-er-NcC"/>
