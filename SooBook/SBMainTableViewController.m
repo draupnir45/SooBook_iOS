@@ -63,6 +63,11 @@
     self.navigationItem.titleView = titleImageview;
     
 }
+- (void)viewDidAppear:(BOOL)animated {
+    if ([[[SBAuthCenter sharedInstance] userToken] length] == 0) {
+        [self performSegueWithIdentifier:@"LogInSegue" sender:self];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

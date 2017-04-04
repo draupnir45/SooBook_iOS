@@ -9,6 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SBLoginViewController-->
+        <scene sceneID="F8U-RZ-Oyq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SBLoginViewController" id="yR4-aR-tVF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3n2-5B-4rM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969" y="-1117"/>
+        </scene>
         <!--Main Table View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -97,6 +105,7 @@
                     <connections>
                         <outlet property="tableView" destination="MoC-GR-k6N" id="jCk-Af-1Vs"/>
                         <segue destination="1bc-aS-HIY" kind="show" identifier="detailSegue" id="7xX-NW-lOx"/>
+                        <segue destination="yR4-aR-tVF" kind="presentation" identifier="LogInSegue" id="ohN-jO-O7t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

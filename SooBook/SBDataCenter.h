@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class SBBookData;
 
 
 
@@ -26,5 +27,8 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 @interface SBDataCenter : NSObject
 
 @property (readonly) NSArray *myBookDatas;
++ (instancetype)sharedBookData;
+- (void)addBook:(SBBookData *)book completion:(SBDataCompletion)completion;
+- (void)removeBook:(SBBookData *)book completion:(SBDataCompletion)completion;
 
 @end
