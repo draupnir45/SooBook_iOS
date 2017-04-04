@@ -40,7 +40,7 @@
     
 
     //*********************SBAuthCenter*********************
-    NSString *testerID = @"jongchan7@soobook.ing";
+    NSString *testerID = @"jongchan100@soobook.ing";
     NSString *testerPW = @"Http4892";
     NSString *testerNN = @"종찬";
     

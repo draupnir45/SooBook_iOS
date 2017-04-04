@@ -10,13 +10,13 @@
 #import "SBCustomTableViewCell.h"
 #import "SBSignUpViewController.h"
 #import "UIColor+SBAdditions.h"
-#import "SBIndicatorViewController.h"
+#import "SBIndicatorView.h"
 
 @interface SBLoginViewController ()<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
-
+@property SBIndicatorView *indiView;
 @end
 
 @implementation SBLoginViewController
@@ -28,7 +28,8 @@
     self.tableView.sectionHeaderHeight = 0.0;
     self.tableView.sectionFooterHeight = 0.0;
     self.tableView.backgroundColor = [UIColor whiteColor];
-
+    
+    self.indiView = [[SBIndicatorView alloc] initWithFrame:self.view.frame];
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -61,7 +62,7 @@
     if (textField.tag == 100) {
         [cell.tableViewCellTextField becomeFirstResponder];
     } else {
-//        [cell.tableViewCellTextField resignFirstResponder]; //나중에 없애야함
+
         [self actionLogin];
         
     }
@@ -167,6 +168,9 @@
 //ID와 password를 검사함
 - (BOOL)ID:(NSString *)ID password:(NSString *)password
 {
+    SBCustomTableViewCell *cell1 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    SBCustomTableViewCell *cell2 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    
     if (ID.length == 0 || password.length == 0)
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"빈칸을 모두 채워주세요" preferredStyle:UIAlertControllerStyleAlert];
@@ -175,7 +179,30 @@
         [alert addAction:noAction];
         [self presentViewController:alert animated:YES completion:nil];
     }
-   
+
+    
+    [self.view addSubview:self.indiView];
+    [[SBAuthCenter sharedInstance] loginWithUserID:cell1.tableViewCellTextField.text
+                                          password:cell2.tableViewCellTextField.text
+                                        completion:^(BOOL sucess, id data) {
+        if (sucess)
+        {
+            NSDictionary *dataDict = (NSDictionary *)data;
+            NSLog(@"로그인 성공, 토큰 : %@", [dataDict objectForKey:USERTOKEN_KEY]);
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"로그인 성공" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
+            
+            [alert addAction:noAction];
+//            [self presentViewController:alert animated:YES completion:nil];
+
+        }
+        
+        
+        [self.indiView removeFromSuperview];
+        
+    }];
+    
     return YES;
 }
 
@@ -201,14 +228,24 @@
     SBCustomTableViewCell *cell1 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     SBCustomTableViewCell *cell2 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     [self ID:cell1.tableViewCellTextField.text password:cell2.tableViewCellTextField.text];
+
+    
+    //전부 포커스를 잃어버림
+//    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+    //인디케이터 발동!
+//    [self.view addSubview:self.indiView];
     NSLog(@"메인페이지로 넘어가기");
 }
-
-- (IBAction)test:(UIButton *)sender
-{
-    SBIndicatorViewController *test = [SBIndicatorViewController new];
-    [test setIndicator];
-    NSLog(@"클릭");
-}
+//인디케이터 연습을 위한 버튼
+//- (IBAction)test:(UIButton *)sender
+//{
+//    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+//    
+//
+//
+//    [self.view addSubview:self.indiView];
+//    
+//    NSLog(@"클릭");
+//}
 
 @end

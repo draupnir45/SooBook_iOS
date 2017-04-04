@@ -19,9 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    TestingClass *tester = [[TestingClass alloc] init];
-    [tester startTesting];
-    
+//    TestingClass *tester = [[TestingClass alloc] init];
+//    [tester startTesting];
+
 }
 
 

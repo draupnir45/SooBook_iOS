@@ -1,5 +1,5 @@
 //
-//  SBIndicatorView.h
+//  SBIndicatorViewController.h
 //  SooBook
 //
 //  Created by 박찬웅 on 2017. 4. 3..
@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SBIndicatorView : UIView
-
+- (void)setIndicator;
 @end

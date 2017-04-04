@@ -8,11 +8,12 @@
 
 #import "SBSignUpViewController.h"
 #import "SBCustomTableViewCell.h"
+#import "SBIndicatorView.h"
 
 @interface SBSignUpViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *signupTableView;
 @property (strong, nonatomic) IBOutlet UIButton *signUpButton;
-
+@property SBIndicatorView *indiView;
 @end
 
 @implementation SBSignUpViewController
@@ -27,6 +28,8 @@
     self.signupTableView.sectionFooterHeight = 0;
     self.signupTableView.backgroundColor = [UIColor whiteColor];
     //-----------------------
+    
+    self.indiView = [[SBIndicatorView alloc] initWithFrame:self.view.frame];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -47,22 +50,23 @@
 //리턴 버튼을 눌렀을 경우의 반응 첫번째에 리턴을 누르면 두번째로 , 두번째는 세번째로 , 세번째는 done을 누르면 회원가입이 되어야 한다.
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    SBCustomTableViewCell *cell = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    SBCustomTableViewCell *cell2 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    SBCustomTableViewCell *cell3 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    
+    SBCustomTableViewCell *cell1 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    SBCustomTableViewCell *cell2 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    SBCustomTableViewCell *cell3 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    SBCustomTableViewCell *cell4 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
     switch (textField.tag) {
         case 100:
-            [cell.tableViewCellTextField becomeFirstResponder];
-            break;
-        case 200:
             [cell2.tableViewCellTextField becomeFirstResponder];
             break;
-        case 300:
+        case 200:
             [cell3.tableViewCellTextField becomeFirstResponder];
             break;
+        case 300:
+            [cell4.tableViewCellTextField becomeFirstResponder];
+            break;
         default:
-            [textField resignFirstResponder];
+           [self checkEmail:cell1.tableViewCellTextField.text CheckPasswordEqualsPassword1:cell2.tableViewCellTextField.text password2:cell3.tableViewCellTextField.text nickName:cell4.tableViewCellTextField.text];
+            NSLog(@"Done눌렀다");
             break;
     }
     
@@ -158,7 +162,7 @@
             break;
         case 1:
             cell.tableViewCellLabel.text = @"Password";
-            cell.tableViewCellTextField.placeholder = @"영문, 숫자 포함 8자 이상";
+            cell.tableViewCellTextField.placeholder = @"6자리 이상";
             cell.tableViewCellTextField.tag = 200;
             cell.tableViewCellTextField.secureTextEntry = YES;
             break;
@@ -186,7 +190,7 @@
 
 
 #pragma mark - Button
-//회원가입 버튼 클릭으로 바로 위 메소드 부름
+//회원가입 버튼 클릭
 - (IBAction)clickToSignUpButton:(UIButton *)sender
 {
     SBCustomTableViewCell *cell1 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -260,10 +264,10 @@
         
         return NO;
         
-    } else if (password != password2){ //비번 1 과 2가 다르면
+    } else if (password != password2 || password.length <6 ){ //비번 1 과 2가 다르거나 길이가 6자 이하라면
         
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"비밀번호가 일치하지 않습니다." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"패스워드를 확인해주세요" preferredStyle:UIAlertControllerStyleAlert];
         
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:nil];
@@ -287,24 +291,70 @@
         
         
     } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"회원가입이 완료되었습니다" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-        
-        [alert addAction:okAction];
-        [self presentViewController:alert animated:YES completion:nil];
-        
-        
-        
+    
+        [self goToMainPage];
     }
     
     return YES;
     
 }
+//버튼을 클릭해도, done를 눌러도 이곳을 타야함
+-(void)goToMainPage
+{
+    //모든 포커싱 해제
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+    
+    //인디케이터를 화면에 띄움
+    [self.view addSubview:self.indiView];
+    
+    //아이디
+    SBCustomTableViewCell *cell1 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    //비밀번호
+    SBCustomTableViewCell *cell2 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
 
+    //닉네임
+    SBCustomTableViewCell *cell4 = [self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    
+    [[SBAuthCenter sharedInstance] signUpWithUserID:cell1.tableViewCellTextField.text password:cell2.tableViewCellTextField.text nickName:cell4.tableViewCellTextField.text completion:^(BOOL sucess, id data) {
+        
+        //인디케이터 해제
+        [self.indiView removeFromSuperview];
+        
+        if (sucess)
+        {
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"회원가입이 완료되었습니다" preferredStyle:UIAlertControllerStyleAlert];
+            
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }];
+        
+                [alert addAction:okAction];
 
+                [self presentViewController:alert animated:YES completion:^{
+                    
+                }];
+            
+            
+            [[SBAuthCenter sharedInstance] loginWithUserID:cell1.tableViewCellTextField.text password:cell2.tableViewCellTextField.text completion:^(BOOL sucess, id data) {
+                
+                if (sucess) {
+                    NSDictionary *dataDict = (NSDictionary *)data;
+                    NSLog(@"로그인까지 성공 , 토큰값 : %@",[dataDict objectForKey:USERTOKEN_KEY]);
+                    [self.navigationController popViewControllerAnimated:YES];
+                } else {
+                    
+                }
+            }];
+            
+        } else {
+            
+        }
+        
+        
+    }];
+}
 
 /*
  #pragma mark - Navigation
