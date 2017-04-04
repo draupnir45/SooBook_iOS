@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger, SBNetworkLogInResponse)
 @property NSString *userToken;
 
 + (instancetype)sharedInstance;
-- (void)loginWithUserID:(NSString *)userID
+- (void)logInWithUserID:(NSString *)userID
                password:(NSString *)password
              completion:(SBDataCompletion)completion;
 - (void)signUpWithUserID:(NSString *)userID

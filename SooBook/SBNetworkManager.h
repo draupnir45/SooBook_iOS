@@ -18,8 +18,10 @@ typedef void (^SBDataCompletion)(BOOL sucess, id data);
                 nickName:(NSString *)nickName
               completion:(SBDataCompletion)completion;
 
-+ (void)loginWithUserID:(NSString *)userID
++ (void)logInWithUserID:(NSString *)userID
                password:(NSString *)password
              completion:(SBDataCompletion)completion;
+
++ (void)logOutWithToken:(NSString *)token;
 
 @end

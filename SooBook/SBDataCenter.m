@@ -69,15 +69,11 @@
 
 - (void)saveData
 {
-    
-    
     if (![self.fileManager fileExistsAtPath:self.documentDirPath]) {
         NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"TempBookData" ofType:@"plist"];
         [self.fileManager copyItemAtPath:bundlePath toPath:self.documentDirPath error:nil];
     }
-    
     [self.myBookDatas writeToFile:self.documentDirPath atomically:NO];
-    
 }
 
 #pragma mark - 플리스트 관리 Plist Utilities
@@ -91,6 +87,7 @@
 }
 
 #pragma mark - 책 등록/삭제 Add or Remove Book
+
 - (void)addBook:(SBBookData *)book completion:(SBDataCompletion)completion
 {
     

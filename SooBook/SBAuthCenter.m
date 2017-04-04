@@ -31,14 +31,12 @@
     return self;
 }
 
-
 #pragma mark - User Token Control Methods
 
 ///NSUserDefaults에서 토큰 불러와 프로퍼티에 저장.
 - (void)loadUserToken
 {
-    self.userToken = @"adsfhlf3h4lk25ig34j2k5gh4k5jhg34kj52hg3";
-//    self.userToken = [[NSUserDefaults standardUserDefaults] objectForKey:USERTOKEN_KEY];
+    self.userToken = [[NSUserDefaults standardUserDefaults] objectForKey:USERTOKEN_KEY];
 }
 
 ///더이상 사용하지 않는 토큰을 삭제하고 NSUserDefaults에서도 삭제.
@@ -55,14 +53,13 @@
     [[NSUserDefaults standardUserDefaults] setObject:token forKey:USERTOKEN_KEY];
 }
 
+#pragma mark - Authentification
 
-#pragma mark - Login Methods
-
-- (void)loginWithUserID:(NSString *)userID
+- (void)logInWithUserID:(NSString *)userID
                password:(NSString *)password
              completion:(SBDataCompletion)completion
 {
-    [SBNetworkManager loginWithUserID:userID password:password completion:^(BOOL sucess, id data) {
+    [SBNetworkManager logInWithUserID:userID password:password completion:^(BOOL sucess, id data) {
         if (sucess) {
             NSDictionary *dataDict = (NSDictionary *)data;
             [self saveUserToken:[dataDict objectForKey:USERTOKEN_KEY]];
@@ -83,6 +80,7 @@
 
 - (void)logOut
 {
+    [SBNetworkManager logOutWithToken:self.userToken];
     [self removeUserToken];
 }
 

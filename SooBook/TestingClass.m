@@ -48,7 +48,7 @@
         if (sucess) {
             NSLog(@"회원가입 성공");
             testingBlock(sucess,data);
-            [[SBAuthCenter sharedInstance] loginWithUserID:testerID password:testerPW completion:^(BOOL sucess, id data) {
+            [[SBAuthCenter sharedInstance] logInWithUserID:testerID password:testerPW completion:^(BOOL sucess, id data) {
                 if (sucess) {
                     NSDictionary *dataDict = (NSDictionary *)data;
                     NSLog(@"잇달아 로그인 성공, 토큰 : %@", [dataDict objectForKey:USERTOKEN_KEY]);
