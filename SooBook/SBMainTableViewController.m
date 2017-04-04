@@ -39,6 +39,9 @@
 {
     [super viewDidLoad];
     self.title = @"내 책장";
+    
+    
+    
      //NSArray *collectionDataArr = @[@"1", @"2",@"3",@"4",@"5",@"6"];
     
 /////////////////////////////////테스트용 DataSource//////////////////////////////////
@@ -125,10 +128,11 @@
         return cell;
         
     } else {
+        SBBookData *item = [[[SBDataCenter sharedBookData] myBookDatas] objectAtIndex:indexPath.row];
         SecondSectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SecondSectionTableViewCell" forIndexPath:indexPath];
-        [cell setCellDataWithImageName:(NSString *)[self.mainImageArray objectAtIndex:indexPath.row]
-                                 title:(NSString *)[self.titleLabelArray objectAtIndex:indexPath.row]
-                              subtitle:(NSString *)[self.subLabelArray objectAtIndex:indexPath.row]];
+        [cell setCellDataWithImageName:item.imageURL
+                                 title:item.title
+                              subtitle:item.author];
         cell.tag = indexPath.row;
         return cell;
     }
