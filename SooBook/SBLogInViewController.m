@@ -6,20 +6,20 @@
 //  Copyright © 2017년 Parkchanwoong. All rights reserved.
 //
 
-#import "SBLoginViewController.h"
+#import "SBLogInViewController.h"
 #import "SBCustomTableViewCell.h"
 #import "SBSignUpViewController.h"
 #import "UIColor+SBAdditions.h"
 #import "SBIndicatorView.h"
 
-@interface SBLoginViewController ()<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
+@interface SBLogInViewController ()<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
 @property SBIndicatorView *indiView;
 @end
 
-@implementation SBLoginViewController
+@implementation SBLogInViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -182,7 +182,7 @@
 
     
     [self.view addSubview:self.indiView];
-    [[SBAuthCenter sharedInstance] loginWithUserID:cell1.tableViewCellTextField.text
+    [[SBAuthCenter sharedInstance] logInWithUserID:cell1.tableViewCellTextField.text
                                           password:cell2.tableViewCellTextField.text
                                         completion:^(BOOL sucess, id data) {
         if (sucess)

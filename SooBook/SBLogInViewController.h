@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBLoginViewController : UIViewController
+@interface SBLogInViewController : UIViewController
 
 
 @end

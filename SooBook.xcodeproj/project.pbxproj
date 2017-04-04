@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E11F4DE1E920E03002FD1E6 /* SBIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */; };
 		2E1FA2311E8E15900055F3FE /* SBSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA2281E8E15900055F3FE /* SBSignUpViewController.m */; };
-		2E1FA2321E8E15900055F3FE /* SBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA2291E8E15900055F3FE /* SBLoginViewController.m */; };
+		2E1FA2321E8E15900055F3FE /* SBLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA2291E8E15900055F3FE /* SBLogInViewController.m */; };
 		2E1FA2331E8E15900055F3FE /* SBLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FA22A1E8E15900055F3FE /* SBLoginViewController.storyboard */; };
 		2E1FA2341E8E15900055F3FE /* SBSignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FA22B1E8E15900055F3FE /* SBSignUpViewController.storyboard */; };
 		2E1FA2351E8E15900055F3FE /* SBCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA22C1E8E15900055F3FE /* SBCustomTableViewCell.m */; };
@@ -35,14 +35,14 @@
 		2E11F4DC1E920E03002FD1E6 /* SBIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBIndicatorView.h; sourceTree = "<group>"; };
 		2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBIndicatorView.m; sourceTree = "<group>"; };
 		2E1FA2281E8E15900055F3FE /* SBSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSignUpViewController.m; sourceTree = "<group>"; };
-		2E1FA2291E8E15900055F3FE /* SBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLoginViewController.m; sourceTree = "<group>"; };
+		2E1FA2291E8E15900055F3FE /* SBLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLogInViewController.m; sourceTree = "<group>"; };
 		2E1FA22A1E8E15900055F3FE /* SBLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBLoginViewController.storyboard; sourceTree = "<group>"; };
 		2E1FA22B1E8E15900055F3FE /* SBSignUpViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBSignUpViewController.storyboard; sourceTree = "<group>"; };
 		2E1FA22C1E8E15900055F3FE /* SBCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCustomTableViewCell.m; sourceTree = "<group>"; };
 		2E1FA22D1E8E15900055F3FE /* SBCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBCustomTableViewCell.xib; sourceTree = "<group>"; };
 		2E1FA22E1E8E15900055F3FE /* SBCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCustomTableViewCell.h; sourceTree = "<group>"; };
 		2E1FA22F1E8E15900055F3FE /* SBSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSignUpViewController.h; sourceTree = "<group>"; };
-		2E1FA2301E8E15900055F3FE /* SBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLoginViewController.h; sourceTree = "<group>"; };
+		2E1FA2301E8E15900055F3FE /* SBLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLogInViewController.h; sourceTree = "<group>"; };
 		96872F8504C03B1DFF6B95E8 /* Pods-SooBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SooBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-SooBook/Pods-SooBook.release.xcconfig"; sourceTree = "<group>"; };
 		B903B4251E8FDEBF005817B1 /* SBNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBNetworkManager.h; sourceTree = "<group>"; };
 		B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBNetworkManager.m; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 		2E1FA2371E8E159B0055F3FE /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				2E1FA2301E8E15900055F3FE /* SBLoginViewController.h */,
-				2E1FA2291E8E15900055F3FE /* SBLoginViewController.m */,
+				2E1FA2301E8E15900055F3FE /* SBLogInViewController.h */,
+				2E1FA2291E8E15900055F3FE /* SBLogInViewController.m */,
 				2E1FA22A1E8E15900055F3FE /* SBLoginViewController.storyboard */,
 				2E1FA22F1E8E15900055F3FE /* SBSignUpViewController.h */,
 				2E1FA2281E8E15900055F3FE /* SBSignUpViewController.m */,
@@ -331,7 +331,7 @@
 				B903B4271E8FDEBF005817B1 /* SBNetworkManager.m in Sources */,
 				B97FE1341E8A49BD00731848 /* SBBookData.m in Sources */,
 				B97FE0F11E8A3C9F00731848 /* AppDelegate.m in Sources */,
-				2E1FA2321E8E15900055F3FE /* SBLoginViewController.m in Sources */,
+				2E1FA2321E8E15900055F3FE /* SBLogInViewController.m in Sources */,
 				2E1FA2351E8E15900055F3FE /* SBCustomTableViewCell.m in Sources */,
 				B95F78691E8CE056009A9A93 /* TestingClass.m in Sources */,
 				B95F786F1E8D0AF3009A9A93 /* SBDataCenter.m in Sources */,
