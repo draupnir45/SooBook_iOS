@@ -184,10 +184,13 @@
                                                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"로그인 성공"
                                                                                                                    message:nil
                                                                                                             preferredStyle:UIAlertControllerStyleAlert];
-                                                    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인"
+
+                                                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인"
                                                                                                        style:UIAlertActionStyleCancel
-                                                                                                     handler:nil]; //메인페이지로 넘어갈 것!
-                                                    [alert addAction:noAction];
+                                                                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                                    }];
+                                                    [alert addAction:okAction];
                                                     [self presentViewController:alert animated:YES completion:nil];
                                                     [self.indicatorView stopIndicator];
                                                 } else {
