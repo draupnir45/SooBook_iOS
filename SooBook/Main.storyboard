@@ -15,7 +15,7 @@
                 <viewControllerPlaceholder storyboardName="SBLoginViewController" id="yR4-aR-tVF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3n2-5B-4rM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="969" y="-1117"/>
+            <point key="canvasLocation" x="1578" y="-1073"/>
         </scene>
         <!--Main Table View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968.79999999999995" y="-546.47676161919048"/>
+            <point key="canvasLocation" x="962" y="-546"/>
         </scene>
         <!--Title-->
         <scene sceneID="4x0-u0-In4">
@@ -305,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaw-2X-Gae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2465" y="-546"/>
+            <point key="canvasLocation" x="2522" y="-546"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1zy-qK-cyx">
@@ -323,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8td-ns-nWK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2465" y="245"/>
+            <point key="canvasLocation" x="2521" y="213"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dtF-01-hox">
