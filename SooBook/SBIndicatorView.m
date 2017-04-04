@@ -18,10 +18,11 @@
 
 @implementation SBIndicatorView
 
-- (instancetype)init {
+- (instancetype)init
+{
     self = [super init];
-    if (self) {
-        
+    if (self)
+    {
         self.grayView = [[UIView alloc]init];
         [self addSubview:self.grayView];
         
@@ -30,7 +31,6 @@
         
         self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [self.grayView addSubview:self.activityIndicator];
-
     }
     return self;
 }

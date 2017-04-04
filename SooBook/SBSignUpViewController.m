@@ -77,7 +77,8 @@
 }
 
 //셀의 텍스트 필드 4곳 모두 무언가가 채워져 있으면 버튼 이미지 변경
-- (void)editChanged:(UITextField *)sender {
+- (void)editChanged:(UITextField *)sender
+{
 
     if (self.idTextField.text.length > 0 && self.password1TextField.text.length > 0 &&self.password2TextField.text.length > 0 && self.nickNameTextField.text.length > 0)
     {
@@ -94,12 +95,12 @@
 #pragma mark - TableView
 
 /*----------------------- 테이블뷰의 헤더와 푸터를 줄이기 위한 부분 ----------------------------*/
--(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 1.0;
 }
 
--(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 {
     return 1.0;
 }
@@ -109,12 +110,12 @@
     return 44.0;
 }
 
--(UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
+- (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
     return [[UIView alloc] initWithFrame:CGRectZero];
 }
 
--(UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
+- (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
 {
     return [[UIView alloc] initWithFrame:CGRectZero];
 }
@@ -243,7 +244,7 @@
 }
 
 //버튼을 클릭해도, done를 눌러도 이곳을 타야함
--(void)doSignUpRequest
+- (void)doSignUpRequest
 {
     NSString *idString = self.idTextField.text;
     NSString *password1 = self.password1TextField.text;
