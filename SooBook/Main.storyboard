@@ -212,13 +212,13 @@
                                                                     <action selector="backButtonSelected:" destination="K1k-rM-qUg" eventType="touchUpInside" id="oSs-g6-2Iz"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg2-O9-ZZJ">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg2-O9-ZZJ">
                                                                 <rect key="frame" x="343" y="30" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="24" id="0QZ-eK-Gdw"/>
                                                                     <constraint firstAttribute="width" constant="24" id="Tr6-0h-saR"/>
                                                                 </constraints>
-                                                                <state key="normal" title="h"/>
+                                                                <state key="normal" image="mybookHeartOff"/>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -430,6 +430,7 @@
     <resources>
         <image name="1.jpeg" width="300" height="425"/>
         <image name="backChevron" width="13" height="22"/>
+        <image name="mybookHeartOff" width="22" height="21"/>
         <image name="square-individual-nine-7.png" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.098039215690000001" green="0.5568627451" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
