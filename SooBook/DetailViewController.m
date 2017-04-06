@@ -9,7 +9,8 @@
 #import "DetailViewController.h"
 #import "RateView.h"
 #import "JCBlurrManager.h"
-
+#import "SBDataCenter.h"
+#import "SBBookData.h"
 
 @interface DetailViewController ()
 <RateViewDelegate>
@@ -24,16 +25,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
    
-    self.subtitleLabel.text    = self.secondString;
-    self.bookCoverImageView.image = [UIImage imageNamed:self.imageString];
+    SBBookData *item = [[SBDataCenter sharedBookData] bookDataWithPrimaryKey:self.bookPrimaryKey];
+    self.bookCoverImageView.image = [UIImage imageNamed:
+                                     [NSString stringWithFormat:@"%@.jpg",item.imageURL]];
+    self.subtitleLabel.text = item.author;
+    self.datilViewLabel.text = item.shortDescription;
+    //self.navigationItem.title = item.title;
     
-    self.datilViewLabel.text    = self.contentsString;
-    
-    self.backImageView.image = [UIImage imageNamed:self.imageString];
-    
-
-    
-    self.title = self.mainNameString;
  
     self.starRateView.rating = 2;
     self.starRateView.delegate = self;
@@ -48,6 +46,17 @@
     [JCBlurrManager blurrView:self.backImageView withEffectStyle:UIBlurEffectStyleDark];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [self.navigationController setNavigationBarHidden:YES];
+    
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [self.navigationController setNavigationBarHidden:NO];
+    
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

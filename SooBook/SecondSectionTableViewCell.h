@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bookCoverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property NSInteger bookPrimaryKey;
 
 - (void)setCellDataWithImageName:(NSString*)imageName
                            title:(NSString*)title

@@ -117,4 +117,16 @@
     completion(YES, book);
 }
 
+- (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey {
+    SBBookData *resultItem;
+    
+    for (SBBookData *item in self.myBookDatas) {
+        if (item.bookPrimaryKey == primaryKey) {
+            resultItem = item;
+        }
+    }
+    
+    return resultItem;
+}
+
 @end

@@ -30,5 +30,6 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 + (instancetype)sharedBookData;
 - (void)addBook:(SBBookData *)book completion:(SBDataCompletion)completion;
 - (void)removeBook:(SBBookData *)book completion:(SBDataCompletion)completion;
+- (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey;
 
 @end

@@ -9,7 +9,7 @@
 #import "SBBookData.h"
 @interface SBBookData()
 
-@property (readwrite) NSString  *bookPrimaryKey;
+@property (readwrite) NSInteger bookPrimaryKey;
 @property (readwrite) NSString  *title;
 @property (readwrite) NSString  *imageURL;
 @property (readwrite) UIImage   *bookCover;
@@ -29,7 +29,7 @@
 {
     self = [super init];
     if (self) {
-        _bookPrimaryKey = dictionary[BOOK_PRIMARY_KEY];
+        _bookPrimaryKey = [dictionary[BOOK_PRIMARY_KEY] integerValue];
         _title = dictionary[TITLE_KEY];
         _imageURL = dictionary[IMAGE_URL_KEY];
         _author = dictionary[AUTHOR_KEY];

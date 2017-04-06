@@ -18,19 +18,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="96" height="172"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rch-L4-iJd">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rch-L4-iJd">
                         <rect key="frame" x="0.0" y="23" width="96" height="149"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="96" id="FXt-Qy-D3o"/>
-                            <constraint firstAttribute="height" constant="149" id="jbu-ln-Hcr"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </view>
-            <constraints>
-                <constraint firstItem="rch-L4-iJd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kHp-oU-VX4"/>
-                <constraint firstAttribute="bottom" secondItem="rch-L4-iJd" secondAttribute="bottom" id="tQN-JA-xMv"/>
-            </constraints>
             <size key="customSize" width="170" height="212"/>
             <connections>
                 <outlet property="firstCollectionImage" destination="rch-L4-iJd" id="fob-FO-S5E"/>

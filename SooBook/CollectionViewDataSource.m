@@ -29,9 +29,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     BookCoverCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BookCoverCollectionViewCell" forIndexPath:indexPath];
-    cell.firstCollectionImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.item+1]];
     
-    cell.tag = indexPath.row;
+    SBBookData *item = [[[SBDataCenter sharedBookData] myBookDatas] objectAtIndex:indexPath.row];
+    cell.firstCollectionImage.image = [UIImage imageNamed:item.imageURL];
+    
+    cell.bookPrimaryKey = item.bookPrimaryKey;
     return cell;
 }
 

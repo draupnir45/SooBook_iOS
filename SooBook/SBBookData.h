@@ -14,7 +14,7 @@
 
 @interface SBBookData : NSObject
 
-@property (readonly, nonatomic) NSString    *bookPrimaryKey;
+@property (readonly, nonatomic) NSInteger   bookPrimaryKey;
 @property (readonly, nonatomic) NSString    *title;
 @property (readonly, nonatomic) NSString    *imageURL;
 @property (readonly, nonatomic) UIImage     *bookCover;

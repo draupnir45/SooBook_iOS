@@ -11,17 +11,9 @@
 @interface DetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *bookCoverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *contentsLabel;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *datilViewLabel;
-
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 
-//임시, 데이터모델 만든 후 교체 필요
-@property NSString *secondString;
-@property NSString *imageString;
-@property NSString *contentsString;
-@property NSString *mainNameString;
+@property NSInteger bookPrimaryKey;
 
 @end

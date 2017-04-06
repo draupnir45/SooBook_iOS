@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *firstCollectionImage;
 
 @property CGFloat heightByWidthRatio;
+@property NSInteger bookPrimaryKey;
 
 + (CGFloat)getImageRatioWithImage:(UIImage *)image;
 
