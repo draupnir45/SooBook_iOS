@@ -14,6 +14,8 @@
 		2E1FA2341E8E15900055F3FE /* SBSignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FA22B1E8E15900055F3FE /* SBSignUpViewController.storyboard */; };
 		2E1FA2351E8E15900055F3FE /* SBAccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA22C1E8E15900055F3FE /* SBAccountTableViewCell.m */; };
 		2E1FA2361E8E15900055F3FE /* SBAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FA22D1E8E15900055F3FE /* SBAccountTableViewCell.xib */; };
+		2EF77C481E95FB330000DBFB /* SBMainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */; };
+		2EF77C4A1E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */; };
 		528658D54DDDA4FD2201F70F /* libPods-SooBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CA9D66326AA7725BB73B8C /* libPods-SooBook.a */; };
 		B902DA231E93BDF200B1FCA1 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA0F1E93BDF200B1FCA1 /* 1.jpeg */; };
 		B902DA241E93BDF200B1FCA1 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA101E93BDF200B1FCA1 /* 2.jpeg */; };
@@ -78,6 +80,9 @@
 		2E1FA22E1E8E15900055F3FE /* SBAccountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAccountTableViewCell.h; sourceTree = "<group>"; };
 		2E1FA22F1E8E15900055F3FE /* SBSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSignUpViewController.h; sourceTree = "<group>"; };
 		2E1FA2301E8E15900055F3FE /* SBLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLogInViewController.h; sourceTree = "<group>"; };
+		2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMainCollectionViewController.h; sourceTree = "<group>"; };
+		2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMainCollectionViewController.m; sourceTree = "<group>"; };
+		2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBMainCollectionViewController.storyboard; sourceTree = "<group>"; };
 		96872F8504C03B1DFF6B95E8 /* Pods-SooBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SooBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-SooBook/Pods-SooBook.release.xcconfig"; sourceTree = "<group>"; };
 		B902DA0F1E93BDF200B1FCA1 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		B902DA101E93BDF200B1FCA1 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
@@ -198,6 +203,9 @@
 				2E1FA22D1E8E15900055F3FE /* SBAccountTableViewCell.xib */,
 				2E11F4DC1E920E03002FD1E6 /* SBIndicatorView.h */,
 				2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */,
+				2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */,
+				2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */,
+				2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -435,6 +443,7 @@
 				B902DA291E93BDF200B1FCA1 /* 7.jpeg in Resources */,
 				2E1FA2331E8E15900055F3FE /* SBLoginViewController.storyboard in Resources */,
 				B902DA271E93BDF200B1FCA1 /* 5.jpeg in Resources */,
+				2EF77C4A1E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard in Resources */,
 				2E1FA2361E8E15900055F3FE /* SBAccountTableViewCell.xib in Resources */,
 				B902DA261E93BDF200B1FCA1 /* 4.jpeg in Resources */,
 				B902DA311E93BDF200B1FCA1 /* 15.jpeg in Resources */,
@@ -521,6 +530,7 @@
 				B95F786C1E8D0048009A9A93 /* UIColor+SBAdditions.m in Sources */,
 				B97FE1311E8A45EC00731848 /* NSData+AES.m in Sources */,
 				B9B064D11E93AAF000488D70 /* SecondSectionTableViewCell.m in Sources */,
+				2EF77C481E95FB330000DBFB /* SBMainCollectionViewController.m in Sources */,
 				B95F78661E8CDAF1009A9A93 /* SBAuthCenter.m in Sources */,
 				B97FE0EE1E8A3C9F00731848 /* main.m in Sources */,
 			);

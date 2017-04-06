@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pH4-zr-sUz">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Collection View Controller-->
+        <scene sceneID="3rc-HM-3C7">
+            <objects>
+                <viewController id="gyX-kf-GNq" customClass="SBMainCollectionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RyP-Db-reF"/>
+                        <viewControllerLayoutGuide type="bottom" id="70p-Ww-trw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ew0-d2-Qzw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oY8-t4-Llp">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="16" minY="40" maxX="16" maxY="22"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="46" minimumInteritemSpacing="27" id="AFo-lM-eVt">
+                                    <size key="itemSize" width="96" height="172"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="40" maxX="16" maxY="21"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCoverCollectionViewCell" id="UFa-oa-DeI" customClass="BookCoverCollectionViewCell">
+                                        <rect key="frame" x="16" y="40" width="96" height="172"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="96" height="172"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="gyX-kf-GNq" id="vBM-Ba-UPE"/>
+                                    <outlet property="delegate" destination="gyX-kf-GNq" id="SEV-S2-2ku"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oY8-t4-Llp" firstAttribute="centerY" secondItem="Ew0-d2-Qzw" secondAttribute="centerY" id="6Be-sj-KBi"/>
+                            <constraint firstItem="oY8-t4-Llp" firstAttribute="centerX" secondItem="Ew0-d2-Qzw" secondAttribute="centerX" id="AG7-aj-dOs"/>
+                            <constraint firstItem="oY8-t4-Llp" firstAttribute="width" secondItem="Ew0-d2-Qzw" secondAttribute="width" id="Ize-Qi-VzS"/>
+                            <constraint firstItem="oY8-t4-Llp" firstAttribute="height" secondItem="Ew0-d2-Qzw" secondAttribute="height" id="n0D-yN-Lu4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2kX-Yr-ela">
+                        <barButtonItem key="leftBarButtonItem" image="toTableViewButton" id="19b-Jd-vPj">
+                            <color key="tintColor" red="0.098039215690000001" green="0.5568627451" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeMainViewAction:" destination="gyX-kf-GNq" id="tE3-OO-UjL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="검색" id="yRg-Xw-S5V">
+                            <color key="tintColor" red="0.098039215690000001" green="0.5568627451" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="oY8-t4-Llp" id="MyI-Z3-m2P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="POo-Ko-i8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="-154.27286356821591"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d6s-aa-mM0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pH4-zr-sUz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QlZ-2w-6ge">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gyX-kf-GNq" kind="relationship" relationship="rootViewController" id="bpE-RF-208"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n75-Yn-T4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="200.80000000000001" y="-154.27286356821591"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="toTableViewButton" width="20" height="22"/>
+    </resources>
+</document>
