@@ -9,6 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SBMainCollectionViewController-->
+        <scene sceneID="73C-UZ-kbO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SBMainCollectionViewController" id="sw4-9g-icJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAr-Ep-Pcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="-1073"/>
+        </scene>
         <!--SBLoginViewController-->
         <scene sceneID="F8U-RZ-Oyq">
             <objects>
@@ -99,7 +107,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ntx-CV-AEM">
-                        <barButtonItem key="leftBarButtonItem" image="square-individual-nine-7.png" id="h0r-AV-pEW"/>
+                        <barButtonItem key="leftBarButtonItem" image="square-individual-nine-7.png" id="h0r-AV-pEW">
+                            <connections>
+                                <segue destination="sw4-9g-icJ" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="rxD-wR-Ipp"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="검색" id="dLZ-Pd-pAU"/>
                     </navigationItem>
                     <connections>
