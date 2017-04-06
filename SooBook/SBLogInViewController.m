@@ -124,6 +124,7 @@
     switch (indexPath.row)
     {
         case 0:
+            cell.tableViewCellTextField.keyboardType = UIKeyboardTypeEmailAddress;
             cell.tableViewCellLabel.text = @"SooBook ID";
             cell.tableViewCellTextField.placeholder = @"example@soobook.com";
             cell.tableViewCellTextField.tag = 100;
@@ -156,7 +157,6 @@
 //로그인 버튼 클릭 또는 Done을 눌렀을때의 반응
 - (void)doLogInRequest
 {
-    
     //예외처리 - ID랑 비번이 있는지 검사
     if (self.idTextField.text.length == 0 || self.passwordTextField.text.length == 0)
     {
@@ -205,10 +205,6 @@
                                                     [self.indicatorView stopIndicator];
                                                 }
                                             }];
-    
-    //인디케이터 발동!
-//    [self.view addSubview:self.indiView];
-        
     }
 }
 

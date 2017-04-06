@@ -120,7 +120,7 @@
     return [[UIView alloc] initWithFrame:CGRectZero];
 }
 
-//section 당 row 의 갯수   세션은 1개
+//section 당 row 의 갯수   섹션은 1개
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 4;
@@ -137,6 +137,7 @@
     switch (indexPath.row)
     {
         case 0:
+            cell.tableViewCellTextField.keyboardType = UIKeyboardTypeEmailAddress;
             cell.tableViewCellLabel.text = @"SooBook ID";
             cell.tableViewCellTextField.placeholder = @"example@soobook.com";
             cell.tableViewCellTextField.tag = 100;
@@ -273,7 +274,7 @@
                         NSDictionary *dataDict = (NSDictionary *)data;
                         NSLog(@"로그인까지 성공 , 토큰값 : %@",[dataDict objectForKey:USERTOKEN_KEY]);
                         
-                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"회원가입이 완료!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"회원가입 완료!" message:nil preferredStyle:UIAlertControllerStyleAlert];
                         
                         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
@@ -285,17 +286,33 @@
 
                     } else {
                         //회원가입되고 로그인 안됐을 때 처리
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"회원가입 완료!"
+                                                                                       message:@"로그인 해주세요"
+                                                                                preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인"
+                                                                           style:UIAlertActionStyleCancel
+                                                                         handler:nil];
+                        [alert addAction:noAction];
+                        [self presentViewController:alert animated:YES completion:nil];
+                        [self.navigationController popViewControllerAnimated:YES];
                     }
                     
 
                 }];
             } else {
                 //회원가입 안됐을 때 처리
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"회원가입 실패"
+                                                                               message:@"다시 시도해 주세요"
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"확인"
+                                                                   style:UIAlertActionStyleCancel
+                                                                 handler:nil];
+                [alert addAction:noAction];
+                [self presentViewController:alert animated:YES completion:nil];
             }
         }];
     }
 }
-
 
 #pragma mark - Action & Navigation
 //회원가입 버튼 클릭
