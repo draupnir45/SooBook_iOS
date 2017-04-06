@@ -2,33 +2,33 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-    <dict>
-        <key>primary_key</key>
-        <string>1</string>
-        <key>title</key>
-        <string>영어책 한권 외워봤니?</string>
-        <key>imageURL</key>
-        <string>1.jpeg</string>
-        <key>author</key>
-        <string>김민식 </string>
-        <key>publisher</key>
-        <string>WisdomHouse</string>
-        <key>shortDescription</key>
-        <string>영어가 잘 되면 인생이 술술 풀린다!
+	<dict>
+		<key>primary_key</key>
+		<string>1</string>
+		<key>title</key>
+		<string>영어책 한권 외워봤니?</string>
+		<key>imageURL</key>
+		<string>1.jpeg</string>
+		<key>author</key>
+		<string>김민식 </string>
+		<key>publisher</key>
+		<string>WisdomHouse</string>
+		<key>shortDescription</key>
+		<string>영어가 잘 되면 인생이 술술 풀린다!
             영어 고수, 30년 독학의 신이 알려주는 영어 공부 필살기
             자동번역기와 각종 어플리케이션의 등장으로 그 어느 때보다 쉽게 영어를 학습할 수 있는 때이다. 그럼에도 불구하고 사람들은 여전히 스트레스를 받으며, 영어 공부에 돈을 쏟아 붓고 있다. 보통의 성인들이 학창시절부터 영어 공부를 한 햇수는 20년은 족히 넘을 것이다. 또 부모가 되어서는 자식에게도 큰돈을 들이면서 영어에 집착한다. 이러한 현실에서 중학교 영어 교과서 외우기로 영어 세계에 입문하여 아무도 토익, 토플을 공부하지 않던 시절에 취미로 공부한 영어 덕분에 외국계 기업에 취직하고, 미국의 [프렌즈] 같은 시트콤을 만들고 싶어 드라마 피디가 된 사람이 있다. 그는 유학은커녕 어학연수, 회화 학원 한 번 다니지 않고 30년 독학으로 습득한 영어 공부 노하우를 『영어책 한 권 외워봤니?』에 담아냈다.</string>
-        <key>rating</key>
-        <string>2.5</string>
-        <key>comment</key>
-        <string>(코멘트)</string>
-        <key>quotations</key>
-        <array>
-            <string>(기억에 남는 구절 1)</string>
-            <string>(기억에 남는 구절 2)</string>
-            <string>(기억에 남는 구절 3)</string>
-            <string>(기억에 남는 구절 4)</string>
-        </array>
-    </dict>
+		<key>rating</key>
+		<string>2.5</string>
+		<key>comment</key>
+		<string>(코멘트)</string>
+		<key>quotations</key>
+		<array>
+			<string>(기억에 남는 구절 1)</string>
+			<string>(기억에 남는 구절 2)</string>
+			<string>(기억에 남는 구절 3)</string>
+			<string>(기억에 남는 구절 4)</string>
+		</array>
+	</dict>
 	<dict>
 		<key>primary_key</key>
 		<string>2</string>
@@ -72,7 +72,7 @@
 		<key>shortDescription</key>
 		<string>당신의 마음을 더 단단하고 선명하게 만드는 심리 테라피 『혼자 잘해주고 상처받지 마라』. 이 책은 자존감 심리치료센터를 운영하며 가족과 연인, 친구에게 상처받은 수많은 내담자를 만나온 유은정 원장이 자신이 상담했던 사람들의 사례를 바탕으로 타인에게 상처받지 않고 자기 자신을 사랑하는 방법, 주체적인 삶을 만들어나가는 방법을 알려준다. </string>
 		<key>rating</key>
-		<string>(별점, 0.5~5.0)</string>
+		<string>3.5</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
 		<key>quotations</key>
@@ -103,7 +103,7 @@
                 저서로는 『사춘기 통증』, 『지금 내 아이의 진짜 속마음』, 『괜찮아, 이제 걱정하지 마』, 『눈물의 힘』, 『내 영혼의 눈물소리』가 있다.
                 </string>
 		<key>rating</key>
-		<string>(별점, 0.5~5.0)</string>
+		<string>4.5</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
 		<key>quotations</key>

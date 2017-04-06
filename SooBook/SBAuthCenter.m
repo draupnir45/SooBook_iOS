@@ -64,9 +64,7 @@
             NSDictionary *dataDict = (NSDictionary *)data;
             [self saveUserToken:[dataDict objectForKey:USERTOKEN_KEY]];
         }
-        
         completion(sucess, data);
-        
     }];
 }
 
