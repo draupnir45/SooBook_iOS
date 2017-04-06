@@ -76,7 +76,7 @@
 #pragma mark - Button & Navigation
 - (IBAction)changeMainViewAction:(UIBarButtonItem *)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {   //스토리보드 지정?
