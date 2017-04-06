@@ -23,9 +23,6 @@
 //디테일 뷰
 #import "DetailViewController.h"
 
-//#import "SBBookData.h"
-//#import "SBDataCenter.h"
-
 @interface SBMainTableViewController ()
 <UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
@@ -34,6 +31,7 @@
 @property NSArray *titleLabelArray;
 @property NSArray *subLabelArray;
 @property NSArray *contentsArray;
+
 
 @end
 
@@ -46,8 +44,7 @@
     
     
     
-     //NSArray *collectionDataArr = @[@"1", @"2",@"3",@"4",@"5",@"6"];
-    
+        
 /////////////////////////////////테스트용 DataSource//////////////////////////////////
     
     self.titleLabelArray  = @[@"엘리자베스가 사라졌다",@"걸 온 더 트레인",@"영어책 한권 외워봤니?",@"드라마 도깨비 소설2 - 쓸쓸하고 찬란하神",@"여교수와 남제자",@"겨울에서 봄",@"드래곤볼 슈퍼",@"사랑해, 심청아!",@"타락천사",@"말괄량이의 늑대 길들이기: 늑대삼형제 시리즈"];
@@ -129,6 +126,8 @@
         [cell.collectionView registerNib:[UINib nibWithNibName:@"BookCoverCollectionViewCell" bundle:[NSBundle mainBundle]]forCellWithReuseIdentifier:@"BookCoverCollectionViewCell"];
         cell.collectionView.delegate = self;
         cell.collectionView.dataSource = self.firstSectionCollectionViewDataSource;
+        
+
         return cell;
         
     } else {
@@ -138,6 +137,7 @@
                                  title:item.title
                               subtitle:item.author];
         cell.bookPrimaryKey = item.bookPrimaryKey;
+         [cell layoutSubviews];
         return cell;
     }
     
@@ -221,15 +221,5 @@
         
     }
 }
-//
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    
-//    if ([segue.identifier isEqualToString:@"detailSegue"]) {
-//        DetailViewController *detailViewController = segue.destinationViewController;
-//        
-//    }
-//}
 
 @end

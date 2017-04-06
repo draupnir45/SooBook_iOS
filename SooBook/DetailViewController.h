@@ -11,8 +11,14 @@
 @interface DetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *bookCoverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *datilViewLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mainTitleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *decriptionLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
+
+
+
 
 @property NSInteger bookPrimaryKey;
 

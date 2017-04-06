@@ -32,8 +32,10 @@
     
     SBBookData *item = [[[SBDataCenter sharedBookData] myBookDatas] objectAtIndex:indexPath.row];
     cell.firstCollectionImage.image = [UIImage imageNamed:item.imageURL];
-    
+    [cell layoutSubviews];
     cell.bookPrimaryKey = item.bookPrimaryKey;
+   
+   
     return cell;
 }
 

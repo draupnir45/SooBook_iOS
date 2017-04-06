@@ -28,8 +28,12 @@
     SBBookData *item = [[SBDataCenter sharedBookData] bookDataWithPrimaryKey:self.bookPrimaryKey];
     self.bookCoverImageView.image = [UIImage imageNamed:
                                      [NSString stringWithFormat:@"%@.jpg",item.imageURL]];
+    self.backImageView.image = [UIImage imageNamed:
+                                     [NSString stringWithFormat:@"%@.jpg",item.imageURL]];
     self.subtitleLabel.text = item.author;
-    self.datilViewLabel.text = item.shortDescription;
+    self.decriptionLabel.text = item.shortDescription;
+    self.mainTitleLabel.text = item.title;
+    
     //self.navigationItem.title = item.title;
     
  
