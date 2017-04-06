@@ -42,7 +42,6 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="gyX-kf-GNq" id="vBM-Ba-UPE"/>
                                     <outlet property="delegate" destination="gyX-kf-GNq" id="SEV-S2-2ku"/>
                                 </connections>
                             </collectionView>
