@@ -69,5 +69,8 @@
 -(void)rateView:(RateView *)rateView ratingDidChange:(float)rating {
     //기록
 }
+- (IBAction)backButtonSelected:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

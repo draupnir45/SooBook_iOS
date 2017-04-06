@@ -26,11 +26,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MoC-GR-k6N">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstSectionTableViewCell" rowHeight="203" id="Dvj-8l-EV3" customClass="FirstSectionTableViewCell">
@@ -41,7 +41,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uz2-C0-bPh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="667" height="203"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3CL-AS-8Ck">
                                                         <size key="itemSize" width="96" height="172"/>
@@ -133,7 +133,7 @@
         <!--Title-->
         <scene sceneID="dDm-w4-bw4">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="K1k-rM-qUg" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="K1k-rM-qUg" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zHL-pj-tSi"/>
                         <viewControllerLayoutGuide type="bottom" id="yt0-fZ-dza"/>
@@ -197,7 +197,7 @@
                                                                     <color key="titleColor" red="0.098039215690000001" green="0.5568627451" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <segue destination="BYZ-38-t0r" kind="show" id="l7R-fu-9vn"/>
+                                                                    <action selector="backButtonSelected:" destination="K1k-rM-qUg" eventType="touchUpInside" id="oSs-g6-2Iz"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg2-O9-ZZJ">
@@ -283,7 +283,7 @@
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbj-EP-cbu">
                                                                         <rect key="frame" x="0.0" y="40" width="343" height="325"/>
-                                                                        <mutableString key="text">@[@"■ 저자: 엠마 힐리 Emma Healey 엠마 힐리는 네 살 때 처음으로 짧은 이야기를 썼고, 여덟 살 때 선생님에게 작가가 될 거라고 말했지만, 열두 살 즈음에는 철이 들어 소송 전문 변호사가 되기로 마음먹었다(순전히 영화 &lt;클루리스(Clueless)&gt; 때문이었다). 그로부터 10년이 더 흘러서야 그녀는 다시 글을 쓰기 시작했다. 런던에서 자라면서 예술 대학에 다니고 제본으로 학사학위를 땄다. 그 후 두 도서관, 두 서점, 두 미술관, 두 대학에서 일하며 예술계에서 바쁘게 경력을 쌓은 뒤 전업 작가로서의 인생을 시작했다. 2010년에는 노리치로 옮겨 가 문학 석사가 되기 위해 이스트앵글리아 대학에서 공부했고 다시는 돌아가지 않았다. 『엘리자베스가 사라졌다』는 엠마 힐리의 첫 장편소설이다. 이 작품은 2014년 코스타 북 어워드 데뷔작 상을 받고 2015년 데스먼드 엘리엇 상 후보에 올랐다.</mutableString>
+                                                                        <string key="text">@[@"■ 저자: 엠마 힐리 Emma Healey 엠마 힐리는 네 살 때 처음으로 짧은 이야기를 썼고, 여덟 살 때 선생님에게 작가가 될 거라고 말했지만, 열두 살 즈음에는 철이 들어 소송 전문 변호사가 되기로 마음먹었다(순전히 영화 &lt;클루리스(Clueless)&gt; 때문이었다). 그로부터 10년이 더 흘러서야 그녀는 다시 글을 쓰기 시작했다. 런던에서 자라면서 예술 대학에 다니고 제본으로 학사학위를 땄다. 그 후 두 도서관, 두 서점, 두 미술관, 두 대학에서 일하며 예술계에서 바쁘게 경력을 쌓은 뒤 전업 작가로서의 인생을 시작했다. 2010년에는 노리치로 옮겨 가 문학 석사가 되기 위해 이스트앵글리아 대학에서 공부했고 다시는 돌아가지 않았다. 『엘리자베스가 사라졌다』는 엠마 힐리의 첫 장편소설이다. 이 작품은 2014년 코스타 북 어워드 데뷔작 상을 받고 2015년 데스먼드 엘리엇 상 후보에 올랐다.</string>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -398,6 +398,7 @@
                     <navigationItem key="navigationItem" title="Title" id="b4Z-RS-Rnt">
                         <barButtonItem key="rightBarButtonItem" title="등록하기" id="Lw3-bQ-Vgv"/>
                     </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
@@ -411,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qc-Ni-jPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239" y="-546"/>
+            <point key="canvasLocation" x="2302" y="-852"/>
         </scene>
     </scenes>
     <resources>
@@ -419,8 +420,5 @@
         <image name="backChevron" width="13" height="22"/>
         <image name="square-individual-nine-7.png" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="l7R-fu-9vn"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.098039215690000001" green="0.5568627451" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
 </document>
