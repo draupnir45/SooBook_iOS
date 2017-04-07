@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *starInteger;
 
 
 

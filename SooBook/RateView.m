@@ -124,6 +124,7 @@
         UIImageView *imageView = [self.imageViews objectAtIndex:i];
         if (touchLocation.x > imageView.frame.origin.x) {
             newRating = i+1;
+           
             break;
         }
     }
