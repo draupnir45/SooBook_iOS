@@ -7,7 +7,7 @@
 //
 
 #import "SBMainCollectionViewController.h"
-#import "BookCoverCollectionViewCell.h"
+#import "SBMainCollectionViewCell.h"
 #import "DetailViewController.h"
 #import "CollectionViewDataSource.h"
 
@@ -15,6 +15,7 @@
 <UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property CollectionViewDataSource *dataSource;
+
 @end
 
 @implementation SBMainCollectionViewController
@@ -35,11 +36,19 @@
     self.navigationItem.titleView = titleImageview;
     
     
-//     CAGradientLayer *gradient = [CAGradientLayer layer];
-//     gradient.frame = self.view.bounds;
-//     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor redColor]CGColor], nil];
-//     [self.contentView.layer insertSublayer:gradient atIndex:0];
-//     [self.collectionView setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
+    
+    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"collectionViewBackgroundPattern"]];
+    
+//    CAGradientLayer *gradient = [CAGradientLayer layer];
+//    gradient.frame = self.view.bounds;
+//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor redColor]CGColor], nil];
+    
+//    self.collectionView.layer.sublayers
+    
+//    [self.view layoutIfNeeded];
+    
+//    [self.collectionView.layer insertSublayer:gradient atIndex:0];
+//    [self.collectionView setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
     
 }
 
@@ -54,12 +63,6 @@
 {
     return 1;
 }
-
-#pragma mark - Button & Navigation
-- (IBAction)changeMainViewAction:(UIBarButtonItem *)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {   //스토리보드 지정?
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -67,12 +70,25 @@
     DetailViewController *detailViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"DetailViewController"];
     
     //cell 받아오기
-    BookCoverCollectionViewCell *cell = (BookCoverCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    SBMainCollectionViewCell *cell = (SBMainCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
     detailViewController.bookPrimaryKey = cell.bookPrimaryKey;
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
+#pragma mark - Button & Navigation
+- (IBAction)changeMainViewAction:(UIBarButtonItem *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 8.0;
+}
+
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+//    return 8.0;
+//}
 
 @end
