@@ -9,10 +9,12 @@
 #import "SBMainCollectionViewController.h"
 #import "BookCoverCollectionViewCell.h"
 #import "DetailViewController.h"
+#import "CollectionViewDataSource.h"
 
 @interface SBMainCollectionViewController ()
-<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+<UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property CollectionViewDataSource *dataSource;
 @end
 
 @implementation SBMainCollectionViewController
@@ -22,6 +24,10 @@
     [super viewDidLoad];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"BookCoverCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"BookCoverCollectionViewCell"];
+    
+    CollectionViewDataSource *dataSource = [[CollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter sharedBookData] myBookDatas]];
+    self.collectionView.dataSource = dataSource;
+    self.dataSource = dataSource;
     
     
     UIImage *naviBarLogo = [UIImage imageNamed: @"logoForNavigation"];
@@ -42,35 +48,11 @@
     [super didReceiveMemoryWarning];
 }
 
-
 #pragma mark - CollectionView
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return 20;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-
-    
-
-    BookCoverCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BookCoverCollectionViewCell" forIndexPath:indexPath];
-    
-     cell.firstCollectionImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.item+1]];
-
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = cell.backgroundView.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor redColor]CGColor], nil];
-    [cell.contentView. layer insertSublayer:gradient atIndex:0];
-    [self.collectionView setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
-    
-    return cell;
 }
 
 #pragma mark - Button & Navigation
@@ -80,17 +62,16 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {   //스토리보드 지정?
-    UIStoryboard *st = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //스토리보드에 있는 뷰컨트롤러 지정
-    UIViewController *vc = [st instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    DetailViewController *detailViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"DetailViewController"];
     
-
+    //cell 받아오기
+    BookCoverCollectionViewCell *cell = (BookCoverCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
-    [self.navigationController pushViewController:vc animated:YES];
-//
-////    [self presentViewController:detailViewController animated:YES completion:^{
-////        [collectionView cellForItemAtIndexPath:indexPath];
-////    }];
+    detailViewController.bookPrimaryKey = cell.bookPrimaryKey;
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 
