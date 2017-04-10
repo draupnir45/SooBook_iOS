@@ -10,12 +10,16 @@
 		2E025B361E97817C0076531E /* SBMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E025B341E97817C0076531E /* SBMainCollectionViewCell.m */; };
 		2E025B371E97817C0076531E /* SBMainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E025B351E97817C0076531E /* SBMainCollectionViewCell.xib */; };
 		2E11F4DE1E920E03002FD1E6 /* SBIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */; };
+		2E13BB621E9B8021000B0200 /* SBSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E13BB601E9B8021000B0200 /* SBSearchTableViewCell.m */; };
+		2E13BB631E9B8021000B0200 /* SBSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E13BB611E9B8021000B0200 /* SBSearchTableViewCell.xib */; };
 		2E1FA2311E8E15900055F3FE /* SBSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA2281E8E15900055F3FE /* SBSignUpViewController.m */; };
 		2E1FA2321E8E15900055F3FE /* SBLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA2291E8E15900055F3FE /* SBLogInViewController.m */; };
 		2E1FA2331E8E15900055F3FE /* SBLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FA22A1E8E15900055F3FE /* SBLoginViewController.storyboard */; };
 		2E1FA2341E8E15900055F3FE /* SBSignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FA22B1E8E15900055F3FE /* SBSignUpViewController.storyboard */; };
 		2E1FA2351E8E15900055F3FE /* SBAccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA22C1E8E15900055F3FE /* SBAccountTableViewCell.m */; };
 		2E1FA2361E8E15900055F3FE /* SBAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FA22D1E8E15900055F3FE /* SBAccountTableViewCell.xib */; };
+		2E92CDF41E9B3EA60014E190 /* SBSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92CDF31E9B3EA60014E190 /* SBSearchViewController.m */; };
+		2E92CDF61E9B3EC50014E190 /* SBSearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E92CDF51E9B3EC50014E190 /* SBSearchViewController.storyboard */; };
 		2EF77C481E95FB330000DBFB /* SBMainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */; };
 		2EF77C4A1E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */; };
 		4B05A95B1E978C2B00E01D33 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B05A95A1E978C2B00E01D33 /* SettingViewController.m */; };
@@ -77,6 +81,9 @@
 		2E025B351E97817C0076531E /* SBMainCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBMainCollectionViewCell.xib; sourceTree = "<group>"; };
 		2E11F4DC1E920E03002FD1E6 /* SBIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBIndicatorView.h; sourceTree = "<group>"; };
 		2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBIndicatorView.m; sourceTree = "<group>"; };
+		2E13BB5F1E9B8021000B0200 /* SBSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSearchTableViewCell.h; sourceTree = "<group>"; };
+		2E13BB601E9B8021000B0200 /* SBSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSearchTableViewCell.m; sourceTree = "<group>"; };
+		2E13BB611E9B8021000B0200 /* SBSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSearchTableViewCell.xib; sourceTree = "<group>"; };
 		2E1FA2281E8E15900055F3FE /* SBSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSignUpViewController.m; sourceTree = "<group>"; };
 		2E1FA2291E8E15900055F3FE /* SBLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLogInViewController.m; sourceTree = "<group>"; };
 		2E1FA22A1E8E15900055F3FE /* SBLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBLoginViewController.storyboard; sourceTree = "<group>"; };
@@ -86,6 +93,9 @@
 		2E1FA22E1E8E15900055F3FE /* SBAccountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAccountTableViewCell.h; sourceTree = "<group>"; };
 		2E1FA22F1E8E15900055F3FE /* SBSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSignUpViewController.h; sourceTree = "<group>"; };
 		2E1FA2301E8E15900055F3FE /* SBLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLogInViewController.h; sourceTree = "<group>"; };
+		2E92CDF21E9B3EA60014E190 /* SBSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSearchViewController.h; sourceTree = "<group>"; };
+		2E92CDF31E9B3EA60014E190 /* SBSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSearchViewController.m; sourceTree = "<group>"; };
+		2E92CDF51E9B3EC50014E190 /* SBSearchViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBSearchViewController.storyboard; sourceTree = "<group>"; };
 		2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMainCollectionViewController.h; sourceTree = "<group>"; };
 		2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMainCollectionViewController.m; sourceTree = "<group>"; };
 		2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBMainCollectionViewController.storyboard; sourceTree = "<group>"; };
@@ -217,6 +227,12 @@
 				2E025B331E97817C0076531E /* SBMainCollectionViewCell.h */,
 				2E025B341E97817C0076531E /* SBMainCollectionViewCell.m */,
 				2E025B351E97817C0076531E /* SBMainCollectionViewCell.xib */,
+				2E92CDF21E9B3EA60014E190 /* SBSearchViewController.h */,
+				2E92CDF31E9B3EA60014E190 /* SBSearchViewController.m */,
+				2E92CDF51E9B3EC50014E190 /* SBSearchViewController.storyboard */,
+				2E13BB5F1E9B8021000B0200 /* SBSearchTableViewCell.h */,
+				2E13BB601E9B8021000B0200 /* SBSearchTableViewCell.m */,
+				2E13BB611E9B8021000B0200 /* SBSearchTableViewCell.xib */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -430,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E13BB631E9B8021000B0200 /* SBSearchTableViewCell.xib in Resources */,
 				B902DA341E93BDF200B1FCA1 /* 18.jpeg in Resources */,
 				B902DA251E93BDF200B1FCA1 /* 3.jpeg in Resources */,
 				B902DA231E93BDF200B1FCA1 /* 1.jpeg in Resources */,
@@ -460,6 +477,7 @@
 				2E1FA2361E8E15900055F3FE /* SBAccountTableViewCell.xib in Resources */,
 				B902DA261E93BDF200B1FCA1 /* 4.jpeg in Resources */,
 				B902DA311E93BDF200B1FCA1 /* 15.jpeg in Resources */,
+				2E92CDF61E9B3EC50014E190 /* SBSearchViewController.storyboard in Resources */,
 				B902DA361E93BDF200B1FCA1 /* 20.jpeg in Resources */,
 				B902DA2C1E93BDF200B1FCA1 /* 10.jpeg in Resources */,
 				2E025B371E97817C0076531E /* SBMainCollectionViewCell.xib in Resources */,
@@ -531,10 +549,12 @@
 				B97FE1341E8A49BD00731848 /* SBBookData.m in Sources */,
 				B97FE0F11E8A3C9F00731848 /* AppDelegate.m in Sources */,
 				2E1FA2321E8E15900055F3FE /* SBLogInViewController.m in Sources */,
+				2E13BB621E9B8021000B0200 /* SBSearchTableViewCell.m in Sources */,
 				B9B064A31E93AA9D00488D70 /* SBMainTableViewController.m in Sources */,
 				2E1FA2351E8E15900055F3FE /* SBAccountTableViewCell.m in Sources */,
 				B9B0649C1E93AA3D00488D70 /* RateView.m in Sources */,
 				B9B064D31E93AAF000488D70 /* DetailViewController.m in Sources */,
+				2E92CDF41E9B3EA60014E190 /* SBSearchViewController.m in Sources */,
 				B95F78691E8CE056009A9A93 /* TestingClass.m in Sources */,
 				B9B0649D1E93AA3D00488D70 /* JCBlurrManager.m in Sources */,
 				B95F786F1E8D0AF3009A9A93 /* SBDataCenter.m in Sources */,
