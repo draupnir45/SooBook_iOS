@@ -33,7 +33,7 @@
     self.titleLabel.text = title;
     self.authorLabel.text = subtitle;
 }
-- (IBAction)zzz:(UIButton *)sender
+- (IBAction)favoriteButton:(UIButton *)sender
 {
     [sender setSelected:!sender.selected];
 }

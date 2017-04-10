@@ -37,13 +37,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ns-hw-OI3">
-                        <rect key="frame" x="296" y="53" width="76" height="22"/>
+                        <rect key="frame" x="328" y="53" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="mybookHeartOff"/>
                         <state key="selected" image="mybookHeartOn"/>
                         <state key="highlighted" image="mybookHeartOn"/>
                         <connections>
-                            <action selector="zzz:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="f1i-V7-2v8"/>
+                            <action selector="favoriteButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jSR-Oq-CHT"/>
                         </connections>
                     </button>
                 </subviews>
