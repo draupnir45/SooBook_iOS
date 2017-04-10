@@ -124,6 +124,50 @@
             </objects>
             <point key="canvasLocation" x="962" y="-546"/>
         </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="xyI-gX-M4o">
+            <objects>
+                <viewController id="fg8-U6-Ojh" customClass="SettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b6W-bE-ZOp"/>
+                        <viewControllerLayoutGuide type="bottom" id="1jN-oW-jfN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ckv-2d-i8G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="88" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZTu-8j-aL1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="88" id="Gbx-en-hs0">
+                                        <rect key="frame" x="0.0" y="55.333333333333336" width="414" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gbx-en-hs0" id="cQv-dL-ITm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="87.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fg8-U6-Ojh" id="gb5-Mw-O2B"/>
+                                    <outlet property="delegate" destination="fg8-U6-Ojh" id="ER9-2Y-ccH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZTu-8j-aL1" firstAttribute="centerY" secondItem="Ckv-2d-i8G" secondAttribute="centerY" id="BUm-d1-TLw"/>
+                            <constraint firstItem="ZTu-8j-aL1" firstAttribute="height" secondItem="Ckv-2d-i8G" secondAttribute="height" id="WKh-Or-LzJ"/>
+                            <constraint firstItem="ZTu-8j-aL1" firstAttribute="centerX" secondItem="Ckv-2d-i8G" secondAttribute="centerX" id="kE8-eC-rvV"/>
+                            <constraint firstItem="ZTu-8j-aL1" firstAttribute="width" secondItem="Ckv-2d-i8G" secondAttribute="width" id="zyH-eg-bJu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RCf-Mk-QIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2884" y="-761"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dtF-01-hox">
             <objects>
@@ -523,7 +567,7 @@
                 <tapGestureRecognizer id="3oM-W2-qCf"/>
                 <tapGestureRecognizer id="5S8-1r-yd0"/>
             </objects>
-            <point key="canvasLocation" x="2198" y="-799"/>
+            <point key="canvasLocation" x="2197.826086956522" y="-799.72826086956525"/>
         </scene>
     </scenes>
     <resources>

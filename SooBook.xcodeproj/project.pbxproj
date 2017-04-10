@@ -18,6 +18,7 @@
 		2E1FA2361E8E15900055F3FE /* SBAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FA22D1E8E15900055F3FE /* SBAccountTableViewCell.xib */; };
 		2EF77C481E95FB330000DBFB /* SBMainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */; };
 		2EF77C4A1E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */; };
+		4B05A95B1E978C2B00E01D33 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B05A95A1E978C2B00E01D33 /* SettingViewController.m */; };
 		528658D54DDDA4FD2201F70F /* libPods-SooBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CA9D66326AA7725BB73B8C /* libPods-SooBook.a */; };
 		B902DA231E93BDF200B1FCA1 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA0F1E93BDF200B1FCA1 /* 1.jpeg */; };
 		B902DA241E93BDF200B1FCA1 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA101E93BDF200B1FCA1 /* 2.jpeg */; };
@@ -88,6 +89,8 @@
 		2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMainCollectionViewController.h; sourceTree = "<group>"; };
 		2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMainCollectionViewController.m; sourceTree = "<group>"; };
 		2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBMainCollectionViewController.storyboard; sourceTree = "<group>"; };
+		4B05A9591E978C2B00E01D33 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		4B05A95A1E978C2B00E01D33 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		96872F8504C03B1DFF6B95E8 /* Pods-SooBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SooBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-SooBook/Pods-SooBook.release.xcconfig"; sourceTree = "<group>"; };
 		B902DA0F1E93BDF200B1FCA1 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		B902DA101E93BDF200B1FCA1 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				B9B064D51E93AB1B00488D70 /* Custom Cells */,
 				B9B064C71E93AAF000488D70 /* DetailViewController.h */,
 				B9B064C81E93AAF000488D70 /* DetailViewController.m */,
+				4B05A9591E978C2B00E01D33 /* SettingViewController.h */,
+				4B05A95A1E978C2B00E01D33 /* SettingViewController.m */,
 			);
 			name = "Main Navigation";
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				B95F78691E8CE056009A9A93 /* TestingClass.m in Sources */,
 				B9B0649D1E93AA3D00488D70 /* JCBlurrManager.m in Sources */,
 				B95F786F1E8D0AF3009A9A93 /* SBDataCenter.m in Sources */,
+				4B05A95B1E978C2B00E01D33 /* SettingViewController.m in Sources */,
 				B9B064CC1E93AAF000488D70 /* SecondSectionHeaderCell.m in Sources */,
 				B9B064CF1E93AAF000488D70 /* BookCoverCollectionViewCell.m in Sources */,
 				B9B064CE1E93AAF000488D70 /* FirstSectionTableViewCell.m in Sources */,
