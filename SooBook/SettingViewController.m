@@ -69,19 +69,6 @@
             cellTitle = @"자동 로그인";
             
         } else {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@" 등록 " message:@" 나의 책장에 등록 하시겠습니까 ? " preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@" 아니요 " style:UIAlertActionStyleCancel handler:nil];
-           
-            
-            
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@" 네 " style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-               
-            }];
-            
-            [alert addAction:okAction];
-            [alert addAction:cancelAction];
-            [self presentViewController:alert animated:YES completion:nil];
 
             cellTitle = @"로그아웃";
         }
