@@ -29,7 +29,6 @@
         CGFloat newWidth = 172.0f / heightByWidthRatio;
         self.coverImageView.frame = CGRectMake((self.bounds.size.width - newWidth) / 2, 0, newWidth, 172.0f);
     }
-    
     NSLog(@"layoutSubviews");
 }
 

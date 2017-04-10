@@ -13,7 +13,7 @@
 #import "SBBookData.h"
 
 @interface DetailViewController ()
-<RateViewDelegate>
+<RateViewDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
 
 
@@ -42,6 +42,12 @@
     self.starRateView.editable = YES;
     self.starRateView.maxRating = 5;
     
+    if (self.navigationController != nil)
+    {
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    }
+    
+    
     
 }
 
@@ -65,7 +71,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)rateView:(RateView *)rateView ratingDidChange:(float)rating {
+-(void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating {
     //기록
     
     NSLog(@"%f", rating);
