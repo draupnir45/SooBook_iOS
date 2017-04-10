@@ -231,7 +231,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIs-sN-fGw">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="264"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXR-mv-tCM" userLabel="backImageView">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXR-mv-tCM" userLabel="backImageView">
                                                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="264"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="264" id="KaS-hU-Pj9"/>
@@ -628,11 +628,11 @@
             </objects>
             <point key="canvasLocation" x="1050" y="216"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="LTB-bo-onI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oy6-Jc-fLX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xiG-41-kGt"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="xiG-41-kGt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TXD-eo-e9M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

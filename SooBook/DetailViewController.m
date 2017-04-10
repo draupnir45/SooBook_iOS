@@ -13,7 +13,7 @@
 #import "SBBookData.h"
 
 @interface DetailViewController ()
-<RateViewDelegate>
+<RateViewDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
 
 
@@ -41,6 +41,12 @@
     self.starRateView.delegate = self;
     self.starRateView.editable = YES;
     self.starRateView.maxRating = 5;
+    
+    if (self.navigationController != nil)
+    {
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    }
+    
     
     
 }
