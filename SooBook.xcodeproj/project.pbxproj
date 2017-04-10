@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E025B361E97817C0076531E /* SBMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E025B341E97817C0076531E /* SBMainCollectionViewCell.m */; };
+		2E025B371E97817C0076531E /* SBMainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E025B351E97817C0076531E /* SBMainCollectionViewCell.xib */; };
 		2E11F4DE1E920E03002FD1E6 /* SBIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */; };
 		2E1FA2311E8E15900055F3FE /* SBSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA2281E8E15900055F3FE /* SBSignUpViewController.m */; };
 		2E1FA2321E8E15900055F3FE /* SBLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FA2291E8E15900055F3FE /* SBLogInViewController.m */; };
@@ -70,6 +72,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E025B331E97817C0076531E /* SBMainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMainCollectionViewCell.h; sourceTree = "<group>"; };
+		2E025B341E97817C0076531E /* SBMainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMainCollectionViewCell.m; sourceTree = "<group>"; };
+		2E025B351E97817C0076531E /* SBMainCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBMainCollectionViewCell.xib; sourceTree = "<group>"; };
 		2E11F4DC1E920E03002FD1E6 /* SBIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBIndicatorView.h; sourceTree = "<group>"; };
 		2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBIndicatorView.m; sourceTree = "<group>"; };
 		2E1FA2281E8E15900055F3FE /* SBSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSignUpViewController.m; sourceTree = "<group>"; };
@@ -209,6 +214,9 @@
 				2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */,
 				2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */,
 				2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */,
+				2E025B331E97817C0076531E /* SBMainCollectionViewCell.h */,
+				2E025B341E97817C0076531E /* SBMainCollectionViewCell.m */,
+				2E025B351E97817C0076531E /* SBMainCollectionViewCell.xib */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -454,6 +462,7 @@
 				B902DA311E93BDF200B1FCA1 /* 15.jpeg in Resources */,
 				B902DA361E93BDF200B1FCA1 /* 20.jpeg in Resources */,
 				B902DA2C1E93BDF200B1FCA1 /* 10.jpeg in Resources */,
+				2E025B371E97817C0076531E /* SBMainCollectionViewCell.xib in Resources */,
 				B95F78711E8D0E92009A9A93 /* TempBookData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +524,7 @@
 			files = (
 				B97FE0F41E8A3C9F00731848 /* ViewController.m in Sources */,
 				B9B064CA1E93AAF000488D70 /* FirstSectionHeaderCell.m in Sources */,
+				2E025B361E97817C0076531E /* SBMainCollectionViewCell.m in Sources */,
 				2E11F4DE1E920E03002FD1E6 /* SBIndicatorView.m in Sources */,
 				2E1FA2311E8E15900055F3FE /* SBSignUpViewController.m in Sources */,
 				B903B4271E8FDEBF005817B1 /* SBNetworkManager.m in Sources */,

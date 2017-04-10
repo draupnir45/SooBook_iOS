@@ -11,7 +11,7 @@
 #import "SBIndicatorView.h"
 
 @interface SBSignUpViewController ()
-<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *signUpButton;
@@ -37,6 +37,11 @@
     self.tableView.sectionFooterHeight = 0;
     self.tableView.backgroundColor = [UIColor whiteColor];
     //-----------------------
+    
+    if (self.navigationController != nil)
+    {
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    }
     
     self.indicatorView = [[SBIndicatorView alloc] init];
 }
