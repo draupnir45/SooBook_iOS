@@ -7,6 +7,8 @@
 //
 
 #import "SettingViewController.h"
+#import "SBLogInViewController.h"
+
 @interface SettingViewController ()
 <UITableViewDelegate,UITableViewDataSource>
 @property UISwitch *autoLoginSwich;
@@ -69,20 +71,7 @@
             cellTitle = @"자동 로그인";
             
         } else {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@" 등록 " message:@" 나의 책장에 등록 하시겠습니까 ? " preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@" 아니요 " style:UIAlertActionStyleCancel handler:nil];
-           
-            
-            
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@" 네 " style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-               
-            }];
-            
-            [alert addAction:okAction];
-            [alert addAction:cancelAction];
-            [self presentViewController:alert animated:YES completion:nil];
-
             cellTitle = @"로그아웃";
         }
         
@@ -95,7 +84,8 @@
             [label setTextAlignment:NSTextAlignmentRight];
             [label setFrame:CGRectMake(0, 0, 40, 30)];
             cell.accessoryView = label;
-            
+            [label setTextColor:[UIColor grayColor]];
+
             cellTitle = @"버전정보";
             
         } else {
@@ -117,6 +107,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end
