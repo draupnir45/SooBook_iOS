@@ -211,8 +211,8 @@
 				2E1FA22D1E8E15900055F3FE /* SBAccountTableViewCell.xib */,
 				2E11F4DC1E920E03002FD1E6 /* SBIndicatorView.h */,
 				2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */,
-				2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */,
 				2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */,
+				2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */,
 				2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */,
 				2E025B331E97817C0076531E /* SBMainCollectionViewCell.h */,
 				2E025B341E97817C0076531E /* SBMainCollectionViewCell.m */,
@@ -668,6 +668,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jongchanpark.developed.SooBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -683,6 +684,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jongchanpark.developed.SooBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
