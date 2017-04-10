@@ -11,7 +11,7 @@
 @class RateView;
 
 @protocol RateViewDelegate
-- (void)rateView:(RateView *)rateView ratingDidChange:(float)rating;
+- (void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating;
 @end
 
 @interface RateView : UIView
@@ -22,9 +22,9 @@
 @property (assign, nonatomic) CGFloat rating;
 @property (assign) BOOL editable;
 @property (strong) NSMutableArray * imageViews;
-@property (assign, nonatomic) int maxRating;
-@property (assign) int midMargin;
-@property (assign) int leftMargin;
+@property (assign, nonatomic) NSInteger maxRating;
+@property (assign) NSInteger midMargin;
+@property (assign) NSInteger leftMargin;
 @property (assign) CGSize minImageSize;
 @property (assign) id <RateViewDelegate> delegate;
 

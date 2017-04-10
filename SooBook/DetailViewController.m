@@ -65,7 +65,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)rateView:(RateView *)rateView ratingDidChange:(float)rating {
+-(void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating {
     //기록
     
     NSLog(@"%f", rating);

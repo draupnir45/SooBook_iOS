@@ -92,6 +92,7 @@
             
             UILabel *label = [[UILabel alloc] init];
             label.text = @"0.1.1";
+            label.textColor = [UIColor grayColor];
             [label setTextAlignment:NSTextAlignmentRight];
             [label setFrame:CGRectMake(0, 0, 40, 30)];
             cell.accessoryView = label;

@@ -12,17 +12,17 @@
 
 
 - (void)baseInit {
-    _notSelectedImage = [UIImage imageNamed:@"starEmpty"];
-    _halfSelectedImage = [UIImage imageNamed:@"starHalf"];
-    _fullSelectedImage = [UIImage imageNamed:@"starFull"];
-    _rating = 0;
-    _editable = NO;
-    _imageViews = [[NSMutableArray alloc] init];
-    _maxRating = 10;
-    _midMargin = 5;
-    _leftMargin = 0;
-    _minImageSize = CGSizeMake(5, 5);
-    _delegate = nil;
+    self.notSelectedImage = [UIImage imageNamed:@"starEmpty"];
+    self.halfSelectedImage = [UIImage imageNamed:@"starHalf"];
+    self.fullSelectedImage = [UIImage imageNamed:@"starFull"];
+    self.rating = 0;
+    self.editable = NO;
+    self.imageViews = [[NSMutableArray alloc] init];
+    self.maxRating = 5;
+    self.midMargin = 5;
+    self.leftMargin = 0;
+    self.minImageSize = CGSizeMake(5, 5);
+    self.delegate = nil;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -73,7 +73,7 @@
     
 }
 
-- (void)setMaxRating:(int)maxRating {
+- (void)setMaxRating:(NSInteger)maxRating {
     _maxRating = maxRating;
     
     // Remove old image views
@@ -119,12 +119,14 @@
 - (void)handleTouchAtLocation:(CGPoint)touchLocation {
     if (!self.editable) return;
     
-    NSInteger newRating = 0;
+    CGFloat newRating = 0;
     for(NSInteger i = self.imageViews.count - 1; i >= 0; i--) {
         UIImageView *imageView = [self.imageViews objectAtIndex:i];
-        if (touchLocation.x > imageView.frame.origin.x) {
-            newRating = i+1;
-           
+        if (touchLocation.x > (imageView.frame.origin.x + imageView.frame.size.width/2)) {
+            newRating = i+1.0;
+            break;
+        } else if (touchLocation.x > imageView.frame.origin.x) {
+            newRating = i+0.5;
             break;
         }
     }
