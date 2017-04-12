@@ -24,4 +24,12 @@ typedef void (^SBDataCompletion)(BOOL sucess, id data);
 
 + (void)logOutWithToken:(NSString *)token;
 
+///검색용 메서드
++ (void)searchWithQuery:(NSString *)query
+             completion:(SBDataCompletion)completion;
+
+///검색시 다음 페이지를 가져오기 위한 메서드
++ (void)searchResultWithNextURLString:(NSString *)urlString
+                           completion:(SBDataCompletion)completion;
+
 @end

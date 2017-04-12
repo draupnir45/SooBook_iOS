@@ -53,13 +53,7 @@
             dataArray = [NSArray arrayWithContentsOfFile:bundlePath];
         }
         
-        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-        for (NSDictionary *item in dataArray) {
-            SBBookData *book = [[SBBookData alloc] initWithDictionary:item];
-            [tempArray addObject:book];
-        }
-        
-        self.myBookDatas = [NSArray arrayWithArray:tempArray];
+        self.myBookDatas = [self fetchSBBookModelsWithArray:dataArray];
         
     }
     return self;
@@ -86,7 +80,28 @@
     return docuPath;
 }
 
-#pragma mark - 책 등록/삭제 Add or Remove Book
+#pragma mark - 책 검색, 등록, 삭제 (Search, Add or Remove Book)
+- (void)searchWithQuery:(NSString *)query completion:(SBDataCompletion)completion
+{
+    [SBNetworkManager searchWithQuery:query completion:^(BOOL sucess, id data) {
+        if (sucess) { //넘겨주기 전에 fetch합니다.
+            NSMutableDictionary *mutableData = [(NSDictionary *)data mutableCopy];
+            NSArray *fetchedResult = [self fetchSBBookModelsWithArray:[mutableData objectForKey:@"result"]];
+            [mutableData setObject:fetchedResult forKey:@"result"];
+            data = mutableData;
+        }
+        
+        completion(sucess, data);
+
+    }];
+}
+
++ (void)searchResultWithNextURLString:(NSString *)urlString
+                           completion:(SBDataCompletion)completion
+{
+    [SBNetworkManager searchResultWithNextURLString:urlString completion:completion];
+}
+
 
 - (void)addBook:(SBBookData *)book completion:(SBDataCompletion)completion
 {
@@ -127,6 +142,17 @@
     }
     
     return resultItem;
+}
+
+#pragma mark - 딕셔너리가 담긴 어레이를 이용해 북데이터를 페치합니다.
+
+- (NSArray *)fetchSBBookModelsWithArray:(NSArray <NSDictionary *> *)array {
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    for (NSDictionary *item in array) {
+        SBBookData *book = [[SBBookData alloc] initWithDictionary:item];
+        [tempArray addObject:book];
+    }
+    return tempArray;
 }
 
 @end

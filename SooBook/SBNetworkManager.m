@@ -88,6 +88,50 @@
     [task resume];
 }
 
+#pragma mark - Search / Add / Delete
+
++ (void)searchWithQuery:(NSString *)query completion:(SBDataCompletion)completion
+{
+    //매니저와 리퀘스트 준비
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSString *urlString = [NSString stringWithFormat:@"%@keyword=%@",SEARCH,query];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:urlString]];
+    request.HTTPMethod = @"GET";
+    
+    //Task
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    
+    [task resume];
+    
+}
+
++ (void)searchResultWithNextURLString:(NSString *)urlString completion:(SBDataCompletion)completion
+{
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    request.HTTPMethod = @"GET";
+    
+    //Task
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    
+    [task resume];
+}
+
+
 #pragma mark - Network Utilities
 
 //매니저 불러오기
