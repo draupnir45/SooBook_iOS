@@ -112,6 +112,25 @@
     
 }
 
++ (void)nextSearchResultWithURLString:(NSString *)urlString completion:(SBDataCompletion)completion
+{
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    request.HTTPMethod = GET;
+    
+    //Task
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    
+    [task resume];
+}
+
 
 + (void)addBookWith:(NSInteger)bookID completion:(SBDataCompletion)completion
 {
@@ -193,28 +212,6 @@
     }];
     [task resume];
     
-}
-
-
-#pragma mark - Search와 List 공통 Next 결과 받기
-
-+ (void)nextSearchResultWithURLString:(NSString *)urlString completion:(SBDataCompletion)completion
-{
-    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    request.HTTPMethod = GET;
-    
-    //Task
-    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-        if (statusCode == 200) {
-            completion(YES, responseObject);
-        } else {
-            completion(NO, responseObject);
-        }
-    }];
-    
-    [task resume];
 }
 
 #pragma mark - Network Utilities

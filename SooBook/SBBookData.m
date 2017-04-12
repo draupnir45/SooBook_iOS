@@ -29,7 +29,7 @@
 {
     self = [super init];
     if (self) {
-        _bookPrimaryKey = [dictionary[BOOK_PRIMARY_KEY] integerValue];
+        _bookPrimaryKey = [dictionary[BOOK_ID] integerValue];
         _title = dictionary[TITLE_KEY];
         _imageURL = dictionary[IMAGE_URL_KEY];
         _author = dictionary[AUTHOR_KEY];
