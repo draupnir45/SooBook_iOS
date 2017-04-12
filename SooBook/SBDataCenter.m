@@ -80,6 +80,20 @@
     return docuPath;
 }
 
+#pragma mark - List
+
+- (void)loadMyBookListWithCompletion:(SBDataCompletion)completion {
+    [SBNetworkManager loadMyBookListWithToken:[[SBAuthCenter sharedInstance] userToken] completion:^(BOOL sucess, id data) {
+        if (sucess) { //넘겨주기 전에 fetch합니다.
+            NSMutableDictionary *mutableData = [(NSDictionary *)data mutableCopy];
+            NSArray *fetchedResult = [self fetchSBBookModelsWithArray:[mutableData objectForKey:@"result"]];
+            [mutableData setObject:fetchedResult forKey:@"result"];
+            data = mutableData;
+        }
+        completion(sucess, data);
+    }];
+}
+
 #pragma mark - 책 검색, 등록, 삭제 (Search, Add or Remove Book)
 - (void)searchWithQuery:(NSString *)query completion:(SBDataCompletion)completion
 {
@@ -96,12 +110,21 @@
     }];
 }
 
-+ (void)searchResultWithNextURLString:(NSString *)urlString
+- (void)searchResultWithNextURLString:(NSString *)urlString
                            completion:(SBDataCompletion)completion
 {
-    [SBNetworkManager searchResultWithNextURLString:urlString completion:completion];
+    [SBNetworkManager searchResultWithNextURLString:urlString completion:^(BOOL sucess, id data) {
+        if (sucess) { //넘겨주기 전에 fetch합니다.
+            NSMutableDictionary *mutableData = [(NSDictionary *)data mutableCopy];
+            NSArray *fetchedResult = [self fetchSBBookModelsWithArray:[mutableData objectForKey:@"result"]];
+            [mutableData setObject:fetchedResult forKey:@"result"];
+            data = mutableData;
+        }
+        
+        completion(sucess, data);
+        
+    }];
 }
-
 
 - (void)addBook:(SBBookData *)book completion:(SBDataCompletion)completion
 {
@@ -132,6 +155,9 @@
     completion(YES, book);
 }
 
+#pragma mark - Model
+
+///내 책장 안에 있는 책을 PK로 요구하면 반환해 줍니다.
 - (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey {
     SBBookData *resultItem;
     
@@ -144,8 +170,7 @@
     return resultItem;
 }
 
-#pragma mark - 딕셔너리가 담긴 어레이를 이용해 북데이터를 페치합니다.
-
+///딕셔너리가 담긴 어레이를 이용해 북데이터를 페치합니다.
 - (NSArray *)fetchSBBookModelsWithArray:(NSArray <NSDictionary *> *)array {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     for (NSDictionary *item in array) {

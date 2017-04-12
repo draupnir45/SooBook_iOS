@@ -36,8 +36,11 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 - (void)removeBook:(SBBookData *)book completion:(SBDataCompletion)completion;
 - (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey;
 
+//내 책 불러오기
+- (void)loadMyBookListWithCompletion:(SBDataCompletion)completion;
+
 ///검색용 메서드
-+ (void)searchWithQuery:(NSString *)query
+- (void)searchWithQuery:(NSString *)query
              completion:(SBDataCompletion)completion;
 
 ///검색시 다음 페이지를 가져오기 위한 메서드

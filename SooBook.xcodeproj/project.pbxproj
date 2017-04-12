@@ -268,8 +268,8 @@
 		B94FD3A61E8B8298006CE322 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */,
 				B903B4251E8FDEBF005817B1 /* SBNetworkManager.h */,
+				B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */,
 				B95F78641E8CDAF1009A9A93 /* SBAuthCenter.h */,
 				B95F78651E8CDAF1009A9A93 /* SBAuthCenter.m */,
 				B95F786D1E8D0AF3009A9A93 /* SBDataCenter.h */,

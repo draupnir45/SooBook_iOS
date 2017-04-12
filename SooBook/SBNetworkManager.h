@@ -32,4 +32,7 @@ typedef void (^SBDataCompletion)(BOOL sucess, id data);
 + (void)searchResultWithNextURLString:(NSString *)urlString
                            completion:(SBDataCompletion)completion;
 
+///내 책 목록 가져오기
++ (void)loadMyBookListWithToken:(NSString *)token completion:(SBDataCompletion)completion;
+
 @end

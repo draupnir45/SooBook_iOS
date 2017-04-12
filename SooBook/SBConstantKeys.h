@@ -15,6 +15,7 @@ static NSString * const USER_SIGNUP = @"user/signup/";
 static NSString * const USER_LOGIN = @"user/login/";
 static NSString * const USER_LOGOUT = @"user/logout/";
 static NSString * const SEARCH = @"book/search/?";
+static NSString * const MY_BOOK_LIST = @"book/mybook/?";
 
 //인증용 상수 키값
 static NSString * const USERNAME = @"username";
