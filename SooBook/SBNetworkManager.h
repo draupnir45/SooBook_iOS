@@ -22,17 +22,23 @@ typedef void (^SBDataCompletion)(BOOL sucess, id data);
                password:(NSString *)password
              completion:(SBDataCompletion)completion;
 
-+ (void)logOutWithToken:(NSString *)token;
++ (void)logOut;
 
 ///검색용 메서드
 + (void)searchWithQuery:(NSString *)query
              completion:(SBDataCompletion)completion;
 
+///책 추가
++ (void)addBookWith:(NSInteger)bookID completion:(SBDataCompletion)completion;
+
+///책 삭제
++ (void)deleteBookWith:(NSInteger)bookID completion:(SBDataCompletion)completion;
+
 ///검색시 다음 페이지를 가져오기 위한 메서드
-+ (void)searchResultWithNextURLString:(NSString *)urlString
-                           completion:(SBDataCompletion)completion;
++ (void)nextSearchResultWithURLString:(NSString *)urlString
+                     completion:(SBDataCompletion)completion;
 
 ///내 책 목록 가져오기
-+ (void)loadMyBookListWithToken:(NSString *)token completion:(SBDataCompletion)completion;
++ (void)loadMyBookListWithCompletion:(SBDataCompletion)completion;
 
 @end

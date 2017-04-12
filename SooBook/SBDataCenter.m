@@ -75,15 +75,16 @@
 + (NSString *)documentDiretoryPath
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docuPath = [(NSString *)([paths objectAtIndex:0]) stringByAppendingString:@"/TempBookData.plist"];
+    NSString *docuPath = [(NSString *)[paths objectAtIndex:0] stringByAppendingString:@"/TempBookData.plist"];
     
     return docuPath;
 }
 
 #pragma mark - List
 
-- (void)loadMyBookListWithCompletion:(SBDataCompletion)completion {
-    [SBNetworkManager loadMyBookListWithToken:[[SBAuthCenter sharedInstance] userToken] completion:^(BOOL sucess, id data) {
+- (void)loadMyBookListWithCompletion:(SBDataCompletion)completion
+{
+    [SBNetworkManager loadMyBookListWithCompletion:^(BOOL sucess, id data) {
         if (sucess) { //넘겨주기 전에 fetch합니다.
             NSMutableDictionary *mutableData = [(NSDictionary *)data mutableCopy];
             NSArray *fetchedResult = [self fetchSBBookModelsWithArray:[mutableData objectForKey:@"result"]];
@@ -95,7 +96,8 @@
 }
 
 #pragma mark - 책 검색, 등록, 삭제 (Search, Add or Remove Book)
-- (void)searchWithQuery:(NSString *)query completion:(SBDataCompletion)completion
+- (void)searchWithQuery:(NSString *)query
+             completion:(SBDataCompletion)completion
 {
     [SBNetworkManager searchWithQuery:query completion:^(BOOL sucess, id data) {
         if (sucess) { //넘겨주기 전에 fetch합니다.
@@ -110,10 +112,10 @@
     }];
 }
 
-- (void)searchResultWithNextURLString:(NSString *)urlString
-                           completion:(SBDataCompletion)completion
+- (void)nextSearchResultWithURLString:(NSString *)urlString
+                     completion:(SBDataCompletion)completion
 {
-    [SBNetworkManager searchResultWithNextURLString:urlString completion:^(BOOL sucess, id data) {
+    [SBNetworkManager nextSearchResultWithURLString:urlString completion:^(BOOL sucess, id data) {
         if (sucess) { //넘겨주기 전에 fetch합니다.
             NSMutableDictionary *mutableData = [(NSDictionary *)data mutableCopy];
             NSArray *fetchedResult = [self fetchSBBookModelsWithArray:[mutableData objectForKey:@"result"]];
@@ -126,39 +128,41 @@
     }];
 }
 
-- (void)addBook:(SBBookData *)book completion:(SBDataCompletion)completion
+- (void)addBook:(SBBookData *)book
+     completion:(SBDataCompletion)completion
 {
-    
-    NSMutableArray *mutableCopy = [self.myBookDatas mutableCopy];
-    
-    [mutableCopy addObject:book];
-    
-    self.myBookDatas = mutableCopy;
-    
-    [self saveData];
-    
-    completion(YES, book);
-    
+    [SBNetworkManager addBookWith:book.bookPrimaryKey completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            NSMutableArray *mutableCopy = [self.myBookDatas mutableCopy];
+            [mutableCopy insertObject:book atIndex:0];
+            self.myBookDatas = mutableCopy;
+            [self saveData];//나중에 뺄것!
+        }
+        completion(sucess, data);
+    }];
 }
 
-- (void)removeBook:(SBBookData *)book completion:(SBDataCompletion)completion
+- (void)deleteBook:(SBBookData *)book
+        completion:(SBDataCompletion)completion
 {
-    
-    NSMutableArray *mutableCopy = [self.myBookDatas mutableCopy];
-    
-    [mutableCopy removeObject:book];
-    
-    self.myBookDatas = mutableCopy;
-    
-    [self saveData];
-    
-    completion(YES, book);
+    [SBNetworkManager deleteBookWith:book.bookPrimaryKey completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            NSMutableArray *mutableCopy = [self.myBookDatas mutableCopy];
+            
+            [mutableCopy removeObject:book];
+            
+            self.myBookDatas = mutableCopy;
+            [self saveData];//나중에 뺄것!
+        }
+        completion(sucess, data);
+    }];
 }
 
 #pragma mark - Model
 
 ///내 책장 안에 있는 책을 PK로 요구하면 반환해 줍니다.
-- (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey {
+- (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey
+{
     SBBookData *resultItem;
     
     for (SBBookData *item in self.myBookDatas) {
@@ -171,7 +175,8 @@
 }
 
 ///딕셔너리가 담긴 어레이를 이용해 북데이터를 페치합니다.
-- (NSArray *)fetchSBBookModelsWithArray:(NSArray <NSDictionary *> *)array {
+- (NSArray *)fetchSBBookModelsWithArray:(NSArray <NSDictionary *> *)array
+{
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     for (NSDictionary *item in array) {
         SBBookData *book = [[SBBookData alloc] initWithDictionary:item];

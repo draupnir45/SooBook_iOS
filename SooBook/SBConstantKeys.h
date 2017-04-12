@@ -16,6 +16,12 @@ static NSString * const USER_LOGIN = @"user/login/";
 static NSString * const USER_LOGOUT = @"user/logout/";
 static NSString * const SEARCH = @"book/search/?";
 static NSString * const MY_BOOK_LIST = @"book/mybook/?";
+static NSString * const ADD_BOOK = @"book/mybook/";
+
+//HTTPMethod 상수
+static NSString * const POST = @"POST";
+static NSString * const GET = @"GET";
+static NSString * const DELETE = @"DELETE";
 
 //인증용 상수 키값
 static NSString * const USERNAME = @"username";
@@ -28,7 +34,7 @@ static NSString * const USERTOKEN_KEY = @"key";
 
 
 //데이터 모델 용 상수 키값
-static NSString * const BOOK_PRIMARY_KEY = @"primary_key";
+static NSString * const BOOK_PRIMARY_KEY = @"book_id";
 static NSString * const TITLE_KEY = @"title";
 static NSString * const IMAGE_URL_KEY = @"imageURL";
 static NSString * const AUTHOR_KEY = @"author";

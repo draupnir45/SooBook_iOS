@@ -32,8 +32,12 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 + (instancetype)sharedBookData;
 
 //책 추가 및 삭제
-- (void)addBook:(SBBookData *)book completion:(SBDataCompletion)completion;
-- (void)removeBook:(SBBookData *)book completion:(SBDataCompletion)completion;
+- (void)addBook:(SBBookData *)book
+     completion:(SBDataCompletion)completion;
+
+- (void)deleteBook:(SBBookData *)book
+        completion:(SBDataCompletion)completion;
+
 - (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey;
 
 //내 책 불러오기
@@ -43,8 +47,8 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 - (void)searchWithQuery:(NSString *)query
              completion:(SBDataCompletion)completion;
 
-///검색시 다음 페이지를 가져오기 위한 메서드
-- (void)searchResultWithNextURLString:(NSString *)urlString
+///다음 페이지를 가져오기 위한 메서드
+- (void)nextSearchResultWithURLString:(NSString *)urlString
                            completion:(SBDataCompletion)completion;
 
 
