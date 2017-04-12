@@ -52,7 +52,6 @@
 		B95F78711E8D0E92009A9A93 /* TempBookData.plist in Resources */ = {isa = PBXBuildFile; fileRef = B95F78701E8D0E92009A9A93 /* TempBookData.plist */; };
 		B97FE0EE1E8A3C9F00731848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B97FE0ED1E8A3C9F00731848 /* main.m */; };
 		B97FE0F11E8A3C9F00731848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B97FE0F01E8A3C9F00731848 /* AppDelegate.m */; };
-		B97FE0F41E8A3C9F00731848 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B97FE0F31E8A3C9F00731848 /* ViewController.m */; };
 		B97FE0F91E8A3C9F00731848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97FE0F81E8A3C9F00731848 /* Assets.xcassets */; };
 		B97FE0FC1E8A3C9F00731848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97FE0FA1E8A3C9F00731848 /* LaunchScreen.storyboard */; };
 		B97FE1311E8A45EC00731848 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = B97FE1301E8A45EC00731848 /* NSData+AES.m */; };
@@ -138,8 +137,6 @@
 		B97FE0ED1E8A3C9F00731848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B97FE0EF1E8A3C9F00731848 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B97FE0F01E8A3C9F00731848 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B97FE0F21E8A3C9F00731848 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B97FE0F31E8A3C9F00731848 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B97FE0F81E8A3C9F00731848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B97FE0FB1E8A3C9F00731848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B97FE0FD1E8A3C9F00731848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -303,8 +300,6 @@
 			children = (
 				B97FE0EF1E8A3C9F00731848 /* AppDelegate.h */,
 				B97FE0F01E8A3C9F00731848 /* AppDelegate.m */,
-				B97FE0F21E8A3C9F00731848 /* ViewController.h */,
-				B97FE0F31E8A3C9F00731848 /* ViewController.m */,
 				B9B064A21E93AA9C00488D70 /* Main.storyboard */,
 				B9B064D41E93AAF500488D70 /* Main Navigation */,
 				2E1FA2371E8E159B0055F3FE /* Account */,
@@ -540,7 +535,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B97FE0F41E8A3C9F00731848 /* ViewController.m in Sources */,
 				B9B064CA1E93AAF000488D70 /* FirstSectionHeaderCell.m in Sources */,
 				2E025B361E97817C0076531E /* SBMainCollectionViewCell.m in Sources */,
 				2E11F4DE1E920E03002FD1E6 /* SBIndicatorView.m in Sources */,
