@@ -8,17 +8,23 @@
 
 #import "SBSearchViewController.h"
 #import "SBSearchTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SBSearchViewController ()
-<UITableViewDelegate,UITableViewDataSource,UISearchDisplayDelegate,UISearchBarDelegate,UISearchResultsUpdating>
+<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 
 @property NSArray *allData;
-@property NSArray *resultData;
+@property NSMutableArray *resultData;
 
+@property SBDataCenter *dataCenter;
+@property SBBookData *bookData;
 
 @property IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) UISearchController *searchController;
+@property IBOutlet UIView  *grayView;
+@property SBIndicatorView *indicator;
+
 @end
 
 @implementation SBSearchViewController
@@ -26,88 +32,141 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.dataCenter = [SBDataCenter sharedBookData];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"SBSearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"SBSearchTableViewCell"];
     
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.searchResultsUpdater = self;
+    self.resultData = [[NSMutableArray alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShown:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardWillHideNotification object:nil];
 
+    
+    self.searchBar = [[UISearchBar alloc] init];
+    self.navigationItem.titleView = self.searchBar;
+    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    self.searchBar.placeholder = @"책 / 출판사";
+    self.searchBar.delegate = self;
+
+    self.indicator = [SBIndicatorView new];
+    
+    
     
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-- (void)filterText:(NSString *)str
+- (void)viewDidAppear:(BOOL)animated
 {
-    //self.resultData = [self.allData mutableCopy];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", str];
-    
-    self.resultData = [self.allData filteredArrayUsingPredicate:predicate];
-    [self.tableView reloadData];
+    [super viewDidAppear:animated];
+    [self.searchBar becomeFirstResponder];
+}
+#pragma mark - Notification
+//키보드가 보이면
+- (void)keyboardShown:(NSNotification *)note
+{
+    CGRect keyboardFrame;
+    [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrame];
+    CGRect tableViewFrame = self.tableView.frame;
+    tableViewFrame.size.height -= keyboardFrame.size.height;
+    [self.tableView setFrame:tableViewFrame];
+}
+//키보드가 감춰지면
+- (void)keyboardHidden:(NSNotification *)note
+{
+    [self.tableView setFrame:self.view.bounds];
 }
 
-#define mark - tableViewDataSource
+
+
+#pragma mark - TableView
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if(self.searchController.isActive && (self.searchController.searchBar.text.length > 0))
-//    {
-//        return self.resultData.count;
-//    }
-//    return self.allData.count;
- 
-    return 10;
+    return self.resultData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SBBookData *item = [[[SBDataCenter sharedBookData] myBookDatas] objectAtIndex:indexPath.row];
+    //현재 사용가능한 Cell 객체 준비
     SBSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBSearchTableViewCell" forIndexPath:indexPath];
     
+    //내용 아이템 준비
+    SBBookData *item = self.resultData[indexPath.row];
     
-    [cell setCellDataWithImageName:item.imageURL
-                             title:item.title
-                          subtitle:item.author];
+    //셀에 내용 넣기
+    cell.titleLabel.text = item.title;
+    cell.subtitleLabel.text = [NSString stringWithFormat:@"%@ | %@",item.author,item.publisher];
+    
+//    cell.bookCoverImageView.image = [UIImage imageNamed:item.imageURL]; //데이터 붙이면 바꿔야 함
+    
+    [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"]
+                 placeholderImage:[UIImage imageNamed:@"1.jpeg"]];
+    
     cell.bookPrimaryKey = item.bookPrimaryKey;
+    
+
     
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 129;
 }
 
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+#pragma mark- SearchBar
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
-    [self filterText:searchController.searchBar.text];
+    [self.grayView setHidden:NO];
+    return YES;
 }
 
-//헤더와 풋터 1을 줌
-- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
 {
-    return 1.0;
+    [self.grayView setHidden:YES];
+    return YES;
 }
 
-- (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    return 1.0;
+    NSLog(@"편집 들어갑");
+
+    if([searchText length] == 0)
+    {
+        [self.resultData removeAllObjects];
+
+    }
+    [self.tableView reloadData];
 }
 
-- (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
-{
-    return [[UIView alloc] initWithFrame:CGRectZero];
-}
-
-- (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
-{
-    return [[UIView alloc] initWithFrame:CGRectZero];
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+#pragma mark - Button
+- (void)searchBarSearchButtonClicked:(UISearchBar *)SearchBar
 {
     NSLog(@"서치버튼 눌렀습니다.");
+    [self.searchBar resignFirstResponder];
+    [self.indicator startIndicatorOnView:self.view];
+
+    //서치 요청
+   [self.dataCenter searchWithQuery:self.searchBar.text completion:^(BOOL sucess, id data)
+    {
+        NSDictionary *receivedData = data;
+        NSArray *resultArray = [receivedData objectForKey:@"results"];
+        [self.resultData addObjectsFromArray:resultArray];
+        [self.tableView reloadData];
+        [self.indicator stopIndicator];
+        
+   }];
+}
+//제스쳐 그레이뷰와 반응
+- (IBAction)tapGestureResignFirstResponder:(UITapGestureRecognizer *)sender
+{
+    [self.searchBar resignFirstResponder];
 }
 
 @end

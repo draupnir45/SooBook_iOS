@@ -66,7 +66,7 @@
 		<key>imageURL</key>
 		<string>3.jpeg</string>
 		<key>author</key>
-		<string>유은정 2016년 10월 31일</string>
+		<string>유은정</string>
 		<key>publisher</key>
 		<string>BOOK21 PUBLISHING GROUP</string>
 		<key>shortDescription</key>
@@ -91,7 +91,7 @@
 		<key>imageURL</key>
 		<string>4.jpeg</string>
 		<key>author</key>
-		<string>강선영 2015년 12월 24일</string>
+		<string>강선영</string>
 		<key>publisher</key>
 		<string>대림북스</string>
 		<key>shortDescription</key>
@@ -122,7 +122,7 @@
 		<key>imageURL</key>
 		<string>5.jpeg</string>
 		<key>author</key>
-		<string>해화 2017년 2월 17일</string>
+		<string>해화</string>
 		<key>publisher</key>
 		<string>로맨스토리</string>
 		<key>shortDescription</key>
@@ -148,7 +148,7 @@
 		<key>imageURL</key>
 		<string>6.jpeg</string>
 		<key>author</key>
-		<string>정원 2017년 2월 17일</string>
+		<string>정원</string>
 		<key>publisher</key>
 		<string>로맨스토리</string>
 		<key>shortDescription</key>
@@ -173,7 +173,7 @@
 		<key>imageURL</key>
 		<string>7.jpeg</string>
 		<key>author</key>
-		<string>Makoto Shinkai 2012년 2월 21일</string>
+		<string>Makoto Shinkai</string>
 		<key>publisher</key>
 		<string>대원씨아이</string>
 		<key>shortDescription</key>
@@ -199,7 +199,7 @@
 		<key>imageURL</key>
 		<string>8.jpeg</string>
 		<key>author</key>
-		<string>서동우 2016년 6월 1일</string>
+		<string>서동우</string>
 		<key>publisher</key>
 		<string>문학여행</string>
 		<key>shortDescription</key>

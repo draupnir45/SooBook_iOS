@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface SBSearchTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *bookCover;
+@property (strong, nonatomic) IBOutlet UIImageView *bookCoverImageView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *authorLabel;
+@property (strong, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property CAGradientLayer *gradient;
+@property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
 
 
 @property NSInteger bookPrimaryKey;
 
-- (void)setCellDataWithImageName:(NSString*)imageName
-                           title:(NSString*)title
-                        subtitle:(NSString*)subtitle;
+//- (void)setCellDataWithImageName:(NSString*)imageName
+//                           title:(NSString*)title
+//                        subtitle:(NSString*)subtitle;
 
 @end

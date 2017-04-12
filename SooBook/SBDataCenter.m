@@ -102,8 +102,8 @@
     [SBNetworkManager searchWithQuery:query completion:^(BOOL sucess, id data) {
         if (sucess) { //넘겨주기 전에 fetch합니다.
             NSMutableDictionary *mutableData = [(NSDictionary *)data mutableCopy];
-            NSArray *fetchedResult = [self fetchSBBookModelsWithArray:[mutableData objectForKey:@"result"]];
-            [mutableData setObject:fetchedResult forKey:@"result"];
+            NSArray *fetchedResult = [self fetchSBBookModelsWithArray:[mutableData objectForKey:@"results"]];
+            [mutableData setObject:fetchedResult forKey:@"results"];
             data = mutableData;
         }
         
@@ -113,13 +113,13 @@
 }
 
 - (void)nextSearchResultWithURLString:(NSString *)urlString
-                     completion:(SBDataCompletion)completion
+                           completion:(SBDataCompletion)completion
 {
     [SBNetworkManager nextSearchResultWithURLString:urlString completion:^(BOOL sucess, id data) {
         if (sucess) { //넘겨주기 전에 fetch합니다.
             NSMutableDictionary *mutableData = [(NSDictionary *)data mutableCopy];
-            NSArray *fetchedResult = [self fetchSBBookModelsWithArray:[mutableData objectForKey:@"result"]];
-            [mutableData setObject:fetchedResult forKey:@"result"];
+            NSArray *fetchedResult = [self fetchSBBookModelsWithArray:[mutableData objectForKey:@"results"]];
+            [mutableData setObject:fetchedResult forKey:@"results"];
             data = mutableData;
         }
         
