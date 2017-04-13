@@ -78,7 +78,7 @@
 
 - (void)logOut
 {
-    [SBNetworkManager logOutWithToken:self.userToken];
+    [SBNetworkManager logOut];
     [self removeUserToken];
 }
 

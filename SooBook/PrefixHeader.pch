@@ -24,6 +24,7 @@
 #import "SBDataCenter.h"
 #import "SBAuthCenter.h"
 #import "SBBookData.h"
+#import "SBIndicatorView.h"
 
 
 

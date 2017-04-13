@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="SBSearchTableViewCell" rowHeight="129" id="KGk-i7-Jjw" customClass="SBSearchTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="128.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b1n-3U-vKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-Jy-IGl">
+                                <rect key="frame" x="0.0" y="0.0" width="88" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1di-oG-QRN">
+                                        <rect key="frame" x="16" y="21" width="71.5" height="107"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="72" id="dcs-iK-FZ3"/>
+                                            <constraint firstAttribute="height" constant="107" id="vk3-2V-KZ3"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1di-oG-QRN" firstAttribute="leading" secondItem="PN2-Jy-IGl" secondAttribute="leading" constant="16" id="Aoz-YY-4zG"/>
+                                    <constraint firstAttribute="width" constant="88" id="YoR-3e-wIQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="1di-oG-QRN" secondAttribute="bottom" id="pbi-UY-Brp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltb-79-v59">
+                                <rect key="frame" x="88" y="0.0" width="16" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="IDx-Wq-QAZ"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vfn-TT-A7B">
+                                <rect key="frame" x="104" y="42.5" width="215" height="43"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나미야 잡화점의 기적" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4R-pY-agG">
+                                        <rect key="frame" x="0.0" y="0.0" width="215" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="히가시노 게이고 | 현대문학" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awv-NN-6RF">
+                                        <rect key="frame" x="0.0" y="28.5" width="215" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uX9-tR-uZe">
+                                <rect key="frame" x="319" y="0.0" width="16" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="mdp-fn-dLM"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ns-hw-OI3">
+                                <rect key="frame" x="335" y="52" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="3Lc-Zj-d3t"/>
+                                    <constraint firstAttribute="height" constant="24" id="atF-eB-cxs"/>
+                                </constraints>
+                                <state key="normal" image="mybookHeartOff"/>
+                                <state key="selected" image="mybookHeartOn"/>
+                                <state key="highlighted" image="mybookHeartOn"/>
+                                <connections>
+                                    <action selector="addOrRemoveFromMyBook:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xfu-Pv-gB7"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYg-GP-f7l">
+                                <rect key="frame" x="359" y="0.0" width="16" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="679-dl-8yq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="PN2-Jy-IGl" firstAttribute="height" secondItem="b1n-3U-vKJ" secondAttribute="height" id="IPn-M2-fRn"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="b1n-3U-vKJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2SI-Rl-Ywu"/>
+                    <constraint firstItem="b1n-3U-vKJ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="Cm8-kz-Mf4"/>
+                    <constraint firstItem="b1n-3U-vKJ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="OoQ-gG-PB1"/>
+                    <constraint firstItem="b1n-3U-vKJ" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="RmT-lq-VzN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bookCoverImageView" destination="1di-oG-QRN" id="GLY-Yb-3td"/>
+                <outlet property="subtitleLabel" destination="awv-NN-6RF" id="RzI-8f-Rxo"/>
+                <outlet property="titleLabel" destination="m4R-pY-agG" id="Pre-ye-KWv"/>
+            </connections>
+            <point key="canvasLocation" x="62.5" y="97.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="mybookHeartOff" width="22" height="21"/>
+        <image name="mybookHeartOn" width="20" height="19"/>
+    </resources>
+</document>

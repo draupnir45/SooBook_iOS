@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="csk-rQ-SCj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="RYT-IZ-oeC">
+            <objects>
+                <viewController id="uNt-AW-0Yd" customClass="SBSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fap-6b-fgv"/>
+                        <viewControllerLayoutGuide type="bottom" id="0QJ-TV-EEC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ftf-l6-Sga">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t5A-RE-S2i">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SBSearchTableViewCell" rowHeight="129" id="gK3-Gv-as4" customClass="SBSearchTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="129"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gK3-Gv-as4" id="qsW-J0-jxA">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="128.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="uNt-AW-0Yd" id="XfP-Oe-aa5"/>
+                                    <outlet property="delegate" destination="uNt-AW-0Yd" id="63K-cG-poU"/>
+                                </connections>
+                            </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Weg-FK-JTG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GsM-bY-qCx" appends="YES" id="9jV-6h-4Ys"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="t5A-RE-S2i" firstAttribute="centerY" secondItem="Ftf-l6-Sga" secondAttribute="centerY" id="PmO-kN-9uh"/>
+                            <constraint firstItem="t5A-RE-S2i" firstAttribute="width" secondItem="Ftf-l6-Sga" secondAttribute="width" id="dDg-re-xM9"/>
+                            <constraint firstItem="t5A-RE-S2i" firstAttribute="centerX" secondItem="Ftf-l6-Sga" secondAttribute="centerX" id="m2p-TD-Xpx"/>
+                            <constraint firstItem="t5A-RE-S2i" firstAttribute="height" secondItem="Ftf-l6-Sga" secondAttribute="height" id="r9T-0J-J2z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="1ln-5i-w4C"/>
+                    <connections>
+                        <outlet property="grayView" destination="Weg-FK-JTG" id="143-f4-OmU"/>
+                        <outlet property="tableView" destination="t5A-RE-S2i" id="COS-FV-mjJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0s8-CQ-l3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GsM-bY-qCx">
+                    <connections>
+                        <action selector="tapGestureResignFirstResponder:" destination="uNt-AW-0Yd" id="A51-HA-QWW"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="968.79999999999995" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UP0-w5-VYx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="csk-rQ-SCj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XIg-pO-f7U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uNt-AW-0Yd" kind="relationship" relationship="rootViewController" id="76T-2V-dwu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="coG-aL-2Ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="29.600000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
