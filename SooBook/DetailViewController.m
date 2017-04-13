@@ -13,8 +13,18 @@
 #import "SBBookData.h"
 
 @interface DetailViewController ()
-<RateViewDelegate, UIGestureRecognizerDelegate>
+<RateViewDelegate>
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
+@property (weak, nonatomic) IBOutlet UIButton *starRateButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
+@property (weak, nonatomic) IBOutlet UIButton *descriptionButton;
+@property (weak, nonatomic) IBOutlet UIImageView *starRateImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *commentImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *descriptionImageView;
+@property (weak, nonatomic) IBOutlet UILabel *starRateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commenButtontLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *starRateSmallLabel;
 
 
 @end
@@ -37,17 +47,52 @@
     //self.navigationItem.title = item.title;
     
  
-    self.starRateView.rating = 2;
+    self.starRateView.rating = 0;
     self.starRateView.delegate = self;
     self.starRateView.editable = YES;
     self.starRateView.maxRating = 5;
     
-    if (self.navigationController != nil)
-    {
-        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//    if (self.navigationController != nil)
+//    {
+//        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//    }
+    if (self.starRateView.rating == 0) {
+        
+        self.starRateLabel.text = @"평가하기";
+        [self.starRateLabel setTextColor:[UIColor grayColor]];
+        self.starRateImageView.image =[UIImage imageNamed:@"detailIcon1RatingOff"];
+                
+    }else{
+        self.starRateLabel.text = @"평가함";
+        self.starRateImageView.image =[UIImage imageNamed:@"detailIcon1RatingOn"];
+        
+    }
+
+    
+    if (self.detailViewCommentLabel.text.length == 11) {
+        
+        self.commenButtontLabel.text = @"코멘트";
+        [self.commenButtontLabel setTextColor:[UIColor grayColor]];
+        self.commentImageView.image =[UIImage imageNamed:@"detailIcon2CommentOff"];
+        
+    }else{
+        self.commenButtontLabel.text = @"코멘트";
+        self.commentImageView.image =[UIImage imageNamed:@"detailIcon2CommentOn"];
+        
     }
     
-    
+    if (self.decriptionLabel.text.length == 11) {
+        
+        self.descriptionLabel.text = @"기억에 남는 구절";
+        [self.descriptionLabel setTextColor:[UIColor grayColor]];
+        self.descriptionImageView.image =[UIImage imageNamed:@"detailIcon3QuoteOff"];
+        
+    }else{
+        self.descriptionLabel.text = @"기억에 남는 구절";
+       // [self.descriptionLabel setTextColor:[UIColor redColor]];
+        self.descriptionImageView.image =[UIImage imageNamed:@"detailIcon3QuoteOn"];
+    }
+
     
 }
 

@@ -12,12 +12,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bookCoverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mainTitleLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *decriptionLabel;
-
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
-
 @property (weak, nonatomic) IBOutlet UILabel *starInteger;
+@property (weak, nonatomic) IBOutlet UILabel *detailViewCommentLabel;
+
 
 
 

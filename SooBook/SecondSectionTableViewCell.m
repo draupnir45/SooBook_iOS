@@ -7,6 +7,7 @@
 //
 
 #import "SecondSectionTableViewCell.h"
+#import "RateView.h"
 
 @interface SecondSectionTableViewCell ()
 
@@ -26,6 +27,7 @@
     [self.backgroundView setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
     
     self.gradient = gradient;
+  
 }
 
 - (void)layoutSubviews {

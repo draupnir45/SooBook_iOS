@@ -15,7 +15,7 @@
     self.notSelectedImage = [UIImage imageNamed:@"starEmpty"];
     self.halfSelectedImage = [UIImage imageNamed:@"starHalf"];
     self.fullSelectedImage = [UIImage imageNamed:@"starFull"];
-    self.rating = 0;
+    self.rating = 2;
     self.editable = NO;
     self.imageViews = [[NSMutableArray alloc] init];
     self.maxRating = 5;
