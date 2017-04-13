@@ -51,9 +51,9 @@
     self.starRateView.editable = YES;
     self.starRateView.maxRating = 5;
     
-//    if (self.navigationController != nil)
+//   if (self.navigationController != nil)
 //    {
-//        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//      self.navigationController.interactivePopGestureRecognizer.delegate = self;
 //    }
     if (self.starRateView.rating == 0) {
         
@@ -66,7 +66,6 @@
         self.starRateImageView.image =[UIImage imageNamed:@"detailIcon1RatingOn"];
         
     }
-
     
     if (self.detailViewCommentLabel.text.length == 11) {
         
