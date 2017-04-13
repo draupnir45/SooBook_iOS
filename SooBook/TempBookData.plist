@@ -3,17 +3,17 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>1</string>
 		<key>title</key>
 		<string>영어책 한권 외워봤니?</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>1.jpeg</string>
 		<key>author</key>
 		<string>김민식 </string>
 		<key>publisher</key>
 		<string>WisdomHouse</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>영어가 잘 되면 인생이 술술 풀린다!
             영어 고수, 30년 독학의 신이 알려주는 영어 공부 필살기
             자동번역기와 각종 어플리케이션의 등장으로 그 어느 때보다 쉽게 영어를 학습할 수 있는 때이다. 그럼에도 불구하고 사람들은 여전히 스트레스를 받으며, 영어 공부에 돈을 쏟아 붓고 있다. 보통의 성인들이 학창시절부터 영어 공부를 한 햇수는 20년은 족히 넘을 것이다. 또 부모가 되어서는 자식에게도 큰돈을 들이면서 영어에 집착한다. 이러한 현실에서 중학교 영어 교과서 외우기로 영어 세계에 입문하여 아무도 토익, 토플을 공부하지 않던 시절에 취미로 공부한 영어 덕분에 외국계 기업에 취직하고, 미국의 [프렌즈] 같은 시트콤을 만들고 싶어 드라마 피디가 된 사람이 있다. 그는 유학은커녕 어학연수, 회화 학원 한 번 다니지 않고 30년 독학으로 습득한 영어 공부 노하우를 『영어책 한 권 외워봤니?』에 담아냈다.</string>
@@ -21,7 +21,7 @@
 		<string>2.5</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -30,17 +30,17 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>2</string>
 		<key>title</key>
 		<string>돈이 보이는 손가락 회계</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>2.jpeg</string>
 		<key>author</key>
 		<string>김상헌</string>
 		<key>publisher</key>
 		<string>(주)도서출판길벗</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>주먹-가위-보 이미지 연상학습법으로 개념 확실하게 잡는 ‘손가락 회계’!
             
             회계를 처음 배우는 예체능계 학생부터 회계에 관심 없던 주부, 회계 공부에 계속 실패하는 직장인도까지 누구에게도 쉽게 회계 개념을 잡아준다. 주먹-가위-보 게임으로 이미지 연상학습하고, 삼성전자와 SK하이닉스의 실제 재무지표 문제를 풀어보는 반복 학습을 통해 다시는 자산-자본-부채의 흐름을 헷갈리거나 잊지 않는 방법을 익히게 될 것이다.
@@ -50,7 +50,7 @@
 		<string>4.5</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -59,23 +59,23 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>3</string>
 		<key>title</key>
 		<string>혼자 잘해주고 상처받지 마라</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>3.jpeg</string>
 		<key>author</key>
 		<string>유은정</string>
 		<key>publisher</key>
 		<string>BOOK21 PUBLISHING GROUP</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>당신의 마음을 더 단단하고 선명하게 만드는 심리 테라피 『혼자 잘해주고 상처받지 마라』. 이 책은 자존감 심리치료센터를 운영하며 가족과 연인, 친구에게 상처받은 수많은 내담자를 만나온 유은정 원장이 자신이 상담했던 사람들의 사례를 바탕으로 타인에게 상처받지 않고 자기 자신을 사랑하는 방법, 주체적인 삶을 만들어나가는 방법을 알려준다. </string>
 		<key>rating</key>
 		<string>3.5</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -84,17 +84,17 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>4</string>
 		<key>title</key>
 		<string>나는 우울한 날에도 내 마음을 지키기로 했다</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>4.jpeg</string>
 		<key>author</key>
 		<string>강선영</string>
 		<key>publisher</key>
 		<string>대림북스</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>사춘기 시절 극심한 우울, 불안증을 겪었고, 고난과 시련의 시간을 거치는 중에 자신과 타인의 마음을 들여다보는 치유자의 길을 걷게 되었다.
             저자가 겪은 고통의 경험은 타인의 아픔에 공감하는 능력이 되었고, 시와 그림 등의 예술적 자질은 아픈 마음을 치유하는 자원으로 활용되었다. 자신의 경험과 전문가적 소양으로 수많은 아픈 이들을 위한 치유의 동행자가 되어왔다.
             앞으로도 저자는 마음이 아픈 이들의 치유를 돕기 위한 집필과 방송 활동에 온 힘을 다하는 아름다운 치유자로서의 삶을 살아갈 것이다.
@@ -106,7 +106,7 @@
 		<string>4.5</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -115,24 +115,24 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>5</string>
 		<key>title</key>
 		<string>당신에게 끌려서 어쩌죠</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>5.jpeg</string>
 		<key>author</key>
 		<string>해화</string>
 		<key>publisher</key>
 		<string>로맨스토리</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>『강추!』최갑성, 이름만 들으면 완전 하자인데 가만 보니, 이름만 하자인 남자. “감춘다고 감춰져요? 거부하면 다 돼요? 감추지도 못하면서. 다 들켜 버렸으면서!” “서로 마음 알아서 뭐할 건데! 그럼 씨발! 너랑 잠이라도 잘까!” 이채원, 누군가의 첫사랑 같았던 그녀는, 그 누구의 첫사랑도 아닌, 그의 첫사랑. 선생님…… 당신에게 끌려서 어쩌죠.
                     </string>
 		<key>rating</key>
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -141,23 +141,23 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>6</string>
 		<key>title</key>
 		<string>미치도록 보고 싶다</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>6.jpeg</string>
 		<key>author</key>
 		<string>정원</string>
 		<key>publisher</key>
 		<string>로맨스토리</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>금기(禁忌)가 깨졌다. 더 이상 흘러넘치는 마음을 감출 수가 없다. 그냥 이대로 달려가는 마음을 멈출 방법도 도저히 모르겠다. 폭주하는 기관차처럼 그렇게 그냥 달려가는 수밖에는…….</string>
 		<key>rating</key>
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -166,24 +166,24 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>7</string>
 		<key>title</key>
 		<string>별의 목소리</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>7.jpeg</string>
 		<key>author</key>
 		<string>Makoto Shinkai</string>
 		<key>publisher</key>
 		<string>대원씨아이</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>애니메이션의 벅찬 감동이 되살아난다! 거장 신카이 마코토 ‘별의 목소리’ 소설판. 2039년, 화성을 찾아간 탐사팀은 외계문명의 유적을 발견하지만, 갑자기 날아든 생명체 타르시안의 손에 의해 전멸하고 만다. 그 뒤 지구문명은 유정에서 발견된 테크놀로지로 비약적으로 발달. 타르시안의 추적, 조사를 목적으로 국가연합 우주군도 조직된다. 중학생인 노보루와 미카코는 같은 동아리에서 활동하는 상이좋은 반 친구였지만, 3학년 때의 여름에 미카코가 국가연합군 선발 멤버로 발탁되어 두 사람은 떨어지게 된다. 휴대전화의 메시지로 연락을 계속하는 두 사람이었지만, 우주선이 지구를 떠남에 따라 그 시간차는 점점 멀어지기만 하는데….
                         영상에서는 풀어낼 수 없었던 타르시안 침공의 수수께끼가 밝혀진다!  </string>
 		<key>rating</key>
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -192,17 +192,17 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>8</string>
 		<key>title</key>
 		<string>눈물</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>8.jpeg</string>
 		<key>author</key>
 		<string>서동우</string>
 		<key>publisher</key>
 		<string>문학여행</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>시집 &quot;눈물 - 희미해진 사랑의 기억&quot;은 눈물, 바람, 세상이란 주제어로 ‘만남과 이별’, ‘흘러가는 삶의 의미’, ‘세상의 아름다움과 사물의 존재’에 대해 노래하는 『서동우 시집시리즈』 중 첫 번째 작품이다.
                         시집 첫 부분에서 시인은 친근한 말투로 시집이나 음악 같은 예술작품을 어떻게 해야 제대로 감상할 수 있는지에 대해 알려준다. ‘시’라는 낯선 것에 두려움을 갖는 이들을 위해 시가 무엇이고 왜 시를 쓰는지 알려주면서 시집 &quot;눈물 - 희미해진 사랑의 기억&quot;이 쓰이게 된 의미를 찾아나간다.
                             누구나 살면서 겪게 되는 ‘만남과 사랑’, ‘이별과 아픔’, 그리고 ‘그로 인해 성숙해져가는 마음’에 대해 세 가지 일기장으로 차례가 나뉘어져 진행되는 특징이 흥미롭다.</string>
@@ -210,7 +210,7 @@
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -219,24 +219,24 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>9</string>
 		<key>title</key>
 		<string>세상</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>9.jpeg</string>
 		<key>author</key>
 		<string>서동우 2016년 7월 5일</string>
 		<key>publisher</key>
 		<string>문학여행</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>시집 『세상 : 세상을 바라보는 시선』은 ‘눈물’, ‘바람’, ‘세상’이란 주제어로 ‘만남과 이별’, ‘흘러가는 삶의 의미’, ‘세상의 아름다움과 존재’에 대해 노래하는 『서동우 시집시리즈』 중 세 번째 작품이다.
                             지하철, 연필에서부터 종이봉투, 학교에 이르기까지 다양한 사물에 대하여 시를 쓴 시인만의 독특한 시선과 따뜻함이 느껴지는 시집이다. 전작이 내면의 깊은 슬픔과 허무에 대해 노래하였다면, 이번 작품에서는 세상에 대한 만족감, 삶에 대한 감사, 소소한 유머와 사물과 현상에 깃든 시인만의 추억감상을 느낄 수 있다.</string>
 		<key>rating</key>
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -245,17 +245,17 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>10</string>
 		<key>title</key>
 		<string>하루관리: 인생을 바꾸는 하루관리의 기적</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>10.jpeg</string>
 		<key>author</key>
 		<string>이지성, 황희철 2015년 11월 20일</string>
 		<key>publisher</key>
 		<string>차이</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>『리딩으로 리드하라』 『꿈꾸는 다락방』의 작가 이지성을 만나,
                                 비정규직에서 억대 연봉 CEO로 거듭난 황희철의 인생역전 스토리!
                                 
@@ -280,7 +280,7 @@
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -289,17 +289,17 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>11</string>
 		<key>title</key>
 		<string>감정의 온도 『체험판』: 지금 당신의 감정은 몇 도인가요?</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>11.jpeg</string>
 		<key>author</key>
 		<string>김병수 2017년 1월 23일</string>
 		<key>publisher</key>
 		<string>청림출판사</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>“감정의 온도를 제대로 느끼는 사람만이
                                 자존감을 높일 수 있다“
                                 
@@ -320,7 +320,7 @@
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -329,24 +329,24 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>12</string>
 		<key>title</key>
 		<string>로맨틱 런던: 이런 나라도 괜찮다면 당신한테 가 보고 싶어요.</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>12.jpeg</string>
 		<key>author</key>
 		<string>깜장별 2017년 1월 26일</string>
 		<key>publisher</key>
 		<string>(주)신영미디어</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>이런 나라도 괜찮다면 당신한테 가 보고 싶어요.
                                 외과 의사 물결은 10년 동안 사귀던 남자 친구에게 약혼 전날 파혼당한다. 이유도 모르고 헤어져 괴로워하다 결국 그를 잊기 위해 런던으로 떠난 그녀. 그런데 밥을 먹으러 간 레스토랑에서 갑자기 옆 테이블의 손님이 쓰러지게 되고, 그 사람을 살피던 물결은 마침 다가온 내과 의사 마틴에게 응급 처치 방법을 알려 준다. 그리고 며칠 뒤, 집 앞에서 우연히 다시 만나게 된 그. 바로 윗집에 산다는 마틴에게 그날 쓰러졌던 남자의 상태에 대해 묻던 물결은 에메랄드빛 눈동자를 반짝이며 이야기하는 그에게 점점 빠져드는 걸 느끼는데…….</string>
 		<key>rating</key>
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -355,17 +355,17 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>13</string>
 		<key>title</key>
 		<string>キャラクターを動かす!マンガストーリー講座</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>13.jpeg</string>
 		<key>author</key>
 		<string>田中 裕久 2014년 3월 25일</string>
 		<key>publisher</key>
 		<string>翔泳社</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>初心者でも大丈夫 ストーリー作りに特化したマンガ教科書
                                 本書は、「自分の考えたキャラクターでマンガを描いてみたい」「絵は描けるけれどストーリーが作れない」「もっとストーリーを面白くしたい」という人のための、マンガのストーリー作りに特化した技法書です。
                                 
@@ -376,7 +376,7 @@
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -385,17 +385,17 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>14</string>
 		<key>title</key>
 		<string>센서티브</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>14.jpeg</string>
 		<key>author</key>
 		<string>일자 샌드 2017년 2월 16일</string>
 		<key>publisher</key>
 		<string>다산3.0</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>‘남들보다 민감한 사람들(The Highly Sensitive People)’은 대개 까다롭고, 비사교적이고, 신경질적인 사람으로 여겨진다. 이런 사회적 압박과 시선 때문에 민감한 사람들은 자신의 특별한 능력을 인지하지 못한 채 살아간다. “남들처럼 사는 법을 배워야 한다”는 주변 사람들의 말에 스트레스를 받고, 압박과 부담감을 이기지 못해 불안, 우울, 자살의 위험에 이르기도 한다.
                                 
                                 하지만 최근 각종 연구에서 밝혀졌듯 ‘민감함’은 고쳐야 할 대상이 아니라 개발해야 할 대상이다. 우리 사회가 높이 평가하는 창의력, 통찰력, 열정 등이 민감함이라는 재능에 기반을 두고 있음에도, 안타깝게도 대부분의 민감한 사람은 자신이 얼마나 놀라운 능력을 가지고 있는지 모른다.
@@ -405,7 +405,7 @@
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -414,23 +414,23 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>15</string>
 		<key>title</key>
 		<string>미안해</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>15.jpeg</string>
 		<key>author</key>
 		<string>윤혜인 2017년 2월 27일</string>
 		<key>publisher</key>
 		<string>에피루스</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>배경하나 없이 오로지 회사만을 위해 달려온 ABS 대표 최명지. 심야영화를 보는 것이 유일한 낙인 그녀에게 갑자기 찾아온 영화 동반자 황준범. 그녀로선 절대로 가까이조차 할 수 없는 남자 황준범의 연속된 등장에 그녀의 경계심은 커져만 가는데……. 하지만 뛰어난 외모와 우수한 머리로 사촌동생의 가정까지 파탄시키고 있다는 오해를 안고 명지에게 접근한 준범은 자신이 알고 있는 것과 판이하게 다른 명지의 진실에 의문을 갖게 되고……. “나를 안아.” 어설프지만, 처음으로 동생 진규가 아닌 남자의 허리에 팔을 둘러 남자를 안았다. 그녀에게는 너무 큰 준범의 품은 마치 블랙홀 같아 분화하던 감정들과 생각들을 순식간에 빨아들이더니 그녀를 준범의 명령만 기다리는 로봇으로 만들었다. “입 벌려.” - 본문 내용중에서 -</string>
 		<key>rating</key>
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -439,23 +439,23 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>16</string>
 		<key>title</key>
 		<string>미스트 오버</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>16.jpeg</string>
 		<key>author</key>
 		<string>서정윤 2017년 3월 1일</string>
 		<key>publisher</key>
 		<string>Renee</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>“어떤 연애를 원하는 건데?” “남들 다 하는 그런 연애. 보고 싶다고 전화도 하고, 같이 맛있는 것도 먹으러 다니고, 여행도 가고, 어두컴컴한 골목에서 키스도 하고….” “대신… 한쪽 마음이 변하면 그뿐이야. 절대 왜냐고 묻지 말기.” “…좋아. 나도 원하던 바야.” 그거면 되었다. 두 번 다시 오지 않을 기회일지도 모르니까. 평생에 처음이자 마지막일지도 모를 연애니까. 내 머리와 가슴엔 평생 간직할 수 있는 연애의 기억이 생긴 후겠지. “윤신우, 앞으로 잘 부탁해.” 신우의 커다란 손이 수연의 손을 감쌌다. “잘해 보자.” 서른. 그렇게 첫 연애가 시작되었다.</string>
 		<key>rating</key>
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -464,17 +464,17 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>17</string>
 		<key>title</key>
 		<string>드라마 도깨비 소설1 - 쓸쓸하고 찬란하神</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>17.jpeg</string>
 		<key>author</key>
 		<string>김수연 2017년 1월 24일</string>
 		<key>publisher</key>
 		<string>알에이치코리아(RHK)</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>운명과 저주 그 어디쯤에서 만난 도깨비와 어린 인간 신부
                                     소설로만 만날 수 있는 애틋하고 섬세한 이야기
                                     
@@ -485,7 +485,7 @@
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -494,23 +494,23 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>18</string>
 		<key>title</key>
 		<string>『세트』 다시, 묘목을 심다 (전2권/완결)</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>18.jpeg</string>
 		<key>author</key>
 		<string>기진 2017년 2월 10일</string>
 		<key>publisher</key>
 		<string>로코코</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>“우리 이혼해요.” 일밖에 모르는 지독한 워커홀릭, 이성준. 단란한 가정을 꾸리는 게 꿈인 그의 아내, 박유하. 정략으로 만나 3년을 버텨 온 그들에게 위기가 찾아온다. “당신 세상은 내가 외로워야만 완성이 되는 건가 봐요. 그런 거면 나는 이제 더 이상 버틸 수가 없어요.” 물처럼, 공기처럼 당연히 언제나 그 자리에 있을 거라 생각했던 아내. 그녀가 사라질 수도 있다는 걸 자각한 순간. 성준은 지독한 소유욕에 휩싸인다. “아니, 내 집이고, 내 방이고, 내 서재야. 내 마당의 내 목련 나무고. 그리고 내 아내야. 그러니까 이혼은 꿈도 꾸지 마. 박유하, 넌 내 집에서 한 발자국도 못 나갈 테니까 .” 떠나려는 아내와 놓지 않는 남편. 해피엔딩을 위한 두 사람의 분투기가 시작된다.</string>
 		<key>rating</key>
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -519,17 +519,17 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>19</string>
 		<key>title</key>
 		<string>그럴 때 있으시죠?: 김제동과 나, 우리들의 이야기</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>19.jpeg</string>
 		<key>author</key>
 		<string>김제동 2016년 10월 25일</string>
 		<key>publisher</key>
 		<string>나무의 마음</string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>잘 살고 있는 걸까? 인생이 불안할 때
                                     나만 혼자인 것 같아, 외로운 날에도
                                     
@@ -546,7 +546,7 @@
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>
@@ -555,24 +555,24 @@
 		</array>
 	</dict>
 	<dict>
-		<key>primary_key</key>
+		<key>id</key>
 		<string>20</string>
 		<key>title</key>
 		<string>공포 다이어트</string>
-		<key>imageURL</key>
+		<key>cover_thumbnail</key>
 		<string>20.jpeg</string>
 		<key>author</key>
 		<string>피톨로지 2017년 2월 7일</string>
 		<key>publisher</key>
 		<string> WisdomHouse </string>
-		<key>shortDescription</key>
+		<key>description</key>
 		<string>생각하는 운동쟁이 ‘피톨로지’가 제안하는 건강한 다이어트의 정석
                                     공포 다이어트는 음식의 종류, 운동 시간 같은 부차적인 문제는 다 걷어내고 오로지 공복감과 포만감 통제에만 집중한, 새로운 다이어트 방법이다. 배고프지 않으면 적게 먹을 것이고, 적게 먹는 만큼 살이 빠진다는 불변의 진리를 다 알면서도 왜 하지 못하고 있는지 꼬집어주고, 궁극적으로 공복감과 포만감 조절만이면 끝나는 공포 다이어트를 통해 평생 지속할 수 있는 건강한 다이어트의 정석을 알려준다.</string>
 		<key>rating</key>
 		<string>(별점, 0.5~5.0)</string>
 		<key>comment</key>
 		<string>(코멘트)</string>
-		<key>quotations</key>
+		<key>mark</key>
 		<array>
 			<string>(기억에 남는 구절 1)</string>
 			<string>(기억에 남는 구절 2)</string>

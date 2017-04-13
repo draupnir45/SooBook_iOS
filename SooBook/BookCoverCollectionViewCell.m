@@ -26,7 +26,7 @@
         self.firstCollectionImage.frame = CGRectMake(0, 0,newWidth, 172.0f);
     }
     
-//    NSLog(@"layoutSubviews");
+    NSLog(@"layoutSubviews");
 }
 
 + (CGFloat)getImageRatioWithImage:(UIImage *)image
