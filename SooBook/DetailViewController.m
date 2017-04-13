@@ -24,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *starRateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commenButtontLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *starRateSmallLabel;
 
 
 @end

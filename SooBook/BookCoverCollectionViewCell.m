@@ -23,7 +23,7 @@
         self.firstCollectionImage.frame = CGRectMake(0, self.frame.size.height - newHeight, 96.0f, newHeight);
     } else {
         CGFloat newWidth = 172.0f / heightByWidthRatio;
-        self.firstCollectionImage.frame = CGRectMake(0, 0, newWidth, 172.0f);
+        self.firstCollectionImage.frame = CGRectMake(0, 0,newWidth, 172.0f);
     }
     
 //    NSLog(@"layoutSubviews");
