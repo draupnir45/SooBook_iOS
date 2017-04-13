@@ -109,7 +109,7 @@
                     <navigationItem key="navigationItem" id="Ntx-CV-AEM">
                         <barButtonItem key="leftBarButtonItem" image="square-individual-nine-7.png" id="h0r-AV-pEW">
                             <connections>
-                                <segue destination="sw4-9g-icJ" kind="presentation" modalPresentationStyle="currentContext" modalTransitionStyle="flipHorizontal" id="rxD-wR-Ipp"/>
+                                <segue destination="sw4-9g-icJ" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="rxD-wR-Ipp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="검색" id="dLZ-Pd-pAU"/>
