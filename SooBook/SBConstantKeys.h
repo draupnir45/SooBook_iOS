@@ -43,6 +43,6 @@ static NSString * const PUBLISHER_KEY = @"publisher";
 static NSString * const SHORT_DESCRIPTION_KEY = @"description";
 static NSString * const RATING_KEY = @"rating";
 static NSString * const COMMENT_KEY = @"comment";
-static NSString * const QUOTATIONS_KEY = @"quotations";
+static NSString * const QUOTATIONS_KEY = @"mark";
 
 #endif /* SBConstantKeys_h */

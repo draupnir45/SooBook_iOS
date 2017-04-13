@@ -94,7 +94,8 @@
 {
     //매니저와 리퀘스트 준비
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
-    NSString *urlString = [NSString stringWithFormat:@"%@keyword=%@",SEARCH,query];
+    NSString *encodedQuery = [query stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *urlString = [NSString stringWithFormat:@"%@keyword=%@",SEARCH,encodedQuery];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:urlString]];
     request.HTTPMethod = GET;
     
