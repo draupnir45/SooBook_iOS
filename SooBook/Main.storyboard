@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MoC-GR-k6N">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MoC-GR-k6N">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -219,7 +219,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9r-1F-UWz">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D9r-1F-UWz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAZ-b8-wCB" userLabel="Content View">
@@ -329,7 +329,7 @@
                                                                                     <constraint firstAttribute="width" constant="24" id="otH-Bd-y2b"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqm-ed-WFd">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqm-ed-WFd">
                                                                                 <rect key="frame" x="39" y="40" width="46" height="16"/>
                                                                                 <gestureRecognizers/>
                                                                                 <constraints>
@@ -491,7 +491,7 @@
                                                         <rect key="frame" x="0.0" y="757" width="375" height="397"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6Rd-cY-ygL" userLabel="User Comment Stack View">
-                                                                <rect key="frame" x="16" y="16" width="343" height="365"/>
+                                                                <rect key="frame" x="16" y="16" width="343" height="349"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PiW-wv-4RS">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
@@ -524,7 +524,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 평가가 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oC0-fx-z33">
-                                                                        <rect key="frame" x="0.0" y="40" width="343" height="325"/>
+                                                                        <rect key="frame" x="0.0" y="40" width="343" height="309"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                         <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -537,7 +537,7 @@
                                                             <constraint firstItem="6Rd-cY-ygL" firstAttribute="leading" secondItem="9SP-Jn-meE" secondAttribute="leading" constant="16" id="Dnv-rh-OEX"/>
                                                             <constraint firstItem="6Rd-cY-ygL" firstAttribute="top" secondItem="9SP-Jn-meE" secondAttribute="top" constant="16" id="S14-yG-w0R"/>
                                                             <constraint firstAttribute="trailing" secondItem="6Rd-cY-ygL" secondAttribute="trailing" constant="16" id="jfA-Kg-WW3"/>
-                                                            <constraint firstAttribute="height" secondItem="6Rd-cY-ygL" secondAttribute="height" constant="32" id="nVh-DK-vC8"/>
+                                                            <constraint firstAttribute="height" secondItem="6Rd-cY-ygL" secondAttribute="height" constant="48" id="nVh-DK-vC8"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ofn-7b-MrG">

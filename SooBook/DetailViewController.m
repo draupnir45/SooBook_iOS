@@ -46,7 +46,7 @@
     //self.navigationItem.title = item.title;
     
  
-    self.starRateView.rating = 0;
+    self.starRateView.rating = 1;
     self.starRateView.delegate = self;
     self.starRateView.editable = YES;
     self.starRateView.maxRating = 5;
@@ -119,8 +119,8 @@
     
     NSLog(@"%f", rating);
    
-    self.starInteger.text = [NSString stringWithFormat:@"%f",rating];
-   
+    self.starInteger.text = [NSString stringWithFormat:@"%.1f",rating];
+    
 }
 - (IBAction)backButtonSelected:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
