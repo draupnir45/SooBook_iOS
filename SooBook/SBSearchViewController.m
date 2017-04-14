@@ -140,12 +140,11 @@
     if([searchText length] == 0)
     {
         [self.resultData removeAllObjects];
-
     }
     [self.tableView reloadData];
 }
 
-#pragma mark - Button
+#pragma mark - Button & Gesture
 - (void)searchBarSearchButtonClicked:(UISearchBar *)SearchBar
 {
     NSLog(@"서치버튼 눌렀습니다.");

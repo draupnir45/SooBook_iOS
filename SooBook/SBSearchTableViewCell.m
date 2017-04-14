@@ -15,7 +15,8 @@
 @end
 
 @implementation SBSearchTableViewCell
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     
     self.dataCenter = [SBDataCenter sharedBookData];
@@ -27,7 +28,8 @@
     self.gradient = gradient;
 }
 
-- (void)layoutSubviews {
+- (void)layoutSubviews
+{
     [super layoutSubviews];
     self.gradient.frame = self.bounds;
 }
@@ -53,17 +55,15 @@
     {
         [sender setSelected:YES];
       //셀렉티드면 추가해야하지
-        //    [self.dataCenter addBook:self.bookData completion:^(BOOL sucess, id data) {
-        //        NSDictionary *receivedData = data;
-        //        NSArray *resultArray = [receivedData objectForKey:@"results"];
-        //
-        //    }];
+//            [self.dataCenter addBook:self.bookData completion:^(BOOL sucess, id data) {
+//                
+//
+//            }];
     } else {
       //없애
         [sender setSelected:NO];
     }
     
-//    [sender setSelected:!sender.selected];
 }
 
 @end
