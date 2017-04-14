@@ -52,8 +52,7 @@
 
     self.indicator = [SBIndicatorView new];
     
-    
-    
+    self.grayView.alpha = 0.4;
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,6 +101,14 @@
     cell.myBook = item.isMyBook;
     cell.bookPrimaryKey = item.bookPrimaryKey;
     cell.favoriteButton.tag = indexPath.row;
+    
+    if(cell.myBook) {
+        [cell.favoriteButton setSelected:YES];
+    } else {
+        [cell.favoriteButton setSelected:NO];
+    }
+//    cell.favoriteButton
+    
     [cell.favoriteButton addTarget:self action:@selector(requestAddBook:) forControlEvents:UIControlEventTouchUpInside];
     
     NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
@@ -171,10 +178,16 @@
 {
     NSLog(@"requestAddBook");
     
+    [self.indicator startIndicatorOnView:self.view];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
+    SBSearchTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    __weak SBIndicatorView *indicator = self.indicator;
+    
     if (!sender.selected)
     {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
-        SBSearchTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        
         [self.dataCenter addBook:[cell bookPrimaryKey] completion:^(BOOL sucess, id data) {
             if (sucess)
             {
@@ -184,12 +197,22 @@
                 //책장에 책이 들어오지 못했다는 알럿창
             }
             
-            //        [self updateFavoriteButton];
+            [indicator stopIndicator];
+        }];
+    } else {
+        
+        [self.dataCenter deleteBook:[cell bookPrimaryKey] completion:^(BOOL sucess, id data) {
+            if (sucess)
+            {
+                NSLog(@"NO");
+                sender.selected = NO;
+            } else {
+                //책장에 책이 들어오지 못했다는 알럿창
+            }
+            
+            [indicator stopIndicator];
         }];
     }
-    
-
-    
 }
 
 
