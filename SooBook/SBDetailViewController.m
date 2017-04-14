@@ -10,6 +10,7 @@
 #import "RateView.h"
 #import "SBDataCenter.h"
 #import "SBBookData.h"
+#import "SBCommentViewController.h"
 
 @interface SBDetailViewController ()
 <RateViewDelegate, UIGestureRecognizerDelegate>
@@ -128,12 +129,10 @@
     [self.navigationController setNavigationBarHidden:YES];
     
 }
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
-    
-    
-}
+//-(void)viewWillDisappear:(BOOL)animated{
+//    [super viewWillDisappear:animated];
+//    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -155,6 +154,13 @@
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"CommentViewSegue"]) {
+        SBCommentViewController *commentViewContoroller = segue.destinationViewController;
+        commentViewContoroller.bookPrimaryKey = self.bookPrimaryKey;
+    }
 }
 
 @end

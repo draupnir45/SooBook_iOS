@@ -14,7 +14,7 @@
 //기본 프레임워크
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+#import <SDWebImage/UIImageView+WebCache.h>
 
 //협업시 필요한 상수 키 스트링
 #import "SBConstantKeys.h"

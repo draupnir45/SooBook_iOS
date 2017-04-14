@@ -182,7 +182,7 @@
     
     NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-        if (statusCode == 201) {
+        if (statusCode == 200) {
             completion(YES, responseObject);
         } else {
             completion(NO, responseObject);

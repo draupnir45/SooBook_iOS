@@ -45,6 +45,7 @@
 		B902DA351E93BDF200B1FCA1 /* 19.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA211E93BDF200B1FCA1 /* 19.jpeg */; };
 		B902DA361E93BDF200B1FCA1 /* 20.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA221E93BDF200B1FCA1 /* 20.jpeg */; };
 		B903B4271E8FDEBF005817B1 /* SBNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */; };
+		B910AFBA1EA0B0B600E9BB83 /* SBCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B910AFB91EA0B0B600E9BB83 /* SBCommentViewController.m */; };
 		B95F78661E8CDAF1009A9A93 /* SBAuthCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F78651E8CDAF1009A9A93 /* SBAuthCenter.m */; };
 		B95F78691E8CE056009A9A93 /* TestingClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F78681E8CE056009A9A93 /* TestingClass.m */; };
 		B95F786C1E8D0048009A9A93 /* UIColor+SBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F786B1E8D0048009A9A93 /* UIColor+SBAdditions.m */; };
@@ -122,6 +123,8 @@
 		B902DA221E93BDF200B1FCA1 /* 20.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20.jpeg; sourceTree = "<group>"; };
 		B903B4251E8FDEBF005817B1 /* SBNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBNetworkManager.h; sourceTree = "<group>"; };
 		B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBNetworkManager.m; sourceTree = "<group>"; };
+		B910AFB81EA0B0B600E9BB83 /* SBCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCommentViewController.h; sourceTree = "<group>"; };
+		B910AFB91EA0B0B600E9BB83 /* SBCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCommentViewController.m; sourceTree = "<group>"; };
 		B94FD3A51E8B7DC5006CE322 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B95F78641E8CDAF1009A9A93 /* SBAuthCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAuthCenter.h; sourceTree = "<group>"; };
 		B95F78651E8CDAF1009A9A93 /* SBAuthCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAuthCenter.m; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */,
 				B9B064B71E93AAF000488D70 /* BookCoverCollectionViewDataSource.h */,
 				B9B064B81E93AAF000488D70 /* BookCoverCollectionViewDataSource.m */,
+				B910AFB81EA0B0B600E9BB83 /* SBCommentViewController.h */,
+				B910AFB91EA0B0B600E9BB83 /* SBCommentViewController.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 				4B05A95B1E978C2B00E01D33 /* SBSettingViewController.m in Sources */,
 				B9B064CC1E93AAF000488D70 /* SBLargeHeaderCell.m in Sources */,
 				B9B064CF1E93AAF000488D70 /* SBBookCoverFlowCell.m in Sources */,
+				B910AFBA1EA0B0B600E9BB83 /* SBCommentViewController.m in Sources */,
 				B9B064CE1E93AAF000488D70 /* SBBookCoverFlowContainerCell.m in Sources */,
 				B9B064C91E93AAF000488D70 /* BookCoverCollectionViewDataSource.m in Sources */,
 				B95F786C1E8D0048009A9A93 /* UIColor+SBAdditions.m in Sources */,
