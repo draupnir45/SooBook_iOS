@@ -104,7 +104,9 @@
     
 //    cell.bookCoverImageView.image = [UIImage imageNamed:item.imageURL]; //데이터 붙이면 바꿔야 함
     
-    [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:item.imageURL]
+    NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]
                  placeholderImage:[UIImage imageNamed:@"1.jpeg"]];
     
     cell.bookPrimaryKey = item.bookPrimaryKey;
