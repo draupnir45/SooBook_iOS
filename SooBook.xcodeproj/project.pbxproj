@@ -22,8 +22,8 @@
 		2E92CDF61E9B3EC50014E190 /* SBSearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E92CDF51E9B3EC50014E190 /* SBSearchViewController.storyboard */; };
 		2EF77C481E95FB330000DBFB /* SBMainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */; };
 		2EF77C4A1E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */; };
-		4B05A95B1E978C2B00E01D33 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B05A95A1E978C2B00E01D33 /* SettingViewController.m */; };
-		528658D54DDDA4FD2201F70F /* libPods-SooBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CA9D66326AA7725BB73B8C /* libPods-SooBook.a */; };
+		3BF1A40DF1C943A60A8BA0C5 /* Pods_SooBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9DA66D1F4595E9237B9748 /* Pods_SooBook.framework */; };
+		4B05A95B1E978C2B00E01D33 /* SBSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B05A95A1E978C2B00E01D33 /* SBSettingViewController.m */; };
 		B902DA231E93BDF200B1FCA1 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA0F1E93BDF200B1FCA1 /* 1.jpeg */; };
 		B902DA241E93BDF200B1FCA1 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA101E93BDF200B1FCA1 /* 2.jpeg */; };
 		B902DA251E93BDF200B1FCA1 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA111E93BDF200B1FCA1 /* 3.jpeg */; };
@@ -54,13 +54,12 @@
 		B97FE0F11E8A3C9F00731848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B97FE0F01E8A3C9F00731848 /* AppDelegate.m */; };
 		B97FE0F91E8A3C9F00731848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97FE0F81E8A3C9F00731848 /* Assets.xcassets */; };
 		B97FE0FC1E8A3C9F00731848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97FE0FA1E8A3C9F00731848 /* LaunchScreen.storyboard */; };
-		B97FE1311E8A45EC00731848 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = B97FE1301E8A45EC00731848 /* NSData+AES.m */; };
 		B97FE1341E8A49BD00731848 /* SBBookData.m in Sources */ = {isa = PBXBuildFile; fileRef = B97FE1331E8A49BD00731848 /* SBBookData.m */; };
 		B9B0649C1E93AA3D00488D70 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064991E93AA3D00488D70 /* RateView.m */; };
 		B9B0649D1E93AA3D00488D70 /* JCBlurrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B0649B1E93AA3D00488D70 /* JCBlurrManager.m */; };
 		B9B064A31E93AA9D00488D70 /* SBMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064A11E93AA9C00488D70 /* SBMainTableViewController.m */; };
 		B9B064A41E93AA9D00488D70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B064A21E93AA9C00488D70 /* Main.storyboard */; };
-		B9B064C91E93AAF000488D70 /* CollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064B81E93AAF000488D70 /* CollectionViewDataSource.m */; };
+		B9B064C91E93AAF000488D70 /* BookCoverCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064B81E93AAF000488D70 /* BookCoverCollectionViewDataSource.m */; };
 		B9B064CA1E93AAF000488D70 /* FirstSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064BA1E93AAF000488D70 /* FirstSectionHeaderCell.m */; };
 		B9B064CB1E93AAF000488D70 /* FirstSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B064BB1E93AAF000488D70 /* FirstSectionHeaderCell.xib */; };
 		B9B064CC1E93AAF000488D70 /* SecondSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064BD1E93AAF000488D70 /* SecondSectionHeaderCell.m */; };
@@ -70,7 +69,7 @@
 		B9B064D01E93AAF000488D70 /* BookCoverCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B064C31E93AAF000488D70 /* BookCoverCollectionViewCell.xib */; };
 		B9B064D11E93AAF000488D70 /* SecondSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064C51E93AAF000488D70 /* SecondSectionTableViewCell.m */; };
 		B9B064D21E93AAF000488D70 /* SecondSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B064C61E93AAF000488D70 /* SecondSectionTableViewCell.xib */; };
-		B9B064D31E93AAF000488D70 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064C81E93AAF000488D70 /* DetailViewController.m */; };
+		B9B064D31E93AAF000488D70 /* SBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064C81E93AAF000488D70 /* SBDetailViewController.m */; };
 		B9B064E11E93AC0F00488D70 /* square-individual-nine-7.png in Resources */ = {isa = PBXBuildFile; fileRef = B9B064D61E93AC0F00488D70 /* square-individual-nine-7.png */; };
 /* End PBXBuildFile section */
 
@@ -98,8 +97,9 @@
 		2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMainCollectionViewController.h; sourceTree = "<group>"; };
 		2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMainCollectionViewController.m; sourceTree = "<group>"; };
 		2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBMainCollectionViewController.storyboard; sourceTree = "<group>"; };
-		4B05A9591E978C2B00E01D33 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		4B05A95A1E978C2B00E01D33 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		4B05A9591E978C2B00E01D33 /* SBSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSettingViewController.h; sourceTree = "<group>"; };
+		4B05A95A1E978C2B00E01D33 /* SBSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSettingViewController.m; sourceTree = "<group>"; };
+		6F9DA66D1F4595E9237B9748 /* Pods_SooBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SooBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96872F8504C03B1DFF6B95E8 /* Pods-SooBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SooBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-SooBook/Pods-SooBook.release.xcconfig"; sourceTree = "<group>"; };
 		B902DA0F1E93BDF200B1FCA1 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		B902DA101E93BDF200B1FCA1 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
@@ -140,8 +140,6 @@
 		B97FE0F81E8A3C9F00731848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B97FE0FB1E8A3C9F00731848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B97FE0FD1E8A3C9F00731848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B97FE12F1E8A45EC00731848 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
-		B97FE1301E8A45EC00731848 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
 		B97FE1321E8A49BD00731848 /* SBBookData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBookData.h; sourceTree = "<group>"; };
 		B97FE1331E8A49BD00731848 /* SBBookData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBBookData.m; sourceTree = "<group>"; };
 		B9B064981E93AA3D00488D70 /* RateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateView.h; sourceTree = "<group>"; };
@@ -151,8 +149,8 @@
 		B9B064A01E93AA9C00488D70 /* SBMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMainTableViewController.h; sourceTree = "<group>"; };
 		B9B064A11E93AA9C00488D70 /* SBMainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMainTableViewController.m; sourceTree = "<group>"; };
 		B9B064A21E93AA9C00488D70 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		B9B064B71E93AAF000488D70 /* CollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewDataSource.h; sourceTree = "<group>"; };
-		B9B064B81E93AAF000488D70 /* CollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewDataSource.m; sourceTree = "<group>"; };
+		B9B064B71E93AAF000488D70 /* BookCoverCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCoverCollectionViewDataSource.h; sourceTree = "<group>"; };
+		B9B064B81E93AAF000488D70 /* BookCoverCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCoverCollectionViewDataSource.m; sourceTree = "<group>"; };
 		B9B064B91E93AAF000488D70 /* FirstSectionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstSectionHeaderCell.h; sourceTree = "<group>"; };
 		B9B064BA1E93AAF000488D70 /* FirstSectionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSectionHeaderCell.m; sourceTree = "<group>"; };
 		B9B064BB1E93AAF000488D70 /* FirstSectionHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstSectionHeaderCell.xib; sourceTree = "<group>"; };
@@ -167,11 +165,10 @@
 		B9B064C41E93AAF000488D70 /* SecondSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondSectionTableViewCell.h; sourceTree = "<group>"; };
 		B9B064C51E93AAF000488D70 /* SecondSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSectionTableViewCell.m; sourceTree = "<group>"; };
 		B9B064C61E93AAF000488D70 /* SecondSectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondSectionTableViewCell.xib; sourceTree = "<group>"; };
-		B9B064C71E93AAF000488D70 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		B9B064C81E93AAF000488D70 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		B9B064C71E93AAF000488D70 /* SBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDetailViewController.h; sourceTree = "<group>"; };
+		B9B064C81E93AAF000488D70 /* SBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDetailViewController.m; sourceTree = "<group>"; };
 		B9B064D61E93AC0F00488D70 /* square-individual-nine-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "square-individual-nine-7.png"; sourceTree = "<group>"; };
 		B9DE3BA21E920BFC001BD4E4 /* SBConstantKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBConstantKeys.h; sourceTree = "<group>"; };
-		D1CA9D66326AA7725BB73B8C /* libPods-SooBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SooBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4290428BFA1A3DA0E9A29C0 /* Pods-SooBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SooBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SooBook/Pods-SooBook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,7 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				528658D54DDDA4FD2201F70F /* libPods-SooBook.a in Frameworks */,
+				3BF1A40DF1C943A60A8BA0C5 /* Pods_SooBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +187,7 @@
 		07B070BAFE84B9C5E4BFBB91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D1CA9D66326AA7725BB73B8C /* libPods-SooBook.a */,
+				6F9DA66D1F4595E9237B9748 /* Pods_SooBook.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,23 +210,6 @@
 				2E1FA22F1E8E15900055F3FE /* SBSignUpViewController.h */,
 				2E1FA2281E8E15900055F3FE /* SBSignUpViewController.m */,
 				2E1FA22B1E8E15900055F3FE /* SBSignUpViewController.storyboard */,
-				2E1FA22E1E8E15900055F3FE /* SBAccountTableViewCell.h */,
-				2E1FA22C1E8E15900055F3FE /* SBAccountTableViewCell.m */,
-				2E1FA22D1E8E15900055F3FE /* SBAccountTableViewCell.xib */,
-				2E11F4DC1E920E03002FD1E6 /* SBIndicatorView.h */,
-				2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */,
-				2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */,
-				2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */,
-				2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */,
-				2E025B331E97817C0076531E /* SBMainCollectionViewCell.h */,
-				2E025B341E97817C0076531E /* SBMainCollectionViewCell.m */,
-				2E025B351E97817C0076531E /* SBMainCollectionViewCell.xib */,
-				2E92CDF21E9B3EA60014E190 /* SBSearchViewController.h */,
-				2E92CDF31E9B3EA60014E190 /* SBSearchViewController.m */,
-				2E92CDF51E9B3EC50014E190 /* SBSearchViewController.storyboard */,
-				2E13BB5F1E9B8021000B0200 /* SBSearchTableViewCell.h */,
-				2E13BB601E9B8021000B0200 /* SBSearchTableViewCell.m */,
-				2E13BB611E9B8021000B0200 /* SBSearchTableViewCell.xib */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -301,9 +281,13 @@
 				B97FE0EF1E8A3C9F00731848 /* AppDelegate.h */,
 				B97FE0F01E8A3C9F00731848 /* AppDelegate.m */,
 				B9B064A21E93AA9C00488D70 /* Main.storyboard */,
-				B9B064D41E93AAF500488D70 /* Main Navigation */,
+				B9B064D41E93AAF500488D70 /* Main */,
+				B9AB61AD1EA0767C005A9AC2 /* Search */,
+				B9AB61AB1EA0758F005A9AC2 /* Setting */,
+				B9B064D51E93AB1B00488D70 /* Custom Cells */,
 				2E1FA2371E8E159B0055F3FE /* Account */,
 				B94FD3A61E8B8298006CE322 /* Model */,
+				B9AB61AC1EA07645005A9AC2 /* Pre Compiled Headers */,
 				B9E899511E8D1BFD00C7681A /* Utilities */,
 				B97FE0F81E8A3C9F00731848 /* Assets.xcassets */,
 				B97FE0FA1E8A3C9F00731848 /* LaunchScreen.storyboard */,
@@ -323,25 +307,62 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B9B064D41E93AAF500488D70 /* Main Navigation */ = {
+		B9AB61AB1EA0758F005A9AC2 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4B05A9591E978C2B00E01D33 /* SBSettingViewController.h */,
+				4B05A95A1E978C2B00E01D33 /* SBSettingViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		B9AB61AC1EA07645005A9AC2 /* Pre Compiled Headers */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE3BA21E920BFC001BD4E4 /* SBConstantKeys.h */,
+				B94FD3A51E8B7DC5006CE322 /* PrefixHeader.pch */,
+			);
+			name = "Pre Compiled Headers";
+			sourceTree = "<group>";
+		};
+		B9AB61AD1EA0767C005A9AC2 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2E92CDF21E9B3EA60014E190 /* SBSearchViewController.h */,
+				2E92CDF31E9B3EA60014E190 /* SBSearchViewController.m */,
+				2E92CDF51E9B3EC50014E190 /* SBSearchViewController.storyboard */,
+				2E13BB5F1E9B8021000B0200 /* SBSearchTableViewCell.h */,
+				2E13BB601E9B8021000B0200 /* SBSearchTableViewCell.m */,
+				2E13BB611E9B8021000B0200 /* SBSearchTableViewCell.xib */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		B9B064D41E93AAF500488D70 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				B9B064A01E93AA9C00488D70 /* SBMainTableViewController.h */,
 				B9B064A11E93AA9C00488D70 /* SBMainTableViewController.m */,
-				B9B064B71E93AAF000488D70 /* CollectionViewDataSource.h */,
-				B9B064B81E93AAF000488D70 /* CollectionViewDataSource.m */,
-				B9B064D51E93AB1B00488D70 /* Custom Cells */,
-				B9B064C71E93AAF000488D70 /* DetailViewController.h */,
-				B9B064C81E93AAF000488D70 /* DetailViewController.m */,
-				4B05A9591E978C2B00E01D33 /* SettingViewController.h */,
-				4B05A95A1E978C2B00E01D33 /* SettingViewController.m */,
+				B9B064C71E93AAF000488D70 /* SBDetailViewController.h */,
+				B9B064C81E93AAF000488D70 /* SBDetailViewController.m */,
+				2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */,
+				2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */,
+				2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */,
+				B9B064B71E93AAF000488D70 /* BookCoverCollectionViewDataSource.h */,
+				B9B064B81E93AAF000488D70 /* BookCoverCollectionViewDataSource.m */,
 			);
-			name = "Main Navigation";
+			name = Main;
 			sourceTree = "<group>";
 		};
 		B9B064D51E93AB1B00488D70 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2E025B331E97817C0076531E /* SBMainCollectionViewCell.h */,
+				2E025B341E97817C0076531E /* SBMainCollectionViewCell.m */,
+				2E025B351E97817C0076531E /* SBMainCollectionViewCell.xib */,
+				2E1FA22E1E8E15900055F3FE /* SBAccountTableViewCell.h */,
+				2E1FA22C1E8E15900055F3FE /* SBAccountTableViewCell.m */,
+				2E1FA22D1E8E15900055F3FE /* SBAccountTableViewCell.xib */,
 				B9B064B91E93AAF000488D70 /* FirstSectionHeaderCell.h */,
 				B9B064BA1E93AAF000488D70 /* FirstSectionHeaderCell.m */,
 				B9B064BB1E93AAF000488D70 /* FirstSectionHeaderCell.xib */,
@@ -363,18 +384,16 @@
 		B9E899511E8D1BFD00C7681A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2E11F4DC1E920E03002FD1E6 /* SBIndicatorView.h */,
+				2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */,
 				B9B064981E93AA3D00488D70 /* RateView.h */,
 				B9B064991E93AA3D00488D70 /* RateView.m */,
 				B9B0649A1E93AA3D00488D70 /* JCBlurrManager.h */,
 				B9B0649B1E93AA3D00488D70 /* JCBlurrManager.m */,
-				B97FE12F1E8A45EC00731848 /* NSData+AES.h */,
-				B97FE1301E8A45EC00731848 /* NSData+AES.m */,
 				B95F786A1E8D0048009A9A93 /* UIColor+SBAdditions.h */,
 				B95F786B1E8D0048009A9A93 /* UIColor+SBAdditions.m */,
 				B95F78671E8CE056009A9A93 /* TestingClass.h */,
 				B95F78681E8CE056009A9A93 /* TestingClass.m */,
-				B9DE3BA21E920BFC001BD4E4 /* SBConstantKeys.h */,
-				B94FD3A51E8B7DC5006CE322 /* PrefixHeader.pch */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -547,18 +566,17 @@
 				B9B064A31E93AA9D00488D70 /* SBMainTableViewController.m in Sources */,
 				2E1FA2351E8E15900055F3FE /* SBAccountTableViewCell.m in Sources */,
 				B9B0649C1E93AA3D00488D70 /* RateView.m in Sources */,
-				B9B064D31E93AAF000488D70 /* DetailViewController.m in Sources */,
+				B9B064D31E93AAF000488D70 /* SBDetailViewController.m in Sources */,
 				2E92CDF41E9B3EA60014E190 /* SBSearchViewController.m in Sources */,
 				B95F78691E8CE056009A9A93 /* TestingClass.m in Sources */,
 				B9B0649D1E93AA3D00488D70 /* JCBlurrManager.m in Sources */,
 				B95F786F1E8D0AF3009A9A93 /* SBDataCenter.m in Sources */,
-				4B05A95B1E978C2B00E01D33 /* SettingViewController.m in Sources */,
+				4B05A95B1E978C2B00E01D33 /* SBSettingViewController.m in Sources */,
 				B9B064CC1E93AAF000488D70 /* SecondSectionHeaderCell.m in Sources */,
 				B9B064CF1E93AAF000488D70 /* BookCoverCollectionViewCell.m in Sources */,
 				B9B064CE1E93AAF000488D70 /* FirstSectionTableViewCell.m in Sources */,
-				B9B064C91E93AAF000488D70 /* CollectionViewDataSource.m in Sources */,
+				B9B064C91E93AAF000488D70 /* BookCoverCollectionViewDataSource.m in Sources */,
 				B95F786C1E8D0048009A9A93 /* UIColor+SBAdditions.m in Sources */,
-				B97FE1311E8A45EC00731848 /* NSData+AES.m in Sources */,
 				B9B064D11E93AAF000488D70 /* SecondSectionTableViewCell.m in Sources */,
 				2EF77C481E95FB330000DBFB /* SBMainCollectionViewController.m in Sources */,
 				B95F78661E8CDAF1009A9A93 /* SBAuthCenter.m in Sources */,

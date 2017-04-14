@@ -6,10 +6,10 @@
 //  Copyright © 2017년 ios school. All rights reserved.
 //
 
-#import "CollectionViewDataSource.h"
+#import "BookCoverCollectionViewDataSource.h"
 #import "BookCoverCollectionViewCell.h"
 
-@implementation CollectionViewDataSource
+@implementation BookCoverCollectionViewDataSource
 
 - (instancetype)initWithSbDataArray:(NSArray *)dataArray
 {

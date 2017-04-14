@@ -7,6 +7,7 @@
 //
 
 #import "SBNetworkManager.h"
+#import "AFNetworking.h"
 
 
 
@@ -94,6 +95,7 @@
 {
     //매니저와 리퀘스트 준비
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    //한글 검색을 위한 쿼리 인코딩
     NSString *encodedQuery = [query stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSString *urlString = [NSString stringWithFormat:@"%@keyword=%@",SEARCH,encodedQuery];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:urlString]];

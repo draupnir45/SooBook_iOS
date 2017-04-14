@@ -6,13 +6,13 @@
 //  Copyright © 2017년 ios school. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "SBDetailViewController.h"
 #import "RateView.h"
 #import "JCBlurrManager.h"
 #import "SBDataCenter.h"
 #import "SBBookData.h"
 
-@interface DetailViewController ()
+@interface SBDetailViewController ()
 <RateViewDelegate>
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
 @property (weak, nonatomic) IBOutlet UIButton *starRateButton;
@@ -28,7 +28,7 @@
 
 @end
 
-@implementation DetailViewController
+@implementation SBDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
