@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"BookCoverCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"BookCoverCollectionViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"SBBookCoverFlowCell" bundle:nil] forCellWithReuseIdentifier:@"SBBookCoverFlowCell"];
     
     BookCoverCollectionViewDataSource *dataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter sharedBookData] myBookDatas]];
     self.collectionView.dataSource = dataSource;
@@ -38,17 +38,6 @@
     
     
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"collectionViewBackgroundPattern"]];
-    
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.frame = self.view.bounds;
-//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor redColor]CGColor], nil];
-    
-//    self.collectionView.layer.sublayers
-    
-//    [self.view layoutIfNeeded];
-    
-//    [self.collectionView.layer insertSublayer:gradient atIndex:0];
-//    [self.collectionView setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
     
 }
 

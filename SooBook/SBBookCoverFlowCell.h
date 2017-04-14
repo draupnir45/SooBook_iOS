@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BookCoverCollectionViewCell : UICollectionViewCell
+@interface SBBookCoverFlowCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *firstCollectionImage;
 
 @property CGFloat heightByWidthRatio;

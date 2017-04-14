@@ -7,7 +7,7 @@
 //
 
 #import "BookCoverCollectionViewDataSource.h"
-#import "BookCoverCollectionViewCell.h"
+#import "SBBookCoverFlowCell.h"
 
 @implementation BookCoverCollectionViewDataSource
 
@@ -28,7 +28,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    BookCoverCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BookCoverCollectionViewCell" forIndexPath:indexPath];
+    SBBookCoverFlowCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SBBookCoverFlowCell" forIndexPath:indexPath];
     
     SBBookData *item = [[[SBDataCenter sharedBookData] myBookDatas] objectAtIndex:indexPath.row];
     cell.firstCollectionImage.image = [UIImage imageNamed:item.imageURL];

@@ -1,23 +1,24 @@
 //
-//  FirstSectionHeaderCell.m
+//  SceondSectionTableViewCell.m
 //  SbProject0330
 //
 //  Created by 홍정기 on 2017. 3. 30..
 //  Copyright © 2017년 ios school. All rights reserved.
 //
 
-#import "FirstSectionHeaderCell.h"
-#import "UIColor+SBAdditions.h"
+#import "SBLargeHeaderCell.h"
 
-@implementation FirstSectionHeaderCell
+@implementation SBLargeHeaderCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.titleLabel.textColor = [UIColor sb_brownBlackColor];
+    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
 
 @end

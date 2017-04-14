@@ -15,7 +15,7 @@
                 <viewControllerPlaceholder storyboardName="SBMainCollectionViewController" id="sw4-9g-icJ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAr-Ep-Pcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2532" y="-1124"/>
+            <point key="canvasLocation" x="2634" y="-1095"/>
         </scene>
         <!--SBLoginViewController-->
         <scene sceneID="F8U-RZ-Oyq">
@@ -41,7 +41,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstSectionTableViewCell" rowHeight="203" id="Dvj-8l-EV3" customClass="FirstSectionTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SBBookCoverFlowContainerCell" rowHeight="203" id="Dvj-8l-EV3" customClass="SBBookCoverFlowContainerCell">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="203"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dvj-8l-EV3" id="ifq-bI-JaY">
@@ -58,7 +58,7 @@
                                                         <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCoverCollectionViewCell" id="Krd-GH-r4o" customClass="BookCoverCollectionViewCell">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCoverCollectionViewCell" id="Krd-GH-r4o" customClass="SBBookCoverFlowCell">
                                                             <rect key="frame" x="16" y="15" width="96" height="172"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -83,7 +83,7 @@
                                             <outlet property="collectionView" destination="uz2-C0-bPh" id="Edn-rt-JxD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="secondCell" rowHeight="164" id="dx9-Q8-I5q" customClass="SeccondTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SBMainTableViewCell" rowHeight="164" id="dx9-Q8-I5q" customClass="SBMainTableViewCell">
                                         <rect key="frame" x="0.0" y="258.5" width="375" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dx9-Q8-I5q" id="glx-0M-Tnw">
@@ -127,7 +127,7 @@
         <!--Setting View Controller-->
         <scene sceneID="xyI-gX-M4o">
             <objects>
-                <viewController id="fg8-U6-Ojh" customClass="SettingViewController" sceneMemberID="viewController">
+                <viewController id="fg8-U6-Ojh" customClass="SBSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b6W-bE-ZOp"/>
                         <viewControllerLayoutGuide type="bottom" id="1jN-oW-jfN"/>
@@ -529,6 +529,9 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="HIs-sN-fGw" firstAttribute="width" secondItem="BhH-H2-jgm" secondAttribute="width" id="5ul-eh-BMR"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

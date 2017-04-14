@@ -6,16 +6,16 @@
 //  Copyright © 2017년 ios school. All rights reserved.
 //
 
-#import "SecondSectionTableViewCell.h"
+#import "SBMainTableViewCell.h"
 #import "RateView.h"
 
-@interface SecondSectionTableViewCell ()
+@interface SBMainTableViewCell ()
 
 @property CAGradientLayer *gradient;
 
 @end
 
-@implementation SecondSectionTableViewCell
+@implementation SBMainTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
