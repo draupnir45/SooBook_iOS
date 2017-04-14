@@ -38,7 +38,6 @@
     
     
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"collectionViewBackgroundPattern"]];
-    
 }
 
 - (void)dealloc

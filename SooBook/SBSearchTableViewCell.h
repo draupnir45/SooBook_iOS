@@ -18,8 +18,5 @@
 
 @property NSInteger bookPrimaryKey;
 
-//- (void)setCellDataWithImageName:(NSString*)imageName
-//                           title:(NSString*)title
-//                        subtitle:(NSString*)subtitle;
 
 @end
