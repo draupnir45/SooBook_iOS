@@ -169,25 +169,6 @@
             </objects>
             <point key="canvasLocation" x="1868" y="215"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="SQx-eg-zZe">
-            <objects>
-                <viewController id="8OY-fZ-idP" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zvr-t3-g82"/>
-                        <viewControllerLayoutGuide type="bottom" id="VjT-Nc-WDk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8gL-Ck-Wzo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Zwc-Mr-Eqe"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1cB-4F-J8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1868" y="931"/>
-        </scene>
         <!--내 책장-->
         <scene sceneID="dtF-01-hox">
             <objects>
@@ -210,7 +191,7 @@
         <!--Title-->
         <scene sceneID="dDm-w4-bw4">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="K1k-rM-qUg" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="K1k-rM-qUg" customClass="SBDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zHL-pj-tSi"/>
                         <viewControllerLayoutGuide type="bottom" id="yt0-fZ-dza"/>
@@ -618,13 +599,23 @@
                     </tabBar>
                     <connections>
                         <segue destination="VxU-OR-1c3" kind="relationship" relationship="viewControllers" id="Hsf-LJ-THf"/>
-                        <segue destination="oy6-Jc-fLX" kind="relationship" relationship="viewControllers" id="zsO-Uz-AwW"/>
-                        <segue destination="WZp-sH-Ghv" kind="relationship" relationship="viewControllers" id="kOK-uz-dlZ"/>
+                        <segue destination="lwx-fs-rLN" kind="relationship" relationship="viewControllers" id="pRN-Di-frf"/>
+                        <segue destination="WZp-sH-Ghv" kind="relationship" relationship="viewControllers" id="Zwd-Sz-Y5S"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNc-aw-s9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="265" y="580"/>
+        </scene>
+        <!--SBSearchViewController-->
+        <scene sceneID="H4L-oC-HuY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SBSearchViewController" id="lwx-fs-rLN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="검색" image="search" id="kaa-6M-nD8"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VXu-1S-Pjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="895" y="731"/>
         </scene>
         <!--설정-->
         <scene sceneID="maJ-b4-25U">
@@ -644,25 +635,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2j-HX-Zyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1050" y="216"/>
-        </scene>
-        <!--검색-->
-        <scene sceneID="LTB-bo-onI">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oy6-Jc-fLX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="검색" image="search" id="xiG-41-kGt"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TXD-eo-e9M">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8OY-fZ-idP" kind="relationship" relationship="rootViewController" id="x8m-BX-XgD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EL2-3b-Rj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1048.8" y="931.48425787106453"/>
         </scene>
     </scenes>
     <resources>

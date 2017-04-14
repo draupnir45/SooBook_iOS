@@ -6,15 +6,15 @@
 //  Copyright © 2017년 Jongchan Park. All rights reserved.
 //
 
-#import "SettingViewController.h"
+#import "SBSettingViewController.h"
 #import "SBLogInViewController.h"
 
-@interface SettingViewController ()
+@interface SBSettingViewController ()
 <UITableViewDelegate,UITableViewDataSource>
 @property UISwitch *autoLoginSwich;
 @end
 
-@implementation SettingViewController
+@implementation SBSettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

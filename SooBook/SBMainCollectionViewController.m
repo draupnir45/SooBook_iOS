@@ -8,13 +8,13 @@
 
 #import "SBMainCollectionViewController.h"
 #import "SBMainCollectionViewCell.h"
-#import "DetailViewController.h"
-#import "CollectionViewDataSource.h"
+#import "SBDetailViewController.h"
+#import "BookCoverCollectionViewDataSource.h"
 
 @interface SBMainCollectionViewController ()
 <UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property CollectionViewDataSource *dataSource;
+@property BookCoverCollectionViewDataSource *dataSource;
 
 @end
 
@@ -26,7 +26,7 @@
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"BookCoverCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"BookCoverCollectionViewCell"];
     
-    CollectionViewDataSource *dataSource = [[CollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter sharedBookData] myBookDatas]];
+    BookCoverCollectionViewDataSource *dataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter sharedBookData] myBookDatas]];
     self.collectionView.dataSource = dataSource;
     self.dataSource = dataSource;
     
@@ -72,7 +72,7 @@
 {   //스토리보드 지정?
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //스토리보드에 있는 뷰컨트롤러 지정
-    DetailViewController *detailViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    SBDetailViewController *detailViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"DetailViewController"];
     
     //cell 받아오기
     SBMainCollectionViewCell *cell = (SBMainCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];

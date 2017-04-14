@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 //데이터 요청용 블록
 typedef void (^SBDataCompletion)(BOOL sucess, id data);
 
