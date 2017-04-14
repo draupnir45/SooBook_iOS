@@ -9,16 +9,16 @@
 #import "SBMainTableViewController.h"
 
 //섹션 헤더
-#import "FirstSectionHeaderCell.h"
-#import "SecondSectionHeaderCell.h"
+#import "SBSmallHeaderCell.h"
+#import "SBLargeHeaderCell.h"
 
 //첫번째 섹션 셀
-#import "FirstSectionTableViewCell.h"
+#import "SBBookCoverFlowContainerCell.h"
 #import "BookCoverCollectionViewDataSource.h"
-#import "BookCoverCollectionViewCell.h"
+#import "SBBookCoverFlowCell.h"
 
 //두번째 섹션 셀
-#import "SecondSectionTableViewCell.h"
+#import "SBMainTableViewCell.h"
 
 //디테일 뷰
 #import "SBDetailViewController.h"
@@ -47,11 +47,11 @@
     self.titleLabelArray  = @[@"엘리자베스가 사라졌다",@"걸 온 더 트레인",@"영어책 한권 외워봤니?",@"드라마 도깨비 소설2 - 쓸쓸하고 찬란하神",@"여교수와 남제자",@"겨울에서 봄",@"드래곤볼 슈퍼",@"사랑해, 심청아!",@"타락천사",@"말괄량이의 늑대 길들이기: 늑대삼형제 시리즈"];
 
     self.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:self.titleLabelArray];
+    ///rate List로부터
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"FirstSectionHeaderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"FirstSectionHeaderCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"SecondSectionHeaderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SecondSectionHeaderCell"];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"SecondSectionTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SecondSectionTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SBSmallHeaderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SBSmallHeaderCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SBLargeHeaderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SBLargeHeaderCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SBMainTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SBMainTableViewCell"];
     [self.tableView setBackgroundColor:[UIColor whiteColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
@@ -97,14 +97,14 @@
     switch (section) {
         case 0:
             {
-                FirstSectionHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"FirstSectionHeaderCell"];
+                SBSmallHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"SBSmallHeaderCell"];
                 view.titleLabel.text = @"내가 높게 평가한 책들";
                 return view;
                 break;
             }
         default:
             {
-                SecondSectionHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"SecondSectionHeaderCell"];
+                SBLargeHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"SBLargeHeaderCell"];
                 view.secondLabel.text = @"나의 책 목록";
                 return view;
                 break;
@@ -116,8 +116,8 @@
 {
     
     if (indexPath.section == 0) {
-        FirstSectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FirstSectionTableViewCell" forIndexPath:indexPath];
-        [cell.collectionView registerNib:[UINib nibWithNibName:@"BookCoverCollectionViewCell" bundle:[NSBundle mainBundle]]forCellWithReuseIdentifier:@"BookCoverCollectionViewCell"];
+        SBBookCoverFlowContainerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBBookCoverFlowContainerCell" forIndexPath:indexPath];
+        [cell.collectionView registerNib:[UINib nibWithNibName:@"SBBookCoverFlowCell" bundle:[NSBundle mainBundle]]forCellWithReuseIdentifier:@"SBBookCoverFlowCell"];
         cell.collectionView.delegate = self;
         cell.collectionView.dataSource = self.firstSectionCollectionViewDataSource;
         
@@ -126,7 +126,7 @@
         
     } else {
         SBBookData *item = [[[SBDataCenter sharedBookData] myBookDatas] objectAtIndex:indexPath.row];
-        SecondSectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SecondSectionTableViewCell" forIndexPath:indexPath];
+        SBMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBMainTableViewCell" forIndexPath:indexPath];
         [cell setCellDataWithImageName:item.imageURL
                                  title:item.title
                               subtitle:item.author];
@@ -191,7 +191,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"sizeForItemAtIndexPath");
-    CGFloat heightByWidthRatio = [BookCoverCollectionViewCell getImageRatioWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.item+1]]];
+    CGFloat heightByWidthRatio = [SBBookCoverFlowCell getImageRatioWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.item+1]]];
     if (heightByWidthRatio <= (172.0/96.0)) {
         return CGSizeMake(96.0, 172.0);
     } else {
@@ -205,11 +205,11 @@
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
         SBDetailViewController *detailViewController = segue.destinationViewController;
         
-        if ([sender isMemberOfClass:[BookCoverCollectionViewCell class]]) {
-            BookCoverCollectionViewCell *cell = sender;
+        if ([sender isMemberOfClass:[SBBookCoverFlowCell class]]) {
+            SBBookCoverFlowCell *cell = sender;
             detailViewController.bookPrimaryKey = cell.bookPrimaryKey;
         } else {
-            SecondSectionTableViewCell *cell = sender;
+            SBMainTableViewCell *cell = sender;
             detailViewController.bookPrimaryKey = cell.bookPrimaryKey;
         }
         

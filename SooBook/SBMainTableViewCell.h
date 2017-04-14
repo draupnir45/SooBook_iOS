@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondSectionTableViewCell : UITableViewCell
+@interface SBMainTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *bookCoverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;

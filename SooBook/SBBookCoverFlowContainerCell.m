@@ -6,16 +6,16 @@
 //  Copyright © 2017년 ios school. All rights reserved.
 //
 
-#import "FirstSectionTableViewCell.h"
+#import "SBBookCoverFlowContainerCell.h"
 
-@interface FirstSectionTableViewCell ()
+@interface SBBookCoverFlowContainerCell ()
 
 @property CAGradientLayer *gradient;
 
 @end
 
 
-@implementation FirstSectionTableViewCell
+@implementation SBBookCoverFlowContainerCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
