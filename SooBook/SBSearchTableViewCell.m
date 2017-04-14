@@ -40,46 +40,32 @@
     // Configure the view for the selected state
 }
 #pragma mark - Button
-- (IBAction)addOrRemoveButtonSelected:(UIButton *)sender //addOrRemoveButtonSelected
-{
-    if (!sender.selected)
-    {
-        [sender setSelected:YES];
-        
-        [self requestAddBookWithBookID:self.bookData.bookPrimaryKey];
-//        //내 책장에 추가
-//        [self.dataCenter addBook:self.bookData completion:^(BOOL sucess, id data) {
+//- (IBAction)addOrRemoveButtonSelected:(UIButton *)sender //addOrRemoveButtonSelected
+//{
+//    if (!sender.selected)
+//    {
+//        [self requestAddBook];
+//    }
+//}
+//
+//- (void)requestAddBook
+//{
+//
+//    [self.dataCenter addBook:self.bookPrimaryKey completion:^(BOOL sucess, id data) {
 //            if (sucess)
 //            {
-//                //책장에 책이 들어온다
+//                NSLog(@"YES");
 //            } else {
 //                //책장에 책이 들어오지 못했다는 알럿창
 //            }
-//        }];
-//    } else {
-//        [sender setSelected:NO];
-//        //내 책장에서 없애
-//        [self.dataCenter deleteBook:self.bookData completion:^(BOOL sucess, id data) {
-//            if (sucess)
-//            {
-//                //책장에서 책이 빠져나간다
-//            } else {
-//               //책장에서 책이 빠져나가지 못했다는 알럿창
-//            }
-//        }];
-    }
-}
-
-- (void)requestAddBookWithBookID:(NSInteger)bookId
-{
-    [self.dataCenter addBook:self.bookData completion:^(BOOL sucess, id data) {
-        if (sucess)
-        {
-            //책장에 책이 들어온다
-        } else {
-            //책장에 책이 들어오지 못했다는 알럿창
-        }
-    }];
-}
+//        
+////        [self updateFavoriteButton];
+//    }];
+//
+//}
+//
+//- (void)updateFavoriteButton {
+//    self.favoriteButton.selected = self.isMyBook;
+//}
 
 @end

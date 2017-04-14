@@ -78,9 +78,6 @@
                                 <state key="normal" image="mybookHeartOff"/>
                                 <state key="selected" image="mybookHeartOn"/>
                                 <state key="highlighted" image="mybookHeartOn"/>
-                                <connections>
-                                    <action selector="addOrRemoveButtonSelected:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UsV-s9-Wlj"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYg-GP-f7l">
                                 <rect key="frame" x="359" y="0.0" width="16" height="128"/>
@@ -104,6 +101,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bookCoverImageView" destination="1di-oG-QRN" id="GLY-Yb-3td"/>
+                <outlet property="favoriteButton" destination="6ns-hw-OI3" id="Ell-2D-LSR"/>
                 <outlet property="subtitleLabel" destination="awv-NN-6RF" id="RzI-8f-Rxo"/>
                 <outlet property="titleLabel" destination="m4R-pY-agG" id="Pre-ye-KWv"/>
             </connections>

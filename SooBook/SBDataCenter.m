@@ -128,30 +128,24 @@
     }];
 }
 
-- (void)addBook:(SBBookData *)book
+- (void)addBook:(NSInteger)bookID
      completion:(SBDataCompletion)completion
 {
-    [SBNetworkManager addBookWith:book.bookPrimaryKey completion:^(BOOL sucess, id data) {
+    [SBNetworkManager addBookWith:bookID completion:^(BOOL sucess, id data) {
         if (sucess) {
-            NSMutableArray *mutableCopy = [self.myBookDatas mutableCopy];
-            [mutableCopy insertObject:book atIndex:0];
-            self.myBookDatas = mutableCopy;
+            //리스트 다시패치!
             [self saveData];//나중에 뺄것!
         }
         completion(sucess, data);
     }];
 }
 
-- (void)deleteBook:(SBBookData *)book
+- (void)deleteBook:(NSInteger)bookID
         completion:(SBDataCompletion)completion
 {
-    [SBNetworkManager deleteBookWith:book.bookPrimaryKey completion:^(BOOL sucess, id data) {
+    [SBNetworkManager deleteBookWith:bookID completion:^(BOOL sucess, id data) {
         if (sucess) {
-            NSMutableArray *mutableCopy = [self.myBookDatas mutableCopy];
-            
-            [mutableCopy removeObject:book];
-            
-            self.myBookDatas = mutableCopy;
+            //리스트 다시패치!
             [self saveData];//나중에 뺄것!
         }
         completion(sucess, data);

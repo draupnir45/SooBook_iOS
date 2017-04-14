@@ -17,6 +17,7 @@ static NSString * const USER_LOGOUT = @"user/logout/";
 static NSString * const SEARCH = @"book/search/?";
 static NSString * const MY_BOOK_LIST = @"book/mybook/?";
 static NSString * const ADD_BOOK = @"book/mybook/";
+static NSString * const DELETE_BOOK = @"book/mybook/";
 static NSString * const BOOK_PRIMARY_KEY = @"book_id";
 
 //HTTPMethod 상수

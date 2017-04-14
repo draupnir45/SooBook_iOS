@@ -13,8 +13,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *subtitleLabel;
 @property CAGradientLayer *gradient;
-@property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (getter=isMyBook) BOOL myBook;
 
 @property NSInteger bookPrimaryKey;
 

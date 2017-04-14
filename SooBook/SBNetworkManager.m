@@ -139,7 +139,7 @@
 {
     //매니저와 리퀘스트 준비
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:USER_SIGNUP]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:ADD_BOOK]];
     request.HTTPMethod = POST;
     
     //BODY 준비
@@ -168,7 +168,7 @@
 {
     //매니저와 리퀘스트 준비
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:USER_SIGNUP]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:DELETE_BOOK]];
     request.HTTPMethod = DELETE;
     
     //BODY 준비

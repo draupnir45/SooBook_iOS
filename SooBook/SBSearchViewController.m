@@ -99,15 +99,17 @@
     cell.titleLabel.text = item.title;
     cell.subtitleLabel.text = [NSString stringWithFormat:@"%@ | %@",item.author,item.publisher];
     
+    cell.myBook = item.isMyBook;
+    cell.bookPrimaryKey = item.bookPrimaryKey;
+    cell.favoriteButton.tag = indexPath.row;
+    [cell.favoriteButton addTarget:self action:@selector(requestAddBook:) forControlEvents:UIControlEventTouchUpInside];
+    
     NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]
 
                  placeholderImage:[UIImage imageNamed:@"1.jpeg"]];
-    cell.bookPrimaryKey = item.bookPrimaryKey;
-    
 
-    
     return cell;
 }
 
@@ -163,6 +165,31 @@
 - (IBAction)tapGestureResignFirstResponder:(UITapGestureRecognizer *)sender
 {
     [self.searchBar resignFirstResponder];
+}
+
+- (void)requestAddBook:(UIButton *)sender
+{
+    NSLog(@"requestAddBook");
+    
+    if (!sender.selected)
+    {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
+        SBSearchTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [self.dataCenter addBook:[cell bookPrimaryKey] completion:^(BOOL sucess, id data) {
+            if (sucess)
+            {
+                NSLog(@"YES");
+                sender.selected = YES;
+            } else {
+                //책장에 책이 들어오지 못했다는 알럿창
+            }
+            
+            //        [self updateFavoriteButton];
+        }];
+    }
+    
+
+    
 }
 
 

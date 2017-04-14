@@ -32,10 +32,10 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 + (instancetype)sharedBookData;
 
 //책 추가 및 삭제
-- (void)addBook:(SBBookData *)book
+- (void)addBook:(NSInteger)bookID
      completion:(SBDataCompletion)completion;
 
-- (void)deleteBook:(SBBookData *)book
+- (void)deleteBook:(NSInteger)bookID
         completion:(SBDataCompletion)completion;
 
 - (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey;
