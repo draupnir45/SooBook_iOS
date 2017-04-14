@@ -37,33 +37,49 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
-
-//- (void)setCellDataWithImageName:(NSString*)imageName
-//                           title:(NSString*)title
-//                        subtitle:(NSString*)subtitle
-//{
-//    self.bookCoverImageView.image = [UIImage imageNamed:imageName];
-//    self.titleLabel.text = title;
-//    self.subtitleLabel.text = subtitle;
-//}
-- (IBAction)addOrRemoveFromMyBook:(UIButton *)sender
+#pragma mark - Button
+- (IBAction)addOrRemoveButtonSelected:(UIButton *)sender //addOrRemoveButtonSelected
 {
     if (!sender.selected)
     {
         [sender setSelected:YES];
-      //셀렉티드면 추가해야하지
-//            [self.dataCenter addBook:self.bookData completion:^(BOOL sucess, id data) {
-//                
-//
-//            }];
-    } else {
-      //없애
-        [sender setSelected:NO];
+        
+        [self requestAddBookWithBookID:self.bookData.bookPrimaryKey];
+//        //내 책장에 추가
+//        [self.dataCenter addBook:self.bookData completion:^(BOOL sucess, id data) {
+//            if (sucess)
+//            {
+//                //책장에 책이 들어온다
+//            } else {
+//                //책장에 책이 들어오지 못했다는 알럿창
+//            }
+//        }];
+//    } else {
+//        [sender setSelected:NO];
+//        //내 책장에서 없애
+//        [self.dataCenter deleteBook:self.bookData completion:^(BOOL sucess, id data) {
+//            if (sucess)
+//            {
+//                //책장에서 책이 빠져나간다
+//            } else {
+//               //책장에서 책이 빠져나가지 못했다는 알럿창
+//            }
+//        }];
     }
-    
+}
+
+- (void)requestAddBookWithBookID:(NSInteger)bookId
+{
+    [self.dataCenter addBook:self.bookData completion:^(BOOL sucess, id data) {
+        if (sucess)
+        {
+            //책장에 책이 들어온다
+        } else {
+            //책장에 책이 들어오지 못했다는 알럿창
+        }
+    }];
 }
 
 @end

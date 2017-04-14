@@ -9,6 +9,7 @@
 #import "SBSearchViewController.h"
 #import "SBSearchTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+//#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SBSearchViewController ()
 <UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
@@ -59,11 +60,7 @@
 {
     [super didReceiveMemoryWarning];
 }
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.searchBar becomeFirstResponder];
-}
+
 #pragma mark - Notification
 //키보드가 보이면
 - (void)keyboardShown:(NSNotification *)note
@@ -101,12 +98,8 @@
     //셀에 내용 넣기
     cell.titleLabel.text = item.title;
     cell.subtitleLabel.text = [NSString stringWithFormat:@"%@ | %@",item.author,item.publisher];
-    
-//    cell.bookCoverImageView.image = [UIImage imageNamed:item.imageURL]; //데이터 붙이면 바꿔야 함
-    
     [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:item.imageURL]
                  placeholderImage:[UIImage imageNamed:@"1.jpeg"]];
-    
     cell.bookPrimaryKey = item.bookPrimaryKey;
     
 
@@ -167,5 +160,6 @@
 {
     [self.searchBar resignFirstResponder];
 }
+
 
 @end

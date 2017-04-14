@@ -38,18 +38,6 @@
     
     
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"collectionViewBackgroundPattern"]];
-    
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.frame = self.view.bounds;
-//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor redColor]CGColor], nil];
-    
-//    self.collectionView.layer.sublayers
-    
-//    [self.view layoutIfNeeded];
-    
-//    [self.collectionView.layer insertSublayer:gradient atIndex:0];
-//    [self.collectionView setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
-    
 }
 
 - (void)dealloc
