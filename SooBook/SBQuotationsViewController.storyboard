@@ -49,19 +49,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hFl-WY-BdM" customClass="SZTextView">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFl-WY-BdM" customClass="SZTextView">
+                                                    <rect key="frame" x="16" y="16" width="343" height="11.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="300" constant="48" id="gmK-mD-Av2"/>
+                                                    </constraints>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="이곳에 인상깊었던 글귀를 입력해 주세요"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="hFl-WY-BdM" secondAttribute="bottom" id="96J-i8-7e3"/>
+                                                <constraint firstItem="hFl-WY-BdM" firstAttribute="top" secondItem="UQ0-oU-z9D" secondAttribute="top" constant="16" id="451-KP-YZP"/>
                                                 <constraint firstAttribute="trailing" secondItem="hFl-WY-BdM" secondAttribute="trailing" constant="16" id="eRT-dV-HKF"/>
                                                 <constraint firstItem="hFl-WY-BdM" firstAttribute="leading" secondItem="UQ0-oU-z9D" secondAttribute="leading" constant="16" id="eZf-P4-PGm"/>
-                                                <constraint firstItem="hFl-WY-BdM" firstAttribute="top" secondItem="UQ0-oU-z9D" secondAttribute="top" id="ta3-o3-5n2"/>
+                                                <constraint firstAttribute="bottom" secondItem="hFl-WY-BdM" secondAttribute="bottom" constant="16" id="yOe-1O-UdA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
