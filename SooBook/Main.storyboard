@@ -400,6 +400,9 @@
                                                                             </label>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIo-mM-4be">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="64"/>
+                                                                                <connections>
+                                                                                    <segue destination="ptq-7r-16m" kind="presentation" id="9uC-9s-S5B"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -760,6 +763,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLq-oO-U1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3708" y="-564"/>
+        </scene>
+        <!--SBQuotationsViewController-->
+        <scene sceneID="ttk-bL-hKd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SBQuotationsViewController" id="ptq-7r-16m" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eoa-Jl-6v7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3708" y="-154"/>
         </scene>
     </scenes>
     <resources>
