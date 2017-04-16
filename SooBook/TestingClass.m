@@ -31,7 +31,7 @@
     
     SBBookData *sbBookData = [[SBBookData alloc] initWithDictionary:bookDataDict];
     
-    NSLog(@"\n%@\n%@\n%@\n%@\n%@\n%f\n%@\n%@",sbBookData.title,sbBookData.imageURL, sbBookData.author, sbBookData.publisher, sbBookData.shortDescription, sbBookData.rating, sbBookData.comment, sbBookData.quotations);
+    NSLog(@"\n%@\n%@\n%@\n%@\n%@\n%f\n%@\n%@",sbBookData.title,sbBookData.imageURL, sbBookData.author, sbBookData.publisher, sbBookData.shortDescription, sbBookData.rating.score, sbBookData.comment, sbBookData.quotations);
     
     //*********************TestCompletionBlock*********************
     SBDataCompletion testingBlock = ^(BOOL sucess, id data) {

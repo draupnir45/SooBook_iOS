@@ -30,7 +30,7 @@
     
     SBBookCoverFlowCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SBBookCoverFlowCell" forIndexPath:indexPath];
     
-    SBBookData *item = [[[SBDataCenter sharedBookData] myBookDatas] objectAtIndex:indexPath.row];
+    SBBookData *item = [[[SBDataCenter defaultCenter] myBookDatas] objectAtIndex:indexPath.row];
     cell.firstCollectionImage.image = [UIImage imageNamed:item.imageURL];
     [cell layoutSubviews];
     cell.bookPrimaryKey = item.bookPrimaryKey;

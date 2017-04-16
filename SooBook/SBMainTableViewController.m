@@ -31,6 +31,7 @@
 @property NSArray *titleLabelArray;
 @property NSArray *subLabelArray;
 @property NSArray *contentsArray;
+@property NSInteger nextPage;
 
 
 @end
@@ -61,15 +62,21 @@
     self.navigationItem.titleView = titleImageview;
     
 }
-- (void)viewDidAppear:(BOOL)animated {
-    if ([[[SBAuthCenter sharedInstance] userToken] length] == 0) {
-        [self performSegueWithIdentifier:@"LogInSegue" sender:self];
-    }
-}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    [self loadMyBookDataWithPageNumb:1];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([[[SBAuthCenter sharedInstance] userToken] length] == 0) {
+        [self performSegueWithIdentifier:@"LogInSegue" sender:self];
+    } else {
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,61 +84,72 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)loadMyBookDataWithPageNumb:(NSInteger)page {
+    [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            [self.tableView reloadData];
+            
+        }
+    }];
+    self.nextPage = page + 1;
+}
+
 #pragma mark - TableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+//    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    switch (section) {
-        case 0 :
-            return 1;
-            break;
-            
-        default:
-            return self.titleLabelArray.count; //나중에 교체 필요
-            break;
-    }
+//    switch (section) {
+//        case 0 :
+//            return 1;
+//            break;
+//            
+//        default:
+    return [[[SBDataCenter defaultCenter] myBookDatas] count]; //나중에 교체 필요
+//            break;
+//    }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     
-    switch (section) {
-        case 0:
-            {
-                SBSmallHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"SBSmallHeaderCell"];
-                view.titleLabel.text = @"내가 높게 평가한 책들";
-                return view;
-                break;
-            }
-        default:
-            {
+//    switch (section) {
+//        case 0:
+//            {
+//                SBSmallHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"SBSmallHeaderCell"];
+//                view.titleLabel.text = @"내가 높게 평가한 책들";
+//                return view;
+//                break;
+//            }
+//        default:
+//            {
                 SBLargeHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"SBLargeHeaderCell"];
                 view.secondLabel.text = @"나의 책 목록";
                 return view;
-                break;
-            }
-        }
-    }
+//                break;
+//            }
+//    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (indexPath.section == 0) {
-        SBBookCoverFlowContainerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBBookCoverFlowContainerCell" forIndexPath:indexPath];
-        [cell.collectionView registerNib:[UINib nibWithNibName:@"SBBookCoverFlowCell" bundle:[NSBundle mainBundle]]forCellWithReuseIdentifier:@"SBBookCoverFlowCell"];
-        cell.collectionView.delegate = self;
-        cell.collectionView.dataSource = self.firstSectionCollectionViewDataSource;
-        
-
-        return cell;
-        
-    } else {
-        SBBookData *item = [[[SBDataCenter sharedBookData] myBookDatas] objectAtIndex:indexPath.row];
+//    if (indexPath.section == 0) {
+//        SBBookCoverFlowContainerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBBookCoverFlowContainerCell" forIndexPath:indexPath];
+//        [cell.collectionView registerNib:[UINib nibWithNibName:@"SBBookCoverFlowCell" bundle:[NSBundle mainBundle]]forCellWithReuseIdentifier:@"SBBookCoverFlowCell"];
+//        cell.collectionView.delegate = self;
+//        cell.collectionView.dataSource = self.firstSectionCollectionViewDataSource;
+//        
+//
+//        return cell;
+//        
+//    } else {
+        SBBookData *item = [[[SBDataCenter defaultCenter] myBookDatas] objectAtIndex:indexPath.row];
         SBMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBMainTableViewCell" forIndexPath:indexPath];
         [cell setCellDataWithImageName:item.imageURL
                                  title:item.title
@@ -139,38 +157,43 @@
         cell.bookPrimaryKey = item.bookPrimaryKey;
          [cell layoutSubviews];
         return cell;
-    }
-    
+//    }
+//    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     
-        switch (section) {
-            case 0:
-                return 40.0;
-                break;
-                
-            default:
-            {
+//        switch (section) {
+//            case 0:
+//                return 40.0;
+//                break;
+//                
+//            default:
+//            {
                 return 64.0;
-                break;
-            }
-        }
-    }
+//                break;
+//            }
+//        }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section) {
-        case 0:
-            return 172.0;
-            break;
-            
-        default:
+//    switch (indexPath.section) {
+//        case 0:
+//            return 172.0;
+//            break;
+//            
+//        default:
             return 192.0;
-            break;
-    }
+//            break;
+//    }
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

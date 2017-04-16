@@ -45,5 +45,6 @@ static NSString * const SHORT_DESCRIPTION_KEY = @"description";
 static NSString * const RATING_KEY = @"rating";
 static NSString * const COMMENT_KEY = @"comment";
 static NSString * const QUOTATIONS_KEY = @"mark";
+static NSString * const CONTENT_KEY = @"content";
 
 #endif /* SBConstantKeys_h */

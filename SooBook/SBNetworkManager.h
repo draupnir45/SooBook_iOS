@@ -41,6 +41,6 @@ typedef void (^SBDataCompletion)(BOOL sucess, id data);
 ///검색시 다음 페이지를 가져오기 위한 메서드
 
 ///내 책 목록 가져오기
-+ (void)loadMyBookListWithCompletion:(SBDataCompletion)completion;
++ (void)loadMyBookListWithPage:(NSInteger)page completion:(SBDataCompletion)completion;
 
 @end

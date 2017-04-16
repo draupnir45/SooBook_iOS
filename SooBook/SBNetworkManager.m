@@ -9,9 +9,6 @@
 #import "SBNetworkManager.h"
 #import "AFNetworking.h"
 
-
-
-
 @implementation SBNetworkManager
 
 
@@ -89,6 +86,7 @@
     [task resume];
 }
 
+
 #pragma mark - Search / Add / Delete
 
 + (void)searchWithQuery:(NSString *)query completion:(SBDataCompletion)completion
@@ -98,7 +96,7 @@
     //한글 검색을 위한 쿼리 인코딩
     NSString *encodedQuery = [query stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSString *urlString = [NSString stringWithFormat:@"%@keyword=%@",SEARCH,encodedQuery];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:urlString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:urlString]];
     request.HTTPMethod = GET;
     
     //Task
@@ -133,7 +131,6 @@
     
     [task resume];
 }
-
 
 + (void)addBookWith:(NSInteger)bookID completion:(SBDataCompletion)completion
 {
@@ -196,10 +193,12 @@
 
 #pragma mark - List
 
-+ (void)loadMyBookListWithCompletion:(SBDataCompletion)completion
++ (void)loadMyBookListWithPage:(NSInteger)page completion:(SBDataCompletion)completion
 {
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:MY_BOOK_LIST]];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@page=%ld",MY_BOOK_LIST,page];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:urlString]];
     request.HTTPMethod = GET;
     
     NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
@@ -216,6 +215,7 @@
     [task resume];
     
 }
+
 
 #pragma mark - Network Utilities
 
