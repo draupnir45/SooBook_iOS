@@ -19,7 +19,7 @@
 {
     [super awakeFromNib];
     
-    self.dataCenter = [SBDataCenter sharedBookData];
+    self.dataCenter = [SBDataCenter defaultCenter];
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
     

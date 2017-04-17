@@ -34,7 +34,7 @@
 {
     [super viewDidLoad];
     
-    self.dataCenter = [SBDataCenter sharedBookData];
+    self.dataCenter = [SBDataCenter defaultCenter];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SBSearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"SBSearchTableViewCell"];
     

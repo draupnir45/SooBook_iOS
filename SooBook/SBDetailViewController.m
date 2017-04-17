@@ -34,7 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
    
-    SBBookData *item = [[SBDataCenter sharedBookData] bookDataWithPrimaryKey:self.bookPrimaryKey];
+    SBBookData *item = [[SBDataCenter defaultCenter] bookDataWithPrimaryKey:self.bookPrimaryKey];
     
     self.bookCoverImageView.image = [UIImage imageNamed:
                                      [NSString stringWithFormat:@"%@.jpg",item.imageURL]];
@@ -47,7 +47,7 @@
     self.mainTitleLabel.text = item.title;
     
     //별점뷰 설정하기
-    self.starRateView.rating = item.rating;
+    self.starRateView.rating = item.rating.score;
     self.starRateView.delegate = self;
     self.starRateView.editable = NO;
     

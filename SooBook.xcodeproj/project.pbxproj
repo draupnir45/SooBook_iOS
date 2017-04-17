@@ -71,6 +71,9 @@
 		B9B064D21E93AAF000488D70 /* SBMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B064C61E93AAF000488D70 /* SBMainTableViewCell.xib */; };
 		B9B064D31E93AAF000488D70 /* SBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064C81E93AAF000488D70 /* SBDetailViewController.m */; };
 		B9B064E11E93AC0F00488D70 /* square-individual-nine-7.png in Resources */ = {isa = PBXBuildFile; fileRef = B9B064D61E93AC0F00488D70 /* square-individual-nine-7.png */; };
+		B9B92CEB1EA1F1BD00CB3A2B /* SBQuotationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B92CEA1EA1F1BD00CB3A2B /* SBQuotationsViewController.m */; };
+		B9B92CED1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B92CEC1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard */; };
+		B9B92CF01EA1F2BB00CB3A2B /* SBTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B92CEF1EA1F2BB00CB3A2B /* SBTextViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +171,11 @@
 		B9B064C71E93AAF000488D70 /* SBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDetailViewController.h; sourceTree = "<group>"; };
 		B9B064C81E93AAF000488D70 /* SBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDetailViewController.m; sourceTree = "<group>"; };
 		B9B064D61E93AC0F00488D70 /* square-individual-nine-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "square-individual-nine-7.png"; sourceTree = "<group>"; };
+		B9B92CE91EA1F1BD00CB3A2B /* SBQuotationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBQuotationsViewController.h; sourceTree = "<group>"; };
+		B9B92CEA1EA1F1BD00CB3A2B /* SBQuotationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBQuotationsViewController.m; sourceTree = "<group>"; };
+		B9B92CEC1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBQuotationsViewController.storyboard; sourceTree = "<group>"; };
+		B9B92CEE1EA1F2BB00CB3A2B /* SBTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTextViewCell.h; sourceTree = "<group>"; };
+		B9B92CEF1EA1F2BB00CB3A2B /* SBTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTextViewCell.m; sourceTree = "<group>"; };
 		B9DE3BA21E920BFC001BD4E4 /* SBConstantKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBConstantKeys.h; sourceTree = "<group>"; };
 		F4290428BFA1A3DA0E9A29C0 /* Pods-SooBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SooBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SooBook/Pods-SooBook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -350,6 +358,9 @@
 				2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */,
 				B9B064B71E93AAF000488D70 /* BookCoverCollectionViewDataSource.h */,
 				B9B064B81E93AAF000488D70 /* BookCoverCollectionViewDataSource.m */,
+				B9B92CE91EA1F1BD00CB3A2B /* SBQuotationsViewController.h */,
+				B9B92CEA1EA1F1BD00CB3A2B /* SBQuotationsViewController.m */,
+				B9B92CEC1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard */,
 				B910AFB81EA0B0B600E9BB83 /* SBCommentViewController.h */,
 				B910AFB91EA0B0B600E9BB83 /* SBCommentViewController.m */,
 			);
@@ -359,6 +370,8 @@
 		B9B064D51E93AB1B00488D70 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B9B92CEE1EA1F2BB00CB3A2B /* SBTextViewCell.h */,
+				B9B92CEF1EA1F2BB00CB3A2B /* SBTextViewCell.m */,
 				2E025B331E97817C0076531E /* SBMainCollectionViewCell.h */,
 				2E025B341E97817C0076531E /* SBMainCollectionViewCell.m */,
 				2E025B351E97817C0076531E /* SBMainCollectionViewCell.xib */,
@@ -472,6 +485,7 @@
 				B9B064CD1E93AAF000488D70 /* SBLargeHeaderCell.xib in Resources */,
 				B902DA2B1E93BDF200B1FCA1 /* 9.jpeg in Resources */,
 				B902DA281E93BDF200B1FCA1 /* 6.jpeg in Resources */,
+				B9B92CED1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard in Resources */,
 				B902DA2F1E93BDF200B1FCA1 /* 13.jpeg in Resources */,
 				B9B064CB1E93AAF000488D70 /* SBSmallHeaderCell.xib in Resources */,
 				B902DA331E93BDF200B1FCA1 /* 17.jpeg in Resources */,
@@ -556,6 +570,7 @@
 			files = (
 				B9B064CA1E93AAF000488D70 /* SBSmallHeaderCell.m in Sources */,
 				2E025B361E97817C0076531E /* SBMainCollectionViewCell.m in Sources */,
+				B9B92CEB1EA1F1BD00CB3A2B /* SBQuotationsViewController.m in Sources */,
 				2E11F4DE1E920E03002FD1E6 /* SBIndicatorView.m in Sources */,
 				2E1FA2311E8E15900055F3FE /* SBSignUpViewController.m in Sources */,
 				B903B4271E8FDEBF005817B1 /* SBNetworkManager.m in Sources */,
@@ -572,6 +587,7 @@
 				B95F786F1E8D0AF3009A9A93 /* SBDataCenter.m in Sources */,
 				4B05A95B1E978C2B00E01D33 /* SBSettingViewController.m in Sources */,
 				B9B064CC1E93AAF000488D70 /* SBLargeHeaderCell.m in Sources */,
+				B9B92CF01EA1F2BB00CB3A2B /* SBTextViewCell.m in Sources */,
 				B9B064CF1E93AAF000488D70 /* SBBookCoverFlowCell.m in Sources */,
 				B910AFBA1EA0B0B600E9BB83 /* SBCommentViewController.m in Sources */,
 				B9B064CE1E93AAF000488D70 /* SBBookCoverFlowContainerCell.m in Sources */,

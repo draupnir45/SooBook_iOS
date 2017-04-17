@@ -33,7 +33,7 @@
     // Do any additional setup after loading the view.
     [self observeKeyboard];
     
-    SBBookData *item = [[SBDataCenter sharedBookData] bookDataWithPrimaryKey:self.bookPrimaryKey];
+    SBBookData *item = [[SBDataCenter defaultCenter] bookDataWithPrimaryKey:self.bookPrimaryKey];
     
 
     
@@ -42,7 +42,7 @@
     self.textView.textContainerInset = UIEdgeInsetsMake(16, 16, 16, 16);
     
     
-    self.starRateView.rating = item.rating;
+    self.starRateView.rating = item.rating.score;
 //    
 //    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:item.title];
     _navigationBar.topItem.title = item.title;

@@ -11,20 +11,38 @@
 
 
 
+//Comment 클래스
+@interface SBBookComment : NSObject
+
+@property NSInteger pk;
+@property NSString *content;
+//@property NSDate *updated_date;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@end
+
+@interface SBBookStarRating : NSObject
+
+@property NSInteger pk;
+@property CGFloat score;
+//@property NSDate *updated_date;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@end
+
 
 @interface SBBookData : NSObject
 
-@property (readonly, nonatomic) NSInteger   bookPrimaryKey;
-@property (readonly, nonatomic) NSString    *title;
-@property (readonly, nonatomic) NSString    *imageURL;
-@property (readonly, nonatomic) UIImage     *bookCover;
-@property (readonly, nonatomic) NSString    *author;
-@property (readonly, nonatomic) NSString    *publisher;
-@property (readonly, nonatomic) NSString    *shortDescription;
-@property (readonly, nonatomic) CGFloat     rating;
-@property (readonly, nonatomic) NSString    *comment;
-@property (readonly, nonatomic) NSArray     *quotations;
-@property (getter=isMyBook)     BOOL        myBook;
+@property (readonly, nonatomic) NSInteger           bookPrimaryKey;
+@property (readonly, nonatomic) NSString            *title;
+@property (readonly, nonatomic) NSString            *imageURL;
+@property (readonly, nonatomic) NSString            *author;
+@property (readonly, nonatomic) NSString            *publisher;
+@property (readonly, nonatomic) NSString            *shortDescription;
+@property (nonatomic)           SBBookStarRating    *rating;
+@property (nonatomic)           SBBookComment       *comment;
+@property (readonly, nonatomic) NSArray             *quotations;
+@property (getter=isMyBook)     BOOL                myBook;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
