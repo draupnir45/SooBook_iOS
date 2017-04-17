@@ -28,17 +28,16 @@ typedef void (^SBDataCompletion)(BOOL sucess, id data);
 ///검색용 메서드
 + (void)searchWithQuery:(NSString *)query
              completion:(SBDataCompletion)completion;
+
+///검색시 다음 페이지를 가져오기 위한 메서드
 + (void)nextSearchResultWithURLString:(NSString *)urlString
                            completion:(SBDataCompletion)completion;
-
 
 ///책 추가
 + (void)addBookWith:(NSInteger)bookID completion:(SBDataCompletion)completion;
 
 ///책 삭제
 + (void)deleteBookWith:(NSInteger)bookID completion:(SBDataCompletion)completion;
-
-///검색시 다음 페이지를 가져오기 위한 메서드
 
 ///내 책 목록 가져오기
 + (void)loadMyBookListWithPage:(NSInteger)page completion:(SBDataCompletion)completion;

@@ -26,10 +26,10 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 
 @interface SBDataCenter : NSObject
 
-
 @property (readonly) NSArray *myBookDatas;
+@property (readonly) NSArray *dataArray;
 
-//+ (instancetype)sharedBookData;
+
 + (instancetype)defaultCenter;
 
 //책 추가 및 삭제

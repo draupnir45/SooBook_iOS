@@ -9,11 +9,16 @@
 #import "SBDataCenter.h"
 @interface SBDataCenter ()
 
-@property (readwrite) NSArray *myBookDatas;
+
+@property (readwrite) NSArray *dataArray;
 @property NSInteger nextPageNumb;
 @property BOOL haveNextPage;
-//@property NSFileManager *fileManager;
-//@property NSString *documentDirPath;
+
+
+//-------------------테스트용
+@property (readwrite) NSArray *myBookDatas;
+@property NSFileManager *fileManager;
+@property NSString *documentDirPath;
 
 @end
 
@@ -21,28 +26,14 @@
 
 //***************************테스트를 위해 plist로 작성하였습니다.
 
-+ (instancetype)sharedBookData
-{
-    static SBDataCenter *instance = nil;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[SBDataCenter alloc] init];
-    });
-    
-    return instance;
-}
-
-
 + (instancetype)defaultCenter
 {
     static SBDataCenter *instance = nil;
-    
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[SBDataCenter alloc] init];
     });
-    
     return instance;
 }
 
@@ -52,24 +43,24 @@
     self = [super init];
     if (self) {
         
-//        self.documentDirPath = [SBDataCenter documentDiretoryPath];
-//        self.fileManager = [NSFileManager defaultManager];
+        self.documentDirPath = [SBDataCenter documentDiretoryPath];
+        self.fileManager = [NSFileManager defaultManager];
         
-//        NSArray *dataArray;
+        NSArray *dataArray;
         
-//        if ([self.fileManager fileExistsAtPath:self.documentDirPath]) {
-//            //저장했던 내용 로드
-//            dataArray = [NSArray arrayWithContentsOfFile:self.documentDirPath];
-//            
-//            
-//        } else  {
-//            NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"TempBookData" ofType:@"plist"];
-//            
-//            //데이터용 프로퍼티에 번들 내용을 넣음
-//            dataArray = [NSArray arrayWithContentsOfFile:bundlePath];
-//        }
-//        
-////        self.myBookDatas = [self fetchSBBookModelsWithArray:dataArray];
+        if ([self.fileManager fileExistsAtPath:self.documentDirPath]) {
+            //저장했던 내용 로드
+            dataArray = [NSArray arrayWithContentsOfFile:self.documentDirPath];
+            
+            
+        } else  {
+            NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"TempBookData" ofType:@"plist"];
+            
+            //데이터용 프로퍼티에 번들 내용을 넣음
+            dataArray = [NSArray arrayWithContentsOfFile:bundlePath];
+        }
+        
+        self.myBookDatas = [self fetchSearchResultsWithArray:dataArray];
         
     }
     return self;
@@ -77,24 +68,24 @@
 
 #pragma mark - 데이터 저장
 
-//- (void)saveData
-//{
-//    if (![self.fileManager fileExistsAtPath:self.documentDirPath]) {
-//        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"TempBookData" ofType:@"plist"];
-//        [self.fileManager copyItemAtPath:bundlePath toPath:self.documentDirPath error:nil];
-//    }
-//    [self.myBookDatas writeToFile:self.documentDirPath atomically:NO];
-//}
+- (void)saveData
+{
+    if (![self.fileManager fileExistsAtPath:self.documentDirPath]) {
+        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"TempBookData" ofType:@"plist"];
+        [self.fileManager copyItemAtPath:bundlePath toPath:self.documentDirPath error:nil];
+    }
+    [self.myBookDatas writeToFile:self.documentDirPath atomically:NO];
+}
 
 #pragma mark - 플리스트 관리 Plist Utilities
 
-//+ (NSString *)documentDiretoryPath
-//{
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *docuPath = [(NSString *)[paths objectAtIndex:0] stringByAppendingString:@"/TempBookData.plist"];
-//    
-//    return docuPath;
-//}
++ (NSString *)documentDiretoryPath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docuPath = [(NSString *)[paths objectAtIndex:0] stringByAppendingString:@"/TempBookData.plist"];
+    
+    return docuPath;
+}
 
 #pragma mark - List
 
@@ -104,7 +95,7 @@
     [SBNetworkManager loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
         if (sucess) { //넘겨주기 전에 fetch합니다.
             if (page == 1) {            //만약에 첫페이지를 부르는 거라면(첫 요청) 기존 데이터를 지우고 넣을 것.
-                self.myBookDatas = [weakSelf fetchMyBooksWithArray:data[@"results"]];
+                self.dataArray = [weakSelf fetchMyBooksWithArray:data[@"results"]];
             } else {
                 NSMutableArray *newBookDatas = [weakSelf.myBookDatas mutableCopy];
                 [newBookDatas addObjectsFromArray:[weakSelf fetchMyBooksWithArray:data[@"results"]]];
@@ -226,8 +217,8 @@
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     for (NSDictionary *item in array) {
         SBBookData *book = [[SBBookData alloc] initWithDictionary:item[@"book"]];
-        book.rating = [[SBBookStarRating alloc] initWithDictionary:item[@"star"]];
-        book.comment = [[SBBookComment alloc] initWithDictionary:item[@"comment"]];
+//        book.rating = [[SBBookStarRating alloc] initWithDictionary:item[@"star"]];
+//        book.comment = [[SBBookComment alloc] initWithDictionary:item[@"comment"]];
         [tempArray addObject:book];
     }
     return tempArray;
