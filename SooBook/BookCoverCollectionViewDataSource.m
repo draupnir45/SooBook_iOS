@@ -30,9 +30,16 @@
     
     SBBookCoverFlowCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SBBookCoverFlowCell" forIndexPath:indexPath];
     
-    SBBookData *item = [[[SBDataCenter defaultCenter] myBookDatas] objectAtIndex:indexPath.row];
-    cell.firstCollectionImage.image = [UIImage imageNamed:item.imageURL];
-    [cell layoutSubviews];
+    SBBookData *item = [[[SBDataCenter defaultCenter] dataArray] objectAtIndex:indexPath.row];
+    NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+//    [cell.firstCollectionImage sd_setImageWithURL:[NSURL URLWithString:encodedStr]];
+    [cell.firstCollectionImage sd_setImageWithURL:[NSURL URLWithString:encodedStr] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (error == nil && image != nil) {
+                [cell layoutSubviews];
+        }
+    }];
+//    cell.firstCollectionImage.image = [UIImage imageNamed:item.imageURL];
+
     cell.bookPrimaryKey = item.bookPrimaryKey;
    
    

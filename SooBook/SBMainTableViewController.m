@@ -45,9 +45,14 @@
         
 /////////////////////////////////테스트용 DataSource//////////////////////////////////
     
-    self.titleLabelArray  = @[@"엘리자베스가 사라졌다",@"걸 온 더 트레인",@"영어책 한권 외워봤니?",@"드라마 도깨비 소설2 - 쓸쓸하고 찬란하神",@"여교수와 남제자",@"겨울에서 봄",@"드래곤볼 슈퍼",@"사랑해, 심청아!",@"타락천사",@"말괄량이의 늑대 길들이기: 늑대삼형제 시리즈"];
+//    self.titleLabelArray  = @[@"엘리자베스가 사라졌다",@"걸 온 더 트레인",@"영어책 한권 외워봤니?",@"드라마 도깨비 소설2 - 쓸쓸하고 찬란하神",@"여교수와 남제자",@"겨울에서 봄",@"드래곤볼 슈퍼",@"사랑해, 심청아!",@"타락천사",@"말괄량이의 늑대 길들이기: 늑대삼형제 시리즈"];
+//
+//    self.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:self.titleLabelArray];
+    
+//    self.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter defaultCenter] dataArray]];
 
-    self.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:self.titleLabelArray];
+    
+    
     ///rate List로부터
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SBSmallHeaderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SBSmallHeaderCell"];
@@ -88,6 +93,7 @@
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
         if (sucess) {
             [self.tableView reloadData];
+            self.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter defaultCenter] dataArray]];
             
         }
     }];
@@ -98,96 +104,100 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    return 2;
-    return 1;
+    return 2;
+//    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    switch (section) {
-//        case 0 :
-//            return 1;
-//            break;
-//            
-//        default:
-    return [[[SBDataCenter defaultCenter] myBookDatas] count]; //나중에 교체 필요
-//            break;
-//    }
+    switch (section) {
+        case 0 :
+            return 1;
+            break;
+            
+        default:
+    return [[[SBDataCenter defaultCenter] dataArray] count];
+        return [[[SBDataCenter defaultCenter] myBookDatas] count];
+            break;
+    }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     
-//    switch (section) {
-//        case 0:
-//            {
-//                SBSmallHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"SBSmallHeaderCell"];
-//                view.titleLabel.text = @"내가 높게 평가한 책들";
-//                return view;
-//                break;
-//            }
-//        default:
-//            {
+    switch (section) {
+        case 0:
+            {
+                SBSmallHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"SBSmallHeaderCell"];
+                view.titleLabel.text = @"내가 높게 평가한 책들";
+                return view;
+                break;
+            }
+        default:
+            {
                 SBLargeHeaderCell *view = [tableView dequeueReusableCellWithIdentifier:@"SBLargeHeaderCell"];
                 view.secondLabel.text = @"나의 책 목록";
                 return view;
-//                break;
-//            }
-//    }
+                break;
+            }
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    if (indexPath.section == 0) {
-//        SBBookCoverFlowContainerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBBookCoverFlowContainerCell" forIndexPath:indexPath];
-//        [cell.collectionView registerNib:[UINib nibWithNibName:@"SBBookCoverFlowCell" bundle:[NSBundle mainBundle]]forCellWithReuseIdentifier:@"SBBookCoverFlowCell"];
-//        cell.collectionView.delegate = self;
-//        cell.collectionView.dataSource = self.firstSectionCollectionViewDataSource;
-//        
-//
-//        return cell;
-//        
-//    } else {
-        SBBookData *item = [[[SBDataCenter defaultCenter] myBookDatas] objectAtIndex:indexPath.row];
-        SBMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBMainTableViewCell" forIndexPath:indexPath];
-        [cell setCellDataWithImageName:item.imageURL
-                                 title:item.title
-                              subtitle:item.author];
-        cell.bookPrimaryKey = item.bookPrimaryKey;
-         [cell layoutSubviews];
+    if (indexPath.section == 0) {
+        SBBookCoverFlowContainerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBBookCoverFlowContainerCell" forIndexPath:indexPath];
+        [cell.collectionView registerNib:[UINib nibWithNibName:@"SBBookCoverFlowCell" bundle:[NSBundle mainBundle]]forCellWithReuseIdentifier:@"SBBookCoverFlowCell"];
+        cell.collectionView.delegate = self;
+        cell.collectionView.dataSource = self.firstSectionCollectionViewDataSource;
+        
+
         return cell;
-//    }
-//    
+        
+    } else {
+//        SBBookData *item = [[[SBDataCenter defaultCenter] myBookDatas] objectAtIndex:indexPath.row];
+        SBBookData *item = [[[SBDataCenter defaultCenter] dataArray] objectAtIndex:indexPath.row];
+        SBMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBMainTableViewCell" forIndexPath:indexPath];
+    
+        NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]];
+        cell.titleLabel.text = item.title;
+        cell.subtitleLabel.text = item.author;
+        cell.bookPrimaryKey = item.bookPrimaryKey;
+        [cell layoutSubviews];
+        return cell;
+    }
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     
-//        switch (section) {
-//            case 0:
-//                return 40.0;
-//                break;
-//                
-//            default:
-//            {
+        switch (section) {
+            case 0:
+                return 40.0;
+                break;
+                
+            default:
+            {
                 return 64.0;
-//                break;
-//            }
-//        }
+                break;
+            }
+        }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    switch (indexPath.section) {
-//        case 0:
-//            return 172.0;
-//            break;
-//            
-//        default:
+    switch (indexPath.section) {
+        case 0:
+            return 172.0;
+            break;
+            
+        default:
             return 192.0;
-//            break;
-//    }
+            break;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

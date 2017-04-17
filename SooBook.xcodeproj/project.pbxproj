@@ -46,6 +46,7 @@
 		B902DA361E93BDF200B1FCA1 /* 20.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B902DA221E93BDF200B1FCA1 /* 20.jpeg */; };
 		B903B4271E8FDEBF005817B1 /* SBNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */; };
 		B910AFBA1EA0B0B600E9BB83 /* SBCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B910AFB91EA0B0B600E9BB83 /* SBCommentViewController.m */; };
+		B915FCB31EA4E7F700B7DAFF /* NSMutableAttributedString+JCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B915FCB21EA4E7F700B7DAFF /* NSMutableAttributedString+JCAdditions.m */; };
 		B95F78661E8CDAF1009A9A93 /* SBAuthCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F78651E8CDAF1009A9A93 /* SBAuthCenter.m */; };
 		B95F78691E8CE056009A9A93 /* TestingClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F78681E8CE056009A9A93 /* TestingClass.m */; };
 		B95F786C1E8D0048009A9A93 /* UIColor+SBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F786B1E8D0048009A9A93 /* UIColor+SBAdditions.m */; };
@@ -128,6 +129,8 @@
 		B903B4261E8FDEBF005817B1 /* SBNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBNetworkManager.m; sourceTree = "<group>"; };
 		B910AFB81EA0B0B600E9BB83 /* SBCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCommentViewController.h; sourceTree = "<group>"; };
 		B910AFB91EA0B0B600E9BB83 /* SBCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCommentViewController.m; sourceTree = "<group>"; };
+		B915FCB11EA4E7F700B7DAFF /* NSMutableAttributedString+JCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+JCAdditions.h"; sourceTree = "<group>"; };
+		B915FCB21EA4E7F700B7DAFF /* NSMutableAttributedString+JCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+JCAdditions.m"; sourceTree = "<group>"; };
 		B94FD3A51E8B7DC5006CE322 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B95F78641E8CDAF1009A9A93 /* SBAuthCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAuthCenter.h; sourceTree = "<group>"; };
 		B95F78651E8CDAF1009A9A93 /* SBAuthCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAuthCenter.m; sourceTree = "<group>"; };
@@ -292,7 +295,6 @@
 				B9B064D41E93AAF500488D70 /* Main */,
 				B9AB61AD1EA0767C005A9AC2 /* Search */,
 				B9AB61AB1EA0758F005A9AC2 /* Setting */,
-				B9B064D51E93AB1B00488D70 /* Custom Cells */,
 				2E1FA2371E8E159B0055F3FE /* Account */,
 				B94FD3A61E8B8298006CE322 /* Model */,
 				B9AB61AC1EA07645005A9AC2 /* Pre Compiled Headers */,
@@ -363,6 +365,7 @@
 				B9B92CEC1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard */,
 				B910AFB81EA0B0B600E9BB83 /* SBCommentViewController.h */,
 				B910AFB91EA0B0B600E9BB83 /* SBCommentViewController.m */,
+				B9B064D51E93AB1B00488D70 /* Custom Cells */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -399,6 +402,8 @@
 		B9E899511E8D1BFD00C7681A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B915FCB11EA4E7F700B7DAFF /* NSMutableAttributedString+JCAdditions.h */,
+				B915FCB21EA4E7F700B7DAFF /* NSMutableAttributedString+JCAdditions.m */,
 				2E11F4DC1E920E03002FD1E6 /* SBIndicatorView.h */,
 				2E11F4DD1E920E03002FD1E6 /* SBIndicatorView.m */,
 				B9B064981E93AA3D00488D70 /* RateView.h */,
@@ -593,6 +598,7 @@
 				B9B064CE1E93AAF000488D70 /* SBBookCoverFlowContainerCell.m in Sources */,
 				B9B064C91E93AAF000488D70 /* BookCoverCollectionViewDataSource.m in Sources */,
 				B95F786C1E8D0048009A9A93 /* UIColor+SBAdditions.m in Sources */,
+				B915FCB31EA4E7F700B7DAFF /* NSMutableAttributedString+JCAdditions.m in Sources */,
 				B9B064D11E93AAF000488D70 /* SBMainTableViewCell.m in Sources */,
 				2EF77C481E95FB330000DBFB /* SBMainCollectionViewController.m in Sources */,
 				B95F78661E8CDAF1009A9A93 /* SBAuthCenter.m in Sources */,

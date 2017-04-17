@@ -26,7 +26,7 @@
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"SBBookCoverFlowCell" bundle:nil] forCellWithReuseIdentifier:@"SBBookCoverFlowCell"];
     
-    BookCoverCollectionViewDataSource *dataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter defaultCenter] myBookDatas]];
+    BookCoverCollectionViewDataSource *dataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter defaultCenter] dataArray]];
     self.collectionView.dataSource = dataSource;
     self.dataSource = dataSource;
     

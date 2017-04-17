@@ -11,6 +11,7 @@
 #import "SBDataCenter.h"
 #import "SBBookData.h"
 #import "SBCommentViewController.h"
+#import "NSMutableAttributedString+JCAdditions.h"
 
 @interface SBDetailViewController ()
 <RateViewDelegate, UIGestureRecognizerDelegate>
@@ -36,14 +37,17 @@
    
     SBBookData *item = [[SBDataCenter defaultCenter] bookDataWithPrimaryKey:self.bookPrimaryKey];
     
-    self.bookCoverImageView.image = [UIImage imageNamed:
-                                     [NSString stringWithFormat:@"%@.jpg",item.imageURL]];
+    NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
-    self.backImageView.image = [UIImage imageNamed:
-                                     [NSString stringWithFormat:@"%@.jpg",item.imageURL]];
+    
+    [self.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]];
+    [self.backImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]];
+//    self.backImageView.image = [UIImage imageNamed:
+//                                     [NSString stringWithFormat:@"%@.jpg",item.imageURL]];
     
     self.subtitleLabel.text = item.author;
-    self.decriptionLabel.text = item.shortDescription;
+//    self.decriptionLabel.text = item.shortDescription;
+    self.decriptionLabel.attributedText = [NSMutableAttributedString attrStringWithString:item.shortDescription lineSpacing:8.0 paragraphSpacing:20.0];
     self.mainTitleLabel.text = item.title;
     
     //별점뷰 설정하기

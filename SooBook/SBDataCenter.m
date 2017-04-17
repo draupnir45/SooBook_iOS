@@ -192,7 +192,13 @@
 {
     SBBookData *resultItem;
     
-    for (SBBookData *item in self.myBookDatas) {
+//    for (SBBookData *item in self.myBookDatas) {
+//        if (item.bookPrimaryKey == primaryKey) {
+//            resultItem = item;
+//        }
+//    }
+    
+    for (SBBookData *item in self.dataArray) {
         if (item.bookPrimaryKey == primaryKey) {
             resultItem = item;
         }

@@ -73,7 +73,7 @@
                 nickName:(NSString *)nickName
               completion:(SBDataCompletion)completion
 {
-    [SBNetworkManager signUpWithUserID:userID password:password nickName:password completion:completion];
+    [SBNetworkManager signUpWithUserID:userID password:password nickName:nickName completion:completion];
 }
 
 - (void)logOut
