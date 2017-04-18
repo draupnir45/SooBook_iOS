@@ -201,7 +201,7 @@
 {
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
     
-    NSString *urlString = [NSString stringWithFormat:@"%@page=%ld",MY_BOOK_LIST,page];
+    NSString *urlString = [NSString stringWithFormat:@"%@page=%ld",MY_BOOK_LIST,(long)page];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:urlString]];
     request.HTTPMethod = GET;
     
