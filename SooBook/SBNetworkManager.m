@@ -167,9 +167,13 @@
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:DELETE_BOOK]];
     request.HTTPMethod = DELETE;
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+//    [request setValue:@"multipart/form-data" forHTTPHeaderField: @"Content-Type"];
     
     //BODY 준비
-    NSString *dataString = [NSString stringWithFormat:@"%@=%ld", BOOK_PRIMARY_KEY, (long)bookID];
+//    NSString *dataString = [NSString stringWithFormat:@"%@=%ld", BOOK_PRIMARY_KEY, (long)bookID];
+    NSString *dataString = [NSString stringWithFormat:@"{\"%@\":\"%ld\"}", BOOK_PRIMARY_KEY, (long)bookID];
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPBody = data;
     

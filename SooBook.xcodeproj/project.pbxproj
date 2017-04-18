@@ -353,10 +353,10 @@
 			children = (
 				B9B064A01E93AA9C00488D70 /* SBMainTableViewController.h */,
 				B9B064A11E93AA9C00488D70 /* SBMainTableViewController.m */,
-				B9B064C71E93AAF000488D70 /* SBDetailViewController.h */,
-				B9B064C81E93AAF000488D70 /* SBDetailViewController.m */,
 				2EF77C461E95FB330000DBFB /* SBMainCollectionViewController.h */,
 				2EF77C471E95FB330000DBFB /* SBMainCollectionViewController.m */,
+				B9B064C71E93AAF000488D70 /* SBDetailViewController.h */,
+				B9B064C81E93AAF000488D70 /* SBDetailViewController.m */,
 				2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */,
 				B9B064B71E93AAF000488D70 /* BookCoverCollectionViewDataSource.h */,
 				B9B064B81E93AAF000488D70 /* BookCoverCollectionViewDataSource.m */,

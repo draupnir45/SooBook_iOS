@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *starRateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commenButtontLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 
 @end
@@ -55,10 +56,14 @@
     self.starRateView.delegate = self;
     self.starRateView.editable = NO;
     
+    //배경에 블러 먹이기
     UIBlurEffect *blurrEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurrEffect];
     visualEffectView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.backImageView.frame.size.height);
     [self.backImageView addSubview:visualEffectView];
+    
+    //책 등록 버튼 설정
+    self.addButton.selected = item.isMyBook;
     
     
     //스와이프 투 백 제스처 먹이기
@@ -164,6 +169,47 @@
     if ([segue.identifier isEqualToString:@"CommentViewSegue"]) {
         SBCommentViewController *commentViewContoroller = segue.destinationViewController;
         commentViewContoroller.bookPrimaryKey = self.bookPrimaryKey;
+    }
+}
+
+- (IBAction)requestAddBook:(UIButton *)sender
+{
+    NSLog(@"requestAddBook");
+    
+//    [self.indicator startIndicatorOnView:self.view];
+    
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
+//    SBSearchTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+//    __weak SBIndicatorView *indicator = self.indicator;
+    
+    if (!sender.selected)
+    {
+        
+        [[SBDataCenter defaultCenter] addBook:[self bookPrimaryKey] completion:^(BOOL sucess, id data) {
+            if (sucess)
+            {
+                NSLog(@"YES");
+                sender.selected = YES;
+            } else {
+                //책장에 책이 들어오지 못했다는 알럿창
+            }
+            
+//            [indicator stopIndicator];
+        }];
+    } else {
+        
+        [[SBDataCenter defaultCenter] deleteBook:[self bookPrimaryKey] completion:^(BOOL sucess, id data) {
+            if (sucess)
+            {
+                NSLog(@"NO");
+                sender.selected = NO;
+            } else {
+                //책장에 책이 들어오지 못했다는 알럿창
+            }
+            
+//            [indicator stopIndicator];
+        }];
     }
 }
 
