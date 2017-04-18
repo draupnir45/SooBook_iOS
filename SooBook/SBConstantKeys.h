@@ -9,16 +9,20 @@
 #ifndef SBConstantKeys_h
 #define SBConstantKeys_h
 
-//API 주소 상수
+//API 상수
 static NSString * const BASE_URL = @"https://soobook.devlim.net/api/";
 static NSString * const USER_SIGNUP = @"user/signup/";
 static NSString * const USER_LOGIN = @"user/login/";
 static NSString * const USER_LOGOUT = @"user/logout/";
 static NSString * const SEARCH = @"book/search/?";
 static NSString * const MY_BOOK_LIST = @"book/mybook/?";
+static NSString * const GET_BOOK = @"book/mybook/detail/?";
 static NSString * const ADD_BOOK = @"book/mybook/";
 static NSString * const DELETE_BOOK = @"book/mybook/";
+static NSString * const ADD_COMMENT = @"book/comment/";
+
 static NSString * const BOOK_PRIMARY_KEY = @"book_id";
+static NSString * const MYBOOK_PRIMARY_KEY = @"mybook_id";
 
 //HTTPMethod 상수
 static NSString * const POST = @"POST";

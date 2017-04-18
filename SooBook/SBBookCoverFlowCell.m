@@ -10,6 +10,9 @@
 
 @implementation SBBookCoverFlowCell
 
+static CGFloat const HEIGHT = 172.0;
+static CGFloat const WIDTH = 96.0;
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -19,12 +22,12 @@
     if (self.firstCollectionImage.image) {
         CGFloat heightByWidthRatio = [SBBookCoverFlowCell getImageRatioWithImage:self.firstCollectionImage.image];
         
-        if (heightByWidthRatio <= (172.0f/96.0f)) {
-            CGFloat newHeight = heightByWidthRatio * 96.0f;
-            self.firstCollectionImage.frame = CGRectMake(0, self.frame.size.height - newHeight, 96.0f, newHeight);
+        if (heightByWidthRatio <= (HEIGHT/WIDTH)) {
+            CGFloat newHeight = heightByWidthRatio * WIDTH;
+            self.firstCollectionImage.frame = CGRectMake(0, self.frame.size.height - newHeight, WIDTH, newHeight);
         } else {
-            CGFloat newWidth = 172.0f / heightByWidthRatio;
-            self.firstCollectionImage.frame = CGRectMake(0, 0,newWidth, 172.0f);
+            CGFloat newWidth = HEIGHT / heightByWidthRatio;
+            self.firstCollectionImage.frame = CGRectMake(0, 0,newWidth, HEIGHT);
         }
         
         NSLog(@"layoutSubviews");
@@ -35,6 +38,10 @@
 + (CGFloat)getImageRatioWithImage:(UIImage *)image
 {
     return image.size.height/image.size.width;
+}
+
++ (CGFloat)cellHeight {
+    return HEIGHT;
 }
 
 @end

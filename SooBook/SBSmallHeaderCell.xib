@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfG-cj-k4N">
-                        <rect key="frame" x="16" y="15" width="288" height="20.5"/>
+                        <rect key="frame" x="16" y="16" width="288" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -27,7 +27,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="dfG-cj-k4N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="4NX-Nl-rpI"/>
-                    <constraint firstItem="dfG-cj-k4N" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IqU-Of-4jm"/>
+                    <constraint firstItem="dfG-cj-k4N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="86X-Ig-OjJ"/>
                     <constraint firstAttribute="trailing" secondItem="dfG-cj-k4N" secondAttribute="trailing" constant="16" id="hjP-VI-EiG"/>
                 </constraints>
             </tableViewCellContentView>
