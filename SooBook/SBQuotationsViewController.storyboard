@@ -55,6 +55,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="300" constant="48" id="gmK-mD-Av2"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="이곳에 인상깊었던 글귀를 입력해 주세요"/>

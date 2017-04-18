@@ -141,7 +141,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:NO];
     
 }
 //-(void)viewWillDisappear:(BOOL)animated{
