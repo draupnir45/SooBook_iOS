@@ -178,6 +178,9 @@
 {
     [SBNetworkManager deleteBookWith:bookID completion:^(BOOL sucess, id data) {
         if (sucess) {
+            
+            NSMutableArray *arrayForRemove = [[self dataArray] mutableCopy];
+            [arrayForRemove removeObject:[self bookDataWithPrimaryKey:bookID]];
             //리스트 다시패치!
 //            [self saveData];//나중에 뺄것!
         }
@@ -225,6 +228,7 @@
         SBBookData *book = [[SBBookData alloc] initWithDictionary:item[@"book"]];
 //        book.rating = [[SBBookStarRating alloc] initWithDictionary:item[@"star"]];
 //        book.comment = [[SBBookComment alloc] initWithDictionary:item[@"comment"]];
+        book.myBook = YES;
         [tempArray addObject:book];
     }
     return tempArray;

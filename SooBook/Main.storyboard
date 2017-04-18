@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MoC-GR-k6N">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MoC-GR-k6N">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -265,12 +265,12 @@
                                                                     <constraint firstAttribute="width" constant="24" id="Tr6-0h-saR"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <state key="normal" image="mybookHeartOn">
+                                                                <state key="normal" image="mybookHeartOff">
                                                                     <color key="titleColor" red="0.098039215690000001" green="0.5568627451" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <state key="selected" image="mybookHeartOn"/>
                                                                 <connections>
-                                                                    <action selector="rightButtonSelected:" destination="K1k-rM-qUg" eventType="touchUpInside" id="YlZ-Z6-UiD"/>
+                                                                    <action selector="requestAddBook:" destination="K1k-rM-qUg" eventType="touchUpInside" id="9B2-DJ-6tQ"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -573,6 +573,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="addButton" destination="bg2-O9-ZZJ" id="G7Z-tv-ooN"/>
                         <outlet property="backImageView" destination="fXR-mv-tCM" id="pdD-Ie-Kew"/>
                         <outlet property="bookCoverImageView" destination="dEt-DB-yfC" id="Jwa-Qc-15J"/>
                         <outlet property="commenButtontLabel" destination="LJR-pW-R3m" id="oum-FV-hWO"/>
@@ -777,6 +778,7 @@
         <image name="1.jpeg" width="300" height="425"/>
         <image name="backChevron" width="13" height="22"/>
         <image name="myBookShelf" width="23" height="21"/>
+        <image name="mybookHeartOff" width="22" height="21"/>
         <image name="mybookHeartOn" width="20" height="19"/>
         <image name="search" width="23" height="23"/>
         <image name="setting" width="23" height="23"/>

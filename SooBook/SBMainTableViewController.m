@@ -32,6 +32,8 @@
 @property NSArray *subLabelArray;
 @property NSArray *contentsArray;
 @property NSInteger nextPage;
+@property UIRefreshControl *tableViewRefreshControl;
+
 
 
 @end
@@ -66,6 +68,14 @@
     UIImageView *titleImageview = [[UIImageView alloc] initWithImage: naviBarLogo];
     self.navigationItem.titleView = titleImageview;
     
+    self.tableViewRefreshControl = [[UIRefreshControl alloc] init];
+//    self.tableViewRefreshControl.backgroundColor = [UIColor lightGrayColor];
+//    self.tableViewRefreshControl.tintColor = [UIColor whiteColor];
+    [self.tableViewRefreshControl addTarget:self
+                                     action:@selector(refreshData:)
+                           forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl = self.tableViewRefreshControl;
+    
 }
 
 
@@ -87,6 +97,13 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)refreshData:(id)sender {
+    [[SBDataCenter defaultCenter] loadMyBookListWithPage:1 completion:^(BOOL sucess, id data) {
+//        [self.tableView reloadData];
+        [self.tableViewRefreshControl endRefreshing];
+    }];
 }
 
 - (void)loadMyBookDataWithPageNumb:(NSInteger)page {
