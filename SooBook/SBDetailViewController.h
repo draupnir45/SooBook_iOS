@@ -17,9 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *starInteger;
 @property (weak, nonatomic) IBOutlet UILabel *detailViewCommentLabel;
 
-
-
-
 @property NSInteger bookPrimaryKey;
+@property SBBookData *item;
 
 @end

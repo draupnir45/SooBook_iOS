@@ -41,9 +41,13 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 
 - (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey;
 
-//내 책 불러오기
+///내 책들 불러오기
 - (void)loadMyBookListWithPage:(NSInteger)page
                     completion:(SBDataCompletion)completion;
+
+///내 책 불러오기
+- (void)loadMyBookWithBookID:(NSInteger)bookID
+                  completion:(SBDataCompletion)completion;
 
 ///검색용 메서드
 - (void)searchWithQuery:(NSString *)query
@@ -53,5 +57,15 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 - (void)nextSearchResultWithURLString:(NSString *)urlString
                            completion:(SBDataCompletion)completion;
 
+
+///코멘트 추가하기. 있는 거에 추가하면 교체됨.
+- (void)addCommentWithBookID:(NSInteger)bookID
+                     content:(NSString *)content
+                  completion:(SBDataCompletion)completion;
+
+///별점 추가하기. 있는 거에 추가하면 교체됨.
+- (void)addRateWithBookID:(NSInteger)bookID
+                    score:(CGFloat)score
+               completion:(SBDataCompletion)completion;
 
 @end

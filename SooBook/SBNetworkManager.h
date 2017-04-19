@@ -48,4 +48,7 @@ typedef void (^SBDataCompletion)(BOOL sucess, id data);
 ///코멘트 달기
 + (void)addCommentWithMyBookID:(NSInteger)myBookID content:(NSString *)content completion:(SBDataCompletion)completion;
 
+///별점 달기
++ (void)addRateWithMyBookID:(NSInteger)myBookID score:(CGFloat)score completion:(SBDataCompletion)completion;
+
 @end

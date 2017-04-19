@@ -126,6 +126,19 @@
     }
 }
 
+- (void)loadMyBookWithBookID:(NSInteger)bookID completion:(SBDataCompletion)completion
+{
+    __weak SBDataCenter *weakSelf = self;
+    [SBNetworkManager loadMyBookWithBookID:bookID completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            SBBookData *book = [weakSelf fetchMyBookWithDictionary:[(NSArray *)data firstObject]];
+            completion(sucess, book);
+        } else {
+            completion(sucess, data);
+        }
+    }];
+}
+
 #pragma mark - 책 검색, 등록, 삭제 (Search, Add or Remove Book)
 - (void)searchWithQuery:(NSString *)query
              completion:(SBDataCompletion)completion
@@ -238,31 +251,23 @@
     book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[@"comment"] firstObject]];
     book.mybookID = [dictionary[@"mybook_id"] integerValue];
     
+    //dataArray도 바꾸어 줍니다.
+    SBBookData *targetItem = [self bookDataWithPrimaryKey:book.bookPrimaryKey];
+    NSMutableArray *mutableData = [[self dataArray] mutableCopy];
+    NSInteger index = [mutableData indexOfObject:targetItem];
+    [mutableData replaceObjectAtIndex:index withObject:book];
+    
     return book;
 }
 
 - (void)addCommentWithBookID:(NSInteger)bookID content:(NSString *)content completion:(SBDataCompletion)completion {
-    
     SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
-    SBDataCompletion commentCompletion = completion;
-    
-    __weak SBDataCenter *weakSelf = self;
-    [SBNetworkManager addCommentWithMyBookID:targetItem.mybookID content:content completion:^(BOOL sucess, id data) {
-        if (sucess) {
-            [SBNetworkManager loadMyBookWithBookID:bookID completion:^(BOOL sucess, id data) {
-                if (sucess) {
-                    NSDictionary *dataDict = [(NSArray *)data firstObject];
-                    
-                    NSMutableArray *mutableData = [[weakSelf dataArray] mutableCopy];
-                    NSInteger index = [mutableData indexOfObject:targetItem];
-                    [mutableData replaceObjectAtIndex:index withObject:[weakSelf fetchMyBookWithDictionary:dataDict]];
-                }
-                commentCompletion(sucess, nil);
-            }];
-        } else {
-            commentCompletion(sucess, data);
-        }
-    }];
+    [SBNetworkManager addCommentWithMyBookID:targetItem.mybookID content:content completion:completion];
+}
+
+- (void)addRateWithBookID:(NSInteger)bookID score:(CGFloat)score completion:(SBDataCompletion)completion {
+    SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
+    [SBNetworkManager addRateWithMyBookID:targetItem.mybookID score:score completion:completion];
 }
 
 @end

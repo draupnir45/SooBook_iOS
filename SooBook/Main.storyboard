@@ -733,7 +733,11 @@
                                                 <action selector="cancelButtonSelected:" destination="mEg-FC-Gc9" id="7ku-N1-dI8"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="저장" style="done" id="Vhn-Np-xdD"/>
+                                        <barButtonItem key="rightBarButtonItem" title="저장" style="done" id="Vhn-Np-xdD">
+                                            <connections>
+                                                <action selector="saveButtonSelected:" destination="mEg-FC-Gc9" id="jcB-z5-oaH"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                                 <connections>

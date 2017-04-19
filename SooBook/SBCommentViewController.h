@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class SBCommentViewController;
+@protocol SBCommentViewControllerDelegate
+
+//- (void)commentViewController:(SBCommentViewController *)commentVC didSelectedSaveButton:(UIBarButtonItem *)sender;
+- (void)commentViewController:(SBCommentViewController *)commentVC didUpdateCommentAtItem:(SBBookData *)item;
+
+@end
+
 @interface SBCommentViewController : UIViewController
 @property NSInteger bookPrimaryKey;
-
+@property id <SBCommentViewControllerDelegate> delegate;
 @end
