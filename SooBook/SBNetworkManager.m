@@ -24,7 +24,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:USER_SIGNUP]];
     request.HTTPMethod = POST;
     
-    //BODY 준비
+    //Data Params
     NSString *dataString = [NSString stringWithFormat:@"%@=%@&%@=%@&%@=%@", USERNAME, userID, PASSWORD, password, NICKNAME, nickName];
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPBody = data;
@@ -55,7 +55,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:USER_LOGIN]];
     request.HTTPMethod = POST;
     
-    //BODY 준비
+    //Data Params
     NSString *dataString = [NSString stringWithFormat:@"%@=%@&%@=%@", USERNAME, userID, PASSWORD, password];
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPBody = data;
@@ -139,7 +139,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:ADD_BOOK]];
     request.HTTPMethod = POST;
     
-    //BODY 준비
+    //Data Params
     NSString *dataString = [NSString stringWithFormat:@"%@=%ld", BOOK_PRIMARY_KEY, (long)bookID];
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPBody = data;
@@ -168,11 +168,8 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:DELETE_BOOK]];
     request.HTTPMethod = DELETE;
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-//    [request setValue:@"multipart/form-data" forHTTPHeaderField: @"Content-Type"];
+
     
-    //BODY 준비
-//    NSString *dataString = [NSString stringWithFormat:@"%@=%ld", BOOK_PRIMARY_KEY, (long)bookID];
     NSString *dataString = [NSString stringWithFormat:@"{\"%@\":\"%ld\"}", BOOK_PRIMARY_KEY, (long)bookID];
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPBody = data;
@@ -219,6 +216,60 @@
     [task resume];
     
 }
+
++ (void)loadMyBookWithBookID:(NSInteger)bookID completion:(SBDataCompletion)completion {
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@bookid=%ld",GET_BOOK ,(long)bookID];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:urlString]];
+    request.HTTPMethod = GET;
+    
+    NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
+    [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    [task resume];
+
+}
+
+
+#pragma mark - Commentary Part
++ (void)addCommentWithMyBookID:(NSInteger)myBookID content:(NSString *)content completion:(SBDataCompletion)completion
+{
+    //매니저와 리퀘스트 준비
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:ADD_COMMENT]];
+    request.HTTPMethod = POST;
+    
+    //DATA
+    NSString *dataString = [NSString stringWithFormat:@"%@=%ld&%@=%@", MYBOOK_PRIMARY_KEY, (long)myBookID, CONTENT_KEY, content];
+    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = data;
+    
+    //HEADER
+    NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
+    [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    
+    //RESPONSE
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 201) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    
+    [task resume];
+}
+
 
 
 #pragma mark - Network Utilities

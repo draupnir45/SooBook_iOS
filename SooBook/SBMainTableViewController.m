@@ -208,7 +208,7 @@
 {
     switch (indexPath.section) {
         case 0:
-            return 172.0;
+            return [SBBookCoverFlowCell cellHeight];
             break;
             
         default:
@@ -244,17 +244,17 @@
     return UIEdgeInsetsMake(0.0,16.0,0.0,16.0); // top, left, bottom, right
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"sizeForItemAtIndexPath");
-    CGFloat heightByWidthRatio = [SBBookCoverFlowCell getImageRatioWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.item+1]]];
-    if (heightByWidthRatio <= (172.0/96.0)) {
-        return CGSizeMake(96.0, 172.0);
-    } else {
-        CGFloat newWidth = 172.0 / heightByWidthRatio;
-        return CGSizeMake(newWidth, 172.0);
-    }
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSLog(@"sizeForItemAtIndexPath");
+//    CGFloat heightByWidthRatio = [SBBookCoverFlowCell getImageRatioWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.item+1]]];
+//    if (heightByWidthRatio <= (172.0/96.0)) {
+//        return CGSizeMake(96.0, 172.0);
+//    } else {
+//        CGFloat newWidth = 172.0 / heightByWidthRatio;
+//        return CGSizeMake(newWidth, 172.0);
+//    }
+//}
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

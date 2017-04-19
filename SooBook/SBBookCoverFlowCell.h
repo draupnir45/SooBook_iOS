@@ -14,6 +14,8 @@
 @property CGFloat heightByWidthRatio;
 @property NSInteger bookPrimaryKey;
 
+
 + (CGFloat)getImageRatioWithImage:(UIImage *)image;
++ (CGFloat)cellHeight;
 
 @end

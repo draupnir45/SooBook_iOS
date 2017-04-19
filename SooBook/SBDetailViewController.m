@@ -39,17 +39,23 @@
     SBBookData *item = [[SBDataCenter defaultCenter] bookDataWithPrimaryKey:self.bookPrimaryKey];
     
     NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *encodedImageURL = [NSURL URLWithString:encodedStr];
     
-    
-    [self.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]];
-    [self.backImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]];
-//    self.backImageView.image = [UIImage imageNamed:
-//                                     [NSString stringWithFormat:@"%@.jpg",item.imageURL]];
+    [self.bookCoverImageView sd_setImageWithURL:encodedImageURL];
+    [self.backImageView sd_setImageWithURL:encodedImageURL];
     
     self.subtitleLabel.text = item.author;
 //    self.decriptionLabel.text = item.shortDescription;
     self.decriptionLabel.attributedText = [NSMutableAttributedString attrStringWithString:item.shortDescription lineSpacing:8.0 paragraphSpacing:20.0];
     self.mainTitleLabel.text = item.title;
+    
+    if ([item.comment.content length] > 0) {
+        self.detailViewCommentLabel.attributedText = [NSMutableAttributedString attrStringWithString:item.comment.content lineSpacing:8.0 paragraphSpacing:20.0];
+    } else {
+        self.detailViewCommentLabel.attributedText = [NSMutableAttributedString attrStringWithString:@"아직 책 소개가 없습니다." lineSpacing:8.0 paragraphSpacing:20.0];
+    }
+    
+
     
     //별점뷰 설정하기
     self.starRateView.rating = item.rating.score;
@@ -127,15 +133,11 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-
-
-
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
     
 }
 //-(void)viewWillDisappear:(BOOL)animated{

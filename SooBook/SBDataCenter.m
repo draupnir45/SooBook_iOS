@@ -225,13 +225,44 @@
 {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     for (NSDictionary *item in array) {
-        SBBookData *book = [[SBBookData alloc] initWithDictionary:item[@"book"]];
-//        book.rating = [[SBBookStarRating alloc] initWithDictionary:item[@"star"]];
-//        book.comment = [[SBBookComment alloc] initWithDictionary:item[@"comment"]];
-        book.myBook = YES;
+        SBBookData *book = [self fetchMyBookWithDictionary:item];
         [tempArray addObject:book];
     }
     return tempArray;
+}
+
+- (SBBookData *)fetchMyBookWithDictionary:(NSDictionary *)dictionary
+{
+    SBBookData *book = [[SBBookData alloc] initWithDictionary:dictionary[@"book"]];
+    book.rating = [[SBBookStarRating alloc] initWithDictionary:[dictionary[@"star"] firstObject]];
+    book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[@"comment"] firstObject]];
+    book.mybookID = [dictionary[@"mybook_id"] integerValue];
+    
+    return book;
+}
+
+- (void)addCommentWithBookID:(NSInteger)bookID content:(NSString *)content completion:(SBDataCompletion)completion {
+    
+    SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
+    SBDataCompletion commentCompletion = completion;
+    
+    __weak SBDataCenter *weakSelf = self;
+    [SBNetworkManager addCommentWithMyBookID:targetItem.mybookID content:content completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            [SBNetworkManager loadMyBookWithBookID:bookID completion:^(BOOL sucess, id data) {
+                if (sucess) {
+                    NSDictionary *dataDict = [(NSArray *)data firstObject];
+                    
+                    NSMutableArray *mutableData = [[weakSelf dataArray] mutableCopy];
+                    NSInteger index = [mutableData indexOfObject:targetItem];
+                    [mutableData replaceObjectAtIndex:index withObject:[weakSelf fetchMyBookWithDictionary:dataDict]];
+                }
+                commentCompletion(sucess, nil);
+            }];
+        } else {
+            commentCompletion(sucess, data);
+        }
+    }];
 }
 
 @end

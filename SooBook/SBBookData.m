@@ -26,9 +26,11 @@
 {
     self = [super init];
     if (self) {
-        _pk = [dictionary[@"id"] integerValue];
-        _content = dictionary[CONTENT_KEY];
-//        _updated_date = dictionary[@"updated_date"];
+        if (dictionary[CONTENT_KEY]) {
+            _pk = [dictionary[@"id"] integerValue];
+            _content = dictionary[CONTENT_KEY];
+            _updated_date = dictionary[@"updated_date"];
+        }
     }
     return self;
 }
@@ -42,9 +44,13 @@
 {
     self = [super init];
     if (self) {
-        _pk = [dictionary[@"id"] integerValue];
-        _score = [dictionary[CONTENT_KEY] floatValue];
-        //        _updated_date = dictionary[@"updated_date"];
+        if (dictionary[CONTENT_KEY]) {
+            _pk = [dictionary[@"id"] integerValue];
+            _score = [dictionary[CONTENT_KEY] floatValue];
+            _created_date = dictionary[@"created_date"];
+        }
+
+
     }
     return self;
 }
@@ -65,8 +71,14 @@
         _publisher = dictionary[PUBLISHER_KEY];
         _shortDescription = dictionary[SHORT_DESCRIPTION_KEY];
         _quotations = dictionary[QUOTATIONS_KEY];
+        
     }
     return self;
+}
+
+- (void)setMybookID:(NSInteger)mybookID {
+    _mybookID = mybookID;
+    _myBook = YES;
 }
 
 

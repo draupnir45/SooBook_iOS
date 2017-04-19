@@ -16,7 +16,7 @@
 
 @property NSInteger pk;
 @property NSString *content;
-//@property NSDate *updated_date;
+@property NSDate *updated_date;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
@@ -25,7 +25,7 @@
 
 @property NSInteger pk;
 @property CGFloat score;
-//@property NSDate *updated_date;
+@property NSDate *created_date;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
@@ -43,6 +43,8 @@
 @property (nonatomic)           SBBookComment       *comment;
 @property (readonly, nonatomic) NSArray             *quotations;
 @property (getter=isMyBook)     BOOL                myBook;
+@property (nonatomic)           NSInteger           mybookID;
+
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
