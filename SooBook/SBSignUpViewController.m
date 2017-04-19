@@ -213,7 +213,7 @@
             
             return NO;
             
-        } else if (password != password2 || password.length <6 ){ //비번 1 과 2가 다르거나 길이가 6자 이하라면
+        } else if (![password isEqualToString:password2] || password.length <6 ){ //비번 1 과 2가 다르거나 길이가 6자 이하라면
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"수북" message:@"패스워드를 확인해주세요" preferredStyle:UIAlertControllerStyleAlert];
             
