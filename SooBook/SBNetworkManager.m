@@ -239,6 +239,24 @@
 
 }
 
++ (void)loadRatingListWithCompletion:(SBDataCompletion)completion {
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:RATING]];
+    request.HTTPMethod = GET;
+    
+    NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
+    [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    [task resume];
+}
 
 #pragma mark - Commentary Part
 + (void)addCommentWithMyBookID:(NSInteger)myBookID content:(NSString *)content completion:(SBDataCompletion)completion
@@ -274,7 +292,7 @@
 {
     //매니저와 리퀘스트 준비
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:ADD_RATING]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:RATING]];
     request.HTTPMethod = POST;
     
     //DATA

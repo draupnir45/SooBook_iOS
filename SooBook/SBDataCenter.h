@@ -49,6 +49,10 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 - (void)loadMyBookWithBookID:(NSInteger)bookID
                   completion:(SBDataCompletion)completion;
 
+
+///레이팅 리스트 불러오기
+- (void)loadRatingListWithCompletion:(SBDataCompletion)completion;
+
 ///검색용 메서드
 - (void)searchWithQuery:(NSString *)query
              completion:(SBDataCompletion)completion;
@@ -67,5 +71,7 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 - (void)addRateWithBookID:(NSInteger)bookID
                     score:(CGFloat)score
                completion:(SBDataCompletion)completion;
+
+
 
 @end

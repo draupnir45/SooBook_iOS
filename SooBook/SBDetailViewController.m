@@ -90,7 +90,7 @@
 
 - (void)updateStarRatingButton
 {
-    if (self.starRateView.rating == 0) {
+    if (self.item.rating.score == 0) {
         
         self.starRateLabel.text = @"평가하기";
         [self.starRateLabel setTextColor:[UIColor grayColor]];

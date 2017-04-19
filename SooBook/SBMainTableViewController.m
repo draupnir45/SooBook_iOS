@@ -69,8 +69,6 @@
     self.navigationItem.titleView = titleImageview;
     
     self.tableViewRefreshControl = [[UIRefreshControl alloc] init];
-//    self.tableViewRefreshControl.backgroundColor = [UIColor lightGrayColor];
-//    self.tableViewRefreshControl.tintColor = [UIColor whiteColor];
     [self.tableViewRefreshControl addTarget:self
                                      action:@selector(refreshData:)
                            forControlEvents:UIControlEventValueChanged];
@@ -107,10 +105,16 @@
 }
 
 - (void)loadMyBookDataWithPageNumb:(NSInteger)page {
+    __weak SBMainTableViewController *weakSelf = self;
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
         if (sucess) {
-            [self.tableView reloadData];
-            self.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter defaultCenter] dataArray]];
+            [weakSelf.tableView reloadData];
+            [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
+                if (sucess) {
+                    weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
+                }
+            }];
+
             
         }
     }];

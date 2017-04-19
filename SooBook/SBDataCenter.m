@@ -132,7 +132,17 @@
     [SBNetworkManager loadMyBookWithBookID:bookID completion:^(BOOL sucess, id data) {
         if (sucess) {
             SBBookData *book = [weakSelf fetchMyBookWithDictionary:[(NSArray *)data firstObject]];
+            
+            //dataArray도 바꾸어 줍니다.
+            SBBookData *targetItem = [weakSelf bookDataWithPrimaryKey:book.bookPrimaryKey];
+            NSMutableArray *mutableData = [[weakSelf dataArray] mutableCopy];
+            NSInteger index = [mutableData indexOfObject:targetItem];
+            [mutableData replaceObjectAtIndex:index withObject:book];
+            weakSelf.dataArray = mutableData;
+            
             completion(sucess, book);
+            
+
         } else {
             completion(sucess, data);
         }
@@ -251,12 +261,6 @@
     book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[@"comment"] firstObject]];
     book.mybookID = [dictionary[@"mybook_id"] integerValue];
     
-    //dataArray도 바꾸어 줍니다.
-    SBBookData *targetItem = [self bookDataWithPrimaryKey:book.bookPrimaryKey];
-    NSMutableArray *mutableData = [[self dataArray] mutableCopy];
-    NSInteger index = [mutableData indexOfObject:targetItem];
-    [mutableData replaceObjectAtIndex:index withObject:book];
-    
     return book;
 }
 
@@ -268,6 +272,28 @@
 - (void)addRateWithBookID:(NSInteger)bookID score:(CGFloat)score completion:(SBDataCompletion)completion {
     SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
     [SBNetworkManager addRateWithMyBookID:targetItem.mybookID score:score completion:completion];
+}
+
+- (void)loadRatingListWithCompletion:(SBDataCompletion)completion {
+    [SBNetworkManager loadRatingListWithCompletion:^(BOOL sucess, id data) {
+        if (sucess) {
+            NSArray *sortedArray;
+            sortedArray = [[(NSDictionary *)data objectForKey:@"results"] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *a, NSDictionary *b) {
+                CGFloat first = [[a objectForKey:@"content"] floatValue];
+                CGFloat second = [[b objectForKey:@"content"] floatValue];
+                return MAX(first, second);
+            }];
+            NSMutableArray *favBookArray = [NSMutableArray new];
+            for (NSInteger i = 0; i<10; i++) {
+                NSDictionary *item = [sortedArray objectAtIndex:i];
+                [favBookArray addObject:[self fetchMyBookWithDictionary:item]];
+            }
+            
+            completion(sucess, favBookArray);
+        } else {
+            completion(sucess, data);
+        }
+    }];
 }
 
 @end
