@@ -13,6 +13,8 @@
 
 @interface SBSearchViewController ()
 <UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
+@property NSString *url;
+@property NSInteger page;
 
 @property NSArray *allData;
 @property NSMutableArray *resultData;
@@ -33,7 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.page = 1;
+    self.url = [NSString stringWithFormat:@"%@%@%@page=%d",BASE_URL,SEARCH,self.searchBar.text,self.page];
     self.dataCenter = [SBDataCenter defaultCenter];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SBSearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"SBSearchTableViewCell"];
@@ -53,6 +56,8 @@
     self.indicator = [SBIndicatorView new];
     
     self.grayView.alpha = 0.4;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,6 +125,34 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (indexPath.row == self.resultData.count - 5)
+    {
+        
+        if(![self.url isEqual:[NSNull null]]) {
+            
+            [self.dataCenter nextSearchResultWithURLString:self.url completion:^(BOOL sucess, id data) {
+                //
+                if(sucess) {
+                    
+                    NSArray *array = [data objectForKey:@"results"];
+                    [self.resultData addObjectsFromArray:array];
+                    self.url   = [data objectForKey:@"next"];
+                    
+                    NSLog(@"%@", [data objectForKey:@"next"]);
+                    
+                    [self.tableView reloadData];
+                } else {
+                    NSLog(@"%@", data);
+                }
+            }];
+            
+        }
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 129;
@@ -151,12 +184,16 @@
 }
 
 #pragma mark - Button & Gesture
-- (void)searchBarSearchButtonClicked:(UISearchBar *)SearchBar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSLog(@"서치버튼 눌렀습니다.");
     [self.searchBar resignFirstResponder];
     [self.indicator startIndicatorOnView:self.view];
 
+    [self.resultData removeAllObjects];
+    
+    self.url = [NSString stringWithFormat:@"%@%@keyword=%@&page=%d",BASE_URL,SEARCH, searchBar.text,1];
+    
     //서치 요청
    [self.dataCenter searchWithQuery:self.searchBar.text completion:^(BOOL sucess, id data)
     {
@@ -214,6 +251,7 @@
         }];
     }
 }
+
 
 
 @end
