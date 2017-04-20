@@ -42,7 +42,7 @@
 ///더이상 사용하지 않는 토큰을 삭제하고 NSUserDefaults에서도 삭제.
 - (void)removeUserToken
 {
-    self.userToken = nil;
+    self.userToken = @"";
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERTOKEN_KEY];
 }
 

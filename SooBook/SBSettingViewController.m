@@ -99,71 +99,78 @@
     return cell;
 }
 
-- (void)autoLoginSwich:(UISwitch*)sender
+- (void)autoLoginSwich:(UISwitch *)sender
 {
-    
+    if (sender.on)
+    {
+        NSLog(@"테스트");
+    } else {
+        NSLog(@"꺼졋");
+    }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SBAuthCenter *auth = [[SBAuthCenter alloc] init];
-
+    
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    switch (indexPath.section) {
+    switch (indexPath.section)
+    {
         case 0: //로그인 설정
-            switch (indexPath.row) {
-                case 0:
-                    //자동로그인 부분
-                    break;
-                    
-                case 1:
-                    //로그아웃 부분
-                    [auth logOut];
-                    [self showLogoutAlertController];
-                    break;
-            }
-            break;
+            switch (indexPath.row)
+        {
+            case 0:
+                //자동로그인 부분
+                
+                break;
+                
+            case 1:
+                //로그아웃 부분
+                
+                [self showLogoutAlertController];
+                break;
+        }
+            
             
         case 1: //SOOBOOK
-            switch (indexPath.row) {
-                case 0:
-                    //버전정보 부분
-                    break;
-                    
-                case 1:
-                    //SooBook for iOS GutHub
-                    break;
-            }
-            break;
+            switch (indexPath.row)
+        {
+            case 0:
+                //버전정보 부분
+                
+                break;
+                
+            case 1:
+                //SooBook for iOS GutHub
+                
+                break;
+        }
     }
-    
-//        if (indexPath.section == 0 && indexPath.row == 1)
-//        {
-//            SBAuthCenter *auth = [[SBAuthCenter alloc] init];
-//            [auth logOut];
-//            [self showLogoutAlertController];
-//    
-//        }
 }
 
 - (void)showLogoutAlertController
 {
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"SBLoginViewController" bundle:nil];
-    SBLogInViewController *loginView = [story instantiateViewControllerWithIdentifier:@"SBLoginViewController"];
-
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"정말 로그아웃 하시겠습니까?" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"네" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"가지마 뿌잉뿌잉~" preferredStyle:UIAlertControllerStyleAlert];
+    
+    __weak SBSettingViewController *weakSelf = self;
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"갈래" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        [self presentViewController:loginView animated:YES completion:nil];
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           
+                           [[SBAuthCenter sharedInstance] logOut];
+                           [weakSelf.tabBarController setSelectedIndex:0];
+                       });
         
     }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"취소" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"안갈래" style:UIAlertActionStyleCancel handler:nil];
     
     [alert addAction:okAction];
     [alert addAction:cancelAction];
