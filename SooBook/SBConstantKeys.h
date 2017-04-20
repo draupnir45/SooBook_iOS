@@ -20,6 +20,7 @@ static NSString * const GET_BOOK = @"book/mybook/detail/?";
 static NSString * const ADD_BOOK = @"book/mybook/";
 static NSString * const DELETE_BOOK = @"book/mybook/";
 static NSString * const ADD_COMMENT = @"book/comment/";
+static NSString * const RATING = @"book/star/";
 
 static NSString * const BOOK_PRIMARY_KEY = @"book_id";
 static NSString * const MYBOOK_PRIMARY_KEY = @"mybook_id";

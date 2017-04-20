@@ -45,7 +45,13 @@ typedef void (^SBDataCompletion)(BOOL sucess, id data);
 ///내 책 한 권 가져오기
 + (void)loadMyBookWithBookID:(NSInteger)bookID completion:(SBDataCompletion)completion;
 
+///별점리스트 가져오기
++ (void)loadRatingListWithCompletion:(SBDataCompletion)completion;
+
 ///코멘트 달기
 + (void)addCommentWithMyBookID:(NSInteger)myBookID content:(NSString *)content completion:(SBDataCompletion)completion;
+
+///별점 달기
++ (void)addRateWithMyBookID:(NSInteger)myBookID score:(CGFloat)score completion:(SBDataCompletion)completion;
 
 @end

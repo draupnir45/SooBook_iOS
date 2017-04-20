@@ -126,6 +126,29 @@
     }
 }
 
+- (void)loadMyBookWithBookID:(NSInteger)bookID completion:(SBDataCompletion)completion
+{
+    __weak SBDataCenter *weakSelf = self;
+    [SBNetworkManager loadMyBookWithBookID:bookID completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            SBBookData *book = [weakSelf fetchMyBookWithDictionary:[(NSArray *)data firstObject]];
+            
+            //dataArray도 바꾸어 줍니다.
+            SBBookData *targetItem = [weakSelf bookDataWithPrimaryKey:book.bookPrimaryKey];
+            NSMutableArray *mutableData = [[weakSelf dataArray] mutableCopy];
+            NSInteger index = [mutableData indexOfObject:targetItem];
+            [mutableData replaceObjectAtIndex:index withObject:book];
+            weakSelf.dataArray = mutableData;
+            
+            completion(sucess, book);
+            
+
+        } else {
+            completion(sucess, data);
+        }
+    }];
+}
+
 #pragma mark - 책 검색, 등록, 삭제 (Search, Add or Remove Book)
 - (void)searchWithQuery:(NSString *)query
              completion:(SBDataCompletion)completion
@@ -242,25 +265,33 @@
 }
 
 - (void)addCommentWithBookID:(NSInteger)bookID content:(NSString *)content completion:(SBDataCompletion)completion {
-    
     SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
-    SBDataCompletion commentCompletion = completion;
-    
-    __weak SBDataCenter *weakSelf = self;
-    [SBNetworkManager addCommentWithMyBookID:targetItem.mybookID content:content completion:^(BOOL sucess, id data) {
+    [SBNetworkManager addCommentWithMyBookID:targetItem.mybookID content:content completion:completion];
+}
+
+- (void)addRateWithBookID:(NSInteger)bookID score:(CGFloat)score completion:(SBDataCompletion)completion {
+    SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
+    [SBNetworkManager addRateWithMyBookID:targetItem.mybookID score:score completion:completion];
+}
+
+- (void)loadRatingListWithCompletion:(SBDataCompletion)completion {
+    [SBNetworkManager loadRatingListWithCompletion:^(BOOL sucess, id data) {
         if (sucess) {
-            [SBNetworkManager loadMyBookWithBookID:bookID completion:^(BOOL sucess, id data) {
-                if (sucess) {
-                    NSDictionary *dataDict = [(NSArray *)data firstObject];
-                    
-                    NSMutableArray *mutableData = [[weakSelf dataArray] mutableCopy];
-                    NSInteger index = [mutableData indexOfObject:targetItem];
-                    [mutableData replaceObjectAtIndex:index withObject:[weakSelf fetchMyBookWithDictionary:dataDict]];
-                }
-                commentCompletion(sucess, nil);
+            NSArray *sortedArray;
+            sortedArray = [[(NSDictionary *)data objectForKey:@"results"] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *a, NSDictionary *b) {
+                CGFloat first = [[a objectForKey:@"content"] floatValue];
+                CGFloat second = [[b objectForKey:@"content"] floatValue];
+                return MAX(first, second);
             }];
+            NSMutableArray *favBookArray = [NSMutableArray new];
+            for (NSInteger i = 0; i<10; i++) {
+                NSDictionary *item = [sortedArray objectAtIndex:i];
+                [favBookArray addObject:[self fetchMyBookWithDictionary:item]];
+            }
+            
+            completion(sucess, favBookArray);
         } else {
-            commentCompletion(sucess, data);
+            completion(sucess, data);
         }
     }];
 }

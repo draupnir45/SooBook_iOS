@@ -239,6 +239,24 @@
 
 }
 
++ (void)loadRatingListWithCompletion:(SBDataCompletion)completion {
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:RATING]];
+    request.HTTPMethod = GET;
+    
+    NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
+    [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    [task resume];
+}
 
 #pragma mark - Commentary Part
 + (void)addCommentWithMyBookID:(NSInteger)myBookID content:(NSString *)content completion:(SBDataCompletion)completion
@@ -260,7 +278,36 @@
     //RESPONSE
     NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-        if (statusCode == 201) {
+        if (statusCode == 201 || statusCode == 200) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    
+    [task resume];
+}
+
++ (void)addRateWithMyBookID:(NSInteger)myBookID score:(CGFloat)score completion:(SBDataCompletion)completion
+{
+    //매니저와 리퀘스트 준비
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:RATING]];
+    request.HTTPMethod = POST;
+    
+    //DATA
+    NSString *dataString = [NSString stringWithFormat:@"%@=%ld&%@=%f", MYBOOK_PRIMARY_KEY, (long)myBookID, CONTENT_KEY, score];
+    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = data;
+    
+    //HEADER
+    NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
+    [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    
+    //RESPONSE
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
             completion(YES, responseObject);
         } else {
             completion(NO, responseObject);

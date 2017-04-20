@@ -14,7 +14,7 @@
 #import "NSMutableAttributedString+JCAdditions.h"
 
 @interface SBDetailViewController ()
-<RateViewDelegate, UIGestureRecognizerDelegate>
+<RateViewDelegate, UIGestureRecognizerDelegate, SBCommentViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
 @property (weak, nonatomic) IBOutlet UIButton *starRateButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
@@ -35,32 +35,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-   
-    SBBookData *item = [[SBDataCenter defaultCenter] bookDataWithPrimaryKey:self.bookPrimaryKey];
-    
-    NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURL *encodedImageURL = [NSURL URLWithString:encodedStr];
-    
-    [self.bookCoverImageView sd_setImageWithURL:encodedImageURL];
-    [self.backImageView sd_setImageWithURL:encodedImageURL];
-    
-    self.subtitleLabel.text = item.author;
-//    self.decriptionLabel.text = item.shortDescription;
-    self.decriptionLabel.attributedText = [NSMutableAttributedString attrStringWithString:item.shortDescription lineSpacing:8.0 paragraphSpacing:20.0];
-    self.mainTitleLabel.text = item.title;
-    
-    if ([item.comment.content length] > 0) {
-        self.detailViewCommentLabel.attributedText = [NSMutableAttributedString attrStringWithString:item.comment.content lineSpacing:8.0 paragraphSpacing:20.0];
-    } else {
-        self.detailViewCommentLabel.attributedText = [NSMutableAttributedString attrStringWithString:@"아직 책 소개가 없습니다." lineSpacing:8.0 paragraphSpacing:20.0];
-    }
+    self.item = [[SBDataCenter defaultCenter] bookDataWithPrimaryKey:self.bookPrimaryKey];
+    [self updateContents];
     
 
-    
-    //별점뷰 설정하기
-    self.starRateView.rating = item.rating.score;
-    self.starRateView.delegate = self;
-    self.starRateView.editable = NO;
     
     //배경에 블러 먹이기
     UIBlurEffect *blurrEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
@@ -68,8 +46,7 @@
     visualEffectView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.backImageView.frame.size.height);
     [self.backImageView addSubview:visualEffectView];
     
-    //책 등록 버튼 설정
-    self.addButton.selected = item.isMyBook;
+
     
     
     //스와이프 투 백 제스처 먹이기
@@ -77,17 +54,43 @@
       self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
     
-    [self updateStarRatingButton];
-    [self updateCommentButton];
-    [self updateQuotationButton];
-    
-    [self.view layoutIfNeeded];
+
     
 }
 
+- (void)updateContents {
+    NSString *encodedStr = [self.item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *encodedImageURL = [NSURL URLWithString:encodedStr];
+    
+    [self.bookCoverImageView sd_setImageWithURL:encodedImageURL];
+    [self.backImageView sd_setImageWithURL:encodedImageURL];
+    
+    self.subtitleLabel.text = self.item.author;
+    //    self.decriptionLabel.text = item.shortDescription;
+    self.decriptionLabel.attributedText = [NSMutableAttributedString attrStringWithString:self.item.shortDescription lineSpacing:8.0 paragraphSpacing:20.0];
+    self.mainTitleLabel.text = self.item.title;
+    
+    if ([self.item.comment.content length] > 0) {
+        self.detailViewCommentLabel.attributedText = [NSMutableAttributedString attrStringWithString:self.item.comment.content lineSpacing:8.0 paragraphSpacing:20.0];
+    } else {
+        self.detailViewCommentLabel.attributedText = [NSMutableAttributedString attrStringWithString:@"아직 책 소개가 없습니다." lineSpacing:8.0 paragraphSpacing:20.0];
+    }
+    
+    
+    
+    //별점뷰 설정하기
+    self.starRateView.rating = self.item.rating.score;
+    self.starRateView.delegate = self;
+    self.starRateView.editable = NO;
+    
+    //책 등록 버튼 설정
+    self.addButton.selected = self.item.isMyBook;
+}
+
+
 - (void)updateStarRatingButton
 {
-    if (self.starRateView.rating == 0) {
+    if (self.item.rating.score == 0) {
         
         self.starRateLabel.text = @"평가하기";
         [self.starRateLabel setTextColor:[UIColor grayColor]];
@@ -137,7 +140,13 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self updateStarRatingButton];
+    [self updateCommentButton];
+    [self updateQuotationButton];
+    [self updateContents];
     [self.navigationController setNavigationBarHidden:YES];
+    
+    [self.view layoutIfNeeded];
     
 }
 //-(void)viewWillDisappear:(BOOL)animated{
@@ -171,7 +180,14 @@
     if ([segue.identifier isEqualToString:@"CommentViewSegue"]) {
         SBCommentViewController *commentViewContoroller = segue.destinationViewController;
         commentViewContoroller.bookPrimaryKey = self.bookPrimaryKey;
+        commentViewContoroller.delegate = self;
     }
+}
+
+- (void)commentViewController:(SBCommentViewController *)commentVC didUpdateCommentAtItem:(SBBookData *)item {
+    self.item = item;
+
+//    [self.view layoutIfNeeded];
 }
 
 - (IBAction)requestAddBook:(UIButton *)sender

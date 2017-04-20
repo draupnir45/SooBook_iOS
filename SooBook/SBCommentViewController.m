@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet SZTextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
-
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 
@@ -63,6 +62,26 @@
 - (IBAction)cancelButtonSelected:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)saveButtonSelected:(UIBarButtonItem *)sender {
+    
+    __weak SBCommentViewController *weakSelf = self;
+    [[SBDataCenter defaultCenter] addCommentWithBookID:self.bookPrimaryKey content:self.textView.text completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            [[SBDataCenter defaultCenter] loadMyBookWithBookID:weakSelf.bookPrimaryKey completion:^(BOOL sucess, id data) {
+                if (sucess) {
+                    [weakSelf.delegate commentViewController:self didUpdateCommentAtItem:data];
+                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
+        } else {
+            //실패시 예외
+        }
+
+    }];
+    
+}
+
 
 
 - (void)observeKeyboard {
@@ -110,6 +129,13 @@
 
 - (void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating {
     self.ratingLabel.text = [NSString stringWithFormat:@"%.1f",rating];
+    [[SBDataCenter defaultCenter] addRateWithBookID:self.bookPrimaryKey score:rating completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            NSLog(@"별점등록 성공");
+        } else {
+            NSLog(@"별점등록 안성공");
+        }
+    }];
 }
 /*
 #pragma mark - Navigation

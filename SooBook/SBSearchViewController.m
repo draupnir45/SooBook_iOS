@@ -36,7 +36,7 @@
 {
     [super viewDidLoad];
     self.page = 1;
-    self.url = [NSString stringWithFormat:@"%@%@%@page=%d",BASE_URL,SEARCH,self.searchBar.text,self.page];
+    self.url = [NSString stringWithFormat:@"%@%@%@page=%ld",BASE_URL,SEARCH,self.searchBar.text,(long)self.page];
     self.dataCenter = [SBDataCenter defaultCenter];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SBSearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"SBSearchTableViewCell"];
