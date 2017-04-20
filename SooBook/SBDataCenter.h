@@ -72,6 +72,10 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
                     score:(CGFloat)score
                completion:(SBDataCompletion)completion;
 
+- (void)addQuotationWithBookID:(NSInteger)bookID content:(NSString *)content completion:(SBDataCompletion)completion;
+- (void)editQuotationWithQuotationPk:(NSInteger)pk content:(NSString *)content completion:(SBDataCompletion)completion;
+- (void)deleteQuotationWithQuotationPk:(NSInteger)pk completion:(SBDataCompletion)completion;
+
 
 
 @end

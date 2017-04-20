@@ -30,6 +30,14 @@
 
 @end
 
+@interface SBQuotation : NSObject
+
+@property NSInteger pk;
+@property NSString *content;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@end
+
 
 @interface SBBookData : NSObject
 
@@ -41,7 +49,7 @@
 @property (readonly, nonatomic) NSString            *shortDescription;
 @property (nonatomic)           SBBookStarRating    *rating;
 @property (nonatomic)           SBBookComment       *comment;
-@property (readonly, nonatomic) NSArray             *quotations;
+@property (nonatomic)  NSArray <SBQuotation *>       *quotations;
 @property (getter=isMyBook)     BOOL                myBook;
 @property (nonatomic)           NSInteger           mybookID;
 

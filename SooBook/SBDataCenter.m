@@ -259,6 +259,7 @@
     SBBookData *book = [[SBBookData alloc] initWithDictionary:dictionary[@"book"]];
     book.rating = [[SBBookStarRating alloc] initWithDictionary:[dictionary[@"star"] firstObject]];
     book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[@"comment"] firstObject]];
+    book.quotations = (NSArray *)dictionary[@"mark"];
     book.mybookID = [dictionary[@"mybook_id"] integerValue];
     
     return book;
@@ -295,6 +296,22 @@
             completion(sucess, data);
         }
     }];
+}
+
+- (void)addQuotationWithBookID:(NSInteger)bookID content:(NSString *)content completion:(SBDataCompletion)completion
+{
+    __weak SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
+    [SBNetworkManager addQuotationWithMyBookID:targetItem.mybookID content:content completion:completion];
+}
+
+- (void)editQuotationWithQuotationPk:(NSInteger)pk content:(NSString *)content completion:(SBDataCompletion)completion
+{
+    [SBNetworkManager editQuotationWithQuotationPk:pk content:content completion:completion];
+}
+
+- (void)deleteQuotationWithQuotationPk:(NSInteger)pk completion:(SBDataCompletion)completion
+{
+    [SBNetworkManager deleteQuotationWithQuotationPk:pk completion:completion];
 }
 
 @end

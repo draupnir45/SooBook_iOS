@@ -54,4 +54,10 @@ typedef void (^SBDataCompletion)(BOOL sucess, id data);
 ///별점 달기
 + (void)addRateWithMyBookID:(NSInteger)myBookID score:(CGFloat)score completion:(SBDataCompletion)completion;
 
+
+///글귀 관련
++ (void)addQuotationWithMyBookID:(NSInteger)myBookID content:(NSString *)content completion:(SBDataCompletion)completion;
++ (void)editQuotationWithQuotationPk:(NSInteger)pk content:(NSString *)content completion:(SBDataCompletion)completion;
++ (void)deleteQuotationWithQuotationPk:(NSInteger)pk completion:(SBDataCompletion)completion;
+
 @end
