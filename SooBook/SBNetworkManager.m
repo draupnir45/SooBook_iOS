@@ -82,7 +82,7 @@
     [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
     
     //Task
-    NSURLSessionUploadTask *task = [manager uploadTaskWithRequest:request fromData:nil progress:nil completionHandler:nil];
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:nil];
     [task resume];
 }
 

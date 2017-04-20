@@ -85,7 +85,7 @@
             [label setFrame:CGRectMake(0, 0, 40, 30)];
             cell.accessoryView = label;
             [label setTextColor:[UIColor grayColor]];
-
+            
             cellTitle = @"버전정보";
             
         } else {
@@ -99,17 +99,84 @@
     return cell;
 }
 
--(void)autoLoginSwich:(UISwitch*)sender{
-    
+- (void)autoLoginSwich:(UISwitch *)sender
+{
+    if (sender.on)
+    {
+        NSLog(@"테스트");
+    } else {
+        NSLog(@"꺼졋");
+    }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.section)
+    {
+        case 0: //로그인 설정
+            switch (indexPath.row)
+        {
+            case 0:
+                //자동로그인 부분
+                
+                break;
+                
+            case 1:
+                //로그아웃 부분
+                
+                [self showLogoutAlertController];
+                break;
+        }
+            
+            
+        case 1: //SOOBOOK
+            switch (indexPath.row)
+        {
+            case 0:
+                //버전정보 부분
+                
+                break;
+                
+            case 1:
+                //SooBook for iOS GutHub
+                
+                break;
+        }
+    }
 }
+
+- (void)showLogoutAlertController
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"가지마 뿌잉뿌잉~" preferredStyle:UIAlertControllerStyleAlert];
+    
+    __weak SBSettingViewController *weakSelf = self;
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"갈래" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           
+                           [[SBAuthCenter sharedInstance] logOut];
+                           [weakSelf.tabBarController setSelectedIndex:0];
+                       });
+        
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"안갈래" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:okAction];
+    [alert addAction:cancelAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 @end

@@ -85,7 +85,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if ([[[SBAuthCenter sharedInstance] userToken] length] == 0) {
+    SBAuthCenter *authCenter = [SBAuthCenter sharedInstance];
+    
+    if ([authCenter.userToken length] == 0) {
         [self performSegueWithIdentifier:@"LogInSegue" sender:self];
     } else {
         
