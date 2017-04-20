@@ -286,7 +286,8 @@
             NSMutableArray *favBookArray = [NSMutableArray new];
             for (NSInteger i = 0; i<10; i++) {
                 NSDictionary *item = [sortedArray objectAtIndex:i];
-                [favBookArray addObject:[self fetchMyBookWithDictionary:item]];
+                SBBookData *book = [self bookDataWithPrimaryKey:[item[@"book_id"] integerValue]];
+                [favBookArray addObject:book];
             }
             
             completion(sucess, favBookArray);

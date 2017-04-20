@@ -108,10 +108,10 @@
     __weak SBMainTableViewController *weakSelf = self;
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
         if (sucess) {
-            [weakSelf.tableView reloadData];
             [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
                 if (sucess) {
                     weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
+                    [weakSelf.tableView reloadData];
                 }
             }];
 
@@ -137,8 +137,7 @@
             break;
             
         default:
-    return [[[SBDataCenter defaultCenter] dataArray] count];
-        return [[[SBDataCenter defaultCenter] myBookDatas] count];
+            return [[[SBDataCenter defaultCenter] dataArray] count];
             break;
     }
 }
