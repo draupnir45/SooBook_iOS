@@ -85,7 +85,7 @@
             [label setFrame:CGRectMake(0, 0, 40, 30)];
             cell.accessoryView = label;
             [label setTextColor:[UIColor grayColor]];
-
+            
             cellTitle = @"버전정보";
             
         } else {
@@ -99,7 +99,8 @@
     return cell;
 }
 
--(void)autoLoginSwich:(UISwitch*)sender{
+- (void)autoLoginSwich:(UISwitch*)sender
+{
     
 }
 
@@ -108,8 +109,67 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SBAuthCenter *auth = [[SBAuthCenter alloc] init];
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.section) {
+        case 0: //로그인 설정
+            switch (indexPath.row) {
+                case 0:
+                    //자동로그인 부분
+                    break;
+                    
+                case 1:
+                    //로그아웃 부분
+                    [auth logOut];
+                    [self showLogoutAlertController];
+                    break;
+            }
+            break;
+            
+        case 1: //SOOBOOK
+            switch (indexPath.row) {
+                case 0:
+                    //버전정보 부분
+                    break;
+                    
+                case 1:
+                    //SooBook for iOS GutHub
+                    break;
+            }
+            break;
+    }
+    
+//        if (indexPath.section == 0 && indexPath.row == 1)
+//        {
+//            SBAuthCenter *auth = [[SBAuthCenter alloc] init];
+//            [auth logOut];
+//            [self showLogoutAlertController];
+//    
+//        }
 }
+
+- (void)showLogoutAlertController
+{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"SBLoginViewController" bundle:nil];
+    SBLogInViewController *loginView = [story instantiateViewControllerWithIdentifier:@"SBLoginViewController"];
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"정말 로그아웃 하시겠습니까?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"네" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self presentViewController:loginView animated:YES completion:nil];
+        
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"취소" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:okAction];
+    [alert addAction:cancelAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 @end
