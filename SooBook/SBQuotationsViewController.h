@@ -6,12 +6,11 @@
 //  Copyright © 2017년 Jongchan Park. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SBCommentaryViewController.h"
 
-@interface SBQuotationsViewController : UIViewController
+@interface SBQuotationsViewController : SBCommentaryViewController
 
 @property NSArray <SBQuotation *> *originalDataArray;
-@property NSInteger bookPrimaryKey;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 @end
