@@ -211,6 +211,14 @@
         cell.titleLabel.text = item.title;
         cell.subtitleLabel.text = item.author;
         cell.bookPrimaryKey = item.bookPrimaryKey;
+        cell.starRateView.editable = NO;
+        if (item.hasRating) {
+            cell.starRateView.rating = item.rating.score;
+            cell.starRateLabel.text = [NSString stringWithFormat:@"%.1f",item.rating.score];
+        } else {
+            cell.starRateView.rating = 0;
+            cell.starRateLabel.text = @"0.0";
+        }
         [cell layoutSubviews];
         return cell;
     }

@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RateView.h"
 
 @interface SBMainTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *bookCoverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property (weak, nonatomic) IBOutlet RateView *starRateView;
+@property (weak, nonatomic) IBOutlet UILabel *starRateLabel;
 
 @property NSInteger bookPrimaryKey;
 

@@ -8,10 +8,11 @@
 
 #import "SBMainTableViewCell.h"
 #import "RateView.h"
-
+#import "SBCommentViewController.h"
 @interface SBMainTableViewCell ()
 
 @property CAGradientLayer *gradient;
+
 
 @end
 
