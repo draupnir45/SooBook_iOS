@@ -46,49 +46,35 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vfn-TT-A7B">
-                                <rect key="frame" x="104" y="42.5" width="205" height="43"/>
+                                <rect key="frame" x="104" y="42.5" width="215" height="43"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나미야 잡화점의 기적" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4R-pY-agG">
-                                        <rect key="frame" x="0.0" y="0.0" width="205" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="215" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="히가시노 게이고 | 현대문학" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awv-NN-6RF">
-                                        <rect key="frame" x="0.0" y="28.5" width="205" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="215" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uX9-tR-uZe">
-                                <rect key="frame" x="309" y="0.0" width="16" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="mdp-fn-dLM"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ns-hw-OI3">
-                                <rect key="frame" x="325" y="47" width="34" height="34"/>
+                                <rect key="frame" x="319" y="16" width="56" height="96"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="34" id="3Lc-Zj-d3t"/>
-                                    <constraint firstAttribute="height" constant="34" id="atF-eB-cxs"/>
+                                    <constraint firstAttribute="width" constant="56" id="3Lc-Zj-d3t"/>
                                 </constraints>
                                 <state key="normal" image="mybookHeartOff"/>
                                 <state key="selected" image="mybookHeartOn"/>
                                 <state key="highlighted" image="mybookHeartOn"/>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYg-GP-f7l">
-                                <rect key="frame" x="359" y="0.0" width="16" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="679-dl-8yq"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="PN2-Jy-IGl" firstAttribute="height" secondItem="b1n-3U-vKJ" secondAttribute="height" id="IPn-M2-fRn"/>
+                            <constraint firstItem="6ns-hw-OI3" firstAttribute="height" secondItem="b1n-3U-vKJ" secondAttribute="height" constant="-32" id="Rxb-fd-9nr"/>
                         </constraints>
                     </stackView>
                 </subviews>
