@@ -135,11 +135,13 @@
                 }
                 
                 if (i == weakSelf.dataArray.count - 1) {
-                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                    [self.indicator stopIndicator];
+                    [weakSelf updateItemWithCompletion:^(BOOL sucess, id data) {
+                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                        [weakSelf.indicator stopIndicator];
+                    }];
                 }
             }];
-        } else if (i >= self.originalStringArray.count) {
+        } else if (i >= weakSelf.originalStringArray.count) {
             [[SBDataCenter defaultCenter] addQuotationWithBookID:self.bookPrimaryKey content:currentString completion:^(BOOL sucess, id data) {
                 if (sucess) {
                     NSLog(@"Added");
@@ -149,8 +151,11 @@
                 }
                 
                 if (i == weakSelf.dataArray.count - 1) {
-                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                    [self.indicator stopIndicator];
+                    [weakSelf updateItemWithCompletion:^(BOOL sucess, id data) {
+                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                        [weakSelf.indicator stopIndicator];
+                    }];
+                    
                 }
             }];
         }
