@@ -12,5 +12,6 @@
 
 @property NSArray <SBQuotation *> *originalDataArray;
 @property NSInteger bookPrimaryKey;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 @end

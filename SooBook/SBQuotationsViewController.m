@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *dataArray;
 @property NSArray *originalStringArray;
+@property SBIndicatorView *indicator;
 
 
 @end
@@ -25,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray = [NSMutableArray new];
+    self.indicator = [SBIndicatorView new];
     
     if (self.originalDataArray.count) {
         for (SBQuotation *item in self.originalDataArray) {
@@ -38,6 +40,8 @@
         self.originalStringArray = @[];
         [self.dataArray addObject:@""];
     }
+    
+    _navigationBar.title = self.title;
     
 }
 
@@ -99,9 +103,7 @@
     return UIBarPositionTopAttached;
 }
 
-- (IBAction)cancelButtonSelected:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     // This will create a "invisible" footer
@@ -113,11 +115,17 @@
     return 0.01f;
 }
 
+- (IBAction)cancelButtonSelected:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)saveButtonSelected:(UIBarButtonItem*)sender {
     __weak SBQuotationsViewController *weakSelf = self;
     for (NSInteger i=0; i<self.dataArray.count; i++) {
         NSString *currentString = self.dataArray[i];
 //        __block BOOL shouldReSave = NO;
+        
+        [self.indicator startIndicatorOnView:self.view];
         if (self.originalStringArray.count && ![currentString isEqualToString:self.originalStringArray[i]]) {
             [[SBDataCenter defaultCenter] editQuotationWithQuotationPk:[self.originalDataArray[i] pk] content:currentString completion:^(BOOL sucess, id data) {
                 if (sucess) {
@@ -128,6 +136,7 @@
                 
                 if (i == weakSelf.dataArray.count - 1) {
                     [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                    [self.indicator stopIndicator];
                 }
             }];
         } else if (i >= self.originalStringArray.count) {
@@ -141,6 +150,7 @@
                 
                 if (i == weakSelf.dataArray.count - 1) {
                     [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                    [self.indicator stopIndicator];
                 }
             }];
         }
