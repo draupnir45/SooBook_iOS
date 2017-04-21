@@ -15,6 +15,7 @@
 <UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property BookCoverCollectionViewDataSource *dataSource;
+@property UIRefreshControl *collectionViewRefreshControl;
 
 @end
 
@@ -23,6 +24,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.collectionViewRefreshControl = [UIRefreshControl new];
+//    [self.collectionViewRefreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
+    self.collectionViewRefreshControl.tintColor = [UIColor whiteColor];
+    self.collectionView.refreshControl = self.collectionViewRefreshControl;
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"SBBookCoverFlowCell" bundle:nil] forCellWithReuseIdentifier:@"SBBookCoverFlowCell"];
     
@@ -39,6 +44,13 @@
     
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"collectionViewBackgroundPattern"]];
 }
+
+//- (void)refreshData:(id)sender
+//{
+//    [[SBDataCenter defaultCenter] loadMyBookListWithPage:1 completion:^(BOOL sucess, id data) {
+//        [self.collectionViewRefreshControl endRefreshing];
+//    }];
+//}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
