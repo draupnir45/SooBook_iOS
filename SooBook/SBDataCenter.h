@@ -77,5 +77,7 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 - (void)deleteQuotationWithQuotationPk:(NSInteger)pk completion:(SBDataCompletion)completion;
 
 
+- (void)loadAllMyBookListWithPage:(NSInteger)page completion:(SBDataCompletion)completion;
+
 
 @end

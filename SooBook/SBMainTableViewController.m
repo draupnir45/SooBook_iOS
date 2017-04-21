@@ -115,18 +115,34 @@
     __weak SBMainTableViewController *weakSelf = self;
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
         if (sucess) {
-            [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
+            [[SBDataCenter defaultCenter] loadMyBookListWithPage:2 completion:^(BOOL sucess, id data) {
                 if (sucess) {
-                    weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
-                    [weakSelf.tableView reloadData];
-                    [weakSelf.indicator stopIndicator];
+                    [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
+                        if (sucess) {
+                            weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
+                            [weakSelf.tableView reloadData];
+                            [weakSelf.indicator stopIndicator];
+                        }
+                    }];
                 }
             }];
-
-            
         }
     }];
-    self.nextPage = page + 1;
+    
+//    [[SBDataCenter defaultCenter] loadAllMyBookListWithPage:page completion:^(BOOL sucess, id data) {
+//        if (sucess) {
+//            [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
+//                if (sucess) {
+//                    weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
+//                    [weakSelf.tableView reloadData];
+//                    [weakSelf.indicator stopIndicator];
+//                }
+//            }];
+//            
+//            
+//        }
+//    }];
+//    self.nextPage = page + 1;
 }
 
 

@@ -12,6 +12,9 @@
 
 @property (readwrite) NSArray *dataArray;
 @property NSInteger nextPageNumb;
+@property NSInteger numbOfTotalBook;
+@property NSInteger numbOfTotalPage;
+@property NSInteger numbOfLoadingPage;
 @property BOOL haveNextPage;
 
 
@@ -97,9 +100,9 @@
             if (page == 1) {            //만약에 첫페이지를 부르는 거라면(첫 요청) 기존 데이터를 지우고 넣을 것.
                 self.dataArray = [weakSelf fetchMyBooksWithArray:data[@"results"]];
             } else {
-                NSMutableArray *newBookDatas = [weakSelf.myBookDatas mutableCopy];
+                NSMutableArray *newBookDatas = [weakSelf.dataArray mutableCopy];
                 [newBookDatas addObjectsFromArray:[weakSelf fetchMyBooksWithArray:data[@"results"]]];
-                self.myBookDatas = newBookDatas;
+                self.dataArray = newBookDatas;
             }
 
             //만약에 첫 페이지가 아닌데, 책 번호가 다르다면 첫 페이지로 재요청.......을 추후에 예외처리하는 것으로 하고
@@ -118,12 +121,60 @@
     
 }
 
+- (void)loadAllMyBookListWithPage:(NSInteger)page completion:(SBDataCompletion)completion
+{
+    __weak SBDataCenter *weakSelf = self;
+    
+    SBDataCompletion __block blockForFetch = ^(BOOL sucess, id data) {
+        if (page == 1) {            //만약에 첫페이지를 부르는 거라면(첫 요청) 기존 데이터를 지우고 넣을 것.
+            weakSelf.dataArray = [weakSelf fetchMyBooksWithArray:data[@"results"]];
+        } else {
+            NSMutableArray *newBookDatas = [weakSelf.myBookDatas mutableCopy];
+            [newBookDatas addObjectsFromArray:[weakSelf fetchMyBooksWithArray:data[@"results"]]];
+            weakSelf.myBookDatas = newBookDatas;
+        }
+        
+        if (weakSelf.numbOfTotalPage > 1) {
+            [weakSelf loadNextMyBookListWithCompletion:blockForFetch];
+        } else {
+            completion(YES, nil);
+        }
+    };
+    
+    SBDataCompletion __block blockForPaging = ^(BOOL sucess, id data) {
+        weakSelf.numbOfTotalBook = [data[@"count"] integerValue];
+        weakSelf.numbOfTotalPage = weakSelf.numbOfTotalBook / 12;
+        if (weakSelf.numbOfTotalBook % 12) {
+            weakSelf.numbOfTotalPage = weakSelf.numbOfTotalPage + 1;
+        }
+        
+    };
+    
+    self.numbOfLoadingPage = page;
+    
+    [SBNetworkManager loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
+        if (sucess) { //넘겨주기 전에 fetch합니다.
+            blockForPaging(sucess, data);
+            blockForFetch(sucess, data);
+        }
+        
+    }];
+
+}
+
+
 - (void)loadNextMyBookListWithCompletion:(SBDataCompletion)completion {
-    if (self.haveNextPage) {
-        [self loadMyBookListWithPage:self.nextPageNumb completion:completion];
+    if (self.numbOfTotalPage > self.numbOfLoadingPage) {
+        [SBNetworkManager loadMyBookListWithPage:self.numbOfLoadingPage completion:completion];
+        self.numbOfLoadingPage++;
     } else {
-        completion(NO, nil);
+        completion(YES, nil);
     }
+//    if (self.haveNextPage) {
+//        [self loadMyBookListWithPage:self.nextPageNumb completion:completion];
+//    } else {
+//        completion(NO, nil);
+//    }
 }
 
 - (void)loadMyBookWithBookID:(NSInteger)bookID completion:(SBDataCompletion)completion
@@ -301,13 +352,14 @@
     [SBNetworkManager loadRatingListWithCompletion:^(BOOL sucess, id data) {
         if (sucess) {
             NSArray *sortedArray;
-            sortedArray = [[(NSDictionary *)data objectForKey:@"results"] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *a, NSDictionary *b) {
+            sortedArray = [(NSArray *)data sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *a, NSDictionary *b) {
                 NSNumber *first = [NSNumber numberWithFloat:[[a objectForKey:@"content"] floatValue]];
                 NSNumber *second = [NSNumber numberWithFloat:[[b objectForKey:@"content"] floatValue]];
                 return [first compare:second];
             }];
+            
             NSMutableArray *favBookArray = [NSMutableArray new];
-            for (NSInteger i = MIN(sortedArray.count, 10); i > 0; i--) {
+            for (NSInteger i = MIN(sortedArray.count, 10) - 1; i > 0; i--) {
                 NSDictionary *item = [sortedArray objectAtIndex:i];
                 SBBookData *book = [self bookDataWithPrimaryKey:[item[@"book_id"] integerValue]];
                 [favBookArray addObject:book];

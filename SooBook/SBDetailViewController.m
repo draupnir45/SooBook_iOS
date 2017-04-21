@@ -15,7 +15,7 @@
 #import "SBQuotationsViewController.h"
 
 @interface SBDetailViewController ()
-<UIGestureRecognizerDelegate, SBCommentViewControllerDelegate>
+<UIGestureRecognizerDelegate, SBCommentaryViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
 @property (weak, nonatomic) IBOutlet UIButton *starRateButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
@@ -184,15 +184,22 @@
     } else if ([segue.identifier isEqualToString:@"QuotationViewSegue"]) {
         SBQuotationsViewController *quotationsVC = segue.destinationViewController;
         quotationsVC.originalDataArray = self.item.quotations;
+        quotationsVC.delegate = self;
         quotationsVC.bookPrimaryKey = self.item.bookPrimaryKey;
         quotationsVC.title = self.item.title;
     }
 }
 
-- (void)commentViewController:(SBCommentViewController *)commentVC didUpdateCommentAtItem:(SBBookData *)item {
-    self.item = item;
+//- (void)commentViewController:(SBCommentViewController *)commentVC didUpdateCommentAtItem:(SBBookData *)item {
+//    self.item = item;
+//
+////    [self.view layoutIfNeeded];
+//}
 
-//    [self.view layoutIfNeeded];
+- (void)commentaryViewController:(SBCommentViewController *)commentVC didUpdateCommentAtItem:(SBBookData *)item {
+    self.item = item;
+    
+    //    [self.view layoutIfNeeded];
 }
 
 - (IBAction)requestAddBook:(UIButton *)sender

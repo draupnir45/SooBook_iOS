@@ -72,9 +72,10 @@
             if (sucess) {
                 [[SBDataCenter defaultCenter] loadMyBookWithBookID:weakSelf.bookPrimaryKey completion:^(BOOL sucess, id data) {
                     if (sucess) {
-                        [weakSelf.delegate commentViewController:self didUpdateCommentAtItem:data];
-                        [self.indicator stopIndicator];
-                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                        [weakSelf updateItemWithCompletion:^(BOOL sucess, id data) {
+                            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                            [weakSelf.indicator stopIndicator];
+                        }];
                     }
                 }];
             } else {

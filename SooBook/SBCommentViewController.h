@@ -6,7 +6,7 @@
 //  Copyright © 2017년 Jongchan Park. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SBCommentaryViewController.h"
 
 @class SBCommentViewController;
 @protocol SBCommentViewControllerDelegate
@@ -16,7 +16,6 @@
 
 @end
 
-@interface SBCommentViewController : UIViewController
-@property NSInteger bookPrimaryKey;
-@property id <SBCommentViewControllerDelegate> delegate;
+@interface SBCommentViewController : SBCommentaryViewController
+
 @end
