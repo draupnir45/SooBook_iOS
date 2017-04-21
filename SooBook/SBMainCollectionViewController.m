@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property BookCoverCollectionViewDataSource *dataSource;
 @property UIRefreshControl *collectionViewRefreshControl;
+@property NSInteger nextPage;
 
 @end
 
@@ -25,34 +26,40 @@
 {
     [super viewDidLoad];
     self.collectionViewRefreshControl = [UIRefreshControl new];
-//    [self.collectionViewRefreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
+    [self.collectionViewRefreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
     self.collectionViewRefreshControl.tintColor = [UIColor whiteColor];
     self.collectionView.refreshControl = self.collectionViewRefreshControl;
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"SBBookCoverFlowCell" bundle:nil] forCellWithReuseIdentifier:@"SBBookCoverFlowCell"];
-    
-    BookCoverCollectionViewDataSource *dataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter defaultCenter] dataArray]];
-    self.collectionView.dataSource = dataSource;
-    self.dataSource = dataSource;
     
     
     UIImage *naviBarLogo = [UIImage imageNamed: @"logoForNavigation"];
     UIImageView *titleImageview = [[UIImageView alloc] initWithImage: naviBarLogo];
     self.navigationItem.titleView = titleImageview;
     
-    
+    [self updateDataSource];
     
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"collectionViewBackgroundPattern"]];
 }
 
-//- (void)refreshData:(id)sender
-//{
-//    [[SBDataCenter defaultCenter] loadMyBookListWithPage:1 completion:^(BOOL sucess, id data) {
-//        [self.collectionViewRefreshControl endRefreshing];
-//    }];
-//}
+- (void)refreshData:(id)sender
+{
+    [[SBDataCenter defaultCenter] loadMyBookListWithPage:1 completion:^(BOOL sucess, id data) {
+        [self updateDataSource];
+        [self.collectionViewRefreshControl endRefreshing];
+    }];
+}
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)updateDataSource
+{
+    BookCoverCollectionViewDataSource *dataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter defaultCenter] dataArray]];
+    self.collectionView.dataSource = dataSource;
+    self.dataSource = dataSource;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 }
