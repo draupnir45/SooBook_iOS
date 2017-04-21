@@ -14,6 +14,7 @@
 #import "NSMutableAttributedString+JCAdditions.h"
 #import "SBQuotationsViewController.h"
 
+
 @interface SBDetailViewController ()
 <RateViewDelegate, UIGestureRecognizerDelegate, SBCommentViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
@@ -27,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *commenButtontLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
-
+@property SBIndicatorView *detailIndicator;
 
 @end
 
@@ -55,6 +56,7 @@
       self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
     
+    self.detailIndicator = [SBIndicatorView new];
 
     
 }
@@ -205,15 +207,17 @@
 //    SBSearchTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
 //    __weak SBIndicatorView *indicator = self.indicator;
-    
+     [self.detailIndicator startIndicatorOnView:self.view];
     if (!sender.selected)
     {
-        
+       
         [[SBDataCenter defaultCenter] addBook:[self bookPrimaryKey] completion:^(BOOL sucess, id data) {
             if (sucess)
             {
                 NSLog(@"YES");
                 sender.selected = YES;
+                [self.detailIndicator stopIndicator];
+
             } else {
                 //책장에 책이 들어오지 못했다는 알럿창
             }
@@ -227,6 +231,7 @@
             {
                 NSLog(@"NO");
                 sender.selected = NO;
+                 [self.detailIndicator stopIndicator];
             } else {
                 //책장에 책이 들어오지 못했다는 알럿창
             }
