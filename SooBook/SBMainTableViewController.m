@@ -33,6 +33,7 @@
 @property NSArray *contentsArray;
 @property NSInteger nextPage;
 @property UIRefreshControl *tableViewRefreshControl;
+@property SBIndicatorView *indicator;
 
 
 @end
@@ -43,6 +44,8 @@
 {
     [super viewDidLoad];
     self.title = @"내 책장";
+    
+    self.indicator = [SBIndicatorView new];
         
 /////////////////////////////////테스트용 DataSource//////////////////////////////////
     
@@ -105,6 +108,9 @@
 }
 
 - (void)loadMyBookDataWithPageNumb:(NSInteger)page {
+    
+    [self.indicator startIndicatorOnView:self.view];
+    
     __weak SBMainTableViewController *weakSelf = self;
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
         if (sucess) {
@@ -112,6 +118,7 @@
                 if (sucess) {
                     weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
                     [weakSelf.tableView reloadData];
+                    [weakSelf.indicator stopIndicator];
                 }
             }];
 

@@ -42,14 +42,13 @@
     [self.grayView setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height)];
     CGFloat centerX = self.grayView.frame.size.width / 2;
     CGFloat centerY = self.grayView.frame.size.height / 2;
-    self.grayView.backgroundColor = [UIColor colorWithRed:169 / 255.0 green:169 / 255.0 blue:169 / 255.0 alpha:0.7];
+    self.grayView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     
     [self.blackView setFrame:CGRectMake(0, 0, 60, 60)];
-    [self.blackView.layer setCornerRadius:20.0f];
-    self.blackView.backgroundColor = [UIColor blackColor];
+    [self.blackView.layer setCornerRadius:10.0f];
+    self.blackView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     [self.blackView setCenter:CGPointMake(centerX, centerY)];
     
-    //    activityIndicator.center = CGPointMake(centerX, centerY);
     [self.activityIndicator setCenter:CGPointMake(centerX, centerY)];
 
 }
