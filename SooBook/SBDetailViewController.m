@@ -186,6 +186,7 @@
         SBQuotationsViewController *quotationsVC = segue.destinationViewController;
         quotationsVC.originalDataArray = self.item.quotations;
         quotationsVC.bookPrimaryKey = self.item.bookPrimaryKey;
+        quotationsVC.title = self.item.title;
     }
 }
 

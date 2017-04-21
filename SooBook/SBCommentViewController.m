@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property SBIndicatorView *indicator;
 
 
 
@@ -34,7 +35,7 @@
     
     SBBookData *item = [[SBDataCenter defaultCenter] bookDataWithPrimaryKey:self.bookPrimaryKey];
     
-
+    self.indicator = [SBIndicatorView new];
     
     self.starRateView.delegate = self;
     self.starRateView.editable = YES;
@@ -42,11 +43,7 @@
     
     
     self.starRateView.rating = item.rating.score;
-//    
-//    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:item.title];
-    _navigationBar.topItem.title = item.title;
-//    self.titleItem = titleItem;
-    
+    self.navigationBar.topItem.title = item.title;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,6 +61,7 @@
 }
 
 - (IBAction)saveButtonSelected:(UIBarButtonItem *)sender {
+    [self.indicator startIndicatorOnView:self.view];
     
     __weak SBCommentViewController *weakSelf = self;
     [[SBDataCenter defaultCenter] addCommentWithBookID:self.bookPrimaryKey content:self.textView.text completion:^(BOOL sucess, id data) {
@@ -71,12 +69,16 @@
             [[SBDataCenter defaultCenter] loadMyBookWithBookID:weakSelf.bookPrimaryKey completion:^(BOOL sucess, id data) {
                 if (sucess) {
                     [weakSelf.delegate commentViewController:self didUpdateCommentAtItem:data];
+                    [self.indicator stopIndicator];
                     [weakSelf dismissViewControllerAnimated:YES completion:nil];
                 }
             }];
         } else {
             //실패시 예외
+            [self.indicator stopIndicator];
         }
+        
+        
 
     }];
     
