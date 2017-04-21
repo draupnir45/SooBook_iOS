@@ -26,7 +26,12 @@
 }
 
 + (UIColor *)sb_grayForGradColor {
-	return [UIColor colorWithWhite:217.0f / 255.0f alpha:1.0f];
+	return [UIColor colorWithWhite:244.0f / 255.0f alpha:1.0f];
 }
+
++ (UIColor *)sb_grayForCollectionCellGradColor {
+    return [UIColor colorWithWhite:160.0f / 255.0f alpha:1.0f];
+}
+
 
 @end

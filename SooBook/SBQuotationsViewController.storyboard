@@ -30,7 +30,11 @@
                                                 <action selector="cancelButtonSelected:" destination="gtm-5i-mus" id="yip-he-Tsd"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="저장" style="done" id="4TN-A4-d4c"/>
+                                        <barButtonItem key="rightBarButtonItem" title="저장" style="done" id="4TN-A4-d4c">
+                                            <connections>
+                                                <action selector="saveButtonSelected:" destination="gtm-5i-mus" id="HaX-kg-ndb"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                                 <connections>

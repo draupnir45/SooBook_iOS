@@ -12,6 +12,7 @@
 #import "SBBookData.h"
 #import "SBCommentViewController.h"
 #import "NSMutableAttributedString+JCAdditions.h"
+#import "SBQuotationsViewController.h"
 
 @interface SBDetailViewController ()
 <RateViewDelegate, UIGestureRecognizerDelegate, SBCommentViewControllerDelegate>
@@ -181,6 +182,10 @@
         SBCommentViewController *commentViewContoroller = segue.destinationViewController;
         commentViewContoroller.bookPrimaryKey = self.bookPrimaryKey;
         commentViewContoroller.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"QuotationViewSegue"]) {
+        SBQuotationsViewController *quotationsVC = segue.destinationViewController;
+        quotationsVC.originalDataArray = self.item.quotations;
+        quotationsVC.bookPrimaryKey = self.item.bookPrimaryKey;
     }
 }
 

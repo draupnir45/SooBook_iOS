@@ -227,6 +227,7 @@
     for (SBBookData *item in self.dataArray) {
         if (item.bookPrimaryKey == primaryKey) {
             resultItem = item;
+            break;
         }
     }
     
@@ -300,7 +301,7 @@
 
 - (void)addQuotationWithBookID:(NSInteger)bookID content:(NSString *)content completion:(SBDataCompletion)completion
 {
-    __weak SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
+    SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
     [SBNetworkManager addQuotationWithMyBookID:targetItem.mybookID content:content completion:completion];
 }
 

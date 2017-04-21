@@ -15,24 +15,30 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *dataArray;
+@property NSArray *originalStringArray;
+
 
 @end
 
 @implementation SBQuotationsViewController
 
-
-
-
-
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.dataArray = [NSMutableArray new];
-    [self.dataArray addObject:@""];
+    
+    if (self.originalDataArray.count) {
+        for (SBQuotation *item in self.originalDataArray) {
+            [self.dataArray addObject:item.content];
+            if ([self.dataArray count] == 0 ) {
+                [self.dataArray addObject:@""];
+            }
+        }
+        self.originalStringArray = self.dataArray;
+    } else {
+        self.originalStringArray = @[];
+        [self.dataArray addObject:@""];
+    }
+    
 }
 
 
@@ -63,6 +69,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.dataArray.count) {
         SBTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBTextViewCell" forIndexPath:indexPath];
+
         cell.textView.delegate = self;
         cell.textView.text = self.dataArray[indexPath.row];
         
@@ -105,5 +112,41 @@
     // This will create a "invisible" footer
     return 0.01f;
 }
+
+- (IBAction)saveButtonSelected:(UIBarButtonItem*)sender {
+    __weak SBQuotationsViewController *weakSelf = self;
+    for (NSInteger i=0; i<self.dataArray.count; i++) {
+        NSString *currentString = self.dataArray[i];
+//        __block BOOL shouldReSave = NO;
+        if (self.originalStringArray.count && ![currentString isEqualToString:self.originalStringArray[i]]) {
+            [[SBDataCenter defaultCenter] editQuotationWithQuotationPk:[self.originalDataArray[i] pk] content:currentString completion:^(BOOL sucess, id data) {
+                if (sucess) {
+                    NSLog(@"edited");
+                } else {
+//                    shouldReSave = YES;
+                }
+                
+                if (i == weakSelf.dataArray.count - 1) {
+                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
+        } else if (i >= self.originalStringArray.count) {
+            [[SBDataCenter defaultCenter] addQuotationWithBookID:self.bookPrimaryKey content:currentString completion:^(BOOL sucess, id data) {
+                if (sucess) {
+                    NSLog(@"Added");
+                } else {
+                    NSLog(@"Failed");
+//                    shouldReSave = YES;
+                }
+                
+                if (i == weakSelf.dataArray.count - 1) {
+                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
+        }
+        
+    }
+}
+
 
 @end

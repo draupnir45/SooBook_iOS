@@ -14,5 +14,6 @@
 + (UIColor *)sb_brownBlackColor;
 + (UIColor *)sb_whiteColor;
 + (UIColor *)sb_grayForGradColor;
++ (UIColor *)sb_grayForCollectionCellGradColor;
 
 @end

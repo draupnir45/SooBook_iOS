@@ -10,4 +10,7 @@
 
 @interface SBQuotationsViewController : UIViewController
 
+@property NSArray <SBQuotation *> *originalDataArray;
+@property NSInteger bookPrimaryKey;
+
 @end

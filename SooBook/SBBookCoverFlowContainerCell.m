@@ -21,7 +21,7 @@
     [super awakeFromNib];
     CAGradientLayer *gradient = [CAGradientLayer layer];
 
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor sb_grayForGradColor]CGColor], nil];
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor sb_grayForCollectionCellGradColor]CGColor], nil];
     [self.contentView.layer insertSublayer:gradient atIndex:0];
     [self.collectionView setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
     
