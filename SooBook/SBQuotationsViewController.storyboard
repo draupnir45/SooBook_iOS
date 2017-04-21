@@ -125,6 +125,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="Fkd-A2-ld7" id="RuV-EO-Cfd"/>
                         <outlet property="tableView" destination="2oz-en-cTE" id="vts-2m-ymn"/>
                     </connections>
                 </viewController>
