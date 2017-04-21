@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class SBCommentaryViewController;
-@protocol SBCommentViewControllerDelegate
+@protocol SBCommentaryViewControllerDelegate
 
 //- (void)commentViewController:(SBCommentViewController *)commentVC didSelectedSaveButton:(UIBarButtonItem *)sender;
 - (void)commentaryViewController:(SBCommentaryViewController *)commentVC didUpdateCommentAtItem:(SBBookData *)item;
@@ -19,7 +19,7 @@
 @interface SBCommentaryViewController : UIViewController
 
 @property NSInteger bookPrimaryKey;
-@property id <SBCommentViewControllerDelegate> delegate;
+@property id <SBCommentaryViewControllerDelegate> delegate;
 - (void)updateItemWithCompletion:(SBDataCompletion)completion;
 
 @end
