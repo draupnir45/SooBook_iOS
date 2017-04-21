@@ -28,6 +28,8 @@
     
     self.gradient = gradient;
   
+    
+
 }
 
 - (void)layoutSubviews {

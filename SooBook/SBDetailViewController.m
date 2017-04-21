@@ -14,9 +14,8 @@
 #import "NSMutableAttributedString+JCAdditions.h"
 #import "SBQuotationsViewController.h"
 
-
 @interface SBDetailViewController ()
-<RateViewDelegate, UIGestureRecognizerDelegate, SBCommentViewControllerDelegate>
+<UIGestureRecognizerDelegate, SBCommentViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
 @property (weak, nonatomic) IBOutlet UIButton *starRateButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
@@ -28,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *commenButtontLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UILabel *starSmallRateLabel;
 @property SBIndicatorView *detailIndicator;
 
 @end
@@ -49,7 +49,6 @@
     [self.backImageView addSubview:visualEffectView];
     
 
-    
     
     //스와이프 투 백 제스처 먹이기
     if (self.navigationController != nil) {
@@ -83,8 +82,8 @@
     
     //별점뷰 설정하기
     self.starRateView.rating = self.item.rating.score;
-    self.starRateView.delegate = self;
     self.starRateView.editable = NO;
+    self.starInteger.text = [NSString stringWithFormat:@"%.1f",self.item.rating.score];
     
     //책 등록 버튼 설정
     self.addButton.selected = self.item.isMyBook;
@@ -97,13 +96,15 @@
         self.starRateLabel.text = @"평가함";
         [self.starRateLabel setTextColor:[UIColor sb_soobookBlueColor]];
         self.starRateImageView.image =[UIImage imageNamed:@"detailIcon1RatingOn"];
-
+        self.starSmallRateLabel.hidden = NO;
+        self.starSmallRateLabel.text = [NSString stringWithFormat:@"%.1f",self.item.rating.score];
         
     } else {
         
         self.starRateLabel.text = @"평가하기";
         [self.starRateLabel setTextColor:[UIColor grayColor]];
         self.starRateImageView.image =[UIImage imageNamed:@"detailIcon1RatingOff"];
+        self.starSmallRateLabel.hidden = YES;
     }
 }
 
@@ -165,14 +166,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating {
-    //기록
-    
-    NSLog(@"%f", rating);
-   
-    self.starInteger.text = [NSString stringWithFormat:@"%.1f",rating];
-    
-}
+//-(void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating {
+//    //기록
+//    
+//    NSLog(@"%f", rating);
+//   
+//    self.starInteger.text = [NSString stringWithFormat:@"%.1f",rating];
+//    
+//}
 - (IBAction)backButtonSelected:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
