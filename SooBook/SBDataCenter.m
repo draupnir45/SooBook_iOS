@@ -286,7 +286,7 @@
                 return MAX(first, second);
             }];
             NSMutableArray *favBookArray = [NSMutableArray new];
-            for (NSInteger i = 0; i<10; i++) {
+            for (NSInteger i = 0; i<MIN(sortedArray.count, 10); i++) {
                 NSDictionary *item = [sortedArray objectAtIndex:i];
                 SBBookData *book = [self bookDataWithPrimaryKey:[item[@"book_id"] integerValue]];
                 [favBookArray addObject:book];
