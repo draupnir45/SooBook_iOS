@@ -81,7 +81,7 @@
             [autoLoginSwich setOn:!([[NSUserDefaults standardUserDefaults]boolForKey:@"onOff"])];
             
             [cell setAccessoryView:autoLoginSwich];
-            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cellTitle = @"자동 로그인";
             
         } else {
@@ -101,6 +101,8 @@
             [label setTextColor:[UIColor grayColor]];
             
             cellTitle = @"버전정보";
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
         } else {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
