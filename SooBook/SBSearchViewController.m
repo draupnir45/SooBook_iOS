@@ -45,14 +45,14 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShown:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardWillHideNotification object:nil];
-
+    
     
     self.searchBar = [[UISearchBar alloc] init];
     self.navigationItem.titleView = self.searchBar;
     self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchBar.placeholder = @"책 / 출판사";
     self.searchBar.delegate = self;
-
+    
     self.indicator = [SBIndicatorView new];
     
     self.grayView.alpha = 0.4;
@@ -112,28 +112,31 @@
     } else {
         [cell.favoriteButton setSelected:NO];
     }
-//    cell.favoriteButton
+    //    cell.favoriteButton
     
     [cell.favoriteButton addTarget:self action:@selector(requestAddBook:) forControlEvents:UIControlEventTouchUpInside];
     
     NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]
-
-                 placeholderImage:[UIImage imageNamed:@"1.jpeg"]];
-
+     
+                               placeholderImage:[UIImage imageNamed:@"1.jpeg"]];
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    if (indexPath.row == self.resultData.count - 5 || ![self.url isEqual:[NSNull null]])
+    //     || ![self.url isEqual:[NSNull null]]
+    if (indexPath.row == self.resultData.count - 1 )
     {
+        if (![self.url isEqual:[NSNull null]] && [self.url length])
+        {
+            NSLog(@"케헤헤헤헿");
             [self.dataCenter nextSearchResultWithURLString:self.url completion:^(BOOL sucess, id data) {
-                //
+                
                 if(sucess) {
-                    
+    
                     NSArray *array = [data objectForKey:@"results"];
                     [self.resultData addObjectsFromArray:array];
                     self.url   = [data objectForKey:@"next"];
@@ -141,11 +144,14 @@
                     NSLog(@"%@", [data objectForKey:@"next"]);
                     
                     [self.tableView reloadData];
+                  
                 } else {
                     NSLog(@"%@", data);
                 }
             }];
         
+        }
+        self.url = @"";
     }
 }
 
@@ -171,7 +177,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     NSLog(@"편집 들어갑");
-
+    
     if([searchText length] == 0)
     {
         [self.resultData removeAllObjects];
@@ -185,21 +191,21 @@
     NSLog(@"서치버튼 눌렀습니다.");
     [self.searchBar resignFirstResponder];
     [self.indicator startIndicatorOnView:self.view];
-
+    
     [self.resultData removeAllObjects];
     
     self.url = [NSString stringWithFormat:@"%@%@keyword=%@&page=%d",BASE_URL,SEARCH, searchBar.text,1];
     
     //서치 요청
-   [self.dataCenter searchWithQuery:self.searchBar.text completion:^(BOOL sucess, id data)
-    {
-        NSDictionary *receivedData = data;
-        NSArray *resultArray = [receivedData objectForKey:@"results"];
-        [self.resultData addObjectsFromArray:resultArray];
-        [self.tableView reloadData];
-        [self.indicator stopIndicator];
-        
-   }];
+    [self.dataCenter searchWithQuery:self.searchBar.text completion:^(BOOL sucess, id data)
+     {
+         NSDictionary *receivedData = data;
+         NSArray *resultArray = [receivedData objectForKey:@"results"];
+         [self.resultData addObjectsFromArray:resultArray];
+         [self.tableView reloadData];
+         [self.indicator stopIndicator];
+         
+     }];
 }
 //제스쳐 그레이뷰와 반응
 - (IBAction)tapGestureResignFirstResponder:(UITapGestureRecognizer *)sender
