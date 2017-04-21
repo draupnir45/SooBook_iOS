@@ -136,7 +136,7 @@
 {
     //매니저와 리퀘스트 준비
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:ADD_BOOK]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:REGISTER_BOOK]];
     request.HTTPMethod = POST;
     
     //Data Params
@@ -165,11 +165,10 @@
 {
     //매니저와 리퀘스트 준비
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:DELETE_BOOK]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:REGISTER_BOOK]];
     request.HTTPMethod = DELETE;
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
     
+    //DATA
     NSString *dataString = [NSString stringWithFormat:@"{\"%@\":\"%ld\"}", BOOK_PRIMARY_KEY, (long)bookID];
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPBody = data;
@@ -177,6 +176,8 @@
     //HEADER 준비
     NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
     [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
     
     NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
@@ -258,7 +259,7 @@
     [task resume];
 }
 
-#pragma mark - Commentary Part
+#pragma mark - Comment
 + (void)addCommentWithMyBookID:(NSInteger)myBookID content:(NSString *)content completion:(SBDataCompletion)completion
 {
     //매니저와 리퀘스트 준비
@@ -288,6 +289,7 @@
     [task resume];
 }
 
+#pragma mark - Rate
 + (void)addRateWithMyBookID:(NSInteger)myBookID score:(CGFloat)score completion:(SBDataCompletion)completion
 {
     //매니저와 리퀘스트 준비
@@ -295,14 +297,72 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:RATING]];
     request.HTTPMethod = POST;
     
+    //HEADER
+    NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
+    [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    
     //DATA
     NSString *dataString = [NSString stringWithFormat:@"%@=%ld&%@=%f", MYBOOK_PRIMARY_KEY, (long)myBookID, CONTENT_KEY, score];
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPBody = data;
     
+    //RESPONSE
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    
+    [task resume];
+}
+#pragma mark - Mark
++ (void)addQuotationWithMyBookID:(NSInteger)myBookID content:(NSString *)content completion:(SBDataCompletion)completion
+{
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:QUOTATION]];
+    request.HTTPMethod = POST;
+    
     //HEADER
     NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
     [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    //DATA
+    NSString *dataString = [NSString stringWithFormat:@"{\"mybook_id\":\"%ld\",\"content\":\"%@\"}", (long)myBookID, content];
+    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = data;
+    
+    //RESPONSE
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 201) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    
+    [task resume];
+}
+
++ (void)editQuotationWithQuotationPk:(NSInteger)pk content:(NSString *)content completion:(SBDataCompletion)completion
+{
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:QUOTATION]];
+    request.HTTPMethod = @"PUT";
+    
+    //HEADER
+    NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
+    [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    //DATA
+    NSString *dataString = [NSString stringWithFormat:@"{\"mark_id\":\"%ld\",\"content\":\"%@\"}", (long)pk, content];
+    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = data;
     
     //RESPONSE
     NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
@@ -317,7 +377,34 @@
     [task resume];
 }
 
-
++ (void)deleteQuotationWithQuotationPk:(NSInteger)pk completion:(SBDataCompletion)completion
+{
+    AFURLSessionManager *manager = [SBNetworkManager sessionManager];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:QUOTATION]];
+    request.HTTPMethod = DELETE;
+    
+    //HEADER
+    NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
+    [request setValue:headerStr forHTTPHeaderField:@"Authorization"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    //DATA
+    NSString *dataString = [NSString stringWithFormat:@"{\"mark_id\":\"%ld\"}", (long)pk];
+    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = data;
+    
+    //RESPONSE
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            completion(YES, responseObject);
+        } else {
+            completion(NO, responseObject);
+        }
+    }];
+    
+    [task resume];
+}
 
 #pragma mark - Network Utilities
 

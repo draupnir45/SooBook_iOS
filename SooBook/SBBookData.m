@@ -15,7 +15,7 @@
 @property (readwrite) NSString          *author;
 @property (readwrite) NSString          *publisher;
 @property (readwrite) NSString          *shortDescription;
-@property (readwrite) NSArray           *quotations;
+
 
 @end
 
@@ -34,12 +34,10 @@
     }
     return self;
 }
-
 @end
 
 
 @implementation SBBookStarRating
-
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
@@ -49,13 +47,25 @@
             _score = [dictionary[CONTENT_KEY] floatValue];
             _created_date = dictionary[@"created_date"];
         }
+    }
+    return self;
+}
+@end
 
+@implementation SBQuotation
 
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if(self) {
+        _pk = [dictionary[@"id"] integerValue];
+        _content = dictionary[CONTENT_KEY];
     }
     return self;
 }
 
 @end
+
 
 
 @implementation SBBookData
@@ -70,7 +80,7 @@
         _author = dictionary[AUTHOR_KEY];
         _publisher = dictionary[PUBLISHER_KEY];
         _shortDescription = dictionary[SHORT_DESCRIPTION_KEY];
-        _quotations = dictionary[QUOTATIONS_KEY];
+//        _quotations = dictionary[QUOTATIONS_KEY];
         
     }
     return self;
@@ -79,6 +89,14 @@
 - (void)setMybookID:(NSInteger)mybookID {
     _mybookID = mybookID;
     _myBook = YES;
+}
+
+- (void)setQuotations:(NSArray *)quotations {
+    NSMutableArray *resultArray = [NSMutableArray new];
+    for (NSDictionary *item in quotations) {
+        [resultArray addObject:[[SBQuotation alloc] initWithDictionary:item]];
+    }
+    _quotations = resultArray;
 }
 
 

@@ -128,11 +128,8 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (indexPath.row == self.resultData.count - 5)
+    if (indexPath.row == self.resultData.count - 5 || ![self.url isEqual:[NSNull null]])
     {
-        
-        if(![self.url isEqual:[NSNull null]]) {
-            
             [self.dataCenter nextSearchResultWithURLString:self.url completion:^(BOOL sucess, id data) {
                 //
                 if(sucess) {
@@ -148,8 +145,7 @@
                     NSLog(@"%@", data);
                 }
             }];
-            
-        }
+        
     }
 }
 
