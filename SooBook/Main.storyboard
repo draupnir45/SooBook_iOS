@@ -112,7 +112,6 @@
                                 <segue destination="sw4-9g-icJ" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="rxD-wR-Ipp"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="검색" id="dLZ-Pd-pAU"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="MoC-GR-k6N" id="jCk-Af-1Vs"/>

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet RateView *starRateView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property SBBookData *item;
 @property SBIndicatorView *indicator;
 
 
@@ -34,7 +35,7 @@
     [self observeKeyboard];
     
     SBBookData *item = [[SBDataCenter defaultCenter] bookDataWithPrimaryKey:self.bookPrimaryKey];
-    
+    self.item = item;
     self.indicator = [SBIndicatorView new];
     
     self.starRateView.delegate = self;
@@ -43,6 +44,7 @@
     
     
     self.starRateView.rating = item.rating.score;
+    self.textView.text = item.comment.content;
     self.navigationBar.topItem.title = item.title;
 }
 
@@ -61,27 +63,26 @@
 }
 
 - (IBAction)saveButtonSelected:(UIBarButtonItem *)sender {
-    [self.indicator startIndicatorOnView:self.view];
-    
-    __weak SBCommentViewController *weakSelf = self;
-    [[SBDataCenter defaultCenter] addCommentWithBookID:self.bookPrimaryKey content:self.textView.text completion:^(BOOL sucess, id data) {
-        if (sucess) {
-            [[SBDataCenter defaultCenter] loadMyBookWithBookID:weakSelf.bookPrimaryKey completion:^(BOOL sucess, id data) {
-                if (sucess) {
-                    [weakSelf.delegate commentViewController:self didUpdateCommentAtItem:data];
-                    [self.indicator stopIndicator];
-                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                }
-            }];
-        } else {
-            //실패시 예외
-            [self.indicator stopIndicator];
-        }
-        
-        
-
-    }];
-    
+    if ([self.item.comment.content isEqualToString:self.textView.text]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.indicator startIndicatorOnView:self.view];
+        __weak SBCommentViewController *weakSelf = self;
+        [[SBDataCenter defaultCenter] addCommentWithBookID:self.bookPrimaryKey content:self.textView.text completion:^(BOOL sucess, id data) {
+            if (sucess) {
+                [[SBDataCenter defaultCenter] loadMyBookWithBookID:weakSelf.bookPrimaryKey completion:^(BOOL sucess, id data) {
+                    if (sucess) {
+                        [weakSelf.delegate commentViewController:self didUpdateCommentAtItem:data];
+                        [self.indicator stopIndicator];
+                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                    }
+                }];
+            } else {
+                //실패시 예외
+                [self.indicator stopIndicator];
+            }
+        }];
+    }
 }
 
 

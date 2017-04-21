@@ -157,23 +157,15 @@
     [self.view layoutIfNeeded];
     
 }
-//-(void)viewWillDisappear:(BOOL)animated{
-//    [super viewWillDisappear:animated];
-//    
-//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
-//-(void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating {
-//    //기록
-//    
-//    NSLog(@"%f", rating);
-//   
-//    self.starInteger.text = [NSString stringWithFormat:@"%.1f",rating];
-//    
-//}
+-(void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating {
+    self.starInteger.text = [NSString stringWithFormat:@"%.1f",rating];
+}
 - (IBAction)backButtonSelected:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -206,14 +198,7 @@
 - (IBAction)requestAddBook:(UIButton *)sender
 {
     NSLog(@"requestAddBook");
-    
-//    [self.indicator startIndicatorOnView:self.view];
-    
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
-//    SBSearchTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
-//    __weak SBIndicatorView *indicator = self.indicator;
-     [self.detailIndicator startIndicatorOnView:self.view];
+    [self.detailIndicator startIndicatorOnView:self.view];
     if (!sender.selected)
     {
        
@@ -227,8 +212,7 @@
             } else {
                 //책장에 책이 들어오지 못했다는 알럿창
             }
-            
-//            [indicator stopIndicator];
+
         }];
     } else {
         
@@ -241,8 +225,7 @@
             } else {
                 //책장에 책이 들어오지 못했다는 알럿창
             }
-            
-//            [indicator stopIndicator];
+
         }];
     }
 }
