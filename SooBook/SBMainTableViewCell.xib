@@ -52,7 +52,7 @@
                             <constraint firstAttribute="width" secondItem="ZxS-QQ-XGi" secondAttribute="height" multiplier="5:1" id="AqJ-6R-0i4"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wQ-Pe-6hE">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wQ-Pe-6hE">
                         <rect key="frame" x="289" y="155" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="QS6-U7-7sG"/>
@@ -81,6 +81,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bookCoverImageView" destination="c8J-kJ-GKN" id="BQH-HF-PqF"/>
+                <outlet property="starRateLabel" destination="7wQ-Pe-6hE" id="Zw3-7x-WvG"/>
+                <outlet property="starRateView" destination="ZxS-QQ-XGi" id="CQH-Ft-ibh"/>
                 <outlet property="subtitleLabel" destination="w4U-TA-t0R" id="li3-m2-cLD"/>
                 <outlet property="titleLabel" destination="uTz-rH-phi" id="ftj-tk-fSl"/>
             </connections>
