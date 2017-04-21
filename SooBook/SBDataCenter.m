@@ -265,7 +265,7 @@
 }
 
 - (void)updateCommentaryWithBookData:(SBBookData *)book Dictionary:(NSDictionary *)dictionary {
-    if ([[dictionary[@"star"] firstObject] objectForKey:@"content"] > 0) {
+    if ([[[dictionary[@"star"] firstObject] objectForKey:@"content"] floatValue] > 0) {
         book.hasRating = YES;
         book.rating = [[SBBookStarRating alloc] initWithDictionary:[dictionary[@"star"] firstObject]];
     } else {
