@@ -258,12 +258,33 @@
 - (SBBookData *)fetchMyBookWithDictionary:(NSDictionary *)dictionary
 {
     SBBookData *book = [[SBBookData alloc] initWithDictionary:dictionary[@"book"]];
-    book.rating = [[SBBookStarRating alloc] initWithDictionary:[dictionary[@"star"] firstObject]];
-    book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[@"comment"] firstObject]];
-    book.quotations = (NSArray *)dictionary[@"mark"];
+    [self updateCommentaryWithBookData:book Dictionary:dictionary];
     book.mybookID = [dictionary[@"mybook_id"] integerValue];
     
     return book;
+}
+
+- (void)updateCommentaryWithBookData:(SBBookData *)book Dictionary:(NSDictionary *)dictionary {
+    if ([[dictionary[@"star"] firstObject] objectForKey:@"content"] > 0) {
+        book.hasRating = YES;
+        book.rating = [[SBBookStarRating alloc] initWithDictionary:[dictionary[@"star"] firstObject]];
+    } else {
+        book.hasRating = NO;
+    }
+    
+    if ([dictionary[@"comment"] count]) {
+        book.hasComment = YES;
+        book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[@"comment"] firstObject]];
+    } else {
+        book.hasComment = NO;
+    }
+    
+    if ([dictionary[@"mark"] count]) {
+        book.hasQuotations = YES;
+        book.quotations = (NSArray *)dictionary[@"mark"];
+    } else {
+        book.hasQuotations = NO;
+    }
 }
 
 - (void)addCommentWithBookID:(NSInteger)bookID content:(NSString *)content completion:(SBDataCompletion)completion {

@@ -52,6 +52,9 @@
 @property (nonatomic)  NSArray <SBQuotation *>       *quotations;
 @property (getter=isMyBook)     BOOL                myBook;
 @property (nonatomic)           NSInteger           mybookID;
+@property                       BOOL                hasRating;
+@property                       BOOL                hasComment;
+@property                       BOOL                hasQuotations;
 
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
