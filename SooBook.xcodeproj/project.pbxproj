@@ -450,7 +450,7 @@
 				TargetAttributes = {
 					B97FE0E81E8A3C9F00731848 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 8KDMCH8V2F;
+						DevelopmentTeam = NN7QXHC8A3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -715,7 +715,7 @@
 			baseConfigurationReference = F4290428BFA1A3DA0E9A29C0 /* Pods-SooBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8KDMCH8V2F;
+				DEVELOPMENT_TEAM = NN7QXHC8A3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SooBook/PrefixHeader.pch;
 				INFOPLIST_FILE = SooBook/Info.plist;
@@ -732,7 +732,7 @@
 			baseConfigurationReference = 96872F8504C03B1DFF6B95E8 /* Pods-SooBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8KDMCH8V2F;
+				DEVELOPMENT_TEAM = NN7QXHC8A3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SooBook/PrefixHeader.pch;
 				INFOPLIST_FILE = SooBook/Info.plist;

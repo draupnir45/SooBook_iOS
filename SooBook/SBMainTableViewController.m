@@ -35,7 +35,6 @@
 @property UIRefreshControl *tableViewRefreshControl;
 
 
-
 @end
 
 @implementation SBMainTableViewController
@@ -101,7 +100,6 @@
 
 - (void)refreshData:(id)sender {
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:1 completion:^(BOOL sucess, id data) {
-//        [self.tableView reloadData];
         [self.tableViewRefreshControl endRefreshing];
     }];
 }
