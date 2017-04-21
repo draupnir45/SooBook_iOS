@@ -93,46 +93,50 @@
 
 - (void)updateStarRatingButton
 {
-    if (self.item.rating.score == 0) {
+    if (self.item.rating) {
+        self.starRateLabel.text = @"평가함";
+        [self.starRateLabel setTextColor:[UIColor sb_soobookBlueColor]];
+        self.starRateImageView.image =[UIImage imageNamed:@"detailIcon1RatingOn"];
+
+        
+    } else {
         
         self.starRateLabel.text = @"평가하기";
         [self.starRateLabel setTextColor:[UIColor grayColor]];
         self.starRateImageView.image =[UIImage imageNamed:@"detailIcon1RatingOff"];
-        
-    } else {
-        self.starRateLabel.text = @"평가함";
-        self.starRateImageView.image =[UIImage imageNamed:@"detailIcon1RatingOn"];
-        
     }
 }
 
 - (void)updateCommentButton
 {
-    if (self.detailViewCommentLabel.text.length == 11) {
+    if (self.item.hasComment) {
+        self.commenButtontLabel.text = @"코멘트";
+        self.commentImageView.image =[UIImage imageNamed:@"detailIcon2CommentOn"];
+        [self.commenButtontLabel setTextColor:[UIColor sb_soobookBlueColor]];
+        
+    } else {
         
         self.commenButtontLabel.text = @"코멘트";
         [self.commenButtontLabel setTextColor:[UIColor grayColor]];
         self.commentImageView.image =[UIImage imageNamed:@"detailIcon2CommentOff"];
-        
-    } else {
-        self.commenButtontLabel.text = @"코멘트";
-        self.commentImageView.image =[UIImage imageNamed:@"detailIcon2CommentOn"];
-        
+
     }
 }
 
 - (void)updateQuotationButton
 {
-    if (self.decriptionLabel.text.length == 11) {
+    if (self.item.hasQuotations) {
+        
+        self.descriptionLabel.text = @"기억에 남는 구절";
+        [self.descriptionLabel setTextColor:[UIColor sb_soobookBlueColor]];
+        self.descriptionImageView.image =[UIImage imageNamed:@"detailIcon3QuoteOn"];
+        
+    }else{
         
         self.descriptionLabel.text = @"기억에 남는 구절";
         [self.descriptionLabel setTextColor:[UIColor grayColor]];
         self.descriptionImageView.image =[UIImage imageNamed:@"detailIcon3QuoteOff"];
-        
-    }else{
-        self.descriptionLabel.text = @"기억에 남는 구절";
-        // [self.descriptionLabel setTextColor:[UIColor redColor]];
-        self.descriptionImageView.image =[UIImage imageNamed:@"detailIcon3QuoteOn"];
+
     }
 }
 
