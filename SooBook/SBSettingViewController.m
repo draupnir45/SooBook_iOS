@@ -12,23 +12,36 @@
 @interface SBSettingViewController ()
 <UITableViewDelegate,UITableViewDataSource>
 @property UISwitch *autoLoginSwich;
+@property BOOL switchState;
 @end
 
 @implementation SBSettingViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.navigationItem.title = @"설정";
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]] ;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return 44;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 2;
 }
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
     switch (section) {
         case 0:
             return  @"로그인 설정";
@@ -42,14 +55,15 @@
     }return @"";
 }
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     if (section == 0) {
         return 2;
     } else {
         return 2;
     }
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -101,24 +115,24 @@
 
 - (void)autoLoginSwich:(UISwitch *)sender
 {
-    if (sender.on)
+    
+    if ([sender isOn])
     {
-        NSLog(@"테스트");
+        NSLog(@"on");
+        [[NSUserDefaults standardUserDefaults] setBool:[sender isOn] forKey:@"onOff"];
+        
     } else {
-        NSLog(@"꺼졋");
+        [[NSUserDefaults standardUserDefaults] setBool:![sender isOn] forKey:@"onOff"];
+        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERTOKEN_KEY];
+        
+        NSLog(@"off");
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.section)
     {
@@ -156,21 +170,20 @@
 
 - (void)showLogoutAlertController
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"가지마 뿌잉뿌잉~" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"로그아웃 하시겠습니까?" preferredStyle:UIAlertControllerStyleAlert];
     
     __weak SBSettingViewController *weakSelf = self;
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"갈래" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         dispatch_async(dispatch_get_main_queue(),
                        ^{
-                           
                            [[SBAuthCenter sharedInstance] logOut];
                            [weakSelf.tabBarController setSelectedIndex:0];
                        });
         
     }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"안갈래" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"취소" style:UIAlertActionStyleCancel handler:nil];
     
     [alert addAction:okAction];
     [alert addAction:cancelAction];
