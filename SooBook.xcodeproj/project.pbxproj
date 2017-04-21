@@ -57,6 +57,7 @@
 		B97FE0F91E8A3C9F00731848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97FE0F81E8A3C9F00731848 /* Assets.xcassets */; };
 		B97FE0FC1E8A3C9F00731848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97FE0FA1E8A3C9F00731848 /* LaunchScreen.storyboard */; };
 		B97FE1341E8A49BD00731848 /* SBBookData.m in Sources */ = {isa = PBXBuildFile; fileRef = B97FE1331E8A49BD00731848 /* SBBookData.m */; };
+		B98FDAB41EA9FB43009E1855 /* SBCommentaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98FDAB31EA9FB43009E1855 /* SBCommentaryViewController.m */; };
 		B9B0649C1E93AA3D00488D70 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064991E93AA3D00488D70 /* RateView.m */; };
 		B9B064A31E93AA9D00488D70 /* SBMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B064A11E93AA9C00488D70 /* SBMainTableViewController.m */; };
 		B9B064A41E93AA9D00488D70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B064A21E93AA9C00488D70 /* Main.storyboard */; };
@@ -150,6 +151,8 @@
 		B97FE0FD1E8A3C9F00731848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B97FE1321E8A49BD00731848 /* SBBookData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBookData.h; sourceTree = "<group>"; };
 		B97FE1331E8A49BD00731848 /* SBBookData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBBookData.m; sourceTree = "<group>"; };
+		B98FDAB21EA9FB43009E1855 /* SBCommentaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCommentaryViewController.h; sourceTree = "<group>"; };
+		B98FDAB31EA9FB43009E1855 /* SBCommentaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCommentaryViewController.m; sourceTree = "<group>"; };
 		B9B064981E93AA3D00488D70 /* RateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateView.h; sourceTree = "<group>"; };
 		B9B064991E93AA3D00488D70 /* RateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateView.m; sourceTree = "<group>"; };
 		B9B064A01E93AA9C00488D70 /* SBMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMainTableViewController.h; sourceTree = "<group>"; };
@@ -360,6 +363,8 @@
 				2EF77C491E95FB4A0000DBFB /* SBMainCollectionViewController.storyboard */,
 				B9B064B71E93AAF000488D70 /* BookCoverCollectionViewDataSource.h */,
 				B9B064B81E93AAF000488D70 /* BookCoverCollectionViewDataSource.m */,
+				B98FDAB21EA9FB43009E1855 /* SBCommentaryViewController.h */,
+				B98FDAB31EA9FB43009E1855 /* SBCommentaryViewController.m */,
 				B9B92CE91EA1F1BD00CB3A2B /* SBQuotationsViewController.h */,
 				B9B92CEA1EA1F1BD00CB3A2B /* SBQuotationsViewController.m */,
 				B9B92CEC1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard */,
@@ -603,6 +608,7 @@
 				2EF77C481E95FB330000DBFB /* SBMainCollectionViewController.m in Sources */,
 				B95F78661E8CDAF1009A9A93 /* SBAuthCenter.m in Sources */,
 				B97FE0EE1E8A3C9F00731848 /* main.m in Sources */,
+				B98FDAB41EA9FB43009E1855 /* SBCommentaryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

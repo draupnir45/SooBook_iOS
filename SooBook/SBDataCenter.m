@@ -302,12 +302,12 @@
         if (sucess) {
             NSArray *sortedArray;
             sortedArray = [[(NSDictionary *)data objectForKey:@"results"] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *a, NSDictionary *b) {
-                CGFloat first = [[a objectForKey:@"content"] floatValue];
-                CGFloat second = [[b objectForKey:@"content"] floatValue];
-                return MAX(first, second);
+                NSNumber *first = [NSNumber numberWithFloat:[[a objectForKey:@"content"] floatValue]];
+                NSNumber *second = [NSNumber numberWithFloat:[[b objectForKey:@"content"] floatValue]];
+                return [first compare:second];
             }];
             NSMutableArray *favBookArray = [NSMutableArray new];
-            for (NSInteger i = 0; i<MIN(sortedArray.count, 10); i++) {
+            for (NSInteger i = MIN(sortedArray.count, 10); i > 0; i--) {
                 NSDictionary *item = [sortedArray objectAtIndex:i];
                 SBBookData *book = [self bookDataWithPrimaryKey:[item[@"book_id"] integerValue]];
                 [favBookArray addObject:book];

@@ -75,14 +75,14 @@
                                      action:@selector(refreshData:)
                            forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = self.tableViewRefreshControl;
-    
+    [self loadMyBookDataWithPageNumb:1];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-    [self loadMyBookDataWithPageNumb:1];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -103,6 +103,7 @@
 
 - (void)refreshData:(id)sender {
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:1 completion:^(BOOL sucess, id data) {
+        [self.tableView reloadData];
         [self.tableViewRefreshControl endRefreshing];
     }];
 }
@@ -127,6 +128,8 @@
     }];
     self.nextPage = page + 1;
 }
+
+
 
 #pragma mark - TableView
 
