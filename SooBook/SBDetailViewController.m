@@ -206,10 +206,11 @@
 {
     NSLog(@"requestAddBook");
    // [self.detailIndicator startIndicatorOnView:self.view];
-     [self.detailIndicator startIndicatorOnView:self.view withMessage:@"책 로딩..."];
+     //[self.detailIndicator startIndicatorOnView:self.view withMessage:@"책 등록..."];
     if (!sender.selected)
     {
-       
+        [self.detailIndicator startIndicatorOnView:self.view withMessage:@"책 등록..."];
+
         [[SBDataCenter defaultCenter] addBook:[self bookPrimaryKey] completion:^(BOOL sucess, id data) {
             if (sucess)
             {
@@ -223,7 +224,8 @@
 
         }];
     } else {
-        
+        [self.detailIndicator startIndicatorOnView:self.view withMessage:@"책 삭제..."];
+
         [[SBDataCenter defaultCenter] deleteBook:[self bookPrimaryKey] completion:^(BOOL sucess, id data) {
             if (sucess)
             {
