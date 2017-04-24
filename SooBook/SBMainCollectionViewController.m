@@ -10,6 +10,7 @@
 #import "SBMainCollectionViewCell.h"
 #import "SBDetailViewController.h"
 #import "BookCoverCollectionViewDataSource.h"
+#import "SBIndicatorView.h"
 
 @interface SBMainCollectionViewController ()
 <UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
@@ -17,6 +18,7 @@
 @property BookCoverCollectionViewDataSource *dataSource;
 @property UIRefreshControl *collectionViewRefreshControl;
 @property NSInteger nextPage;
+@property SBIndicatorView *indicator;
 
 @end
 
@@ -25,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.indicator = [SBIndicatorView new];
     self.collectionViewRefreshControl = [UIRefreshControl new];
     [self.collectionViewRefreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
     self.collectionViewRefreshControl.tintColor = [UIColor whiteColor];
@@ -44,14 +47,19 @@
 
 - (void)refreshData:(id)sender
 {
+    [self.indicator startIndicatorOnView:self.view withMessage:@"책 로딩..."];
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:1 completion:^(BOOL sucess, id data) {
         [self updateDataSource];
         [self.collectionViewRefreshControl endRefreshing];
+        [self.indicator stopIndicator];
     }];
+    
 }
 
 - (void)updateDataSource
 {
+    
+    
     BookCoverCollectionViewDataSource *dataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter defaultCenter] dataArray]];
     self.collectionView.dataSource = dataSource;
     self.dataSource = dataSource;

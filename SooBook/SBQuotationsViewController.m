@@ -23,7 +23,8 @@
 
 @implementation SBQuotationsViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.dataArray = [NSMutableArray new];
     self.indicator = [SBIndicatorView new];
@@ -48,32 +49,39 @@
 
 
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.dataArray.count + 1;
 }
 
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return 70;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == self.dataArray.count) {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == self.dataArray.count)
+    {
         return 80;
     } else {
         return UITableViewAutomaticDimension;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row < self.dataArray.count) {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row < self.dataArray.count)
+    {
         SBTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBTextViewCell" forIndexPath:indexPath];
-
+        
         cell.textView.delegate = self;
         cell.textView.text = self.dataArray[indexPath.row];
         
@@ -85,56 +93,66 @@
     }
 }
 
-- (void)textViewDidChange:(UITextView *)textView {
+- (void)textViewDidChange:(UITextView *)textView
+{
     self.dataArray[textView.tag] = textView.text;
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == self.dataArray.count) {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == self.dataArray.count)
+    {
         [self.dataArray addObject:@""];
         [tableView reloadData];
     }
 }
 
 
-- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
     return UIBarPositionTopAttached;
 }
 
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     // This will create a "invisible" footer
     return 0.01f;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
     // This will create a "invisible" footer
     return 0.01f;
 }
 
-- (IBAction)cancelButtonSelected:(id)sender {
+- (IBAction)cancelButtonSelected:(id)sender
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)saveButtonSelected:(UIBarButtonItem*)sender {
+- (IBAction)saveButtonSelected:(UIBarButtonItem*)sender
+{
     __weak SBQuotationsViewController *weakSelf = self;
     for (NSInteger i=0; i<self.dataArray.count; i++) {
         NSString *currentString = self.dataArray[i];
-//        __block BOOL shouldReSave = NO;
+        //        __block BOOL shouldReSave = NO;
         
-        [self.indicator startIndicatorOnView:self.view];
+        [self.indicator startIndicatorOnView:self.view withMessage:@"읽은척.."];
         if (self.originalStringArray.count && ![currentString isEqualToString:self.originalStringArray[i]]) {
             [[SBDataCenter defaultCenter] editQuotationWithQuotationPk:[self.originalDataArray[i] pk] content:currentString completion:^(BOOL sucess, id data) {
-                if (sucess) {
+                if (sucess)
+                {
                     NSLog(@"edited");
                 } else {
-//                    shouldReSave = YES;
+                    //                    shouldReSave = YES;
                 }
                 
-                if (i == weakSelf.dataArray.count - 1) {
+                if (i == weakSelf.dataArray.count - 1)
+                {
                     [weakSelf updateItemWithCompletion:^(BOOL sucess, id data) {
                         [weakSelf dismissViewControllerAnimated:YES completion:nil];
                         [weakSelf.indicator stopIndicator];
@@ -143,14 +161,16 @@
             }];
         } else if (i >= weakSelf.originalStringArray.count) {
             [[SBDataCenter defaultCenter] addQuotationWithBookID:self.bookPrimaryKey content:currentString completion:^(BOOL sucess, id data) {
-                if (sucess) {
+                if (sucess)
+                {
                     NSLog(@"Added");
                 } else {
                     NSLog(@"Failed");
-//                    shouldReSave = YES;
+                    //                    shouldReSave = YES;
                 }
                 
-                if (i == weakSelf.dataArray.count - 1) {
+                if (i == weakSelf.dataArray.count - 1)
+                {
                     [weakSelf updateItemWithCompletion:^(BOOL sucess, id data) {
                         [weakSelf dismissViewControllerAnimated:YES completion:nil];
                         [weakSelf.indicator stopIndicator];

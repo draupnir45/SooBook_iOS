@@ -190,7 +190,7 @@
 {
     NSLog(@"서치버튼 눌렀습니다.");
     [self.searchBar resignFirstResponder];
-    [self.indicator startIndicatorOnView:self.view];
+    [self.indicator startIndicatorOnView:self.view withMessage:@"책 찾는중..."];
     
     [self.resultData removeAllObjects];
     
@@ -217,7 +217,7 @@
 {
     NSLog(@"requestAddBook");
     
-    [self.indicator startIndicatorOnView:self.view];
+    [self.indicator startIndicatorOnView:self.view withMessage:@"책 쌓는중..."];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
     SBSearchTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
@@ -240,7 +240,7 @@
             [indicator stopIndicator];
         }];
     } else {
-        
+//        [self.indicator startIndicatorOnView:self.view withMessage:@"책 빼는중..."];
         [self.dataCenter deleteBook:[cell bookPrimaryKey] completion:^(BOOL sucess, id data) {
             if (sucess)
             {

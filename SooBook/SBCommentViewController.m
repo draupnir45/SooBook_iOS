@@ -29,7 +29,8 @@
 
 @implementation SBCommentViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self observeKeyboard];
@@ -48,25 +49,30 @@
     self.navigationBar.topItem.title = item.title;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UINavigationBarDelegate
 
-- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
     return UIBarPositionTopAttached;
 }
-- (IBAction)cancelButtonSelected:(id)sender {
+- (IBAction)cancelButtonSelected:(id)sender
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)saveButtonSelected:(UIBarButtonItem *)sender {
-    if ([self.item.comment.content isEqualToString:self.textView.text]) {
+- (IBAction)saveButtonSelected:(UIBarButtonItem *)sender
+{
+    if ([self.item.comment.content isEqualToString:self.textView.text])
+    {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        [self.indicator startIndicatorOnView:self.view];
+        [self.indicator startIndicatorOnView:self.view withMessage:@"평가질 중..."];
         __weak SBCommentViewController *weakSelf = self;
         [[SBDataCenter defaultCenter] addCommentWithBookID:self.bookPrimaryKey content:self.textView.text completion:^(BOOL sucess, id data) {
             if (sucess) {
@@ -88,12 +94,14 @@
 
 
 
-- (void)observeKeyboard {
+- (void)observeKeyboard
+{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
-- (void)keyboardWillShow:(NSNotification *)notification {
+- (void)keyboardWillShow:(NSNotification *)notification
+{
     //THIS WILL MAKE SURE KEYBOARD DOESNT JUMP WHEN OPENING QUICKTYPE/EMOJI OR OTHER KEYBOARDS.
     NSInteger kbHeight = 0;
     NSInteger height = 0;
@@ -119,7 +127,8 @@
     }];
 }
 
-- (void)keyboardWillHide:(NSNotification *)notification {
+- (void)keyboardWillHide:(NSNotification *)notification
+{
     NSDictionary *info = [notification userInfo];
     
     NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -131,7 +140,8 @@
     }];
 }
 
-- (void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating {
+- (void)rateView:(RateView *)rateView ratingDidChange:(CGFloat)rating
+{
     self.ratingLabel.text = [NSString stringWithFormat:@"%.1f",rating];
     [[SBDataCenter defaultCenter] addRateWithBookID:self.bookPrimaryKey score:rating completion:^(BOOL sucess, id data) {
         if (sucess) {
@@ -151,7 +161,8 @@
 }
 */
 
-- (void)dealloc {
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
