@@ -237,6 +237,11 @@
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     for (NSDictionary *item in array) {
         SBBookData *book = [[SBBookData alloc] initWithDictionary:item];
+        if ([self isThisMyBook:book.bookPrimaryKey]) {
+            book.myBook = YES;
+        } else {
+            book.myBook = NO;
+        }
         [tempArray addObject:book];
     }
     return tempArray;

@@ -141,7 +141,7 @@
         NSString *currentString = self.dataArray[i];
         //        __block BOOL shouldReSave = NO;
         
-        [self.indicator startIndicatorOnView:self.view withMessage:@"읽은척.."];
+        [self.indicator startIndicatorOnView:self.view withMessage:@"저장 중.."];
         if (self.originalStringArray.count && ![currentString isEqualToString:self.originalStringArray[i]]) {
             [[SBDataCenter defaultCenter] editQuotationWithQuotationPk:[self.originalDataArray[i] pk] content:currentString completion:^(BOOL sucess, id data) {
                 if (sucess)
@@ -178,6 +178,15 @@
                     
                 }
             }];
+        } else {
+                if (i == self.dataArray.count - 1)
+                {
+                    [self updateItemWithCompletion:^(BOOL sucess, id data) {
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                        [self.indicator stopIndicator];
+                    }];
+                    
+                }
         }
         
     }

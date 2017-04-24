@@ -72,7 +72,7 @@
     {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        [self.indicator startIndicatorOnView:self.view withMessage:@"평가질 중..."];
+        [self.indicator startIndicatorOnView:self.view withMessage:@"평가 중..."];
         __weak SBCommentViewController *weakSelf = self;
         [[SBDataCenter defaultCenter] addCommentWithBookID:self.bookPrimaryKey content:self.textView.text completion:^(BOOL sucess, id data) {
             if (sucess) {

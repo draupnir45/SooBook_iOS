@@ -78,9 +78,7 @@
             NSDictionary *userDict = [data objectForKey:@"user"];
             [self setUserNickName:[userDict objectForKey:NICKNAME]];
             [self setUserID:[userDict objectForKey:USERNAME]];
-            if (!self.autoLoginDisabled) {
                 [self saveUserInfo:data];
-            }
         }
         completion(sucess, data);
     }];
