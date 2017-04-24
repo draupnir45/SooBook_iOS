@@ -34,6 +34,7 @@
         [self.blackView addSubview:self.messageLabel];
         [self.messageLabel setTextColor:[UIColor whiteColor]];
         [self.messageLabel setFont:[UIFont systemFontOfSize:20]];
+        [self.messageLabel setTextAlignment:NSTextAlignmentCenter];
         
         self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [self.grayView addSubview:self.activityIndicator];
@@ -59,7 +60,7 @@
         [self.messageLabel setFrame:CGRectMake(0, 60, 120, 60)];
         
         
-        [self.activityIndicator setCenter:CGPointMake(centerX, centerY-60)];
+        [self.activityIndicator setCenter:CGPointMake(centerX, centerY-16)];
     } else {
         [self.blackView setFrame:CGRectMake(0, 0, 60, 60)];
         [self.blackView.layer setCornerRadius:10.0f];

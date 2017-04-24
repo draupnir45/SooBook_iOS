@@ -14,6 +14,7 @@
 //@property NSString *messageString;
 
 - (void)startIndicatorOnView:(UIView *)targetView;
+- (void)startIndicatorOnView:(UIView *)targetView withMessage:(NSString *)message;
 - (void)stopIndicator;
 
 @end
