@@ -11,6 +11,7 @@
 
 
 @property (readwrite) NSArray *dataArray;
+@property NSArray *pkArray;
 @property NSInteger nextPageNumb;
 @property NSInteger numbOfTotalBook;
 @property NSInteger numbOfTotalPage;
@@ -244,9 +245,11 @@
 - (NSArray *)fetchMyBooksWithArray:(NSArray <NSDictionary *> *)array
 {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    NSMutableArray *pkArray = [[NSMutableArray alloc] init];
     for (NSDictionary *item in array) {
         SBBookData *book = [self fetchMyBookWithDictionary:item];
         [tempArray addObject:book];
+        [pkArray addObject:[NSNumber numberWithInteger:book.bookPrimaryKey]];
     }
     return tempArray;
 }
