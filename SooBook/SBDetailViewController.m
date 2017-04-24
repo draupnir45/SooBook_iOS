@@ -205,7 +205,8 @@
 - (IBAction)requestAddBook:(UIButton *)sender
 {
     NSLog(@"requestAddBook");
-    [self.detailIndicator startIndicatorOnView:self.view];
+   // [self.detailIndicator startIndicatorOnView:self.view];
+     [self.detailIndicator startIndicatorOnView:self.view withMessage:@"책 로딩..."];
     if (!sender.selected)
     {
        
