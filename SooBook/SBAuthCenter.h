@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger, SBNetworkLogInResponse)
 @property NSString *userToken;
 @property NSString *userID;
 @property NSString *userNickName;
-@property (nonatomic) BOOL autoLoginDisabled;
+@property (nonatomic) BOOL autoLoginEnabled;
 
 + (instancetype)sharedInstance;
 - (void)logInWithUserID:(NSString *)userID

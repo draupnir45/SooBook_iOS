@@ -27,7 +27,7 @@
     self = [super init];
     if (self) {
         [self loadUserToken];
-        self.autoLoginDisabled = [[NSUserDefaults standardUserDefaults] objectForKey:@"Auto-login Disabled"];
+        self.autoLoginEnabled = [[NSUserDefaults standardUserDefaults] objectForKey:@"Auto-login Disabled"];
     }
     return self;
 }
@@ -57,8 +57,6 @@
 - (void)saveUserInfo:(NSDictionary *)dictionary
 {
     NSDictionary *userDict = [dictionary objectForKey:@"user"];
-
-    
     [self setUserToken:[dictionary objectForKey:USERTOKEN_KEY]];
     [self setUserNickName:[userDict objectForKey:NICKNAME]];
     [self setUserID:[userDict objectForKey:USERNAME]];
@@ -76,7 +74,7 @@
 {
     [SBNetworkManager logInWithUserID:userID password:password completion:^(BOOL sucess, id data) {
         if (sucess) {
-            if (!self.autoLoginDisabled) {
+            if (self.autoLoginEnabled) {
                 [self saveUserInfo:data];
             }
         }
@@ -98,9 +96,9 @@
     [self removeUserInfo];
 }
 
-- (void)setAutoLoginDisabled:(BOOL)autoLoginDisabled {
-    _autoLoginDisabled = autoLoginDisabled;
-    [[NSUserDefaults standardUserDefaults] setBool:autoLoginDisabled forKey:@"Auto-login Disabled"];
+- (void)setAutoLoginEnabled:(BOOL)autoLoginEnabled {
+    _autoLoginEnabled = autoLoginEnabled;
+    [[NSUserDefaults standardUserDefaults] setBool:autoLoginEnabled forKey:@"Auto-login Disabled"];
 }
 
 @end

@@ -37,6 +37,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return 52;
+    }
     return 44;
 }
 
@@ -81,6 +84,7 @@
         if (indexPath.row == 0) {
             SBAuthCenter *center = [SBAuthCenter sharedInstance];
             cellTitle = [NSString stringWithFormat:@"%@님 환영합니다!",center.userNickName];
+            cell = [[ UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
             cell.detailTextLabel.text = center.userID;
         } else if (indexPath.row == 1) {
             
