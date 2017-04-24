@@ -32,7 +32,8 @@
     
     SBBookData *item = [self.dataArray objectAtIndex:indexPath.row];
     NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-//    [cell.firstCollectionImage sd_setImageWithURL:[NSURL URLWithString:encodedStr]];
+    [cell.firstCollectionImage setShowActivityIndicatorView:YES];
+    [cell.firstCollectionImage setIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [cell.firstCollectionImage sd_setImageWithURL:[NSURL URLWithString:encodedStr] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (error == nil && image != nil) {
                 [cell layoutSubviews];

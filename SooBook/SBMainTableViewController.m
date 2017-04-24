@@ -115,17 +115,13 @@
     __weak SBMainTableViewController *weakSelf = self;
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
         if (sucess) {
-            [[SBDataCenter defaultCenter] loadMyBookListWithPage:2 completion:^(BOOL sucess, id data) {
-                if (sucess) {
-                    [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
-                        if (sucess) {
-                            weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
-                            [weakSelf.tableView reloadData];
-                            [weakSelf.indicator stopIndicator];
-                        }
-                    }];
-                }
-            }];
+                [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
+                    if (sucess) {
+                        weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
+                        [weakSelf.tableView reloadData];
+                        [weakSelf.indicator stopIndicator];
+                    }
+                }];
         }
     }];
     
@@ -207,7 +203,12 @@
         SBMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBMainTableViewCell" forIndexPath:indexPath];
     
         NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-        [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]];
+        [cell.bookCoverImageView setShowActivityIndicatorView:YES];
+        [cell.bookCoverImageView setIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]
+                                   placeholderImage:[UIImage imageNamed:@"bookPlaceholder"]];
+        
+        
         cell.titleLabel.text = item.title;
         cell.subtitleLabel.text = item.author;
         cell.bookPrimaryKey = item.bookPrimaryKey;

@@ -67,7 +67,7 @@
     [self.bookCoverImageView sd_setImageWithURL:encodedImageURL];
     [self.backImageView sd_setImageWithURL:encodedImageURL];
     
-    self.subtitleLabel.text = self.item.author;
+    self.subtitleLabel.text = [NSString stringWithFormat:@"%@ | %@",self.item.author, self.item.publisher];
     //    self.decriptionLabel.text = item.shortDescription;
     self.decriptionLabel.attributedText = [NSMutableAttributedString attrStringWithString:self.item.shortDescription lineSpacing:8.0 paragraphSpacing:20.0];
     self.mainTitleLabel.text = self.item.title;

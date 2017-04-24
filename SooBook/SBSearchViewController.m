@@ -117,10 +117,10 @@
     [cell.favoriteButton addTarget:self action:@selector(requestAddBook:) forControlEvents:UIControlEventTouchUpInside];
     
     NSString *encodedStr = [item.imageURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    
+    [cell.bookCoverImageView setShowActivityIndicatorView:YES];
+    [cell.bookCoverImageView setIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [cell.bookCoverImageView sd_setImageWithURL:[NSURL URLWithString:encodedStr]
-     
-                               placeholderImage:[UIImage imageNamed:@"1.jpeg"]];
+                               placeholderImage:[UIImage imageNamed:@"bookPlaceholder"]];
     
     return cell;
 }
