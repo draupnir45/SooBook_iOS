@@ -27,30 +27,45 @@
     self = [super init];
     if (self) {
         [self loadUserToken];
+        self.autoLoginDisabled = [[NSUserDefaults standardUserDefaults] objectForKey:@"Auto-login Disabled"];
     }
     return self;
 }
 
 #pragma mark - User Token Control Methods
 
-///NSUserDefaults에서 토큰 불러와 프로퍼티에 저장.
+///NSUserD efaults에서 토큰 불러와 프로퍼티에 저장.
 - (void)loadUserToken
 {
     self.userToken = [[NSUserDefaults standardUserDefaults] objectForKey:USERTOKEN_KEY];
+    self.userID = [[NSUserDefaults standardUserDefaults] objectForKey:USERNAME];
+    self.userNickName = [[NSUserDefaults standardUserDefaults] objectForKey:NICKNAME];
 }
 
 ///더이상 사용하지 않는 토큰을 삭제하고 NSUserDefaults에서도 삭제.
-- (void)removeUserToken
+- (void)removeUserInfo
 {
     self.userToken = @"";
+    self.userID = @"";
+    self.userNickName = @"";
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERTOKEN_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERNAME];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:NICKNAME];
 }
 
 ///유저 토큰을 저장합니다.
-- (void)saveUserToken:(NSString *)token
+- (void)saveUserInfo:(NSDictionary *)dictionary
 {
-    self.userToken = token;
-    [[NSUserDefaults standardUserDefaults] setObject:token forKey:USERTOKEN_KEY];
+    NSDictionary *userDict = [dictionary objectForKey:@"user"];
+
+    
+    [self setUserToken:[dictionary objectForKey:USERTOKEN_KEY]];
+    [self setUserNickName:[userDict objectForKey:NICKNAME]];
+    [self setUserID:[userDict objectForKey:USERNAME]];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[userDict objectForKey:NICKNAME] forKey:NICKNAME];
+    [[NSUserDefaults standardUserDefaults] setObject:[userDict objectForKey:USERNAME] forKey:USERNAME];
+    [[NSUserDefaults standardUserDefaults] setObject:[dictionary objectForKey:USERTOKEN_KEY] forKey:USERTOKEN_KEY];
 }
 
 #pragma mark - Authentification
@@ -61,8 +76,9 @@
 {
     [SBNetworkManager logInWithUserID:userID password:password completion:^(BOOL sucess, id data) {
         if (sucess) {
-            NSDictionary *dataDict = (NSDictionary *)data;
-            [self saveUserToken:[dataDict objectForKey:USERTOKEN_KEY]];
+            if (!self.autoLoginDisabled) {
+                [self saveUserInfo:data];
+            }
         }
         completion(sucess, data);
     }];
@@ -79,7 +95,12 @@
 - (void)logOut
 {
     [SBNetworkManager logOut];
-    [self removeUserToken];
+    [self removeUserInfo];
+}
+
+- (void)setAutoLoginDisabled:(BOOL)autoLoginDisabled {
+    _autoLoginDisabled = autoLoginDisabled;
+    [[NSUserDefaults standardUserDefaults] setBool:autoLoginDisabled forKey:@"Auto-login Disabled"];
 }
 
 @end

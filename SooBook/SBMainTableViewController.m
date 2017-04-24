@@ -102,10 +102,7 @@
 }
 
 - (void)refreshData:(id)sender {
-    [[SBDataCenter defaultCenter] loadMyBookListWithPage:1 completion:^(BOOL sucess, id data) {
-        [self.tableView reloadData];
-        [self.tableViewRefreshControl endRefreshing];
-    }];
+    [self loadMyBookDataWithPageNumb:1];
 }
 
 - (void)loadMyBookDataWithPageNumb:(NSInteger)page {
@@ -120,6 +117,7 @@
                         weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
                         [weakSelf.tableView reloadData];
                         [weakSelf.indicator stopIndicator];
+                        [self.tableViewRefreshControl endRefreshing];
                     }
                 }];
         }

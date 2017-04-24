@@ -10,6 +10,9 @@
 
 @interface SBIndicatorView : UIView
 
+@property BOOL haveMessage;
+//@property NSString *messageString;
+
 - (void)startIndicatorOnView:(UIView *)targetView;
 - (void)stopIndicator;
 

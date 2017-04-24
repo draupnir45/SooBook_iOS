@@ -24,6 +24,11 @@
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]] ;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -58,7 +63,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 2;
+        return 3;
     } else {
         return 2;
     }
@@ -73,8 +78,11 @@
     NSString *cellTitle;
     
     if (indexPath.section == 0) {
-        
         if (indexPath.row == 0) {
+            SBAuthCenter *center = [SBAuthCenter sharedInstance];
+            cellTitle = [NSString stringWithFormat:@"%@님 환영합니다!",center.userNickName];
+            cell.detailTextLabel.text = center.userID;
+        } else if (indexPath.row == 1) {
             
             UISwitch *autoLoginSwich = [[UISwitch alloc] initWithFrame:CGRectMake(10, 10, 10, 10)];
             [autoLoginSwich addTarget:self action:@selector(autoLoginSwich:) forControlEvents:UIControlEventValueChanged];
@@ -142,11 +150,12 @@
             switch (indexPath.row)
         {
             case 0:
+            case 1:
                 //자동로그인 부분
                 
                 break;
                 
-            case 1:
+            case 2:
                 //로그아웃 부분
                 
                 [self showLogoutAlertController];

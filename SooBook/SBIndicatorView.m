@@ -13,6 +13,7 @@
 @property UIView *grayView;
 @property UIView *blackView;
 @property UIActivityIndicatorView *activityIndicator;
+@property UILabel *messageLabel;
 
 @end
 
@@ -29,6 +30,11 @@
         self.blackView = [[UIView alloc]init];
         [self.grayView addSubview:self.blackView];
         
+        self.messageLabel = [[UILabel alloc]init];
+        [self.blackView addSubview:self.messageLabel];
+        [self.messageLabel setTextColor:[UIColor whiteColor]];
+        [self.messageLabel setFont:[UIFont systemFontOfSize:20]];
+        
         self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [self.grayView addSubview:self.activityIndicator];
     }
@@ -44,12 +50,27 @@
     CGFloat centerY = self.grayView.frame.size.height / 2;
     self.grayView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     
-    [self.blackView setFrame:CGRectMake(0, 0, 60, 60)];
-    [self.blackView.layer setCornerRadius:10.0f];
-    self.blackView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-    [self.blackView setCenter:CGPointMake(centerX, centerY)];
+    if (self.haveMessage) {
+        [self.blackView setFrame:CGRectMake(0, 0, 120, 120)];
+        [self.blackView.layer setCornerRadius:10.0f];
+        self.blackView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+        [self.blackView setCenter:CGPointMake(centerX, centerY)];
+        
+        [self.messageLabel setFrame:CGRectMake(0, 60, 120, 60)];
+        
+        
+        [self.activityIndicator setCenter:CGPointMake(centerX, centerY-60)];
+    } else {
+        [self.blackView setFrame:CGRectMake(0, 0, 60, 60)];
+        [self.blackView.layer setCornerRadius:10.0f];
+        self.blackView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+        [self.blackView setCenter:CGPointMake(centerX, centerY)];
+        
+        [self.activityIndicator setCenter:CGPointMake(centerX, centerY)];
+        
+    }
     
-    [self.activityIndicator setCenter:CGPointMake(centerX, centerY)];
+
 
 }
 
@@ -62,10 +83,23 @@
     [self.activityIndicator startAnimating];
 }
 
+- (void)startIndicatorOnView:(UIView *)targetView withMessage:(NSString *)message
+{
+    [targetView addSubview:self];
+    [self setFrame:targetView.frame];
+    self.haveMessage = YES;
+    self.messageLabel.text = message;
+    [self layoutSubviews];
+    
+    [self.activityIndicator startAnimating];
+}
+
 - (void)stopIndicator
 {
     [self removeFromSuperview];
     [self.activityIndicator stopAnimating];
+    self.haveMessage = NO;
+    self.messageLabel.text = @"";
 }
 
 @end

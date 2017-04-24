@@ -221,7 +221,7 @@
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
     SBSearchTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
+    SBBookData *item = self.resultData[indexPath.row];
     __weak SBIndicatorView *indicator = self.indicator;
     
     if (!sender.selected)
@@ -232,6 +232,7 @@
             {
                 NSLog(@"YES");
                 sender.selected = YES;
+                item.myBook =YES;
             } else {
                 //책장에 책이 들어오지 못했다는 알럿창
             }
@@ -245,6 +246,7 @@
             {
                 NSLog(@"NO");
                 sender.selected = NO;
+                item.myBook = NO;
             } else {
                 //책장에 책이 들어오지 못했다는 알럿창
             }
