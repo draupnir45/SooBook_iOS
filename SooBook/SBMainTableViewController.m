@@ -107,7 +107,7 @@
 
 - (void)loadMyBookDataWithPageNumb:(NSInteger)page {
     
-    [self.indicator startIndicatorOnView:self.view withMessage:@"책 로딩..."];
+    [self.indicator startIndicatorOnView:self.tabBarController.view withMessage:@"책 로딩..."];
     
     __weak SBMainTableViewController *weakSelf = self;
     [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {

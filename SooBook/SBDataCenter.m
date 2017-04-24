@@ -336,4 +336,15 @@
     [SBNetworkManager deleteQuotationWithQuotationPk:pk completion:completion];
 }
 
+- (BOOL)isThisMyBook:(NSInteger)bookPK {
+    for (NSNumber *item in self.pkArray) {
+        if ([item integerValue] == bookPK) {
+            return YES;
+            break;
+        }
+    }
+    
+    return NO;
+}
+
 @end
