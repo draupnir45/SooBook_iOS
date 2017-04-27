@@ -82,6 +82,9 @@
             if (!self.autoLoginDisabled) {
                 [self saveUserInfo:data];
             }
+            
+            [SBDataCenter defaultCenter].needsUpdate = YES;
+            
         }
         completion(sucess, data);
     }];
