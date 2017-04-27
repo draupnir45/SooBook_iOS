@@ -21,18 +21,11 @@
 {
     //매니저와 리퀘스트 준비
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
-//    AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:USER_SIGNUP]];
-//    request.HTTPMethod = POST;
     
     //Data Params
     
     NSDictionary *parameters = @{ USERNAME : userID, PASSWORD: password, NICKNAME: nickName};
-    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:[BASE_URL stringByAppendingString:USER_SIGNUP] parameters:parameters error:nil];
-    
-//    NSString *dataString = [NSString stringWithFormat:@"%@=%@&%@=%@&%@=%@", USERNAME, userID, PASSWORD, password, NICKNAME, nickName];
-//    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
-//    request.HTTPBody = data;
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:POST URLString:[BASE_URL stringByAppendingString:USER_SIGNUP] parameters:parameters error:nil];
     
     //Task
     NSURLSessionUploadTask *task = [manager uploadTaskWithRequest:request fromData:nil progress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
@@ -49,23 +42,6 @@
         }
     }];
     [task resume];
-    
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    
-//    NSString *url = [NSString stringWithFormat:@“%@%@“, BASIC_URL, LOGIN_URL];
-//    NSDictionary *parameters = @{@“email” : userID, @“password” : password};
-//    
-//    
-//    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        completion(YES,responseObject);
-//        NSLog(@“LOGIN RESPONSE:%@“, responseObject);
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@“LOGIN ERROR:%@“, error);
-//    }];
-
 }
 
 + (void)logInWithUserID:(NSString *)userID

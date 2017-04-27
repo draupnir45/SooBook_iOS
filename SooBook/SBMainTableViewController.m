@@ -40,28 +40,24 @@
 
 @implementation SBMainTableViewController
 
+static NSString * const SMALLHEADER_ID = @"SBSmallHeaderCell";
+static NSString * const LARGEHEADER_ID = @"SBLargeHeaderCell";
+static NSString * const MAINTABLEVIEW_CELL_ID = @"SBMainTableViewCell";
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    
     self.title = @"내 책장";
     
     self.indicator = [SBIndicatorView new];
-        
-/////////////////////////////////테스트용 DataSource//////////////////////////////////
     
-//    self.titleLabelArray  = @[@"엘리자베스가 사라졌다",@"걸 온 더 트레인",@"영어책 한권 외워봤니?",@"드라마 도깨비 소설2 - 쓸쓸하고 찬란하神",@"여교수와 남제자",@"겨울에서 봄",@"드래곤볼 슈퍼",@"사랑해, 심청아!",@"타락천사",@"말괄량이의 늑대 길들이기: 늑대삼형제 시리즈"];
-//
-//    self.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:self.titleLabelArray];
-    
-//    self.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:[[SBDataCenter defaultCenter] dataArray]];
-
-    
-    
-    ///rate List로부터
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"SBSmallHeaderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SBSmallHeaderCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"SBLargeHeaderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SBLargeHeaderCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"SBMainTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SBMainTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:SMALLHEADER_ID bundle:[NSBundle mainBundle]] forCellReuseIdentifier:SMALLHEADER_ID];
+    [self.tableView registerNib:[UINib nibWithNibName:LARGEHEADER_ID bundle:[NSBundle mainBundle]] forCellReuseIdentifier:LARGEHEADER_ID];
+    [self.tableView registerNib:[UINib nibWithNibName:MAINTABLEVIEW_CELL_ID bundle:[NSBundle mainBundle]] forCellReuseIdentifier:MAINTABLEVIEW_CELL_ID];
     [self.tableView setBackgroundColor:[UIColor whiteColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
@@ -121,8 +117,8 @@
             weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
             [weakSelf.tableView reloadData];
             [weakSelf.indicator stopIndicator];
-            if (self.tableViewRefreshControl.refreshing) {
-                [self.tableViewRefreshControl endRefreshing];
+            if (weakSelf.tableViewRefreshControl.refreshing) {
+                [weakSelf.tableViewRefreshControl endRefreshing];
             }
         }
     }];
@@ -134,39 +130,19 @@
     [self.indicator startIndicatorOnView:self.tabBarController.view withMessage:@"책 로딩..."];
     __weak SBMainTableViewController *weakSelf = self;
     [[SBDataCenter defaultCenter] loadBookListWithCompletion:^(BOOL sucess, id data) {
-        if (sucess) {
-            NSLog(@"succes");
+        if (!sucess) {
+            [weakSelf.indicator stopIndicator];
+            if (weakSelf.tableViewRefreshControl.refreshing) {
+                [weakSelf.tableViewRefreshControl endRefreshing];
+            }
+            UIAlertController *alert = [JCAlertController alertControllerWithTitle:@"책 로딩에 실패했습니다." message:@"다시 로그인해 주세요." preferredStyle:UIAlertControllerStyleAlert cancelTitle:@"취소" okTitle:@"확인" okHandler:^(UIAlertAction *action) {
+                [[SBAuthCenter sharedInstance] logOut];
+                [weakSelf performSegueWithIdentifier:@"LogInSegue" sender:self];
+            }];
+            
+            [weakSelf presentViewController:alert animated:YES completion:nil];
         }
     }];
-    
-    
-//    [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
-//        if (sucess) {
-//                [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
-//                    if (sucess) {
-//                        weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
-//                        [weakSelf.tableView reloadData];
-//                        [weakSelf.indicator stopIndicator];
-//                        [self.tableViewRefreshControl endRefreshing];
-//                    }
-//                }];
-//        }
-//    }];
-    
-//    [[SBDataCenter defaultCenter] loadAllMyBookListWithPage:page completion:^(BOOL sucess, id data) {
-//        if (sucess) {
-//            [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
-//                if (sucess) {
-//                    weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
-//                    [weakSelf.tableView reloadData];
-//                    [weakSelf.indicator stopIndicator];
-//                }
-//            }];
-//            
-//            
-//        }
-//    }];
-//    self.nextPage = page + 1;
 }
 
 
@@ -176,7 +152,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
-//    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -226,7 +201,6 @@
         return cell;
         
     } else {
-//        SBBookData *item = [[[SBDataCenter defaultCenter] myBookDatas] objectAtIndex:indexPath.row];
         SBBookData *item = [[[SBDataCenter defaultCenter] dataArray] objectAtIndex:indexPath.row];
         SBMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SBMainTableViewCell" forIndexPath:indexPath];
     
@@ -310,17 +284,6 @@
     return UIEdgeInsetsMake(0.0,16.0,0.0,16.0); // top, left, bottom, right
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSLog(@"sizeForItemAtIndexPath");
-//    CGFloat heightByWidthRatio = [SBBookCoverFlowCell getImageRatioWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.item+1]]];
-//    if (heightByWidthRatio <= (172.0/96.0)) {
-//        return CGSizeMake(96.0, 172.0);
-//    } else {
-//        CGFloat newWidth = 172.0 / heightByWidthRatio;
-//        return CGSizeMake(newWidth, 172.0);
-//    }
-//}
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -35,6 +35,10 @@ static NSString * const USERNAME =      @"username";
 static NSString * const PASSWORD =      @"password";
 static NSString * const NICKNAME =      @"nickname";
 static NSString * const PRIMARY_KEY =   @"pk";
+static NSString * const USER_KEY =      @"user";
+static NSString * const BOOK_KEY =      @"book";
+
+static NSString * const AUTOLOGIN_DSABLE_KEY = @"Auto-login Disabled";
 
 //유저 토큰 키
 static NSString * const USERTOKEN_KEY = @"key";
@@ -47,9 +51,10 @@ static NSString * const IMAGE_URL_KEY =         @"cover_thumbnail";
 static NSString * const AUTHOR_KEY =            @"author";
 static NSString * const PUBLISHER_KEY =         @"publisher";
 static NSString * const SHORT_DESCRIPTION_KEY = @"description";
-static NSString * const RATING_KEY =            @"rating";
+static NSString * const RATING_KEY =            @"star";
 static NSString * const COMMENT_KEY =           @"comment";
 static NSString * const QUOTATIONS_KEY =        @"mark";
 static NSString * const CONTENT_KEY =           @"content";
+static NSString * const RESULTS_KEY =           @"results";
 
 #endif /* SBConstantKeys_h */

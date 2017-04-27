@@ -76,6 +76,7 @@
 		B9B92CEB1EA1F1BD00CB3A2B /* SBQuotationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B92CEA1EA1F1BD00CB3A2B /* SBQuotationsViewController.m */; };
 		B9B92CED1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B92CEC1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard */; };
 		B9B92CF01EA1F2BB00CB3A2B /* SBTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B92CEF1EA1F2BB00CB3A2B /* SBTextViewCell.m */; };
+		B9CF1B791EB2262300CD3DA8 /* JCAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CF1B781EB2262300CD3DA8 /* JCAlertController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +183,8 @@
 		B9B92CEC1EA1F1D900CB3A2B /* SBQuotationsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBQuotationsViewController.storyboard; sourceTree = "<group>"; };
 		B9B92CEE1EA1F2BB00CB3A2B /* SBTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTextViewCell.h; sourceTree = "<group>"; };
 		B9B92CEF1EA1F2BB00CB3A2B /* SBTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTextViewCell.m; sourceTree = "<group>"; };
+		B9CF1B771EB2262300CD3DA8 /* JCAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertController.h; sourceTree = "<group>"; };
+		B9CF1B781EB2262300CD3DA8 /* JCAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertController.m; sourceTree = "<group>"; };
 		B9DE3BA21E920BFC001BD4E4 /* SBConstantKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBConstantKeys.h; sourceTree = "<group>"; };
 		F4290428BFA1A3DA0E9A29C0 /* Pods-SooBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SooBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SooBook/Pods-SooBook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -417,6 +420,8 @@
 				B95F786B1E8D0048009A9A93 /* UIColor+SBAdditions.m */,
 				B95F78671E8CE056009A9A93 /* TestingClass.h */,
 				B95F78681E8CE056009A9A93 /* TestingClass.m */,
+				B9CF1B771EB2262300CD3DA8 /* JCAlertController.h */,
+				B9CF1B781EB2262300CD3DA8 /* JCAlertController.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -601,6 +606,7 @@
 				B9B064CF1E93AAF000488D70 /* SBBookCoverFlowCell.m in Sources */,
 				B910AFBA1EA0B0B600E9BB83 /* SBCommentViewController.m in Sources */,
 				B9B064CE1E93AAF000488D70 /* SBBookCoverFlowContainerCell.m in Sources */,
+				B9CF1B791EB2262300CD3DA8 /* JCAlertController.m in Sources */,
 				B9B064C91E93AAF000488D70 /* BookCoverCollectionViewDataSource.m in Sources */,
 				B95F786C1E8D0048009A9A93 /* UIColor+SBAdditions.m in Sources */,
 				B915FCB31EA4E7F700B7DAFF /* NSMutableAttributedString+JCAdditions.m in Sources */,

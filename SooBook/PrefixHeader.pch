@@ -30,5 +30,5 @@
 
 //유틸리티
 #import "UIColor+SBAdditions.h"
-
+#import "JCAlertController.h"
 #endif /* PrefixHeader_pch */
