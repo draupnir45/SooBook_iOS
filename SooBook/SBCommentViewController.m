@@ -42,7 +42,8 @@
     self.starRateView.delegate = self;
     self.starRateView.editable = YES;
     self.textView.textContainerInset = UIEdgeInsetsMake(16, 16, 16, 16);
-    
+    self.ratingLabel.text = [NSString stringWithFormat:@"%.1f",item.rating.score
+                             ];
     
     self.starRateView.rating = item.rating.score;
     self.textView.text = item.comment.content;
