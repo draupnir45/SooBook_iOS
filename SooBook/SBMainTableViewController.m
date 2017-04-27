@@ -65,6 +65,7 @@
     [self.tableView setBackgroundColor:[UIColor whiteColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
+    
    
     UIImage *naviBarLogo = [UIImage imageNamed: @"logoForNavigation"];
     UIImageView *titleImageview = [[UIImageView alloc] initWithImage: naviBarLogo];
@@ -75,21 +76,29 @@
                                      action:@selector(refreshData:)
                            forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = self.tableViewRefreshControl;
-    [self loadMyBookDataWithPageNumb:1];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMainTable) name:@"doneLoading" object:nil];
+    if ([[[SBAuthCenter sharedInstance] userToken] length] != 0) {
+        [self loadMyBookData];
+    }
+    
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    
+    
 
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    SBAuthCenter *authCenter = [SBAuthCenter sharedInstance];
     
-    if ([authCenter.userToken length] == 0) {
+    if ([[[SBAuthCenter sharedInstance] userToken] length] == 0) {
         [self performSegueWithIdentifier:@"LogInSegue" sender:self];
     } else {
         
@@ -102,26 +111,47 @@
 }
 
 - (void)refreshData:(id)sender {
-    [self loadMyBookDataWithPageNumb:1];
+    [self loadMyBookData];
 }
 
-- (void)loadMyBookDataWithPageNumb:(NSInteger)page {
-    
-    [self.indicator startIndicatorOnView:self.tabBarController.view withMessage:@"책 로딩..."];
-    
+- (void)reloadMainTable {
     __weak SBMainTableViewController *weakSelf = self;
-    [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
+    [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
         if (sucess) {
-                [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
-                    if (sucess) {
-                        weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
-                        [weakSelf.tableView reloadData];
-                        [weakSelf.indicator stopIndicator];
-                        [self.tableViewRefreshControl endRefreshing];
-                    }
-                }];
+            weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
+            [weakSelf.tableView reloadData];
+            [weakSelf.indicator stopIndicator];
+            if (self.tableViewRefreshControl.refreshing) {
+                [self.tableViewRefreshControl endRefreshing];
+            }
         }
     }];
+
+}
+
+- (void)loadMyBookData {
+    
+    [self.indicator startIndicatorOnView:self.tabBarController.view withMessage:@"책 로딩..."];
+    __weak SBMainTableViewController *weakSelf = self;
+    [[SBDataCenter defaultCenter] loadBookListWithCompletion:^(BOOL sucess, id data) {
+        if (sucess) {
+            NSLog(@"succes");
+        }
+    }];
+    
+    
+//    [[SBDataCenter defaultCenter] loadMyBookListWithPage:page completion:^(BOOL sucess, id data) {
+//        if (sucess) {
+//                [[SBDataCenter defaultCenter] loadRatingListWithCompletion:^(BOOL sucess, id data) {
+//                    if (sucess) {
+//                        weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
+//                        [weakSelf.tableView reloadData];
+//                        [weakSelf.indicator stopIndicator];
+//                        [self.tableViewRefreshControl endRefreshing];
+//                    }
+//                }];
+//        }
+//    }];
     
 //    [[SBDataCenter defaultCenter] loadAllMyBookListWithPage:page completion:^(BOOL sucess, id data) {
 //        if (sucess) {

@@ -12,7 +12,7 @@
 
 @property (readwrite) NSArray *dataArray;
 @property NSArray *pkArray;
-@property NSInteger nextPageNumb;
+@property NSInteger pageNumb;
 @property NSInteger numbOfTotalBook;
 @property NSInteger numbOfTotalPage;
 @property NSInteger numbOfLoadingPage;
@@ -65,6 +65,7 @@
         }
         
         self.myBookDatas = [self fetchSearchResultsWithArray:dataArray];
+        self.pageNumb = 1;
         
     }
     return self;
@@ -110,7 +111,7 @@
             
             
             if (data[@"next"] != [NSNull null]) {
-                self.nextPageNumb = page + 1;
+                self.pageNumb = page + 1;
                 self.haveNextPage = YES;
             } else {
                 self.haveNextPage = NO;
@@ -120,6 +121,21 @@
         completion(sucess, data);
     }];
     
+}
+
+- (void)loadBookListWithCompletion:(SBDataCompletion)completion {
+    __weak SBDataCenter *weakSelf = self;
+    [self loadMyBookListWithPage:self.pageNumb completion:^(BOOL sucess, id data) {
+        if (sucess) {
+            completion(sucess, data);
+            if (weakSelf.haveNextPage) {
+                [weakSelf loadBookListWithCompletion:completion];
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"doneLoading" object:nil];
+                self.pageNumb = 1;
+            }
+        }
+    }];
 }
 
 
