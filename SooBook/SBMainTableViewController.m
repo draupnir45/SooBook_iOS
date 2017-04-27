@@ -73,9 +73,7 @@ static NSString * const MAINTABLEVIEW_CELL_ID = @"SBMainTableViewCell";
                            forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = self.tableViewRefreshControl;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMainTable) name:@"doneLoading" object:nil];
-    if ([[[SBAuthCenter sharedInstance] userToken] length] != 0) {
-        [self loadMyBookData];
-    }
+
     
 }
 
@@ -87,7 +85,9 @@ static NSString * const MAINTABLEVIEW_CELL_ID = @"SBMainTableViewCell";
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     
-    
+    if ([[SBDataCenter defaultCenter] needsUpdate]) {
+        [self loadMyBookData];
+    }
 
 }
 
@@ -116,6 +116,7 @@ static NSString * const MAINTABLEVIEW_CELL_ID = @"SBMainTableViewCell";
         if (sucess) {
             weakSelf.firstSectionCollectionViewDataSource = [[BookCoverCollectionViewDataSource alloc] initWithSbDataArray:(NSArray *)data];
             [weakSelf.tableView reloadData];
+            
             [weakSelf.indicator stopIndicator];
             if (weakSelf.tableViewRefreshControl.refreshing) {
                 [weakSelf.tableViewRefreshControl endRefreshing];

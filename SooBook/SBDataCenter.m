@@ -19,6 +19,7 @@
 @property BOOL haveNextPage;
 
 
+
 //-------------------테스트용
 @property (readwrite) NSArray *myBookDatas;
 @property NSFileManager *fileManager;
@@ -48,6 +49,7 @@
     if (self) {
 
         self.pageNumb = 1;
+        _needsUpdate = YES;
         
     }
     return self;
@@ -94,6 +96,7 @@
             } else {
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"doneLoading" object:nil];
                 self.pageNumb = 1;
+                self.needsUpdate = NO;
             }
         }
     }];
@@ -163,8 +166,7 @@
 {
     [SBNetworkManager addBookWith:bookID completion:^(BOOL sucess, id data) {
         if (sucess) {
-            //리스트 다시패치!
-//            [self saveData];//나중에 뺄것!
+            self.needsUpdate = YES;
         }
         completion(sucess, data);
     }];
@@ -178,8 +180,7 @@
             
             NSMutableArray *arrayForRemove = [[self dataArray] mutableCopy];
             [arrayForRemove removeObject:[self bookDataWithPrimaryKey:bookID]];
-            //리스트 다시패치!
-//            [self saveData];//나중에 뺄것!
+            self.needsUpdate = YES;
         }
         completion(sucess, data);
     }];
@@ -240,7 +241,7 @@
 }
 
 - (void)updateCommentaryWithBookData:(SBBookData *)book Dictionary:(NSDictionary *)dictionary {
-    if ([[[dictionary[RATING_KEY] firstObject] objectForKey:COMMENT_KEY] floatValue] > 0) {
+    if ([[[dictionary[RATING_KEY] firstObject] objectForKey:CONTENT_KEY] floatValue] > 0) {
         book.hasRating = YES;
         book.rating = [[SBBookStarRating alloc] initWithDictionary:[dictionary[RATING_KEY] firstObject]];
     } else {
@@ -249,7 +250,7 @@
     
     if ([dictionary[COMMENT_KEY] count]) {
         book.hasComment = YES;
-        book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[COMMENT_KEY] firstObject]];
+        book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[CONTENT_KEY] firstObject]];
     } else {
         book.hasComment = NO;
     }
@@ -270,6 +271,7 @@
 - (void)addRateWithBookID:(NSInteger)bookID score:(CGFloat)score completion:(SBDataCompletion)completion {
     SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
     [SBNetworkManager addRateWithMyBookID:targetItem.mybookID score:score completion:completion];
+    self.needsUpdate = YES;
 }
 
 - (void)loadRatingListWithCompletion:(SBDataCompletion)completion {
@@ -279,11 +281,11 @@
             sortedArray = [(NSArray *)data sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *a, NSDictionary *b) {
                 NSNumber *first = [NSNumber numberWithFloat:[[a objectForKey:CONTENT_KEY] floatValue]];
                 NSNumber *second = [NSNumber numberWithFloat:[[b objectForKey:CONTENT_KEY] floatValue]];
-                return [first compare:second];
+                return [second compare:first];
             }];
             
             NSMutableArray *favBookArray = [NSMutableArray new];
-            for (NSInteger i = MIN(sortedArray.count, 9) - 1; i >= 0; i--) {
+            for (NSInteger i = 0; i < MIN(sortedArray.count, 9); i++) {
                 NSDictionary *item = [sortedArray objectAtIndex:i];
                 SBBookData *book = [self bookDataWithPrimaryKey:[item[BOOK_PRIMARY_KEY] integerValue]];
                 [favBookArray addObject:book];
@@ -321,6 +323,10 @@
     }
     
     return NO;
+}
+
+- (void)updateNeedsUpdate:(id)sender {
+    _needsUpdate = !_needsUpdate;
 }
 
 @end

@@ -28,6 +28,7 @@ typedef NS_ENUM(NSUInteger, SBNetworkBookRemoveResponse)
 
 @property (readonly) NSArray *myBookDatas;
 @property (readonly) NSArray *dataArray;
+@property            BOOL    needsUpdate;
 
 
 + (instancetype)defaultCenter;
