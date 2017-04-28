@@ -241,7 +241,8 @@
     
 }
 
-+ (void)loadMyBookWithBookID:(NSInteger)bookID completion:(SBDataCompletion)completion {
++ (void)loadMyBookWithBookID:(NSInteger)bookID completion:(SBDataCompletion)completion
+{
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
     
     NSString *urlString = [NSString stringWithFormat:@"%@bookid=%ld",GET_BOOK ,(long)bookID];
@@ -263,7 +264,8 @@
 
 }
 
-+ (void)loadRatingListWithCompletion:(SBDataCompletion)completion {
++ (void)loadRatingListWithCompletion:(SBDataCompletion)completion
+{
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:RATING]];
     request.HTTPMethod = GET;
