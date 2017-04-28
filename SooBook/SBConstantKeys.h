@@ -29,6 +29,7 @@ static NSString * const MYBOOK_PRIMARY_KEY =    @"mybook_id";
 static NSString * const POST =      @"POST";
 static NSString * const GET =       @"GET";
 static NSString * const DELETE =    @"DELETE";
+static NSString * const PUT =       @"PUT";
 
 //인증용 상수 키값
 static NSString * const USERNAME =      @"username";

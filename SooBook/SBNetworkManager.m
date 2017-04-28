@@ -354,7 +354,7 @@
 {
     AFURLSessionManager *manager = [SBNetworkManager sessionManager];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[SBNetworkManager urlWithApiPath:QUOTATION]];
-    request.HTTPMethod = @"PUT";
+    request.HTTPMethod = PUT;
     
     //HEADER
     NSString *headerStr = [NSString stringWithFormat:@"Token %@",[[SBAuthCenter sharedInstance] userToken]];
