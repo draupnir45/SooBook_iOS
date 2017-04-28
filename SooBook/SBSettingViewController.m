@@ -21,7 +21,8 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"설정";
-    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]] ;
+    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    self.autoLoginSwich.on = ![[SBAuthCenter sharedInstance] autoLoginDisabled];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -129,19 +130,20 @@
 
 - (void)autoLoginSwich:(UISwitch *)sender
 {
+    [[SBAuthCenter sharedInstance] setAutoLoginDisabled:!sender.on];
     
-    if ([sender isOn])
-    {
-        NSLog(@"on");
-        [[NSUserDefaults standardUserDefaults] setBool:[sender isOn] forKey:@"onOff"];
-        
-    } else {
-        [[NSUserDefaults standardUserDefaults] setBool:![sender isOn] forKey:@"onOff"];
-        
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERTOKEN_KEY];
-        
-        NSLog(@"off");
-    }
+//    if ([sender isOn])
+//    {
+//        NSLog(@"on");
+//        [[NSUserDefaults standardUserDefaults] setBool:[sender isOn] forKey:@"onOff"];
+//        
+//    } else {
+//        [[NSUserDefaults standardUserDefaults] setBool:![sender isOn] forKey:@"onOff"];
+//        
+//        [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERTOKEN_KEY];
+//        
+//        NSLog(@"off");
+//    }
 }
 
 

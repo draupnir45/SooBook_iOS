@@ -19,6 +19,7 @@
 @property BOOL haveNextPage;
 
 
+
 //-------------------테스트용
 @property (readwrite) NSArray *myBookDatas;
 @property NSFileManager *fileManager;
@@ -46,50 +47,12 @@
 {
     self = [super init];
     if (self) {
-        
-        self.documentDirPath = [SBDataCenter documentDiretoryPath];
-        self.fileManager = [NSFileManager defaultManager];
-        
-        NSArray *dataArray;
-        
-        if ([self.fileManager fileExistsAtPath:self.documentDirPath]) {
-            //저장했던 내용 로드
-            dataArray = [NSArray arrayWithContentsOfFile:self.documentDirPath];
-            
-            
-        } else  {
-            NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"TempBookData" ofType:@"plist"];
-            
-            //데이터용 프로퍼티에 번들 내용을 넣음
-            dataArray = [NSArray arrayWithContentsOfFile:bundlePath];
-        }
-        
-        self.myBookDatas = [self fetchSearchResultsWithArray:dataArray];
+
         self.pageNumb = 1;
+        _needsUpdate = YES;
         
     }
     return self;
-}
-
-#pragma mark - 데이터 저장
-
-- (void)saveData
-{
-    if (![self.fileManager fileExistsAtPath:self.documentDirPath]) {
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"TempBookData" ofType:@"plist"];
-        [self.fileManager copyItemAtPath:bundlePath toPath:self.documentDirPath error:nil];
-    }
-    [self.myBookDatas writeToFile:self.documentDirPath atomically:NO];
-}
-
-#pragma mark - 플리스트 관리 Plist Utilities
-
-+ (NSString *)documentDiretoryPath
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docuPath = [(NSString *)[paths objectAtIndex:0] stringByAppendingString:@"/TempBookData.plist"];
-    
-    return docuPath;
 }
 
 #pragma mark - List
@@ -126,13 +89,14 @@
 - (void)loadBookListWithCompletion:(SBDataCompletion)completion {
     __weak SBDataCenter *weakSelf = self;
     [self loadMyBookListWithPage:self.pageNumb completion:^(BOOL sucess, id data) {
+        completion(sucess, data);
         if (sucess) {
-            completion(sucess, data);
             if (weakSelf.haveNextPage) {
                 [weakSelf loadBookListWithCompletion:completion];
             } else {
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"doneLoading" object:nil];
                 self.pageNumb = 1;
+                self.needsUpdate = NO;
             }
         }
     }];
@@ -170,8 +134,8 @@
     [SBNetworkManager searchWithQuery:query completion:^(BOOL sucess, id data) {
         if (sucess) { //넘겨주기 전에 fetch합니다.
             NSMutableDictionary *mutableData = [(NSDictionary *)data mutableCopy];
-            NSArray *fetchedResult = [weakSelf fetchSearchResultsWithArray:[mutableData objectForKey:@"results"]];
-            [mutableData setObject:fetchedResult forKey:@"results"];
+            NSArray *fetchedResult = [weakSelf fetchSearchResultsWithArray:[mutableData objectForKey:RESULTS_KEY]];
+            [mutableData setObject:fetchedResult forKey:RESULTS_KEY];
             data = mutableData;
         }
         
@@ -187,8 +151,8 @@
     [SBNetworkManager nextSearchResultWithURLString:urlString completion:^(BOOL sucess, id data) {
         if (sucess) { //넘겨주기 전에 fetch합니다.
             NSMutableDictionary *mutableData = [(NSDictionary *)data mutableCopy];
-            NSArray *fetchedResult = [weakSelf fetchSearchResultsWithArray:[mutableData objectForKey:@"results"]];
-            [mutableData setObject:fetchedResult forKey:@"results"];
+            NSArray *fetchedResult = [weakSelf fetchSearchResultsWithArray:[mutableData objectForKey:RESULTS_KEY]];
+            [mutableData setObject:fetchedResult forKey:RESULTS_KEY];
             data = mutableData;
         }
         
@@ -202,8 +166,7 @@
 {
     [SBNetworkManager addBookWith:bookID completion:^(BOOL sucess, id data) {
         if (sucess) {
-            //리스트 다시패치!
-//            [self saveData];//나중에 뺄것!
+            self.needsUpdate = YES;
         }
         completion(sucess, data);
     }];
@@ -217,8 +180,7 @@
             
             NSMutableArray *arrayForRemove = [[self dataArray] mutableCopy];
             [arrayForRemove removeObject:[self bookDataWithPrimaryKey:bookID]];
-            //리스트 다시패치!
-//            [self saveData];//나중에 뺄것!
+            self.needsUpdate = YES;
         }
         completion(sucess, data);
     }];
@@ -230,12 +192,6 @@
 - (SBBookData *)bookDataWithPrimaryKey:(NSInteger)primaryKey
 {
     SBBookData *resultItem;
-    
-//    for (SBBookData *item in self.myBookDatas) {
-//        if (item.bookPrimaryKey == primaryKey) {
-//            resultItem = item;
-//        }
-//    }
     
     for (SBBookData *item in self.dataArray) {
         if (item.bookPrimaryKey == primaryKey) {
@@ -277,31 +233,31 @@
 
 - (SBBookData *)fetchMyBookWithDictionary:(NSDictionary *)dictionary
 {
-    SBBookData *book = [[SBBookData alloc] initWithDictionary:dictionary[@"book"]];
+    SBBookData *book = [[SBBookData alloc] initWithDictionary:dictionary[BOOK_KEY]];
     [self updateCommentaryWithBookData:book Dictionary:dictionary];
-    book.mybookID = [dictionary[@"mybook_id"] integerValue];
+    book.mybookID = [dictionary[MYBOOK_PRIMARY_KEY] integerValue];
     
     return book;
 }
 
 - (void)updateCommentaryWithBookData:(SBBookData *)book Dictionary:(NSDictionary *)dictionary {
-    if ([[[dictionary[@"star"] firstObject] objectForKey:@"content"] floatValue] > 0) {
+    if ([[[dictionary[RATING_KEY] firstObject] objectForKey:CONTENT_KEY] floatValue] > 0) {
         book.hasRating = YES;
-        book.rating = [[SBBookStarRating alloc] initWithDictionary:[dictionary[@"star"] firstObject]];
+        book.rating = [[SBBookStarRating alloc] initWithDictionary:[dictionary[RATING_KEY] firstObject]];
     } else {
         book.hasRating = NO;
     }
     
-    if ([dictionary[@"comment"] count]) {
+    if ([dictionary[COMMENT_KEY] count]) {
         book.hasComment = YES;
-        book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[@"comment"] firstObject]];
+        book.comment = [[SBBookComment alloc] initWithDictionary:[dictionary[CONTENT_KEY] firstObject]];
     } else {
         book.hasComment = NO;
     }
     
-    if ([dictionary[@"mark"] count]) {
+    if ([dictionary[QUOTATIONS_KEY] count]) {
         book.hasQuotations = YES;
-        book.quotations = (NSArray *)dictionary[@"mark"];
+        book.quotations = (NSArray *)dictionary[QUOTATIONS_KEY];
     } else {
         book.hasQuotations = NO;
     }
@@ -315,6 +271,7 @@
 - (void)addRateWithBookID:(NSInteger)bookID score:(CGFloat)score completion:(SBDataCompletion)completion {
     SBBookData *targetItem = [self bookDataWithPrimaryKey:bookID];
     [SBNetworkManager addRateWithMyBookID:targetItem.mybookID score:score completion:completion];
+    self.needsUpdate = YES;
 }
 
 - (void)loadRatingListWithCompletion:(SBDataCompletion)completion {
@@ -322,15 +279,15 @@
         if (sucess) {
             NSArray *sortedArray;
             sortedArray = [(NSArray *)data sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *a, NSDictionary *b) {
-                NSNumber *first = [NSNumber numberWithFloat:[[a objectForKey:@"content"] floatValue]];
-                NSNumber *second = [NSNumber numberWithFloat:[[b objectForKey:@"content"] floatValue]];
-                return [first compare:second];
+                NSNumber *first = [NSNumber numberWithFloat:[[a objectForKey:CONTENT_KEY] floatValue]];
+                NSNumber *second = [NSNumber numberWithFloat:[[b objectForKey:CONTENT_KEY] floatValue]];
+                return [second compare:first];
             }];
             
             NSMutableArray *favBookArray = [NSMutableArray new];
-            for (NSInteger i = MIN(sortedArray.count, 9) - 1; i >= 0; i--) {
+            for (NSInteger i = 0; i < MIN(sortedArray.count, 9); i++) {
                 NSDictionary *item = [sortedArray objectAtIndex:i];
-                SBBookData *book = [self bookDataWithPrimaryKey:[item[@"book_id"] integerValue]];
+                SBBookData *book = [self bookDataWithPrimaryKey:[item[BOOK_PRIMARY_KEY] integerValue]];
                 [favBookArray addObject:book];
             }
             
@@ -366,6 +323,10 @@
     }
     
     return NO;
+}
+
+- (void)updateNeedsUpdate:(id)sender {
+    _needsUpdate = !_needsUpdate;
 }
 
 @end

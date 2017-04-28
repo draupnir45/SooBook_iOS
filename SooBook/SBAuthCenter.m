@@ -27,7 +27,7 @@
     self = [super init];
     if (self) {
         [self loadUserToken];
-        self.autoLoginDisabled = [[NSUserDefaults standardUserDefaults] objectForKey:@"Auto-login Disabled"];
+        self.autoLoginDisabled = [[NSUserDefaults standardUserDefaults] boolForKey:AUTOLOGIN_DSABLE_KEY];
     }
     return self;
 }
@@ -56,7 +56,7 @@
 ///유저 토큰을 저장합니다.
 - (void)saveUserInfo:(NSDictionary *)dictionary
 {
-    NSDictionary *userDict = [dictionary objectForKey:@"user"];
+    NSDictionary *userDict = [dictionary objectForKey:USER_KEY];
     [self setUserToken:[dictionary objectForKey:USERTOKEN_KEY]];
     [self setUserNickName:[userDict objectForKey:NICKNAME]];
     [self setUserID:[userDict objectForKey:USERNAME]];
@@ -75,10 +75,16 @@
     [SBNetworkManager logInWithUserID:userID password:password completion:^(BOOL sucess, id data) {
         if (sucess) {
             [self setUserToken:[data objectForKey:USERTOKEN_KEY]];
-            NSDictionary *userDict = [data objectForKey:@"user"];
+            NSDictionary *userDict = [data objectForKey:USER_KEY];
             [self setUserNickName:[userDict objectForKey:NICKNAME]];
             [self setUserID:[userDict objectForKey:USERNAME]];
+            
+            if (!self.autoLoginDisabled) {
                 [self saveUserInfo:data];
+            }
+            
+            [SBDataCenter defaultCenter].needsUpdate = YES;
+            
         }
         completion(sucess, data);
     }];
@@ -100,7 +106,7 @@
 
 - (void)setAutoLoginDisabled:(BOOL)autoLoginDisabled {
     _autoLoginDisabled = autoLoginDisabled;
-    [[NSUserDefaults standardUserDefaults] setBool:autoLoginDisabled forKey:@"Auto-login Disabled"];
+    [[NSUserDefaults standardUserDefaults] setBool:autoLoginDisabled forKey:AUTOLOGIN_DSABLE_KEY];
 }
 
 @end

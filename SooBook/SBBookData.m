@@ -80,7 +80,6 @@
         _author = dictionary[AUTHOR_KEY];
         _publisher = dictionary[PUBLISHER_KEY];
         _shortDescription = dictionary[SHORT_DESCRIPTION_KEY];
-//        _quotations = dictionary[QUOTATIONS_KEY];
         
     }
     return self;
